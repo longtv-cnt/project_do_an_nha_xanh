@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('tintuc', function (Blueprint $table) {
+            $table->foreign('maloaitin')->references('maloai')->on('loaitintuc')->onDelete('set null')->onUpdate('set null');
+            $table->foreign('manguoidang')->references('maNV')->on('nhanvien')->onDelete('set null')->onUpdate('set null');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('tintuc', function (Blueprint $table) {
+            //
+        });
+    }
+};
