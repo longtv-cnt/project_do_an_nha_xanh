@@ -13,7 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('taikhoankhach', function (Blueprint $table) {
+            $table->id();
+            $table->string('username',255);
+            $table->string('password',60);
+            $table->unsignedBigInteger('makhach')->nullable();
+            $table->unsignedBigInteger('quyenhan')->nullable();
+
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('taikhoankhach');
     }
 };
