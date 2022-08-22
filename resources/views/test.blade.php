@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="{{ asset('') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,3 +12,7 @@
 
 </body>
 </html>
+{!!  !!}
+<div>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+</div>
