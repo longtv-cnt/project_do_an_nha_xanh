@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('phanhoi', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->longText('comment');
             $table->timestamp('ngaytao');
             $table->dateTime('ngaycapnhat');
+            $table->foreign('user_id')->references('id')->on('users');
+
+
         });
     }
 

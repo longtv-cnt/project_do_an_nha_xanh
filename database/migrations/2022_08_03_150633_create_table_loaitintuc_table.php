@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('loaitintuc', function (Blueprint $table) {
-            $table->id('maloai');
+            $table->id('id');
             $table->string('tenloai',60);
         });
     }

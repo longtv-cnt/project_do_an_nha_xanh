@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('taikhoankhach', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('username',255);
-            $table->string('password',60);
-            $table->unsignedBigInteger('makhach')->nullable();
-            $table->unsignedBigInteger('quyenhan')->nullable();
-
+            $table->string('image');
+            $table->string('link');
+            $table->string('position')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taikhoankhach');
+        Schema::dropIfExists('banners');
     }
 };
