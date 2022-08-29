@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sanpham_bds', function (Blueprint $table) {
-            $table->id('masanpham');
-            $table->unsignedBigInteger('maduan')->nullable();
-            $table->unsignedBigInteger('maloai')->nullable();
+            $table->id();
+            $table->unsignedBigInteger('maduan')->nullable()->references('maduan')->on('duan')
+            ->onDelete('set null')->onUpdate('set null');
+            $table->unsignedBigInteger('maloai')->nullable()->references('id')->on('loaisp_bds')
+            ->onDelete('set null')->onUpdate('set null');
             $table->string('tensp',50);
+            $table->double('giatien',10,2)->nullable();
             $table->text('anhsp');
             $table->string('huong',20);
             $table->float('chieudai');

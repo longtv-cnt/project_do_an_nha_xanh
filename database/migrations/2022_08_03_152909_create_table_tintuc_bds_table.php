@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tintuc', function (Blueprint $table) {
-            $table->id('matin');
-            $table->unsignedBigInteger('maloaitin')->nullable();
-            $table->unsignedBigInteger('manguoidang')->nullable();
+
+            $table->unsignedBigInteger('loaitin')->nullable()
+            ->references('id')->on('loaitintuc')->onDelete('set null')->onUpdate('set null');
+            $table->unsignedBigInteger('manguoidang')->nullable()
+            ->references('id')->on('users')->onDelete('set null')->onUpdate('set null');
             $table->string('noidung',255);
             $table->dateTime('ngaydang');
         });
