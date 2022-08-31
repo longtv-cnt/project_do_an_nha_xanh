@@ -13,7 +13,8 @@ use App\Http\Controllers\RealEsatateController;
 |
 */
 
-Route::get('/',[RealEsatateController::class,'index']);
+Route::get('/',[RealEsatateController::class,'index'])->name('home');
+Route::get('/product/create',[RealEsatateController::class,'create'])->name('product.create');
 Route::get('/login', function () {
     return view('login.login');
 });

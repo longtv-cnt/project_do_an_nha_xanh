@@ -1,11 +1,13 @@
 @extends('layout.app')
+@include('layout.top-menu')
 @include('layout.nav')
+
 @section('title', 'Trang chủ')
 
 @section('content' )
-    .<div class="container mt-5" >
+    <div class="container" style="margin-top:4rem " >
         <div class="row">
-              <p>Tìm thấy {{ $products->count() }}</p>
+              <p>Tìm thấy {{ $products->count() }} sản phẩm</p>
             <div class="col-md-12" style="display: flex;flex-wrap:wrap">
 
                 @foreach ($products as $product)

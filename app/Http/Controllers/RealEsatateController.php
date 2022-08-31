@@ -29,6 +29,7 @@ class RealEsatateController extends Controller
     public function create()
     {
         //
+        return view('product.create');
     }
 
     /**
