@@ -8,4 +8,4 @@
     <!-- Default to the left -->
     <strong>Copyright &copy; 2022 </strong> All rights reserved.
   </footer>
-  </div>
+</div>
