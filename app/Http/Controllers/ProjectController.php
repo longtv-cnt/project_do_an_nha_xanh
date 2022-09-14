@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RealEstate;
 use App\Models\Duan;
 use Illuminate\Http\Request;
-use App\Models\TypeProduct;
-class RealEsatateController extends Controller
+
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,6 @@ class RealEsatateController extends Controller
     public function index()
     {
         //
-         $products = RealEstate::all();
-
-        return view('index', compact('products'));
-
     }
 
     /**
@@ -30,9 +25,6 @@ class RealEsatateController extends Controller
     public function create()
     {
         //
-        $duans = Duan::all();
-        $typeproducts = TypeProduct::all();
-        return view('product.create', compact('duans','typeproducts'));
     }
 
     /**
@@ -43,18 +35,16 @@ class RealEsatateController extends Controller
      */
     public function store(Request $request)
     {
-         $product = new RealEstate();
         //
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RealEstate  $realEstate
+     * @param  \App\Models\Duan  $duan
      * @return \Illuminate\Http\Response
      */
-    public function show(RealEstate $realEstate)
+    public function show(Duan $duan)
     {
         //
     }
@@ -62,10 +52,10 @@ class RealEsatateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RealEstate  $realEstate
+     * @param  \App\Models\Duan  $duan
      * @return \Illuminate\Http\Response
      */
-    public function edit(RealEstate $realEstate)
+    public function edit(Duan $duan)
     {
         //
     }
@@ -74,10 +64,10 @@ class RealEsatateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RealEstate  $realEstate
+     * @param  \App\Models\Duan  $duan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RealEstate $realEstate)
+    public function update(Request $request, Duan $duan)
     {
         //
     }
@@ -85,10 +75,10 @@ class RealEsatateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RealEstate  $realEstate
+     * @param  \App\Models\Duan  $duan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RealEstate $realEstate)
+    public function destroy(Duan $duan)
     {
         //
     }

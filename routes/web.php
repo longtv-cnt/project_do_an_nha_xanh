@@ -15,6 +15,7 @@ use App\Http\Controllers\RealEsatateController;
 
 Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::get('/product/create',[RealEsatateController::class,'create'])->name('product.create');
+Route::post('/product/store',[RealEsatateController::class,'store'])->name('product.store');
 Route::get('/login', function () {
     return view('login.login');
 });
