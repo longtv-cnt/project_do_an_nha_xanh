@@ -54,7 +54,7 @@
                                             <legend style="font-size: 16px"> Diên tích</legend>
                                         </fieldset>
                                         <input type="number" placeholder="Chiều dài" name="chieudai">
-                                        <input type="number" placeholder="Chiều rộng" name="chieu rong">
+                                        <input type="number" placeholder="Chiều rộng" name="chieurong">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Số phòng ngủ</label>
@@ -74,7 +74,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Địa chỉ</label>
-                                <input type="text" class="form-control" name="địa chỉ" rows="3"
+                                <input type="text" class="form-control" name="diachi" rows="3"
                                     placeholder="Nhập địa chỉ">
                             </div>
                             </fieldset>

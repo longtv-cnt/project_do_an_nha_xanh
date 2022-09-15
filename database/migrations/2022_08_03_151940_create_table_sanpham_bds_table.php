@@ -30,7 +30,7 @@ return new class extends Migration
             $table->binary('xetduyet');
             $table->string('tinhtrang',20);
             $table->text('diachi');
-            $table->binary('nhaxanh');
+            $table->binary('nhaxanh')->default(0)->change();
         });
     }
 

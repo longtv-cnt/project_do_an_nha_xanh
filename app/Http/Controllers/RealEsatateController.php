@@ -43,10 +43,30 @@ class RealEsatateController extends Controller
      */
     public function store(Request $request)
     {
-         $product = new RealEstate();
+        $product = new RealEstate();
+        $product->maduan=$request->maduan;
+        $product->maloai=$request->maloai;
+        $product->tensp = $request->tensp;
+        $product->giatien = $request->giatien;
+        if($request->hasFile('anhsp')){
+            $file = $request->file('anhsp');
+
+            $filename =   time().$file->getClientOriginalName();
+            $file->move('uploads/product/', $filename);
+            $product->anhsp = $filename;
+        }
+        $product->chieudai = $request->chieudai;
+        $product->chieurong = $request->chieurong;
+        $product->sophongngu = $request->sophongngu;
+        $product->sophongtam = $request->sophongtam;
+        $product->huong = $request->huongnha;
+        $product->diachi = $request->diachi;
+        $product->save();
+        return redirect()->route('home');
         //
 
-    }
+
+}
 
     /**
      * Display the specified resource.
