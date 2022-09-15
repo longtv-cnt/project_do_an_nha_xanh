@@ -14,7 +14,9 @@ use App\Http\Controllers\SearchController;
 |
 */
 
-Route::get('/',[RealEsatateController::class,'index']);
+Route::get('/',[RealEsatateController::class,'index'])->name('home');
+Route::get('/product/create',[RealEsatateController::class,'create'])->name('product.create');
+Route::post('/product/store',[RealEsatateController::class,'store'])->name('product.store');
 Route::get('/login', function () {
     return view('login.login');
 });
@@ -22,6 +24,6 @@ Route::get('/login', function () {
 //    Route::get('/',[SearchController::class,'showFormSearch'])->name('show-form-search');
 //    Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 //});
-Route::get('/',[SearchController::class,'showFormSearch'])->name('show-form-search');
+Route::get('/tim',[SearchController::class,'showFormSearch'])->name('show-form-search');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 
