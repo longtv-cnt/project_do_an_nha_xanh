@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-sm navbar-success navbar-nav-scrol mt-4" style="width:96vw;">
     <a class="navbar-brand" href="#"><img src="{{ asset('image/logo.jpg') }}" alt="bds Hoàng Long" width="40rem"></a>
+=======
+<nav class="navbar navbar-expand-sm navbar-success navbar-nav-scrol" style="">
+{{--    <a class="navbar-brand" href="#">HL</a>--}}
+>>>>>>> main
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 
       <span ><i class="fa fa-bars" aria-hidden="true"></i></span>
@@ -8,6 +13,9 @@
 
     <div class="collapse navbar-collapse" id="navbarsExample03">
       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="navbar-brand" href="#">HL</a>
+          </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -30,9 +38,15 @@
             <a class="nav-link " href="#">Liên hệ</a>
           </li>
       </ul>
+<<<<<<< HEAD
       <form class="form-inline my-2 my-md-0 float-right">
         <input class="form-control" type="text" placeholder="Search">
       </form>
+=======
+        <div class="collapse navbar-collapse" id="navbarsExample03" >
+            <input type="text" name="country_name" id="country_name" class="form-control input-lg" placeholder="tu khoa" />
+            {{ csrf_field() }}
+        </div>
+>>>>>>> main
     </div>
   </nav>
-

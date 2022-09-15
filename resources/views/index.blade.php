@@ -1,7 +1,10 @@
 @extends('layout.app')
+<<<<<<< HEAD
 @include('layout.top-menu')
 @include('layout.nav')
 
+=======
+>>>>>>> main
 @section('title', 'Trang chủ')
 
 @section('content')
@@ -9,7 +12,6 @@
         <div class="row">
             <p>Tìm thấy {{ $products->count() }} sản phẩm</p>
             <div class="col-md-12" style="display: flex;flex-wrap:wrap">
-
                 @foreach ($products as $product)
                     <div class="col-md-3">
                         <div class="card text-left"style="height: 18rem;">
@@ -26,7 +28,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </div>
