@@ -32,5 +32,9 @@
       <form class="form-inline my-2 my-md-0 float-right">
         <input class="form-control" type="text" placeholder="Search">
       </form>
+        <div class="collapse navbar-collapse" id="navbarsExample03" >
+            <input type="text" name="country_name" id="country_name" class="form-control input-lg" placeholder="tu khoa" />
+            {{ csrf_field() }}
+        </div>
     </div>
   </nav>

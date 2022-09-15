@@ -1,7 +1,6 @@
 @extends('layout.app')
 @section('title', 'Trang chủ')
 
-@extends('layout.app')
 
 @include('layout.top-menu')
 {{-- @include('layout.nav') --}}
