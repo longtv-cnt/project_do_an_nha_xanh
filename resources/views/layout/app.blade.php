@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    @include('layout.top-menu')
     @include('layout.nav')
     <div>
         @yield('content')

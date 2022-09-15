@@ -1,12 +1,6 @@
 @extends('layout.app')
 @section('title', 'Trang chủ')
 
-
-@include('layout.top-menu')
-{{-- @include('layout.nav') --}}
-
-@section('title', 'Trang chủ')
-
 @section('content')
     <div class="container" style="margin-top:4rem ">
         <div class="row">

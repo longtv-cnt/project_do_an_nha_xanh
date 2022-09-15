@@ -24,6 +24,6 @@ Route::get('/login', function () {
 //    Route::get('/',[SearchController::class,'showFormSearch'])->name('show-form-search');
 //    Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 //});
-Route::get('/',[SearchController::class,'showFormSearch'])->name('show-form-search');
+Route::get('/',[SearchController::class,'showFormSearch'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 
