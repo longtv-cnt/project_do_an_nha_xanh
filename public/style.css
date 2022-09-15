@@ -4,6 +4,52 @@ body {
     overflow-x: hidden;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
+    ;
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+}
+nav.navbar {
+    position: fixed;
+    top: 0.3rem;
+    z-index: 100;
+
+}
+.top-menu {
+    background: #fff;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 0 20px;
+    color: rgb(80, 93, 211);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+   height: 2rem;
+}
+
+.dropdown-menu .dropdown-item{
+    background:green;
+    border-bottom: .1px solid #e7e7e7;
+    width: 100%;
+
+    color: rgb(252, 238, 238);
+
+    z-index: 100;
+
+}
+.navbar{
+    background: green;
+
+}
+button.navbar-toggler {
+    background: #fff;
+
+}
+span.navbar-toggler-icon{
+    background: rgba(49, 61, 52, 0.863);
+    color: blue;
 }
 
 
