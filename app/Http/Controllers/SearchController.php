@@ -27,15 +27,17 @@ class SearchController extends Controller
             foreach($products as $product)
             {
                 $output .= '
-                <div class="col-md-3" >
-                    <div class="card text-left"style="height: 18rem; whith: 6.2rem;" >
-                         <img class="card-img-top" src="{{'.$product->anhsp.'}}" alt="" height="70%" >
-                              <div class="card-body">
-                                  <h4 class="card-title">'.$product->tensp.'</h4>
-                                      <p class="card-text">'.$product->giatien.' đồng</p>
-                                  </div>
-                               </div>
-                          </div>
+                       <div class="col-md-3">
+                            <div class="card text-left"style="height: 18rem;">
+
+                                    <img class="card-img-top" src="uploads/product/'.$product->anhsp.'" alt="" height="70%">
+
+                                <div class="card-body">
+                                    <h4 class="card-title">'.$product->tensp.'</h4>
+                                    <p class="card-text">'.$product->giatien.'  đồng</p>
+                                </div>
+                            </div>
+                        </div>
                ';
             }
             $output .= '</div>
@@ -48,3 +50,4 @@ class SearchController extends Controller
     }
 
 }
+
