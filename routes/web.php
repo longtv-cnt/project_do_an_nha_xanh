@@ -24,6 +24,24 @@ Route::get('/login', function () {
 //    Route::get('/',[SearchController::class,'showFormSearch'])->name('show-form-search');
 //    Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 //});
-Route::get('/',[SearchController::class,'showFormSearch'])->name('home');
+Route::get('/aa',[SearchController::class,'showFormSearch'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 
+Route::get('/home',function(){
+    return view('admin.home');
+})->name('admin');
+
+
+Route::get('/duan', [du_anController::class,'index'])->name('duan');
+Route::get('/duan/create', [du_anController::class,'create'])->name('create.duan');
+Route::post('/duan/store', [du_anController::class,'store'])->name('store.duan');
+Route::DELETE('/duan/destroy/{maduan}', [du_anController::class,'destroy']);
+Route::get('/duan/edit/{maduan}', [du_anController::class,'edit'])->name('duanedit');
+Route::PATCH('/duan/edit/{maduan}', [du_anController::class,'update']);
+Route::resource('du_an', du_anController::class);
+
+
+Route::get('/khachhang', [khachhangController::class,'index'])->name('khachhang');
+Route::get('/khachhang/create', [khachhangController::class,'create'])->name('khachhang.create');
+Route::post('/khachhang/store', [khachhangController::class,'store'])->name('khachhang.store');
+Route::DELETE('/khachhang/destroy/{makhach}', [khachhangController::class,'destroy']);
