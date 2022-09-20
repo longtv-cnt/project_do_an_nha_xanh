@@ -13,7 +13,16 @@ use App\Http\Controllers\SearchController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Route::get('/', [HomeController::class,'home'])->name('home');
+Route::get('/about', [HomeController::class,'about'])->name('about');
+Route::get('/contact', [HomeController::class,'contact'])->name('contact');
+Route::get('/propertygrid', [HomeController::class,'propertygrid'])->name('property-grid');
+Route::get('/propertysingle', [HomeController::class,'propertysingle'])->name('property-single');
+Route::get('/agentsingle', [HomeController::class,'agentsingle'])->name('agent-single');
+Route::get('/agentsgrid', [HomeController::class,'agentsgrid'])->name('agents-grid');
+Route::get('/bloggrid', [HomeController::class,'bloggrid'])->name('blog-grid');
+Route::get('/blogsingle', [HomeController::class,'blogsingle'])->name('blog-single');
+Route::get('/login', [HomeController::class,'login'])->name('login');
 Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::get('/product/create',[RealEsatateController::class,'create'])->name('product.create');
 Route::post('/product/store',[RealEsatateController::class,'store'])->name('product.store');
