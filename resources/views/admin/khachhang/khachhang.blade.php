@@ -26,9 +26,7 @@
                     <th>
                         Số Điện Thoại
                     </th>
-                    <th>
-                        Tài Khoản Zalo
-                    </th>
+
                     <th>
                         Địa Chỉ
                     </th>
@@ -50,9 +48,7 @@
                 <td>
                     <input type="text" name="SDT"  class="form-control" placeholder="Nhập Số Điện Thoại"value="">
                 </td>
-                <td>
-                    <input type="text" name="taikhoanzalo" class="form-control" placeholder="Nhập Tài Khoản Zalo"value="">
-                </td>
+              
                 <td>
                     <input type="text" name="diachi" class="form-control" placeholder="Nhập Địa Chỉ"value="">
                 </td>
