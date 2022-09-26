@@ -22,14 +22,6 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-    public function khachhang()
-    {
-        return $this->hasOne('App\Models\khachhang','idUser','id');
-    }
-    public function role()
-    {
-        return $this->belongsTo('App\Models\role','role','id');
-    }
 
     /**
      * The attributes that should be hidden for serialization.
