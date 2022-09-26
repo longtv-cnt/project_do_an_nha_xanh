@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('ngaytao');
             $table->dateTime('ngaycapnhat');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('masp')->references('masanpham')->on('sanpham_bds');
+
 
 
         });

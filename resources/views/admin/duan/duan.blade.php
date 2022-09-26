@@ -9,12 +9,6 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Dự Án</h3>
-        <div class="card-tools">
-            <a class="btn btn-success btn-sm" href="{{route('create.duan')}}">
-                <i class="bi bi-plus-square-fill"></i>
-                  Thêm Bài Viết
-            </a>
-        </div>
       </div>
       <div class="card-body p-0">
         <table class="table table-striped projects">
@@ -73,28 +67,23 @@
             </thead>
             <tbody>
                 @foreach($du_an as $row)
-                <tr>
-                        <td>{{$row->maduan}}</td>
-                        {{-- <td>{{$row->id}}</td>
-                        <td><a href="/duan/destroy/{{$row->id}}">{{$row->maduan}}</a></td> --}}
-                        <td>{{$row->tenduan}}</td>
-                        <td>{{$row->chudautu}}</td>
-                    <td >
-                        <a class="btn btn-warning btn-sm" href="/duan/edit/{{$row->maduan}}">Edit</a>
-                        {{-- <a href="{{route('du_an.edit',$row->maduan)}}">Edit</a> --}}
+                    <tr>
+                            <td>{{$row->maduan}}</td>
 
-                        {{-- <a class="btn btn-danger btn-sm" href="{{route('destroy')}}">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a> --}}
-                        <form method="POST" action="/duan/destroy/{{$row->maduan}}" onsubmit="return ConfirmDelete( this )">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
-                        </form>
-                    </td>
-                </tr>
+                            <td>{{$row->tenduan}}</td>
+                            <td>{{$row->chudautu}}</td>
+                            <td >
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a class="btn btn-warning btn-sm" href="/duan/edit/{{$row->maduan}}">Edit</a>
+
+                                <form method="POST" action="/duan/destroy/{{$row->maduan}}" onsubmit="return ConfirmDelete( this )">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
+                                </form>
+                                </div>
+                            </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

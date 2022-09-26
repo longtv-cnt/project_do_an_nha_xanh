@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 @section('title')
-    <title>Khách Hàng</title>
+    <title>Phản Hồi</title>
 @endsection
 @section('content')
 <section class="content">
@@ -8,58 +8,56 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Khách Hàng</h3>
+        <h3 class="card-title">Phản Hồi</h3>
       </div>
       <div class="card-body p-0">
         <table class="table table-striped projects">
             <thead>
                 <tr>
                     <th>
-                        Mã Khách Hàng
+                        ID
                     </th>
                     <th>
-                        Mã Loại Khách Hàng
+                        ID Người Dùng
                     </th>
                     <th>
-                        Tên Khách Hàng
+                        Mã Sản Phẩm
                     </th>
                     <th>
-                        Email
+                        Comment
                     </th>
                     <th>
-                        Số Điện Thoại
+                        Ngày Tạo
                     </th>
-
                     <th>
-                        Địa Chỉ
+                        Ngày Cập Nhật
                     </th>
                 </tr>
             </thead>
-            <form action={{route('khachhang.store')}} method="POST" >
+            <form action={{route('phanhoi.store')}} method="POST" >
                 {{-- @method('post') --}}
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="makhach" class="form-control" placeholder="Nhập Mã Khách" value="">
+                    <input type="text" name="id" class="form-control" placeholder="Nhập ID" value="">
                 </td>
                 <td>
-                    <input type="text" name="maloaikhach" class="form-control" placeholder="Nhập Mã Loại Khách" value="">
+                    <input type="text" name="user_id" class="form-control" placeholder="Nhập ID Người Dùng" value="">
                 </td>
                 <td>
-                    <input type="text" name="tenkhach"class="form-control" placeholder="Nhập Tên Khách Hàng" value="">
+                    <input type="text" name="masp"class="form-control" placeholder="Nhập Mã Sản Phẩm" value="">
                 </td>
                 <td>
-                    <input type="text" name="email" class="form-control" placeholder="Nhập Email"value="">
+                    <input type="text" name="comment" class="form-control" placeholder="Nhập Comment"value="">
                 </td>
                 <td>
-                    <input type="text" name="SDT"  class="form-control" placeholder="Nhập Số Điện Thoại"value="">
-                </td>
-              
-                <td>
-                    <input type="text" name="diachi" class="form-control" placeholder="Nhập Địa Chỉ"value="">
+                    <input type="datetime" name="ngaytao"  class="form-control" placeholder="Nhập Ngày Tạo"value="">
                 </td>
                 <td>
-                    <button class="btn btn-success btn-sm" type="submit">Thêm Khách Hàng</button>
+                    <input type="datetime" name="ngaycapnhat" class="form-control" placeholder="Nhập Ngày Cập Nhật"value="">
+                </td>
+                <td>
+                    <button class="btn btn-success btn-sm" type="submit">Thêm Phản Hồi</button>
                 </td>
 
             </tbody>
@@ -71,26 +69,23 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th >
-                        Mã Khách Hàng
+                    <th>
+                        ID
                     </th>
                     <th>
-                        Mã Loại Khách
+                        ID Người Dùng
                     </th>
                     <th>
-                        Tên Khách Hàng
-                    </th>
-                    <th >
-                        Email
+                        Mã Sản Phẩm
                     </th>
                     <th>
-                        Số Điện Thoại
+                        Comment
                     </th>
                     <th>
-                        Tài Khoản Zalo
+                        Ngày Tạo
                     </th>
                     <th>
-                        Địa Chỉ
+                        Ngày Cập Nhật
                     </th>
                     <th>
                         Công Cụ
@@ -99,20 +94,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($khachhang as $row)
+                @foreach($phanhoi as $row)
                 <tr>
-                        <td>{{$row->makhach}}</td>
-                        <td>{{$row->maloaikhach}}</td>
-                        <td>{{$row->tenkhach}}</td>
-                        <td>{{$row->email}}</td>
-                        <td>{{$row->SDT}}</td>
-                        <td>{{$row->taikhoanzalo}}</td>
-                        <td>{{$row->diachi}}</td>
+                        <td>{{$row->id}}</td>
+                        <td>{{$row->user_id}}</td>
+                        <td>{{$row->masp}}</td>
+                        <td>{{$row->comment}}</td>
+                        <td>{{$row->ngaytao}}</td>
+                        <td>{{$row->ngaycapnhat}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a class="btn btn-warning btn-sm" href="/khachhang/edit/{{$row->makhach}}">Edit</a>
+                            <a class="btn btn-warning btn-sm" href="/phanhoi/edit/{{$row->id}}">Edit</a>
 
-                            <form method="POST" action="/khachhang/destroy/{{$row->makhach}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="/phanhoi/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

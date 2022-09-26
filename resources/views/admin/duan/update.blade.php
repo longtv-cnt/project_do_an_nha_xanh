@@ -1,31 +1,62 @@
-<div class="card-body p-0">
-    <table class="table table-striped projects">
-        <thead>
-            <tr>
-                <form method="PUT" action="/duan/update/{{ $du_an->maduan }}">
+@extends('admin.layouts.admin')
+@section('title')
+    <title>Dự Án</title>
+@endsection
+@section('content')
+<section class="content">
+    <div class="content-wrapper">
+    <!-- Default box -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Dự Án</h3>
+        <div class="card-tools">
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <thead>
+                <tr>
+                    <th >
+                        Mã Dự Án
+                    </th>
+                    <th>
+                        Tên Dự Án
+                    </th>
+                    <th >
+                        Chủ Đầu Tư
+                    </th>
+                </tr>
+            </thead>
+            <form method="post" action="/duan/update/{{ $du_an->maduan }}">
                     @method('PATCH')
                     @csrf
+                    <tbody>
                     <input type="hidden" name="maduan" value="{{ $du_an->maduan }}">
-                    <th>
-                        <label for="maduan">Mã Dự Án</label><br>
+                    <td>
                         <input type="text" name="maduan" value="{{ $du_an->maduan }}">
-                    </th>
+                    </td>
 
-                    <th>
-                        <label for="tenduan">Tên Dự Án</label><br>
+                    <td>
                         <input type="text" name="tenduan" value="{{ $du_an->tenduan }}">
-                    </th>
+                    </td>
 
-                    <<th>
-                        <label for="chudautu">Chủ Đầu Tư</label><br>
+                    <td>
+
                         <input type="text" name="chudautu" value="{{ $du_an->chudautu }}">
-                    </th>
+                    </td>
 
-                    <th>
-                        <button type="submit">Submit</button>
-                    </th>
+                    <td>
+                        <button type="submit">Sửa</button>
+                    </td>
                 </form>
-            </tr>
-        </thead>
-    </table>
-</div>
+            </tbody>
+
+            </form>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    </div>
+  </section>
+@endsection
