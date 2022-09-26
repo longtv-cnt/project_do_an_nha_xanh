@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use resource\views\home\home;
 use App\Http\Controllers\du_anController;
+use App\Http\Controllers\khachhangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +36,15 @@ Route::get('/home',function(){
 
 
 Route::get('/duan', [du_anController::class,'index'])->name('duan');
-// Route::get('/duan/create', [du_anController::class,'create'])->name('create.duan');
-// Route::post('/duan/store', [du_anController::class,'store'])->name('store.duan');
-// Route::DELETE('/duan/destroy/{id}', [du_anController::class,'destroy'])->name('destroy');
-Route::get('/duan/edit{$maduan}', [du_anController::class,'edit'])->name('editduan');
-Route::PATCH('/duan/edit{$maduan}', [du_anController::class,'update']);
+Route::get('/duan/create', [du_anController::class,'create'])->name('create.duan');
+Route::post('/duan/store', [du_anController::class,'store'])->name('store.duan');
+Route::DELETE('/duan/destroy/{maduan}', [du_anController::class,'destroy']);
+Route::get('/duan/edit/{maduan}', [du_anController::class,'edit'])->name('duanedit');
+Route::PATCH('/duan/edit/{maduan}', [du_anController::class,'update']);
 Route::resource('du_an', du_anController::class);
 
+
+Route::get('/khachhang', [khachhangController::class,'index'])->name('khachhang');
+Route::get('/khachhang/create', [khachhangController::class,'create'])->name('khachhang.create');
+Route::post('/khachhang/store', [khachhangController::class,'store'])->name('khachhang.store');
+Route::DELETE('/khachhang/destroy/{makhach}', [khachhangController::class,'destroy']);

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\du_an;
+use App\Models\khachhang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class du_anController extends Controller
+class khachhangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class du_anController extends Controller
      */
     public function index()
     {
-        $du_an = DB::table('du_an')->select('*');
-        $du_an = $du_an->get();
-        return view('admin.duan.duan', compact('du_an'));
+        $khachhang = DB::table('khachhang')->select('*');
+        $khachhang = $khachhang->get();
+        return view('admin.khachhang.khachhang', compact('khachhang'));
     }
 
     /**
@@ -27,7 +27,7 @@ class du_anController extends Controller
     public function create()
     {
 
-        return view('admin.duan.create');
+        return view('admin.khachhang.khachhang');
     }
 
     /**
@@ -39,11 +39,14 @@ class du_anController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $du_an = new du_an();
-        $du_an->maduan=$data['maduan'];
-        $du_an->tenduan=$data['tenduan'];
-        $du_an->chudautu=$data['chudautu'];
-        $du_an->save();
+        $khachhang = new khachhang();
+        $khachhang->makhach=$data['makhach'];
+        $khachhang->tenkhach=$data['tenkhach'];
+        $khachhang->email=$data['email'];
+        $khachhang->SDT=$data['SDT'];
+        $khachhang->taikhoanzalo=$data['taikhoanzalo'];
+        $khachhang->diachi=$data['diachi'];
+        $khachhang->save();
         return redirect()->back();
 
 
@@ -74,10 +77,10 @@ class du_anController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($maduan)
+    public function edit($makhach)
     {
-        $du_an = du_an::findOrFail($maduan);
-        return view('admin.duan.update', compact('du_an'));
+        $khachhang = khachhang::findOrFail($makhach);
+        return view('admin.khachhang.update', compact('khachhang'));
         // $du_an = du_an::find($maduan);
         // $list = du_an::All();
         // return view('admin.duan.duan', compact('list','du_an'));
@@ -90,15 +93,17 @@ class du_anController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maduan)
+    public function update(Request $request, $makhach)
     {
-        $du_an = du_an::find($maduan);
-        $du_an->maduan = $request->maduan;
-        $du_an->tenduan = $request->tenduan;
-        $du_an->chudautu = $request->chudautu;
-
-        $du_an->save();
-        return redirect()->action([du_anController::class,'index']);
+        $khachhang = khachhang::find($makhach);
+        $khachhang->makhach = $request->makhach;
+        $khachhang->tenkhach = $request->tenkhach;
+        $khachhang->email = $request->email;
+        $khachhang->SDT = $request->SDT;
+        $khachhang->taikhoanzalo = $request->taikhoanzalo;
+        $khachhang->diachi = $request->diachi;
+        $khachhang->save();
+        return redirect()->action([khachhangController::class,'index']);
     }
 
     /**
@@ -107,11 +112,11 @@ class du_anController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($maduan)
+    public function destroy($makhach)
     {
-            $du_an = du_an::find($maduan);
+            $khachhang = khachhang::find($makhach);
 
-            $du_an->delete();
-            return redirect()->action([du_anController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+            $khachhang->delete();
+            return redirect()->action([khachhangController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
 }

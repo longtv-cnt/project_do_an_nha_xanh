@@ -54,7 +54,7 @@
                     </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('khachhang')}}" class="nav-link">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <p>Khách Hàng</p>
                         </a>

@@ -28,7 +28,6 @@
                 </tr>
             </thead>
             <form action={{route('du_an.store')}} method="POST" >
-                {{-- @method('post') --}}
                 @csrf
             <tbody>
                 <td>
