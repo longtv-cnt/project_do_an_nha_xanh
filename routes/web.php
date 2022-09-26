@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealEsatateController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\du_anController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\khachhangController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,19 +26,17 @@ Route::get('/agentsingle', [HomeController::class,'agentsingle'])->name('agent-s
 Route::get('/agentsgrid', [HomeController::class,'agentsgrid'])->name('agents-grid');
 Route::get('/bloggrid', [HomeController::class,'bloggrid'])->name('blog-grid');
 Route::get('/blogsingle', [HomeController::class,'blogsingle'])->name('blog-single');
-Route::get('/login', [HomeController::class,'login'])->name('login');
-Route::get('/',[RealEsatateController::class,'index'])->name('home');
+//Route::get('/login', [HomeController::class,'login'])->name('login');
+Route::get('/product', [RealEsatateController::class,'create'])->name('product');
 Route::get('/product/create',[RealEsatateController::class,'create'])->name('product.create');
 Route::post('/product/store',[RealEsatateController::class,'store'])->name('product.store');
 Route::get('/login', function () {
     return view('login.login');
-});
-//Route::prefix('search')->group(function(){
-//    Route::get('/',[SearchController::class,'showFormSearch'])->name('show-form-search');
-//    Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
-//});
-Route::get('/aa',[SearchController::class,'showFormSearch'])->name('home');
+})->name('login');
+
+Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
+Route::post('/',[RealEsatateController::class,'filter'])->name('filter');
 
 Route::get('/home',function(){
     return view('admin.home');
@@ -54,3 +56,5 @@ Route::get('/khachhang', [khachhangController::class,'index'])->name('khachhang'
 Route::get('/khachhang/create', [khachhangController::class,'create'])->name('khachhang.create');
 Route::post('/khachhang/store', [khachhangController::class,'store'])->name('khachhang.store');
 Route::DELETE('/khachhang/destroy/{makhach}', [khachhangController::class,'destroy']);
+
+

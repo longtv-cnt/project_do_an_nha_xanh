@@ -33,6 +33,6 @@ class HomeController extends Controller
         return view('home.blog-single');
     }
     public function login(){
-        return view('login');
+        return view('login.login');
     }
 }

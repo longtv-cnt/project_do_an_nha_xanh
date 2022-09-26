@@ -1,7 +1,4 @@
 @extends('layout.app')
-@include('layout.top-menu')
-@include('layout.nav')
-
 
 @section('title', 'Đăng tin')
 @section('content')
@@ -71,15 +68,22 @@
                                         <input type="text" class="form-control" name="huongnha"
                                             placeholder="Nhập hướng nhà">
                                     </div>
-                            </div>
+
                             <div class="form-group">
                                 <label for="">Địa chỉ</label>
                                 <input type="text" class="form-control" name="diachi" rows="3"
                                     placeholder="Nhập địa chỉ">
                             </div>
                             </fieldset>
-
+                            </div>
                             <div class="form-group">
                                 <button type="submit"> Đăng sản phẩm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
                             @endsection
