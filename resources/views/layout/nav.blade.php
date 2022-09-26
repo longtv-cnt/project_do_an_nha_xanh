@@ -1,37 +1,144 @@
-<nav class="navbar navbar-expand-sm navbar-success navbar-nav-scrol mt-4" style="width:96vw;">
-    <a class="navbar-brand" href="#"><img src="{{ asset('image/logo.jpg') }}" alt="bds Hoàng Long" width="40rem"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-
-      <span ><i class="fa fa-bars" aria-hidden="true"></i></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample03">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Giới thiệu</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown03 ">
-              <a class="dropdown-item" href="#">Thư ngỏ</a>
-              <a class="dropdown-item" href="#">Ban lãnh đạo </a>
-              <a class="dropdown-item" href="#">Sứ mệnh</a>
+<header class="header_area">
+    <div class="top_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="float-left">
+                        <p>Phone: +01 256 25 235</p>
+                        <p>email: info@eiser.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="float-right">
+                        <ul class="right_side">
+                            <li>
+                                <a href="{{route('product')}}">
+                                    Đăng tin
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('admin')}}">
+                                    Admin
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('login')}}">
+                                    Đăng nhập
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html">
+                                    Đăng kí
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">Bất động sản</a>
-              </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#">Tin tức</a>
-        </li>
-
-          <li class="nav-item">
-            <a class="nav-link " href="#">Liên hệ</a>
-          </li>
-      </ul>
-        <div class="collapse navbar-collapse" id="navbarsExample03" >
-            <input type="text" name="country_name" id="country_name" class="form-control input-lg" placeholder="tu khoa" />
-            {{ csrf_field() }}
         </div>
     </div>
-  </nav>
+    <div class="main_menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="{{route('home')}}">
+                    <img src="nhaxanh/img/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
+                    <div class="row w-100 mr-0">
+                        <div class="col-lg-7 pr-0">
+                            <ul class="nav navbar-nav center_nav pull-right">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('home')}}">Home</a>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Shop</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="category.html">Shop Category</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('property-single')}}">Thông Tin Bất Động Sản</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="checkout.html">Product Checkout</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="cart.html">Shopping Cart</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Blog</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('blog-grid')}}">Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('blog-single')}}">Thông Tin Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Pages</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="tracking.html">Tracking</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="elements.html">Elements</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('contact')}}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-5 pr-0">
+                            <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                                <li class="nav-item">
+                                    <a class="icons">
+                                        <i class="ti-search" aria-hidden="true"></i>
+                                        <input type="text" name="country_name" id="country_name" class="ti-search" placeholder="tu khoa" style="width: 90px"/>
+                                        {{ csrf_field() }}
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="icons">
+                                        <i class="ti-shopping-cart"></i>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="icons">
+                                        <i class="ti-user" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="icons">
+                                        <i class="ti-heart" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+

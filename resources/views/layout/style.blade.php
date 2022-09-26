@@ -1,8 +1,15 @@
- <!-- Google Font: Source Sans Pro -->
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
- <!-- Font Awesome Icons -->
- <link rel="stylesheet" href="AdminLTE/plugins/fontawesome-free/css/all.min.css">
- <!-- Theme style -->
- <link rel="stylesheet" href="AdminLTE/dist/css/adminlte.min.css">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
- <link rel="stylesheet" href="{{ asset('style.css') }}">
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="nhaxanh/css/bootstrap.css" />
+ <link rel="stylesheet" href="nhaxanh/vendors/linericon/style.css" />
+ <link rel="stylesheet" href="nhaxanh/css/font-awesome.min.css" />
+ <link rel="stylesheet" href="nhaxanh/css/themify-icons.css" />
+ <link rel="stylesheet" href="nhaxanh/css/flaticon.css" />
+ <link rel="stylesheet" href="nhaxanh/vendors/owl-carousel/owl.carousel.min.css" />
+ <link rel="stylesheet" href="nhaxanh/vendors/lightbox/simpleLightbox.css" />
+ <link rel="stylesheet" href="nhaxanh/vendors/nice-select/css/nice-select.css" />
+ <link rel="stylesheet" href="nhaxanh/vendors/animate-css/animate.css" />
+ <link rel="stylesheet" href="nhaxanh/vendors/jquery-ui/jquery-ui.css" />
+ <!-- main css -->
+ <link rel="stylesheet" href="nhaxanh/css/style.css" />
+ <link rel="stylesheet" href="nhaxanh/css/responsive.css" />

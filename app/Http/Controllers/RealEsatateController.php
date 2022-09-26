@@ -16,9 +16,10 @@ class RealEsatateController extends Controller
     public function index()
     {
         //
-         $products = RealEstate::all();
-
-        return view('index', compact('products'));
+        $products = RealEstate::all();
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('index', compact('products','duans','typeproducts'));
 
     }
 
@@ -67,7 +68,32 @@ class RealEsatateController extends Controller
 
 
 }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function filter(Request $request)
+    {
 
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $products = RealEstate::where([
+            ['maduan', $request->maduan],
+            ['maloai', $request->maloai],
+            ['tensp', $request->tensp],
+//            ['giatien','<', $request->giatien],
+//            ['chieudai', $request->chieudai],
+//            ['chieurong', $request->chieurong],
+//            ['sophongngu', $request->sophongngu],
+//            ['sophongtam', $request->sophongtam],
+//            ['huong', $request->huongnha],
+//            ['diachi', $request->diachi],
+        ])->get();
+        return view('index', compact('products','duans','typeproducts'));
+
+    }
     /**
      * Display the specified resource.
      *

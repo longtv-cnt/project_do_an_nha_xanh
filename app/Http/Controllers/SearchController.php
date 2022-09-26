@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
 
-    public function showFormSearch()
-    {
-        $products = RealEstate::all();
-        return view('search', compact('products'));
-    }
     function getSearchAjax(Request $request)
     {
         if($request->get('query'))
@@ -20,29 +15,45 @@ class SearchController extends Controller
             $products = RealEstate::where('tensp', 'LIKE', "%{$query}%")
                 ->orWhere('chieudai', 'LIKE', "%{$query}%")
                 ->orWhere('chieurong', 'LIKE', "%{$query}%")->get();
-            $output = '<div class="container mt-5" >
-                         <div class="row">
+            $output = ' <div class="row">
                            <p>Tìm thấy '.$products->count().' sản phẩm</p>
                             <div class="col-md-12" style="display: flex;flex-wrap:wrap">';
             foreach($products as $product)
             {
                 $output .= '
-                       <div class="col-md-3">
-                            <div class="card text-left"style="height: 18rem;">
+                        <div class="col-lg-4 col-md-6">
+                                <div class="single-product">
+                                    <div class="product-img">
 
-                                    <img class="card-img-top" src="uploads/product/'.$product->anhsp.'" alt="" height="70%">
+                                            <img class="card-img" src="uploads/product/'.$product->anhsp.'" alt="" height="150px">
 
-                                <div class="card-body">
-                                    <h4 class="card-title">'.$product->tensp.'</h4>
-                                    <p class="card-text">'.$product->giatien.'  đồng</p>
+                                        <div class="p_icon">
+                                            <a href="#">
+                                                <i class="ti-eye"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="ti-heart"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="ti-shopping-cart"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-btm">
+                                        <a href="#" class="d-block">
+                                            <h4>'.$product->tensp.'</h4>
+                                        </a>
+                                        <div class="mt-3">
+                                            <span class="mr-4">'.$product->giatien.'  đồng</span>
+                                            <del>'.$product->giatien.'  đồng</del>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                ';
             }
             $output .= '</div>
-                     </div>
-                   </div>';
+                     </div>';
 //            echo $output;
             return Response($output);
 
