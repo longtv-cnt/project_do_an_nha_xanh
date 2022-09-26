@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealEsatateController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\du_anController;
-//use App\Http\Controllers\HomeController;
 use App\Http\Controllers\khachhangController;
+use App\Http\Controllers\du_anController;
 
 /*
 |--------------------------------------------------------------------------
