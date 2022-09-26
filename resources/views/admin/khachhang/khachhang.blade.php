@@ -8,7 +8,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Dự Án</h3>
+        <h3 class="card-title">Khách Hàng</h3>
       </div>
       <div class="card-body p-0">
         <table class="table table-striped projects">
@@ -16,6 +16,9 @@
                 <tr>
                     <th>
                         Mã Khách Hàng
+                    </th>
+                    <th>
+                        Mã Loại Khách Hàng
                     </th>
                     <th>
                         Tên Khách Hàng
@@ -40,6 +43,9 @@
             <tbody>
                 <td>
                     <input type="text" name="makhach" class="form-control" placeholder="Nhập Mã Khách" value="">
+                </td>
+                <td>
+                    <input type="text" name="maloaikhach" class="form-control" placeholder="Nhập Mã Loại Khách" value="">
                 </td>
                 <td>
                     <input type="text" name="tenkhach"class="form-control" placeholder="Nhập Tên Khách Hàng" value="">
@@ -73,6 +79,9 @@
                         Mã Khách Hàng
                     </th>
                     <th>
+                        Mã Loại Khách
+                    </th>
+                    <th>
                         Tên Khách Hàng
                     </th>
                     <th >
@@ -87,38 +96,37 @@
                     <th>
                         Địa Chỉ
                     </th>
+                    <th>
+                        Công Cụ
+                    </th>
+
                 </tr>
             </thead>
             <tbody>
                 @foreach($khachhang as $row)
                 <tr>
                         <td>{{$row->makhach}}</td>
+                        <td>{{$row->maloaikhach}}</td>
                         <td>{{$row->tenkhach}}</td>
                         <td>{{$row->email}}</td>
                         <td>{{$row->SDT}}</td>
                         <td>{{$row->taikhoanzalo}}</td>
                         <td>{{$row->diachi}}</td>
+                        <td >
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <a class="btn btn-warning btn-sm" href="/khachhang/edit/{{$row->makhach}}">Edit</a>
 
-                    <td >
-                        <a class="btn btn-warning btn-sm" href="/duan/edit/{{$row->makhach}}">Edit</a>
-                        {{-- <a href="{{route('du_an.edit',$row->maduan)}}">Edit</a> --}}
-
-                        {{-- <a class="btn btn-danger btn-sm" href="{{route('destroy')}}">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a> --}}
-                        <form method="POST" action="/khachhang/destroy/{{$row->makhach}}" onsubmit="return ConfirmDelete( this )">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
-                        </form>
-                    </td>
+                            <form method="POST" action="/khachhang/destroy/{{$row->makhach}}" onsubmit="return ConfirmDelete( this )">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
+                            </form>
+                            </div>
+                        </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-      </div>
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
@@ -127,3 +135,4 @@
 @endsection
 
 
+      </div>
