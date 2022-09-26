@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('phanhoi', function (Blueprint $table) {
-            $table->bigInteger('masp')->after('makhach')->nullable()
-            ->references('id')->on('sanpham_bds')
-            ->onDelete('set null')->onUpdate('set null');
             //
+            $table->unsignedBigInteger('masp')->after('user_id')->nullable()
+            ->references('id')->on('sanpham_bds')->onDelete('set null')->onUpdate('set null');
         });
     }
 
@@ -30,7 +29,6 @@ return new class extends Migration
     {
         Schema::table('phanhoi', function (Blueprint $table) {
             //
-            $table->dropColumn('masp');
         });
     }
 };
