@@ -26,7 +26,7 @@ Route::get('/agentsingle', [HomeController::class,'agentsingle'])->name('agent-s
 Route::get('/agentsgrid', [HomeController::class,'agentsgrid'])->name('agents-grid');
 Route::get('/bloggrid', [HomeController::class,'bloggrid'])->name('blog-grid');
 Route::get('/blogsingle', [HomeController::class,'blogsingle'])->name('blog-single');
-//Route::get('/login', [HomeController::class,'login'])->name('login');
+Route::get('/login', [HomeController::class,'login'])->name('login');
 Route::get('/product', [RealEsatateController::class,'create'])->name('product');
 Route::get('/product/create',[RealEsatateController::class,'create'])->name('product.create');
 Route::post('/product/store',[RealEsatateController::class,'store'])->name('product.store');
