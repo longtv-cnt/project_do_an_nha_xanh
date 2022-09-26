@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\khachhang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class khachhangController extends Controller
         $khachhang = DB::table('khachhang')->select('*');
         $khachhang = $khachhang->get();
         return view('admin.khachhang.khachhang', compact('khachhang'));
-    }
+   }
 
     /**
      * Show the form for creating a new resource.
@@ -26,9 +27,8 @@ class khachhangController extends Controller
      */
     public function create()
     {
-
         return view('admin.khachhang.khachhang');
-    }
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -41,6 +41,7 @@ class khachhangController extends Controller
         $data = $request->all();
         $khachhang = new khachhang();
         $khachhang->makhach=$data['makhach'];
+        $khachhang->maloaikhach=$data['maloaikhach'];
         $khachhang->tenkhach=$data['tenkhach'];
         $khachhang->email=$data['email'];
         $khachhang->SDT=$data['SDT'];
@@ -48,16 +49,6 @@ class khachhangController extends Controller
         $khachhang->diachi=$data['diachi'];
         $khachhang->save();
         return redirect()->back();
-
-
-        // $du_an = new du_an;
-        // $du_an->maduan = $request->maduan;
-        // $du_an->tenduan = $request->tenduan;
-        // $du_an->chudautu = $request->chudautu;
-        // $du_an->save();
-        // return redirect()->action([du_anController::class,'create']);
-
-
     }
 
     /**
@@ -81,9 +72,6 @@ class khachhangController extends Controller
     {
         $khachhang = khachhang::findOrFail($makhach);
         return view('admin.khachhang.update', compact('khachhang'));
-        // $du_an = du_an::find($maduan);
-        // $list = du_an::All();
-        // return view('admin.duan.duan', compact('list','du_an'));
     }
 
     /**
@@ -97,6 +85,7 @@ class khachhangController extends Controller
     {
         $khachhang = khachhang::find($makhach);
         $khachhang->makhach = $request->makhach;
+        $khachhang->maloaikhach = $request->maloaikhach;
         $khachhang->tenkhach = $request->tenkhach;
         $khachhang->email = $request->email;
         $khachhang->SDT = $request->SDT;
@@ -104,6 +93,7 @@ class khachhangController extends Controller
         $khachhang->diachi = $request->diachi;
         $khachhang->save();
         return redirect()->action([khachhangController::class,'index']);
+
     }
 
     /**
@@ -114,9 +104,10 @@ class khachhangController extends Controller
      */
     public function destroy($makhach)
     {
-            $khachhang = khachhang::find($makhach);
 
-            $khachhang->delete();
-            return redirect()->action([khachhangController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+        $khachhang = khachhang::find($makhach);
+
+        $khachhang->delete();
+        return redirect()->action([khachhangController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
 }

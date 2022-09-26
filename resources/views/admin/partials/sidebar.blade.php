@@ -60,13 +60,43 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('loaikhach')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Loại Khách Hàng</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('loaiquyenhan')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Loại Quyền Hạn</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('loaisp_bds')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Loại Sản Phẩm Bất Động Sản</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('loaitintuc')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Loại Tin Tức</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('phanhoi')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Phản Hổi</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('tintuc')}}" class="nav-link">
                         <i class="fa-solid fa-people-group"></i>
                         <p>Tin Tức</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('sanpham_bds')}}" class="nav-link">
                         <i class="fa-solid fa-people-group"></i>
                         <p>Sản Phẩm</p>
                         </a>
