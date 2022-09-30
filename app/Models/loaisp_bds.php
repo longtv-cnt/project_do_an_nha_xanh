@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class loaisp_bds extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'maloai';
+    protected $primaryKey = 'id';
     protected $table='loaisp_bds';
     public $timestamps = false;
 }

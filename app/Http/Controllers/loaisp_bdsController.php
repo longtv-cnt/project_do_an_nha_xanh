@@ -40,7 +40,7 @@ class loaisp_bdsController extends Controller
     {
         $data = $request->all();
         $loaisp_bds = new loaisp_bds();
-        $loaisp_bds->maloai=$data['maloai'];
+        $loaisp_bds->id=$data['id'];
         $loaisp_bds->tenloai=$data['tenloai'];
         $loaisp_bds->save();
         return redirect()->back();
@@ -63,9 +63,9 @@ class loaisp_bdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($maloai)
+    public function edit($id)
     {
-        $loaisp_bds = loaisp_bds::findOrFail($maloai);
+        $loaisp_bds = loaisp_bds::findOrFail($id);
         return view('admin.loaisp_bds.update', compact('loaisp_bds'));
     }
 
@@ -76,10 +76,10 @@ class loaisp_bdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maloai)
+    public function update(Request $request, $id)
     {
-        $loaisp_bds = loaisp_bds::find($maloai);
-        $loaisp_bds->maloai = $request->maloai;
+        $loaisp_bds = loaisp_bds::find($id);
+        $loaisp_bds->id= $request->id;
         $loaisp_bds->tenloai = $request->tenloai;
         $loaisp_bds->save();
         return redirect()->action([loaisp_bdsController::class,'index']);
@@ -91,9 +91,9 @@ class loaisp_bdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($maloai)
+    public function destroy($id)
     {
-        $loaisp_bds = loaisp_bds::find($maloai);
+        $loaisp_bds = loaisp_bds::find($id);
 
         $loaisp_bds->delete();
         return redirect()->action([loaisp_bdsController::class,'index'])->with('success','Dữ liệu xóa thành công.');
