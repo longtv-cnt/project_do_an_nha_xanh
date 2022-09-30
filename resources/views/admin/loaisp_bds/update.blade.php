@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/loaisp_bds/update/{{ $loaisp_bds->maloai }}">
+                <form method="post" action="/loaisp_bds/update/{{ $loaisp_bds->id}}">
                     @method('PATCH')
                     @csrf
                 <thead>
@@ -28,9 +28,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <input type="hidden" name="maloai" value="{{ $loaisp_bds->maloai }}">
+                        <input type="hidden" name="id" value="{{ $loaisp_bds->id}}">
                         <td>
-                            <input type="text" name="maloai" value="{{ $loaisp_bds->maloai }}">
+                            <input type="text" name="id" value="{{ $loaisp_bds->id}}">
                         </td>
                         <td>
                             <input type="text" name="tenloai" value="{{ $loaisp_bds->tenloai }}">
