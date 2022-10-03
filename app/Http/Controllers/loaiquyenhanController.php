@@ -40,7 +40,7 @@ class loaiquyenhanController extends Controller
     {
         $data = $request->all();
         $loaiquyenhan = new loaiquyenhan();
-        $loaiquyenhan->maloai=$data['maloai'];
+        $loaiquyenhan->id=$data['id'];
         $loaiquyenhan->tenquyenhan=$data['tenquyenhan'];
         $loaiquyenhan->save();
         return redirect()->back();
@@ -63,9 +63,9 @@ class loaiquyenhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($maloai)
+    public function edit($id)
     {
-        $loaiquyenhan = loaiquyenhan::findOrFail($maloai);
+        $loaiquyenhan = loaiquyenhan::findOrFail($id);
         return view('admin.loaiquyenhan.update', compact('loaiquyenhan'));
     }
 
@@ -76,10 +76,10 @@ class loaiquyenhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maloai)
+    public function update(Request $request, $id)
     {
-        $loaiquyenhan = loaiquyenhan::find($maloai);
-        $loaiquyenhan->maloai = $request->maloai;
+        $loaiquyenhan = loaiquyenhan::find($id);
+        $loaiquyenhan->id = $request->id;
         $loaiquyenhan->tenquyenhan = $request->tenquyenhan;
         $loaiquyenhan->save();
         return redirect()->action([loaiquyenhanController::class,'index']);
@@ -91,9 +91,9 @@ class loaiquyenhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($maloai)
+    public function destroy($id)
     {
-        $loaiquyenhan = loaiquyenhan::find($maloai);
+        $loaiquyenhan = loaiquyenhan::find($id);
 
         $loaiquyenhan->delete();
         return redirect()->action([loaiquyenhanController::class,'index'])->with('success','Dữ liệu xóa thành công.');

@@ -160,7 +160,7 @@
                                         </a>
                                         <div class="mt-3">
                                             <span class="mr-4">{{ $product->giatien . ' đồng' }}</span>
-                                            <del>{{ $product->giatien . ' đồng' }}</del>
+                                            <del>{{ $product->giatien .  ' đồng' }}</del>
                                         </div>
                                     </div>
                                 </div>

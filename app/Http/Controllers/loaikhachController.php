@@ -40,7 +40,7 @@ class loaikhachController extends Controller
     {
         $data = $request->all();
         $loaikhach = new loaikhach();
-        $loaikhach->maloai=$data['maloai'];
+        $loaikhach->id=$data['id'];
         $loaikhach->tenloai=$data['tenloai'];
         $loaikhach->save();
         return redirect()->back();
@@ -63,9 +63,9 @@ class loaikhachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($maloai)
+    public function edit($id)
     {
-        $loaikhach = loaikhach::findOrFail($maloai);
+        $loaikhach = loaikhach::findOrFail($id);
         return view('admin.loaikhach.update', compact('loaikhach'));
     }
 
@@ -76,10 +76,10 @@ class loaikhachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maloai)
+    public function update(Request $request, $id)
     {
-        $loaikhach = loaikhach::find($maloai);
-        $loaikhach->maloai = $request->maloai;
+        $loaikhach = loaikhach::find($id);
+        $loaikhach->id = $request->id;
         $loaikhach->tenloai = $request->tenloai;
         $loaikhach->save();
         return redirect()->action([loaikhachController::class,'index']);
@@ -91,9 +91,9 @@ class loaikhachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($maloai)
+    public function destroy($id)
     {
-        $loaikhach = loaikhach::find($maloai);
+        $loaikhach = loaikhach::find($id);
 
         $loaikhach->delete();
         return redirect()->action([loaikhachController::class,'index'])->with('success','Dữ liệu xóa thành công.');

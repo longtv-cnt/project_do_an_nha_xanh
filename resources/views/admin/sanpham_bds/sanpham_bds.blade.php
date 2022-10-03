@@ -18,14 +18,21 @@
                         Mã Sản Phẩm
                     </th>
                     <th>
+                        Mã Dự Án
+                    </th>
+                    <th>
                         Mã Loại
                     </th>
                     <th>
                         Tên Sản Phẩm
                     </th>
                     <th>
+                        Slug
+                    </th>
+                    <th>
                         Giá Tiền
                     </th>
+
                     <th>
                         Ảnh Sản Phẩm
                     </th>
@@ -48,16 +55,13 @@
                         Xét Duyệt
                     </th>
                     <th>
-                        Tình Trạng
-                    </th>
-                    <th>
-                        Mã Dự Án
-                    </th>
-                    <th>
                         Địa Chỉ
                     </th>
                     <th>
                         Nhà Xanh
+                    </th>
+                    <th>
+                        Liên Hệ
                     </th>
                 </tr>
             </thead>
@@ -66,13 +70,19 @@
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="masanpham" class="form-control" placeholder="Nhập Mã Sản Phẩm" value="">
+                    <input type="text" name="id" class="form-control" placeholder="Nhập Mã Sản Phẩm" value="">
+                </td>
+                <td>
+                    <input type="text" name="maduan" class="form-control" placeholder="Nhập Mã Dự Án"value="">
                 </td>
                 <td>
                     <input type="text" name="maloai" class="form-control" placeholder="Nhập Mã Loại Sản Phẩm" value="">
                 </td>
                 <td>
                     <input type="text" name="tensp"class="form-control" placeholder="Nhập Tên Sản Phẩm" value="">
+                </td>
+                <td>
+                    <input type="text" name="slug" class="form-control" placeholder="Slug"value="">
                 </td>
                 <td>
                     <input type="text" name="giatien" class="form-control" placeholder="Nhập Giá Tiền"value="">
@@ -99,16 +109,13 @@
                     <input type="text" name="xetduyet" class="form-control" placeholder="Xét Duyệt"value="">
                 </td>
                 <td>
-                    <input type="text" name="tinhtrang" class="form-control" placeholder="Nhập Tình Trạng"value="">
-                </td>
-                <td>
-                    <input type="text" name="maduan" class="form-control" placeholder="Nhập Mã Dự Án"value="">
-                </td>
-                <td>
                     <input type="text" name="diachi" class="form-control" placeholder="Nhập Địa Chỉ"value="">
                 </td>
                 <td>
                     <input type="text" name="nhaxanh" class="form-control" placeholder="Nhà Xanh"value="">
+                </td>
+                <td>
+                    <input type="text" name="sdt_lienhe" class="form-control" placeholder="Liên Hệ"value="">
                 </td>
                 <td>
                     <button class="btn btn-success btn-sm" type="submit">Thêm Sản Phẩm</button>
@@ -127,14 +134,21 @@
                         Mã Sản Phẩm
                     </th>
                     <th>
+                        Mã Dự Án
+                    </th>
+                    <th>
                         Mã Loại
                     </th>
                     <th>
                         Tên Sản Phẩm
                     </th>
                     <th>
+                        Slug
+                    </th>
+                    <th>
                         Giá Tiền
                     </th>
+
                     <th>
                         Ảnh Sản Phẩm
                     </th>
@@ -157,16 +171,13 @@
                         Xét Duyệt
                     </th>
                     <th>
-                        Tình Trạng
-                    </th>
-                    <th>
-                        Mã Dự Án
-                    </th>
-                    <th>
                         Địa Chỉ
                     </th>
                     <th>
                         Nhà Xanh
+                    </th>
+                    <th>
+                        Liên Hệ
                     </th>
                     <th>
                         Công Cụ
@@ -176,26 +187,37 @@
             <tbody>
                 @foreach($sanpham_bds as $row)
                 <tr>
-                        <td>{{$row->masanpham}}</td>
+                        <td>{{$row->id}}</td>
+                        <td>{{$row->maduan}}</td>
                         <td>{{$row->maloai}}</td>
                         <td>{{$row->tensp}}</td>
+                        <td>{{$row->slug}}</td>
                         <td>{{$row->giatien}}</td>
-                        <td>{{$row->anhsp}}</td>
+                        <td>
+                        @if (file_exists(public_path('uploads/product/' . $row->anhsp)))
+                        <img class="card-img" src="{{ 'uploads/product/'.$row->anhsp }}" alt="" height="80px">
+                    @else
+                        <img class="card-img" src="{{ $row->anhsp }}" alt="" height="80px">
+                    @endif
+                        </td>
                         <td>{{$row->huong}}</td>
                         <td>{{$row->chieudai}}</td>
                         <td>{{$row->chieurong}}</td>
                         <td>{{$row->sophongtam}}</td>
                         <td>{{$row->sophongngu}}</td>
                         <td>{{$row->xetduyet}}</td>
-                        <td>{{$row->tinhtrang}}</td>
-                        <td>{{$row->maduan}}</td>
                         <td>{{$row->diachi}}</td>
                         <td>{{$row->nhaxanh}}</td>
+                        <td>{{$row->sdt_lienhe}}</td>
                         <td >
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a class="btn btn-warning btn-sm" href="/sanpham_bds/edit/{{$row->masanpham}}">Edit</a>
+                            <div class="btn-group" >
+                                <a href="/sanpham_bds/edit/{{$row->id}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
 
-                            <form method="POST" action="/sanpham_bds/destroy/{{$row->masanpham}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="/sanpham_bds/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

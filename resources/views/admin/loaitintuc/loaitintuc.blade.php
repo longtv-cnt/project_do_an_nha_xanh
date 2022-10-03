@@ -27,7 +27,7 @@
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="maloaitin" class="form-control" placeholder="Nhập Mã Loại Tin Tức" value="">
+                    <input type="text" name="id" class="form-control" placeholder="Nhập Mã Loại Tin Tức" value="">
                 </td>
                 <td>
                     <input type="text" name="tenloai" class="form-control" placeholder="Nhập Tên Loại Tin Tức" value="">
@@ -51,18 +51,24 @@
                     <th>
                         Tên Loại Tin Tức
                     </th>
+                    <th>
+                        Công Cụ
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($loaitintuc as $row)
                 <tr>
-                        <td>{{$row->maloaitin}}</td>
+                        <td>{{$row->id}}</td>
                         <td>{{$row->tenloai}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a class="btn btn-warning btn-sm" href="/loaitintuc/edit/{{$row->maloaitin}}">Edit</a>
-
-                            <form method="POST" action="/loaitintuc/destroy/{{$row->maloaitin}}" onsubmit="return ConfirmDelete( this )">
+                                <a href="/loaitintuc/edit/{{$row->id}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
+                            <form method="POST" action="/loaitintuc/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

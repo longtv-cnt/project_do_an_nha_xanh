@@ -40,10 +40,19 @@ class sanpham_bdsController extends Controller
     {
         $data = $request->all();
         $sanpham_bds = new sanpham_bds();
-        $sanpham_bds->masanpham=$data['masanpham'];
+        $sanpham_bds->id=$data['id'];
+        $sanpham_bds->maduan=$data['maduan'];
         $sanpham_bds->maloai=$data['maloai'];
         $sanpham_bds->tensp=$data['tensp'];
+        $sanpham_bds->slug=$data['slug'];
         $sanpham_bds->giatien=$data['giatien'];
+        if($request->hasFile('anhsp')){
+            $file = $request->file('anhsp');
+
+            $filename =   time().$file->getClientOriginalName();
+            $file->move('uploads/sanpham_bds/', $filename);
+            $sanpham_bds->anhsp = $filename;
+        }
         $sanpham_bds->anhsp=$data['anhsp'];
         $sanpham_bds->huong=$data['huong'];
         $sanpham_bds->chieudai=$data['chieudai'];
@@ -51,10 +60,9 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->sophongtam=$data['sophongtam'];
         $sanpham_bds->sophongngu=$data['sophongngu'];
         $sanpham_bds->xetduyet=$data['xetduyet'];
-        $sanpham_bds->tinhtrang=$data['tinhtrang'];
-        $sanpham_bds->maduan=$data['maduan'];
         $sanpham_bds->diachi=$data['diachi'];
         $sanpham_bds->nhaxanh=$data['nhaxanh'];
+        $sanpham_bds->nhaxanh=$data['sdt_lienhe'];
         $sanpham_bds->save();
         return redirect()->back();
     }
@@ -76,9 +84,9 @@ class sanpham_bdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($masanpham)
+    public function edit($id)
     {
-        $sanpham_bds = sanpham_bds::findOrFail($masanpham);
+        $sanpham_bds = sanpham_bds::findOrFail($id);
         return view('admin.sanpham_bds.update', compact('sanpham_bds'));
     }
 
@@ -89,12 +97,14 @@ class sanpham_bdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $masanpham)
+    public function update(Request $request, $id)
     {
-        $sanpham_bds = sanpham_bds::find($masanpham);
-        $sanpham_bds->masanpham = $request->masanpham;
+        $sanpham_bds = sanpham_bds::find($id);
+        $sanpham_bds->id = $request->id;
+        $sanpham_bds->maduan = $request->maduan;
         $sanpham_bds->maloai = $request->maloai;
         $sanpham_bds->tensp = $request->tensp;
+        $sanpham_bds->slug = $request->slug;
         $sanpham_bds->giatien = $request->giatien;
         $sanpham_bds->anhsp = $request->anhsp;
         $sanpham_bds->huong = $request->huong;
@@ -103,10 +113,9 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->sophongtam = $request->sophongtam;
         $sanpham_bds->sophongngu = $request->sophongngu;
         $sanpham_bds->xetduyet = $request->xetduyet;
-        $sanpham_bds->tinhtrang = $request->tinhtrang;
-        $sanpham_bds->maduan = $request->maduan;
         $sanpham_bds->diachi = $request->diachi;
         $sanpham_bds->nhaxanh = $request->nhaxanh;
+        $sanpham_bds->sdt_lienhe = $request->sdt_lienhe;
         $sanpham_bds->save();
         return redirect()->action([sanpham_bdsController::class,'index']);
 
@@ -118,10 +127,10 @@ class sanpham_bdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($masanpham)
+    public function destroy($id)
     {
 
-        $sanpham_bds = sanpham_bds::find($masanpham);
+        $sanpham_bds = sanpham_bds::find($id);
 
         $sanpham_bds->delete();
         return redirect()->action([sanpham_bdsController::class,'index'])->with('success','Dữ liệu xóa thành công.');

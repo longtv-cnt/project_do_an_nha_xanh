@@ -51,6 +51,9 @@
                     <th>
                         Tên Loại Sản Phẩm Bất Động Sản
                     </th>
+                    <th>
+                        Công Cụ
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +63,11 @@
                         <td>{{$row->tenloai}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a class="btn btn-warning btn-sm" href="/loaisp_bds/edit/{{$row->id}}">Edit</a>
+                                <a href="/loaisp_bds/edit/{{$row->id}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
 
                             <form method="POST" action="/loaisp_bds/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')

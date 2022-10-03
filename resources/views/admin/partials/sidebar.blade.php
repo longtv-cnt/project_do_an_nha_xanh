@@ -29,7 +29,7 @@
 
     <!-- Sidebar Menu -->
     <div class="container">
-        <nav class="mt-2">
+        <nav class="mt-4">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-header"></li>
             <li class="nav-item">
@@ -87,6 +87,12 @@
                         <a href="{{route('phanhoi')}}" class="nav-link">
                         <i class="fa-solid fa-people-group"></i>
                         <p>Phản Hổi</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('phieuthu')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Phiếu Thu</p>
                         </a>
                     </li>
                     <li class="nav-item">

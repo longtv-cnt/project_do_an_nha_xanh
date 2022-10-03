@@ -96,7 +96,6 @@ class du_anController extends Controller
         $du_an->maduan = $request->maduan;
         $du_an->tenduan = $request->tenduan;
         $du_an->chudautu = $request->chudautu;
-
         $du_an->save();
         return redirect()->action([du_anController::class,'index']);
     }

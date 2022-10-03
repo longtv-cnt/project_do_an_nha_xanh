@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/sanpham_bds/update/{{ $sanpham_bds->masanpham }}">
+                <form method="post" action="/sanpham_bds/update/{{ $sanpham_bds->id }}">
                     @method('PATCH')
                     @csrf
                 <thead>
@@ -23,39 +23,46 @@
                             Mã Sản Phẩm
                         </th>
                         <th>
+                            Mã Dự Án
+                        </th>
+                        <th>
                             Mã Loại
                         </th>
                         <th>
                             Tên Sản Phẩm
                         </th>
                         <th>
+                            Slug
+                        </th>
+                        <th>
                             Giá Tiền
                         </th>
+
                         <th>
                             Ảnh Sản Phẩm
                         </th>
                         <th>
                             Hướng
                         </th>
-                        <th>
-                            Chiều Dài
-                        </th>
-                        <th>
-                            Chiều Rộng
-                        </th>
 
                     </tr>
                 </thead>
                 <tbody>
-                        <input type="hidden" name="masanpham" value="{{ $sanpham_bds->masanpham }}">
+                        <input type="hidden" name="id" value="{{ $sanpham_bds->id }}">
                         <td>
-                            <input type="text" name="masanpham" value="{{ $sanpham_bds->masanpham }}">
+                            <input type="text" name="id" value="{{ $sanpham_bds->id }}">
+                        </td>
+                        <td>
+                            <input type="text" name="maduan" value="{{ $sanpham_bds->maduan }}">
                         </td>
                         <td>
                             <input type="text" name="maloai" value="{{ $sanpham_bds->maloai }}">
                         </td>
                         <td>
                             <input type="text" name="tensp" value="{{ $sanpham_bds->tensp }}">
+                        </td>
+                        <td>
+                            <input type="text" name="slug" value="{{ $sanpham_bds->slug }}">
                         </td>
                         <td>
                             <input type="text" name="giatien" value="{{ $sanpham_bds->giatien }}">
@@ -66,17 +73,17 @@
                         <td>
                             <input type="text" name="huong" value="{{ $sanpham_bds->huong }}">
                         </td>
-                        <td>
-                            <input type="text" name="chieudai" value="{{ $sanpham_bds->chieudai }}">
-                        </td>
-                        <td>
-                            <input type="text" name="chieurong" value="{{ $sanpham_bds->chieurong }}">
-                        </td>
+
 
                      </tbody>
                      <thead>
                         <tr>
-
+                            <th>
+                                Chiều Dài
+                            </th>
+                            <th>
+                                Chiều Rộng
+                            </th>
                             <th>
                                 Số Phòng Tắm
                             </th>
@@ -87,22 +94,23 @@
                                 Xét Duyệt
                             </th>
                             <th>
-                                Tình Trạng
-                            </th>
-                            <th>
-                                Mã Dự Án
-                            </th>
-                            <th>
                                 Địa Chỉ
                             </th>
                             <th>
                                 Nhà Xanh
                             </th>
-
+                            <th>
+                                Liên Hệ
+                            </th>
                         </tr>
                      </thead>
                      <tbody>
-
+                        <td>
+                            <input type="text" name="chieudai" value="{{ $sanpham_bds->chieudai }}">
+                        </td>
+                        <td>
+                            <input type="text" name="chieurong" value="{{ $sanpham_bds->chieurong }}">
+                        </td>
                         <td>
                             <input type="text" name="sophongtam" value="{{ $sanpham_bds->sophongtam }}">
                         </td>
@@ -113,16 +121,13 @@
                             <input type="text" name="xetduyet" value="{{ $sanpham_bds->xetduyet }}">
                         </td>
                         <td>
-                            <input type="text" name="tinhtrang" value="{{ $sanpham_bds->tinhtrang }}">
-                        </td>
-                        <td>
-                            <input type="text" name="maduan" value="{{ $sanpham_bds->maduan }}">
-                        </td>
-                        <td>
                             <input type="text" name="diachi" value="{{ $sanpham_bds->diachi }}">
                         </td>
                         <td>
                             <input type="bit" name="nhaxanh" value="{{ $sanpham_bds->nhaxanh }}">
+                        </td>
+                        <td>
+                            <input type="text" name="sdt_lienhe" value="{{ $sanpham_bds->sdt_lienhe }}">
                         </td>
                         <td>
                             <button type="submit">Sửa</button>

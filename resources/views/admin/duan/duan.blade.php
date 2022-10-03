@@ -74,7 +74,11 @@
                             <td>{{$row->chudautu}}</td>
                             <td >
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a class="btn btn-warning btn-sm" href="/duan/edit/{{$row->maduan}}">Edit</a>
+                                <a href="/duan/edit/{{$row->maduan}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
 
                                 <form method="POST" action="/duan/destroy/{{$row->maduan}}" onsubmit="return ConfirmDelete( this )">
                                     @method('DELETE')
