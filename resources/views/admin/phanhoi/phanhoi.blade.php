@@ -104,8 +104,11 @@
                         <td>{{$row->ngaycapnhat}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a class="btn btn-warning btn-sm" href="/phanhoi/edit/{{$row->id}}">Edit</a>
-
+                                <a href="/phanhoi/edit/{{$row->id}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
                             <form method="POST" action="/phanhoi/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf

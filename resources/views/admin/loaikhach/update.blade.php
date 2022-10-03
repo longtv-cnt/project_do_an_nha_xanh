@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/loaikhach/update/{{ $loaikhach->maloai }}">
+                <form method="post" action="/loaikhach/update/{{ $loaikhach->id }}">
                     @method('PATCH')
                     @csrf
                 <thead>
@@ -28,9 +28,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <input type="hidden" name="maloai" value="{{ $loaikhach->maloai }}">
+                        <input type="hidden" name="id" value="{{ $loaikhach->id }}">
                         <td>
-                            <input type="text" name="maloai" value="{{ $loaikhach->maloai }}">
+                            <input type="text" name="id" value="{{ $loaikhach->id }}">
                         </td>
                         <td>
                             <input type="text" name="tenloai" value="{{ $loaikhach->tenloai }}">

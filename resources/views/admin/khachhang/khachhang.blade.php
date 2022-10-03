@@ -114,8 +114,11 @@
                         <td>{{$row->diachi}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a class="btn btn-warning btn-sm" href="/khachhang/edit/{{$row->makhach}}">Edit</a>
-
+                                <a href="/khachhang/edit/{{$row->makhach}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
                             <form method="POST" action="/khachhang/destroy/{{$row->makhach}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf

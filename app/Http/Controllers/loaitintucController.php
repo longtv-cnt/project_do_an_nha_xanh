@@ -40,7 +40,7 @@ class loaitintucController extends Controller
     {
         $data = $request->all();
         $loaitintuc = new loaitintuc();
-        $loaitintuc->maloaitin=$data['maloaitin'];
+        $loaitintuc->id=$data['id'];
         $loaitintuc->tenloai=$data['tenloai'];
         $loaitintuc->save();
         return redirect()->back();
@@ -63,9 +63,9 @@ class loaitintucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($maloaitin)
+    public function edit($id)
     {
-        $loaitintuc = loaitintuc::findOrFail($maloaitin);
+        $loaitintuc = loaitintuc::findOrFail($id);
         return view('admin.loaitintuc.update', compact('loaitintuc'));
     }
 
@@ -76,10 +76,10 @@ class loaitintucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maloaitin)
+    public function update(Request $request, $id)
     {
-        $loaitintuc = loaitintuc::find($maloaitin);
-        $loaitintuc->maloaitin = $request->maloaitin;
+        $loaitintuc = loaitintuc::find($id);
+        $loaitintuc->id = $request->id;
         $loaitintuc->tenloai = $request->tenloai;
         $loaitintuc->save();
         return redirect()->action([loaitintucController::class,'index']);
@@ -91,9 +91,9 @@ class loaitintucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($maloaitin)
+    public function destroy($id)
     {
-        $loaitintuc = loaitintuc::find($maloaitin);
+        $loaitintuc = loaitintuc::find($id);
 
         $loaitintuc->delete();
         return redirect()->action([loaitintucController::class,'index'])->with('success','Dữ liệu xóa thành công.');

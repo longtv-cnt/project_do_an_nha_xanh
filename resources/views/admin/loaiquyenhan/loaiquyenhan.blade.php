@@ -27,7 +27,7 @@
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="maloai" class="form-control" placeholder="Nhập Mã Loại Quyền Hạn" value="">
+                    <input type="text" name="id" class="form-control" placeholder="Nhập Mã Loại Quyền Hạn" value="">
                 </td>
                 <td>
                     <input type="text" name="tenquyenhan" class="form-control" placeholder="Nhập Tên Loại KháchQuyền Hạn" value="">
@@ -51,18 +51,24 @@
                     <th>
                         Tên Loại Quyền Hạn
                     </th>
+                    <th>
+                        Công Cụ
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($loaiquyenhan as $row)
                 <tr>
-                        <td>{{$row->maloai}}</td>
+                        <td>{{$row->id}}</td>
                         <td>{{$row->tenquyenhan}}</td>
                         <td >
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                            <a class="btn btn-warning btn-sm" href="/loaiquyenhan/edit/{{$row->maloai}}">Edit</a>
-
-                            <form method="POST" action="/loaiquyenhan/destroy/{{$row->maloai}}" onsubmit="return ConfirmDelete( this )">
+                                <a href="/loaiquyenhan/edit/{{$row->id}}">
+                                    <div type="button" class="btn btn-warning btn-sm" >
+                                        Edit
+                                    </div>
+                                </a>
+                            <form method="POST" action="/loaiquyenhan/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
