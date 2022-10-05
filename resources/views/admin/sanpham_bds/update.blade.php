@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 @section('title')
-    <title>Khách Hàng</title>
+    <title>Sản Phẩm Bất Động Sản</title>
 @endsection
 @section('content')
 <section class="content">
@@ -8,7 +8,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Khách Hàng</h3>
+        <h3 class="card-title">Sản Phẩm Bất Động Sản</h3>
         <div class="card-tools">
         </div>
       </div>

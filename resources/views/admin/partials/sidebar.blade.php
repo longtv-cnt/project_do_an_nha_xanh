@@ -1,3 +1,4 @@
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
@@ -96,6 +97,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{route('contact')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Contact</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('banners')}}" class="nav-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Banners</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{route('tintuc')}}" class="nav-link">
                         <i class="fa-solid fa-people-group"></i>
                         <p>Tin Tức</p>
@@ -162,3 +175,4 @@
   </div>
   <!-- /.sidebar -->
 </aside>
+
