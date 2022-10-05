@@ -14,7 +14,8 @@ use App\Http\Controllers\tintucController;
 use App\Http\Controllers\sanpham_bdsController;
 use App\Http\Controllers\phanhoiController;
 use App\Http\Controllers\phieuthuController;
-
+use App\Http\Controllers\contactController;
+use App\Http\Controllers\bannersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,3 +132,19 @@ Route::post('/phieuthu/store', [phieuthuController::class,'store'])->name('phieu
 Route::DELETE('/phieuthu/destroy/{maphieu}', [phieuthuController::class,'destroy']);
 Route::get('/phieuthu/edit/{maphieu}', [phieuthuController::class,'edit'])->name('phieuthu.edit');
 Route::PATCH('/phieuthu/update/{maphieu}', [phieuthuController::class,'update']);
+
+
+Route::get('/contact', [contactController::class,'index'])->name('contact');
+Route::get('/contact/create', [contactController::class,'create'])->name('contact.create');
+Route::post('/contact/store', [contactController::class,'store'])->name('contact.store');
+Route::DELETE('/contact/destroy/{maphieu}', [contactController::class,'destroy']);
+Route::get('/contact/edit/{maphieu}', [contactController::class,'edit'])->name('contact.edit');
+Route::PATCH('/contact/update/{maphieu}', [contactController::class,'update']);
+
+
+Route::get('/banners', [bannersController::class,'index'])->name('banners');
+Route::get('/banners/create', [bannersController::class,'create'])->name('banners.create');
+Route::post('/banners/store', [bannersController::class,'store'])->name('banners.store');
+Route::DELETE('/banners/destroy/{maphieu}', [bannersController::class,'destroy']);
+Route::get('/banners/edit/{maphieu}', [bannersController::class,'edit'])->name('banners.edit');
+Route::PATCH('/banners/update/{maphieu}', [bannersController::class,'update']);
