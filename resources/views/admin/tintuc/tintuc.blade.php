@@ -36,10 +36,10 @@
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="matin" class="form-control" placeholder="Nhập Mã Tin Tức" value="">
+                    <input type="text" name="id" class="form-control" placeholder="Nhập Mã Tin Tức" value="">
                 </td>
                 <td>
-                    <input type="text" name="maloaitin" class="form-control" placeholder="Nhập Mã Loại Tin Tức" value="">
+                    <input type="text" name="loaitin" class="form-control" placeholder="Nhập Mã Loại Tin Tức" value="">
                 </td>
                 <td>
                     <input type="text" name="manguoidang"class="form-control" placeholder="Nhập Mã Người Đăng" value="">
@@ -88,19 +88,19 @@
             <tbody>
                 @foreach($tintuc as $row)
                 <tr>
-                        <td>{{$row->matin}}</td>
-                        <td>{{$row->maloaitin}}</td>
+                        <td>{{$row->id}}</td>
+                        <td>{{$row->loaitin}}</td>
                         <td>{{$row->manguoidang}}</td>
                         <td>{{$row->noidung}}</td>
                         <td>{{$row->ngaydang}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="/tintuc/edit/{{$row->matin}}">
+                                <a href="/tintuc/edit/{{$row->id}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
                                     </div>
                                 </a>
-                            <form method="POST" action="/tintuc/destroy/{{$row->matin}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="/tintuc/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

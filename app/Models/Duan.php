@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Duan extends Model
 {
-
-    protected $primaryKey = 'maduan';
+    protected $primaryKey = 'id';
     protected $table='du_an';
     public $timestamps = false;
     use HasFactory;

@@ -27,7 +27,7 @@ class du_anController extends Controller
     public function create()
     {
 
-        return view('admin.duan.create');
+        return view('admin.duan.duan');
     }
 
     /**
@@ -40,7 +40,7 @@ class du_anController extends Controller
     {
         $data = $request->all();
         $du_an = new Duan();
-        $du_an->maduan=$data['maduan'];
+        $du_an->id=$data['id'];
         $du_an->tenduan=$data['tenduan'];
         $du_an->chudautu=$data['chudautu'];
         $du_an->save();
@@ -48,7 +48,7 @@ class du_anController extends Controller
 
 
         // $du_an = new du_an;
-        // $du_an->maduan = $request->maduan;
+        // $du_an->id = $request->id;
         // $du_an->tenduan = $request->tenduan;
         // $du_an->chudautu = $request->chudautu;
         // $du_an->save();
@@ -74,11 +74,11 @@ class du_anController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($maduan)
+    public function edit($id)
     {
-        $du_an = Duan::findOrFail($maduan);
+        $du_an = Duan::findOrFail($id);
         return view('admin.duan.update', compact('du_an'));
-        // $du_an = du_an::find($maduan);
+        // $du_an = du_an::find($id);
         // $list = du_an::All();
         // return view('admin.duan.duan', compact('list','du_an'));
     }
@@ -90,10 +90,10 @@ class du_anController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maduan)
+    public function update(Request $request, $id)
     {
-        $du_an = Duan::find($maduan);
-        $du_an->maduan = $request->maduan;
+        $du_an = Duan::find($id);
+        $du_an->id = $request->id;
         $du_an->tenduan = $request->tenduan;
         $du_an->chudautu = $request->chudautu;
         $du_an->save();
@@ -106,9 +106,9 @@ class du_anController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($maduan)
+    public function destroy($id)
     {
-            $du_an = Duan::find($maduan);
+            $du_an = Duan::find($id);
 
             $du_an->delete();
             return redirect()->action([du_anController::class,'index'])->with('success','Dữ liệu xóa thành công.');

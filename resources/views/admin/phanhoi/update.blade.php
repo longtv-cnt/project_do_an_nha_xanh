@@ -51,6 +51,9 @@
                             <input type="text" name="masp" value="{{ $phanhoi->masp }}">
                         </td>
                         <td>
+                            <input type="text" name="comment" value="{{ $phanhoi->comment }}">
+                        </td>
+                        <td>
                             <input type="datetime" name="ngaytao" value="{{ $phanhoi->ngaytao }}">
                         </td>
                         <td>

@@ -17,7 +17,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin')}}">
+                                <a href="{{route('adminhome')}}">
                                     Admin
                                 </a>
                             </li>

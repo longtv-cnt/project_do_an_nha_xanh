@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealEsatateController;
 use App\Http\Controllers\SearchController;
 
+use App\Http\Controllers\adminhomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\du_anController;
 use App\Http\Controllers\khachhangController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\phanhoiController;
 use App\Http\Controllers\phieuthuController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\bannersController;
+use App\Http\Controllers\baocaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +50,12 @@ Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 Route::post('/',[RealEsatateController::class,'filter'])->name('filter');
 
-Route::get('/home',function(){
-    return view('admin.home');
-})->name('admin');
+// Route::get('/home',function(){
+//     return view('admin.home');
+// })->name('admin');
+
+Route::get('/adminhome', [adminhomeController::class,'index'])->name('adminhome');
+
 
 
 Route::get('/duan', [du_anController::class,'index'])->name('duan');
@@ -58,16 +63,16 @@ Route::get('/duan/create', [du_anController::class,'create'])->name('du_an.creat
 Route::post('/duan/store', [du_anController::class,'store'])->name('du_an.store');
 Route::DELETE('/duan/destroy/{maduan}', [du_anController::class,'destroy']);
 Route::get('/duan/edit/{maduan}', [du_anController::class,'edit'])->name('du_an.edit');
-Route::PATCH('/duan/edit/{maduan}', [du_anController::class,'update']);
-// Route::resource('du_an', du_anController::class);
+Route::PATCH('/duan/update/{maduan}', [du_anController::class,'update']);
+Route::resource('du_an', du_anController::class);
 
 
 Route::get('/khachhang', [khachhangController::class,'index'])->name('khachhang');
 Route::get('/khachhang/create', [khachhangController::class,'create'])->name('khachhang.create');
 Route::post('/khachhang/store', [khachhangController::class,'store'])->name('khachhang.store');
-Route::DELETE('/khachhang/destroy/{makhach}', [khachhangController::class,'destroy']);
-Route::get('/khachhang/edit/{makhach}', [khachhangController::class,'edit'])->name('khachhang.edit');
-Route::PATCH('/khachhang/update/{makhach}', [khachhangController::class,'update']);
+Route::DELETE('/khachhang/destroy/{id}', [khachhangController::class,'destroy']);
+Route::get('/khachhang/edit/{id}', [khachhangController::class,'edit'])->name('khachhang.edit');
+Route::PATCH('/khachhang/update/{id}', [khachhangController::class,'update']);
 // Route::resource('khachhang', khachhangController::class);
 
 Route::get('/loaikhach', [loaikhachController::class,'index'])->name('loaikhach');
@@ -148,3 +153,6 @@ Route::post('/banners/store', [bannersController::class,'store'])->name('banners
 Route::DELETE('/banners/destroy/{maphieu}', [bannersController::class,'destroy']);
 Route::get('/banners/edit/{maphieu}', [bannersController::class,'edit'])->name('banners.edit');
 Route::PATCH('/banners/update/{maphieu}', [bannersController::class,'update']);
+
+
+Route::get('/baocao', [baocaoController::class,'index'])->name('baocao');

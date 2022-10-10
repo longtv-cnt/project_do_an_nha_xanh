@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tintuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Duan;
+use App\Models\khachhang;
+use App\Models\phanhoi;
+use App\Models\phieuthu;
+use App\Models\sanpham_bds;
+use App\Models\tintuc;
 
-class tintucController extends Controller
+class baocaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +20,16 @@ class tintucController extends Controller
      */
     public function index()
     {
-        $tintuc = DB::table('tintuc')->select('*');
-        $tintuc = $tintuc->get();
-        return view('admin.tintuc.tintuc', compact('tintuc'));
+        $max = DB::table('sanpham_bds')->select('tensp')->max('giatien');
+        $sanpham_bdsmax =DB::table('sanpham_bds')->where('giatien','=',$max)->get();
+        $min = DB::table('sanpham_bds')->select('tensp')->min('giatien');
+        $sanpham_bdsmin =DB::table('sanpham_bds')->where('giatien','=',$min)->get();
+        $price = DB::table('sanpham_bds')->sum('giatien');
+        $phieuthuprice = DB::table('phieuthu')->sum('sotiennop');
+        $phieuthu_count = phieuthu::count();
+        $khachhang_count = khachhang::count();
+        $sanpham_count = sanpham_bds::count();
+        return view('admin.layouts.baocao', compact('phieuthu_count','phieuthuprice','khachhang_count','sanpham_count','price','max','sanpham_bdsmax','min','sanpham_bdsmin'));
     }
 
     /**
@@ -27,7 +39,7 @@ class tintucController extends Controller
      */
     public function create()
     {
-        return view('admin.tintuc.tintuc');
+        //
     }
 
     /**
@@ -38,15 +50,7 @@ class tintucController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $tintuc = new tintuc();
-        $tintuc->id=$data['id'];
-        $tintuc->loaitin=$data['loaitin'];
-        $tintuc->manguoidang=$data['manguoidang'];
-        $tintuc->noidung=$data['noidung'];
-        $tintuc->ngaydang=$data['ngaydang'];
-        $tintuc->save();
-        return redirect()->back();
+        //
     }
 
     /**
@@ -68,8 +72,7 @@ class tintucController extends Controller
      */
     public function edit($id)
     {
-        $tintuc = tintuc::findOrFail($id);
-        return view('admin.tintuc.update', compact('tintuc'));
+        //
     }
 
     /**
@@ -81,14 +84,7 @@ class tintucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tintuc = tintuc::find($id);
-        $tintuc->id = $request->id;
-        $tintuc->loaitin = $request->loaitin;
-        $tintuc->manguoidang = $request->manguoidang;
-        $tintuc->noidung = $request->noidung;
-        $tintuc->ngaydang = $request->ngaydang;
-        $tintuc->save();
-        return redirect()->action([tintucController::class,'index']);
+        //
     }
 
     /**
@@ -99,9 +95,6 @@ class tintucController extends Controller
      */
     public function destroy($id)
     {
-        $tintuc = tintuc::find($id);
-
-        $tintuc->delete();
-        return redirect()->action([tintucController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+        //
     }
 }
