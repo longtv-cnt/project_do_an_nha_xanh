@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/tintuc/update/{{ $tintuc->matin }}">
+                <form method="post" action="/tintuc/update/{{ $tintuc->id }}">
                     @method('PATCH')
                     @csrf
                 <thead>
@@ -37,12 +37,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <input type="hidden" name="matin" value="{{ $tintuc->matin }}">
+                        <input type="hidden" name="id" value="{{ $tintuc->id }}">
                         <td>
-                            <input type="text" name="matin" value="{{ $tintuc->matin }}">
+                            <input type="text" name="id" value="{{ $tintuc->id }}">
                         </td>
                         <td>
-                            <input type="text" name="maloaitin" value="{{ $tintuc->maloaitin }}">
+                            <input type="text" name="loaitin" value="{{ $tintuc->loaitin }}">
                         </td>
                         <td>
                             <input type="text" name="manguoidang" value="{{ $tintuc->manguoidang }}">

@@ -27,13 +27,13 @@
                     </th>
                 </tr>
             </thead>
-            <form method="post" action="/duan/update/{{ $du_an->maduan }}">
+            <form method="post" action="/duan/update/{{ $du_an->id }}">
                     @method('PATCH')
                     @csrf
                     <tbody>
-                    <input type="hidden" name="maduan" value="{{ $du_an->maduan }}">
+                    <input type="hidden" name="id" value="{{ $du_an->id }}">
                     <td>
-                        <input type="text" name="maduan" value="{{ $du_an->maduan }}">
+                        <input type="text" name="id" value="{{ $du_an->id }}">
                     </td>
 
                     <td>

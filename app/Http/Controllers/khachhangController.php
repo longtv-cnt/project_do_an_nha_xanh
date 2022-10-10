@@ -40,13 +40,13 @@ class khachhangController extends Controller
     {
         $data = $request->all();
         $khachhang = new khachhang();
-        $khachhang->makhach=$data['makhach'];
-        $khachhang->maloaikhach=$data['maloaikhach'];
+        $khachhang->id=$data['id'];
         $khachhang->tenkhach=$data['tenkhach'];
-        $khachhang->email=$data['email'];
         $khachhang->SDT=$data['SDT'];
-        $khachhang->taikhoanzalo=$data['taikhoanzalo'];
+        $khachhang->email=$data['email'];
         $khachhang->diachi=$data['diachi'];
+        $khachhang->maloaikhach=$data['maloaikhach'];
+        $khachhang->idUser=$data['idUser'];
         $khachhang->save();
         return redirect()->back();
     }
@@ -68,9 +68,9 @@ class khachhangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($makhach)
+    public function edit($id)
     {
-        $khachhang = khachhang::findOrFail($makhach);
+        $khachhang = khachhang::findOrFail($id);
         return view('admin.khachhang.update', compact('khachhang'));
     }
 
@@ -81,16 +81,18 @@ class khachhangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $makhach)
+    public function update(Request $request, $id)
     {
-        $khachhang = khachhang::find($makhach);
-        $khachhang->makhach = $request->makhach;
-        $khachhang->maloaikhach = $request->maloaikhach;
+        $khachhang = khachhang::find($id);
+        $khachhang->id = $request->id;
         $khachhang->tenkhach = $request->tenkhach;
-        $khachhang->email = $request->email;
         $khachhang->SDT = $request->SDT;
-        $khachhang->taikhoanzalo = $request->taikhoanzalo;
+        $khachhang->email = $request->email;
         $khachhang->diachi = $request->diachi;
+        $khachhang->maloaikhach = $request->maloaikhach;
+        $khachhang->idUser = $request->idUser;
+
+
         $khachhang->save();
         return redirect()->action([khachhangController::class,'index']);
 
@@ -102,10 +104,10 @@ class khachhangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($makhach)
+    public function destroy($id)
     {
 
-        $khachhang = khachhang::find($makhach);
+        $khachhang = khachhang::find($id);
 
         $khachhang->delete();
         return redirect()->action([khachhangController::class,'index'])->with('success','Dữ liệu xóa thành công.');

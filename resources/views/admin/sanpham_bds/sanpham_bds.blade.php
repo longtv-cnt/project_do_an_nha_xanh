@@ -159,11 +159,12 @@
                     <input type="text" name="diachi" class="form-control" placeholder="Nhập Địa Chỉ"value="">
                 </td>
                 <td>
-                    <input type="text" name="nhaxanh" class="form-control" placeholder="Nhà Xanh"value="">
+                    <input type="text" name="lienhe" class="form-control" placeholder="Liên Hệ"value="">
                 </td>
                 <td>
-                    <input type="text" name="sdt_lienhe" class="form-control" placeholder="Liên Hệ"value="">
+                    <input type="text" name="nhaxanh" class="form-control" placeholder="Nhà Xanh"value="">
                 </td>
+
 
 
             </tbody>
@@ -241,11 +242,12 @@
                             Địa Chỉ
                         </th>
                         <th>
-                            Nhà Xanh
-                        </th>
-                        <th>
                             Liên Hệ
                         </th>
+                        <th>
+                            Nhà Xanh
+                        </th>
+
                         <th>
                             Công Cụ
                         </th>
@@ -275,8 +277,8 @@
                             <td>{{$row->sophongngu}}</td> --}}
                             <td>{{$row->xetduyet}}</td>
                             <td>{{$row->diachi}}</td>
+                            <td>{{$row->lienhe}}</td>
                             <td>{{$row->nhaxanh}}</td>
-                            <td>{{$row->sdt_lienhe}}</td>
                             <td>
                                 <div class="btn-group" >
                                     <div class="dropdown">

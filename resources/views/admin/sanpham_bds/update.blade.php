@@ -31,9 +31,9 @@
                         <th>
                             Tên Sản Phẩm
                         </th>
-                        <th>
+                        {{-- <th>
                             Slug
-                        </th>
+                        </th> --}}
                         <th>
                             Giá Tiền
                         </th>
@@ -61,9 +61,9 @@
                         <td>
                             <input type="text" name="tensp" value="{{ $sanpham_bds->tensp }}">
                         </td>
-                        <td>
+                        {{-- <td>
                             <input type="text" name="slug" value="{{ $sanpham_bds->slug }}">
-                        </td>
+                        </td> --}}
                         <td>
                             <input type="text" name="giatien" value="{{ $sanpham_bds->giatien }}">
                         </td>
@@ -97,11 +97,12 @@
                                 Địa Chỉ
                             </th>
                             <th>
-                                Nhà Xanh
-                            </th>
-                            <th>
                                 Liên Hệ
                             </th>
+                            <th>
+                                Nhà Xanh
+                            </th>
+
                         </tr>
                      </thead>
                      <tbody>
@@ -124,11 +125,12 @@
                             <input type="text" name="diachi" value="{{ $sanpham_bds->diachi }}">
                         </td>
                         <td>
-                            <input type="bit" name="nhaxanh" value="{{ $sanpham_bds->nhaxanh }}">
+                            <input type="text" name="lienhe" value="{{ $sanpham_bds->lienhe }}">
                         </td>
                         <td>
-                            <input type="text" name="sdt_lienhe" value="{{ $sanpham_bds->sdt_lienhe }}">
+                            <input type="bit" name="nhaxanh" value="{{ $sanpham_bds->nhaxanh }}">
                         </td>
+
                         <td>
                             <button type="submit">Sửa</button>
                         </td>

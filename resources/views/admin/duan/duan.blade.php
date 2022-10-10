@@ -30,7 +30,7 @@
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="maduan" class="form-control" placeholder="Nhập Mã Dự Án" value="">
+                    <input type="text" name="id" class="form-control" placeholder="Nhập Mã Dự Án" value="">
                 </td>
                 <td>
                     <input type="text" name="tenduan"class="form-control" placeholder="Nhập Tên Dự Án" value="">
@@ -68,19 +68,18 @@
             <tbody>
                 @foreach($du_an as $row)
                     <tr>
-                            <td>{{$row->maduan}}</td>
-
+                            <td>{{$row->id}}</td>
                             <td>{{$row->tenduan}}</td>
                             <td>{{$row->chudautu}}</td>
                             <td >
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="/duan/edit/{{$row->maduan}}">
+                                <a href="/duan/edit/{{$row->id}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
                                     </div>
                                 </a>
 
-                                <form method="POST" action="/duan/destroy/{{$row->maduan}}" onsubmit="return ConfirmDelete( this )">
+                                <form method="POST" action="/duan/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

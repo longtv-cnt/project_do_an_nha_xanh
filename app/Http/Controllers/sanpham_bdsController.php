@@ -44,7 +44,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->maduan=$data['maduan'];
         $sanpham_bds->maloai=$data['maloai'];
         $sanpham_bds->tensp=$data['tensp'];
-        $sanpham_bds->slug=$data['slug'];
+        // $sanpham_bds->slug=$data['slug'];
         $sanpham_bds->giatien=$data['giatien'];
         if($request->hasFile('anhsp')){
             $file = $request->file('anhsp');
@@ -62,7 +62,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->xetduyet=$data['xetduyet'];
         $sanpham_bds->diachi=$data['diachi'];
         $sanpham_bds->nhaxanh=$data['nhaxanh'];
-        $sanpham_bds->nhaxanh=$data['sdt_lienhe'];
+        $sanpham_bds->nhaxanh=$data['lienhe'];
         $sanpham_bds->save();
         return redirect()->back();
     }
@@ -104,7 +104,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->maduan = $request->maduan;
         $sanpham_bds->maloai = $request->maloai;
         $sanpham_bds->tensp = $request->tensp;
-        $sanpham_bds->slug = $request->slug;
+        // $sanpham_bds->slug = $request->slug;
         $sanpham_bds->giatien = $request->giatien;
         $sanpham_bds->anhsp = $request->anhsp;
         $sanpham_bds->huong = $request->huong;
@@ -115,7 +115,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->xetduyet = $request->xetduyet;
         $sanpham_bds->diachi = $request->diachi;
         $sanpham_bds->nhaxanh = $request->nhaxanh;
-        $sanpham_bds->sdt_lienhe = $request->sdt_lienhe;
+        $sanpham_bds->lienhe = $request->lienhe;
         $sanpham_bds->save();
         return redirect()->action([sanpham_bdsController::class,'index']);
 

@@ -35,19 +35,13 @@
             <li class="nav-header"></li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="fa fa-align-justify"></i>
                 <p>
                   Quản Lý Danh Mục
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
                 <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="fa fa-tasks"></i>
-                        <p>Hệ thống</p>
-                        </a>
-                    </li>
                     <li class="nav-item">
                     <a href="{{ route('duan') }}" class="nav-link">
                         <i class="fab fa-buffer"></i>
@@ -56,10 +50,67 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('khachhang')}}" class="nav-link">
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <p>Khách Hàng</p>
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <p>Khách Hàng</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('phanhoi')}}" class="nav-link">
+                        <i class="fa fa-comment"></i>
+                        <p>Phản Hổi</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('phieuthu')}}" class="nav-link">
+                        <i class="fas fa-file-powerpoint"></i>
+                        <p>Phiếu Thu</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('contact')}}" class="nav-link">
+                        <i class="fa fa-phone"></i>
+                        <p>Contact</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('banners')}}" class="nav-link">
+                        <i class="fa fa-align-center"></i>
+                        <p>Banners</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('tintuc')}}" class="nav-link">
+                        <i class="fa fa-newspaper"></i>
+                        <p>Tin Tức</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('sanpham_bds')}}" class="nav-link">
+                        <i class="fas fa-server"></i>
+                        <p>Sản Phẩm</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="fa fa-id-card-o"></i>
+                        <p>Nhân Viên</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <p>Tài Khoản</p>
+                        </a>
+                    </li>
+                <li class="nav-item">
+                     <a href="#" class="nav-link">
+                    <i class="fas fa-stream"></i>
+                      <p>
+                      Loại
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{route('loaikhach')}}" class="nav-link">
                         <i class="fa-solid fa-people-group"></i>
@@ -84,86 +135,27 @@
                         <p>Loại Tin Tức</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{route('phanhoi')}}" class="nav-link">
-                        <i class="fa-solid fa-people-group"></i>
-                        <p>Phản Hổi</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('phieuthu')}}" class="nav-link">
-                        <i class="fa-solid fa-people-group"></i>
-                        <p>Phiếu Thu</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('contact')}}" class="nav-link">
-                        <i class="fa-solid fa-people-group"></i>
-                        <p>Contact</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('banners')}}" class="nav-link">
-                        <i class="fa-solid fa-people-group"></i>
-                        <p>Banners</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('tintuc')}}" class="nav-link">
-                        <i class="fa-solid fa-people-group"></i>
-                        <p>Tin Tức</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('sanpham_bds')}}" class="nav-link">
-                        <i class="fa-solid fa-people-group"></i>
-                        <p>Sản Phẩm</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="fa fa-id-card-o"></i>
-                        <p>Nhân Viên</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <p>Tài Khoản</p>
-                        </a>
-                    </li>
-
-                <li class="nav-item">
-                     <a href="#" class="nav-link">
-                    <i class="fa-solid fa-people-group"></i>
-                      <p>
-                      Thống Kê Báo Cáo
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
                   </ul>
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-chart-bar"></i>
+                  <p>
+                            Báo Cáo Thống Kê
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{ route('baocao') }}" class="nav-link">
+                        <i class="fab fa-buffer"></i>
+                        <p>Báo Cáo</p>
+                    </a>
+                    </li>
+                </ul>
+
 
 
 
