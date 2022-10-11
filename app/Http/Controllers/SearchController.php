@@ -1,12 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Duan;
 use App\Models\RealEstate;
+use App\Models\TypeProduct;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    public function filter(Request $request)
+    {
 
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $products = RealEstate::where([
+            ['maduan', $request->maduan],
+            ['maloai', $request->maloai],
+            ['tensp', $request->tensp],
+            ['chieudai', $request->chieudai],
+            ['chieurong', $request->chieurong],
+            ['sophongngu', $request->sophongngu],
+            ['sophongtam', $request->sophongtam],
+            ['huong', $request->huongnha],
+            ['diachi', $request->diachi],
+        ])->get();
+
+        return view('index', compact('products','duans','typeproducts'));
+    }
+    
     function getSearchAjax(Request $request)
     {
         if($request->get('query'))
@@ -15,9 +36,8 @@ class SearchController extends Controller
             $products = RealEstate::where('tensp', 'LIKE', "%{$query}%")
                 ->orWhere('chieudai', 'LIKE', "%{$query}%")
                 ->orWhere('chieurong', 'LIKE', "%{$query}%")->get();
-            $output = ' <div class="row">
-                           <p>Tìm thấy '.$products->count().' sản phẩm</p>
-                            <div class="col-md-12" style="display: flex;flex-wrap:wrap">';
+            $output = ' <p>Tìm thấy '.$products->count().' sản phẩm</p>
+                            <div class="row">';
             foreach($products as $product)
             {
                 $output .= '
@@ -52,8 +72,7 @@ class SearchController extends Controller
                             </div>
                ';
             }
-            $output .= '</div>
-                     </div>';
+            $output .= '</div>';
 //            echo $output;
             return Response($output);
 

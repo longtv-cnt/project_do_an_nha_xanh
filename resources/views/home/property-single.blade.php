@@ -28,7 +28,6 @@
 <!--================Single Product Area =================-->
 <div class="product_image_area">
     <div class="container">
-        <div id="countryList">
         <div class="row s_product_inner">
             <div class="col-lg-6">
                 <div class="s_product_img">
@@ -150,7 +149,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>

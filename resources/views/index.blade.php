@@ -46,12 +46,6 @@
                                         </div>
                                     </td>
                                     <td>
-                                    <div class="form-group">
-                                        <label for="">Giá tiền</label>
-                                        <input type="number" class="form-control" name="giatien" placeholder="Nhập giá tiền">
-                                    </div>
-                                    </td>
-                                    <td>
                                         <div class="form-group">
                                             <label for="">Địa chỉ</label>
                                             <input type="text" class="form-control" name="diachi" rows="4" placeholder="Nhập địa chỉ">
@@ -63,9 +57,7 @@
                                             <label for="">Số phòng ngủ</label>
                                             <input type="number" class="form-control" name="sophongngu" placeholder="Nhập số phòng ngủ">
                                         </div>
-                                    </td>
 
-                                    <td>
                                         <div class="form-group">
                                             <label for="">Số phòng tắm</label>
                                             <input type="number" class="form-control" name="sophongtam" placeholder="Nhập số phòng tắm">
@@ -116,7 +108,9 @@
                                     </td>
                                     <td>
                                         <div class="form-group">
-                                            <button type="submit"> Tìm sản phẩm</button>
+                                            <h1 style=" margin-top: 28px; margin-left: 5px;">
+                                            <button type="submit" class="btn btn-primary btn-sm" style=" height: 50px; width: 120px; background-color:greenyellow; border-style: none; "><h2 style=" color: white; align-content: center">Search</h2></button>
+                                            </h1>
                                         </div>
                                     </td>
                                 </tr>
@@ -125,13 +119,11 @@
                         </table>
                     </div>
 
-                    <div class="latest_product_inner">
-                        <div class="row">
 
-                            <div id="countryList">
-                                <div class="row">
-                                    <p>Tìm thấy {{ $products->count() }} sản phẩm</p>
-                                    <div class="col-md-12" style="display: flex;flex-wrap:wrap">
+                    <div class="latest_product_inner">
+                        <div id="countryList">
+                            <p>Tìm thấy {{ $products->count() }} sản phẩm</p>
+                            <div class="row">
                                 @if ($products)
                                     @foreach ($products as $product)
                             <div class="col-lg-4 col-md-6">
@@ -167,8 +159,6 @@
                             </div>
                                     @endforeach
                                 @endif
-                                    </div>
-                                </div>
                             </div>
 
 
@@ -178,9 +168,31 @@
 
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
+
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
-                                <h3>Browse Categories</h3>
+                                <h3>Price Filter</h3>
+                            </div>
+                            <div class="widgets_inner">
+                                <div class="range_item">
+                                    <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                        <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 58.6%; width: 41.4%;"></div>
+                                        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 58.6%;"></span>
+                                        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span>
+                                    </div>
+                                    <div class="">
+                                        <label for="amount">Price : </label>
+                                        <input type="text" id="amount" readonly="">
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
+                                <h3 style=" margin-top: 28px; margin-left: 5px;">Filter
+                                    <button type="submit" class="btn btn-primary btn-sm" style=" height: 25px; width: 80px; background-color:greenyellow; border-style: none; "><h4 style=" color: white; align-content: center">Search</h4></button>
+                                </h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
@@ -259,23 +271,12 @@
                             </div>
                         </aside>
 
-                        <aside class="left_widgets p_filter_widgets">
-                            <div class="l_w_title">
-                                <h3>Price Filter</h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <div class="range_item">
-                                    <div id="slider-range"></div>
-                                    <div class="">
-                                        <label for="amount">Price : </label>
-                                        <input type="text" id="amount" readonly />
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
     </section>
 @endsection
