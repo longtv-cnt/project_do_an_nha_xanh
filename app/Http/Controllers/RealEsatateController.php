@@ -20,15 +20,7 @@ class RealEsatateController extends Controller
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
 
-        $standards = RealEstate::select('maduan')
-            ->groupBy('maduan')
-            ->get();
-
-        $results = RealEstate::select('maloai')
-            ->groupBy('maloai')
-            ->get();
-
-        return view('index', compact('standards', 'results','products','duans','typeproducts'));
+        return view('index', compact('products','duans','typeproducts'));
     }
 
     /**

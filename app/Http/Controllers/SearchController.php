@@ -27,7 +27,7 @@ class SearchController extends Controller
 
         return view('index', compact('products','duans','typeproducts'));
     }
-    
+
     function getSearchAjax(Request $request)
     {
         if($request->get('query'))
