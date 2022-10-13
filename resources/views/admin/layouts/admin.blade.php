@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/css/bootstrap-select.min.css">
 
 
 </head>
@@ -22,6 +23,7 @@
 @yield("content")
 @include("admin.partials.footer")
 </div>
+<script src="{{ asset('resources\js\baocao.js')}}"></script>
 
 <!-- jQuery -->
 <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
@@ -29,9 +31,6 @@
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
-{{-- <script src="{{ Html::script('https://code.jquery.com/jquery-3.1.1.min.js') }}">
-<script src="{{ Html::script('https://code.highcharts.com/highcharts.js') }}">
-<script src="{{ Html::script('https://code.highcharts.com/modules/exporting.js') }}">
-<script src="{{ Html::script('https://code.highcharts.com/modules/export-data.js') }}"> --}}
+
 </body>
 </html>
