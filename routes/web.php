@@ -156,3 +156,4 @@ Route::PATCH('/banners/update/{maphieu}', [bannersController::class,'update']);
 
 
 Route::get('/baocao', [baocaoController::class,'index'])->name('baocao');
+Route::get('baocao/chart',[baocaoController::class,'chart'])->name('baocao.chart');
