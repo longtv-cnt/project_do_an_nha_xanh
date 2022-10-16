@@ -6,6 +6,8 @@ use App\Models\RealEstate;
 use App\Models\Duan;
 use Illuminate\Http\Request;
 use App\Models\TypeProduct;
+use Illuminate\Support\Facades\DB;
+
 class RealEsatateController extends Controller
 {
     /**
@@ -16,11 +18,14 @@ class RealEsatateController extends Controller
     public function index()
     {
         //
-        $products = RealEstate::all();
+        $products = DB::table('sanpham_bds')
+            ->orderBy('giatien','ASC')
+            ->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-
-        return view('index', compact('products','duans','typeproducts'));
+        $title = 'Tất cả dự án';
+        $sapxep = 'Giá tăng dần';
+        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
     }
 
     /**

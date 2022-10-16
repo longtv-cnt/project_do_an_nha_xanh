@@ -50,15 +50,14 @@ Route::get('/login', function () {
 
 Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
-Route::post('/',[RealEsatateController::class,'filter'])->name('filter');
-
+Route::post('/',[SearchController::class,'filter'])->name('filter');
+Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
+Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
 Route::get('/gallery',function(){
     return view('admin.gallery.gallery');
 })->name('gallery');
 
 Route::get('/adminhome', [adminhomeController::class,'index'])->name('adminhome');
-
-
 
 Route::get('/duan', [du_anController::class,'index'])->name('duan');
 Route::get('/duan/create', [du_anController::class,'create'])->name('du_an.create');
