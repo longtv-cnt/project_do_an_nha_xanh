@@ -21,21 +21,43 @@
         </div>
     </section>
     <!--================End Home Banner Area =================-->
-
     <section class="cat_product_area section_gap">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="main_title">
+                        <h2><span>{{$title}}</span></h2>
+                        <p>Danh sách {{$title}}</p>
+                    </div>
+                </div>
+            </div>
             <div class="row flex-row-reverse">
                 <div class="col-lg-9">
                     <div class="product_top_bar">
                         <table class="table table-striped projects">
-                            <form action="{{ route('filter') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
                                 <tbody>
+
+                                <form action="{{ route('filter') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <tr>
+                                        <td>
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label for="sapxep">Sắp xếp theo:</label><br>
+                                                    <select name="sapxep" id="sapxep" class="sorting">
+                                                        <option value="">{{$sapxep}}</option>
+                                                        <option value="1">Giá tăng dần</option>
+                                                        <option value="2">Giá giảm dần</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
                                 <tr>
                                     <td>
                                         <div class="form-group">
                                             <label for="">Tên sản phẩm</label>
-                                            <input type="text" class="form-control" name="tensp" placeholder="Nhập tên sản phẩm">
+                                            <input type="text" class="form-control"  name="tensp" placeholder="Nhập tên sản phẩm">
                                         </div>
                                     </td>
 
@@ -52,6 +74,10 @@
                                         </div>
                                     </td>
 
+                                </tr>
+
+                                <tr>
+
                                     <td>
                                         <div class="form-group">
                                             <label for="">Số phòng ngủ</label>
@@ -64,48 +90,20 @@
                                         </div>
 
                                     </td>
-                                </tr>
 
-                                <tr>
                                     <td>
                                         <fieldset>
                                             <div class="form-group">
                                                 <fieldset>
                                                     <label for="">Diện tích</label>
                                                 </fieldset>
-                                                <input type="number" placeholder="Chiều dài" name="chieudai">
+                                                <input type="number" placeholder="Chiều dài" name="chieudai"><br>
                                                 <input type="number" placeholder="Chiều rộng" name="chieurong">
 
                                             </div>
                                         </fieldset>
                                     </td>
 
-                                    <td>
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <label for="duan">Dự án</label>
-                                                <select name="duan" id="duan" class="sorting">
-                                                    <option value="">Chọn dự án </option>
-                                                    @foreach ($duans as $duan)
-                                                        <option value="{{ $duan->ma_du_an }}">{{ $duan->tenduan }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </fieldset>
-                                    </td>
-                                    <td>
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <label for="type_product"> Chọn loại bất động sản</label>
-                                                <select name="type_product" id="type_product" class="sorting">
-                                                    <option value="">Chọn loại sản phẩm </option>
-                                                    @foreach ($typeproducts as $typeproduct)
-                                                        <option value="{{ $typeproduct->id }}">{{ $typeproduct->tenloai }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </fieldset>
-                                    </td>
                                     <td>
                                         <div class="form-group">
                                             <h1 style=" margin-top: 28px; margin-left: 5px;">
@@ -114,15 +112,15 @@
                                         </div>
                                     </td>
                                 </tr>
+                                </form>
                                 </tbody>
-                            </form>
                         </table>
                     </div>
 
 
                     <div class="latest_product_inner">
                         <div id="countryList">
-                            <p>Tìm thấy {{ $products->count() }} sản phẩm</p>
+                            <p>Tìm thấy {{ $products->count() }} sản phẩm thuộc {{$title}}: </p>
                             <div class="row">
                                 @if ($products)
                                     @foreach ($products as $product)
@@ -171,6 +169,40 @@
 
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
+                                <h3>Loại bất động sản</h3>
+                            </div>
+                            <div class="widgets_inner">
+                                <div class="range_item">
+                                    <div class="panel-group category-products" id="accordian">
+                                        @foreach($typeproducts as $key => $typeproduct)
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><a href="{{URL::to('/loaibds'.$typeproduct->id)}}">{{$typeproduct->tenloai}}</a></h3>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
+                                <h3>Các dự án</h3>
+                            </div>
+                            <div class="widgets_inner">
+                                <div class="range_item">
+                                    <div class="brands-name">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            @foreach($duans as $duan)
+                                                <li><a href="{{URL::to('/duan'.$duan->id)}}"> <span class="pull-right"></span>{{$duan->tenduan}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
                                 <h3>Price Filter</h3>
                             </div>
                             <div class="widgets_inner">
@@ -185,39 +217,6 @@
                                         <input type="text" id="amount" readonly="">
                                     </div>
                                 </div>
-                            </div>
-                        </aside>
-
-                        <aside class="left_widgets p_filter_widgets">
-                            <div class="l_w_title">
-                                <h3 style=" margin-top: 28px; margin-left: 5px;">Filter
-                                    <button type="submit" class="btn btn-primary btn-sm" style=" height: 25px; width: 80px; background-color:greenyellow; border-style: none; "><h4 style=" color: white; align-content: center">Search</h4></button>
-                                </h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">Frozen Fish</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dried Fish</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fresh Fish</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat Alternatives</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fresh Fish</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat Alternatives</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat</a>
-                                    </li>
-                                </ul>
                             </div>
                         </aside>
 
@@ -246,30 +245,6 @@
                             </div>
                         </aside>
 
-                        <aside class="left_widgets p_filter_widgets">
-                            <div class="l_w_title">
-                                <h3>Color Filter</h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">Black</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Black Leather</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="#">Black with red</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gold</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Spacegrey</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>
 
 
                     </div>
