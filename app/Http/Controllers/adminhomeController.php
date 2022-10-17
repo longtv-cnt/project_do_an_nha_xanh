@@ -36,7 +36,6 @@ class adminhomeController extends Controller
             // ->where('user_id', '>', 0)
             ->select('phanhoi.*', 'users.name','sanpham_bds.tensp')
             ->get();
-
         $khachhang_count = khachhang::count();
         $phanhoi_count = phanhoi::count();
         $phieuthu_count = phieuthu::count();
