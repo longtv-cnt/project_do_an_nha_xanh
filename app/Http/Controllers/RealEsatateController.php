@@ -81,9 +81,13 @@ class RealEsatateController extends Controller
      * @param  \App\Models\RealEstate  $realEstate
      * @return \Illuminate\Http\Response
      */
-    public function show(RealEstate $realEstate)
+    public function show($id)
     {
         //
+        $product = RealEstate::find($id);
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('product.detail', compact('product','duans','typeproducts'));
     }
 
     /**
@@ -119,4 +123,5 @@ class RealEsatateController extends Controller
     {
         //
     }
+
 }
