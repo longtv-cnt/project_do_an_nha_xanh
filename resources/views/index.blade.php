@@ -187,84 +187,37 @@
                             <div class="row">
                                 @if ($products)
                                     @foreach ($products as $product)
-
-                                            <div class="col-lg-4 col-md-6">
-<<<<<<< HEAD
-
-                                                <div class="single-product">
-                                                    <div class="product-img">
-                                                        @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                                                            <img class="card-img"
-                                                                src="{{ 'uploads/product/' . $product->anhsp }}"
-                                                                alt="" height="100px">
-                                                        @else
-                                                            <img class="card-img" src="{{ $product->anhsp }}" alt=""
-                                                                height="100px">
-                                                        @endif
-                                                        <div class="p_icon">
-                                                            <a href="#">
-                                                                <i class="ti-eye"></i>
-                                                            </a>
-                                                            <a href="#">
-                                                                <i class="ti-heart"></i>
-                                                            </a>
-                                                            <a href="#">
-                                                                <i class="ti-shopping-cart"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-btm">
-                                                        <a href="#" class="d-block">
-                                                            <h4>{{ $product->tensp }}</h4>
-                                                        </a>
-                                                        <div class="mt-3">
-                                                            <span
-                                                                class="mr-4">{{ number_format($product->giatien) . ' đồng' }}</span>
-                                                            {{-- <del>{{ $product->giatien .  ' đồng' }}</del> --}}
-                                                        </div>
-                                                        <a href="{{ route('sanpham.show', ['id' => $product->id]) }}">Chi tiết</a>
-                                                    </div>
-                                                </div>
-
-=======
-
-                                                <div class="single-product">
-                                                    <div class="product-img">
-                                                        @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                                                            <img class="card-img"
-                                                                src="{{ 'uploads/product/' . $product->anhsp }}"
-                                                                alt="" height="100px">
-                                                        @else
-                                                            <img class="card-img" src="{{ $product->anhsp }}" alt=""
-                                                                height="100px">
-                                                        @endif
-                                                        <div class="p_icon">
-                                                            <a href="#">
-                                                                <i class="ti-eye"></i>
-                                                            </a>
-                                                            <a href="#">
-                                                                <i class="ti-heart"></i>
-                                                            </a>
-                                                            <a href="#">
-                                                                <i class="ti-shopping-cart"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-btm">
-                                                        <a href="#" class="d-block">
-                                                            <h4>{{ $product->tensp }}</h4>
-                                                        </a>
-                                                        <div class="mt-3">
-                                                            <span
-                                                                class="mr-4">{{ number_format($product->giatien) . ' đồng' }}</span>
-                                                            {{-- <del>{{ $product->giatien .  ' đồng' }}</del> --}}
-                                                        </div>
-                                                        <a href="{{ route('sanpham.show', ['id' => $product->id]) }}">Chi tiết</a>
-                                                    </div>
-                                                </div>
-
->>>>>>> 2ba6a6c (demo chi tiet)
-
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
+                                            <img class="card-img" src="{{ 'uploads/product/'.$product->anhsp }}" alt="" height="100px">
+                                        @else
+                                            <img class="card-img" src="{{ $product->anhsp }}" alt="" height="100px">
+                                        @endif
+                                        <div class="p_icon">
+                                            <a href="#">
+                                                <i class="ti-eye"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="ti-heart"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="ti-shopping-cart"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-btm">
+                                        <a href="#" class="d-block">
+                                            <h4>{{ $product->tensp }}</h4>
+                                        </a>
+                                        <div class="mt-3">
+                                            <span class="mr-4">{{ number_format($product->giatien) . ' đồng' }}</span>
+                                            {{-- <del>{{ $product->giatien .  ' đồng' }}</del> --}}
+                                        </div>
+                                        <a href="{{ route('sanpham.show',['id'=>$product->id]) }}"> Chi tiết</a>
+                                    </div>
+                                </div>
                             </div>
                             @endforeach
                             @endif
