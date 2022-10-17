@@ -149,9 +149,10 @@
                                             <h4>{{ $product->tensp }}</h4>
                                         </a>
                                         <div class="mt-3">
-                                            <span class="mr-4">{{ $product->giatien . ' đồng' }}</span>
-                                            <del>{{ $product->giatien .  ' đồng' }}</del>
+                                            <span class="mr-4">{{ number_format($product->giatien) . ' đồng' }}</span>
+                                            {{-- <del>{{ $product->giatien .  ' đồng' }}</del> --}}
                                         </div>
+                                        <a href="{{ route('sanpham.show',['id'=>$product->id]) }}"> Chi tiết</a>
                                     </div>
                                 </div>
                             </div>
