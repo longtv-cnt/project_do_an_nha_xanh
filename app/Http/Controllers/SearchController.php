@@ -13,8 +13,8 @@ class SearchController extends Controller
 
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $products = RealEstate::where([
-            ['maduan', $request->maduan],
+        $products = RealEstate::where(
+            'maduan','like',"%{$request->maduan}%")->orWhere(
             ['maloai', $request->maloai],
             ['tensp', $request->tensp],
             ['chieudai', $request->chieudai],
@@ -23,7 +23,7 @@ class SearchController extends Controller
             ['sophongtam', $request->sophongtam],
             ['huong', $request->huongnha],
             ['diachi', $request->diachi],
-        ])->get();
+        )->get();
 
         return view('index', compact('products','duans','typeproducts'));
     }
@@ -43,7 +43,9 @@ class SearchController extends Controller
                 $output .= '
                         <div class="col-lg-4 col-md-6">
                                 <div class="single-product">
+                                
                                     <div class="product-img">
+
 
                                             <img class="card-img" src="uploads/product/'.$product->anhsp.'" alt="" height="150px">
 
@@ -64,7 +66,7 @@ class SearchController extends Controller
                                             <h4>'.$product->tensp.'</h4>
                                         </a>
                                         <div class="mt-3">
-                                            <span class="mr-4">'.$product->giatien.'  đồng</span>
+                                            <span class="mr-4">'.number_format($product->giatien).'  đồng</span>
                                             <del>'.$product->giatien.'  đồng</del>
                                         </div>
                                     </div>
