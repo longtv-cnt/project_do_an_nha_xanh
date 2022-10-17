@@ -31,6 +31,30 @@
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+<script type="text/javascript">
+
+    $('file').change(function() {
+        var error ='';
+        var files = $('file')[0].files;
+
+        if(files.length > 10) {
+            error+='<p>Chỉ được chọn tối đa 10 ảnh</p>';
+        }
+        eles if(files.length ==''){
+            error+='<p>Không Được Bỏ Trống</p>';
+        }
+        else if(files.size >10000000){
+            error+='<p>Ảnh Quá Lớn</p>';
+        }
+
+        if(error ==''){
+            $('#files'),val('');
+            $('#error_gallery').html('<span class="text-danger">error</span>');
+            return false;
+        }
+
+    });
+</script>
 
 </body>
 </html>

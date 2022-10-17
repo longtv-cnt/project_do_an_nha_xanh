@@ -18,6 +18,8 @@ use App\Http\Controllers\phieuthuController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\bannersController;
 use App\Http\Controllers\baocaoController;
+use App\Http\Controllers\galleryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +52,9 @@ Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 Route::post('/',[RealEsatateController::class,'filter'])->name('filter');
 
-// Route::get('/home',function(){
-//     return view('admin.home');
-// })->name('admin');
+Route::get('/gallery',function(){
+    return view('admin.gallery.gallery');
+})->name('gallery');
 
 Route::get('/adminhome', [adminhomeController::class,'index'])->name('adminhome');
 
@@ -157,3 +159,12 @@ Route::PATCH('/banners/update/{maphieu}', [bannersController::class,'update']);
 
 Route::get('/baocao', [baocaoController::class,'index'])->name('baocao');
 Route::get('baocao/chart',[baocaoController::class,'chart'])->name('baocao.chart');
+
+
+
+
+// Route::get('/gallery', [galleryController::class,'index'])->name('gallery');
+Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');;
+Route::post('/gallery/store', [galleryController::class, 'store'])->name('gallery.store');
+Route::post('/insert-gallery/{sanpham_id}', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
+

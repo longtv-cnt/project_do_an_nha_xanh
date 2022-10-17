@@ -91,9 +91,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('gallery')}}" class="nav-link">
                         <i class="fa fa-id-card-o"></i>
-                        <p>Nhân Viên</p>
+                        <p>Gallery</p>
                         </a>
                     </li>
                     <li class="nav-item">
