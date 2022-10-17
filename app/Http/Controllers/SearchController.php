@@ -44,7 +44,7 @@ class SearchController extends Controller
         return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
     }
 
-    public function loaibds($maloai)
+    public function loaibds( Request $request,$maloai)
     {
         $products = DB::table('sanpham_bds')
             ->where('maloai',$maloai)
@@ -52,9 +52,17 @@ class SearchController extends Controller
             ->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $title = $typeproducts[$maloai-1]->tenloai;
-        $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
+        $products = RealEstate::where([
+            ['maduan', $request->maduan],
+            ['maloai', $request->maloai],
+            ['tensp', $request->tensp],
+            ['chieudai', $request->chieudai],
+            ['chieurong', $request->chieurong],
+            ['sophongngu', $request->sophongngu],
+            ['sophongtam', $request->sophongtam],
+            ['huong', $request->huongnha],
+            ['diachi', $request->diachi],
+        ])->get();
     }
 
     public function duan($maduan)
@@ -92,14 +100,11 @@ class SearchController extends Controller
                 $output .= '
                         <div class="col-lg-4 col-md-6">
                                 <div class="single-product">
-                                    <div class="product-img">';
-                                        if(file_exists(public_path('uploads/product/'.$product->anhsp))){
-                                            $output .= '<img class="card-img" src="uploads/product/'.$product->anhsp.'" alt="" height="100px"></img>';
-                                        }
-                                        else{
-                                            $output .= '<img class="card-img" src="'.$product->anhsp.'" alt="" height="100px"></img>';
-                                        }
-                         $output .='    <div class="p_icon">
+                                    <div class="product-img">
+
+                                            <img class="card-img" src="uploads/product/'.$product->anhsp.'" alt="" height="150px">
+
+                                        <div class="p_icon">
                                             <a href="#">
                                                 <i class="ti-eye"></i>
                                             </a>
@@ -116,7 +121,7 @@ class SearchController extends Controller
                                             <h4>'.$product->tensp.'</h4>
                                         </a>
                                         <div class="mt-3">
-                                            <span class="mr-4">'.$product->giatien.'  đồng</span>
+                                            <span class="mr-4">'.number_format($product->giatien).'  đồng</span>
                                             <del>'.$product->giatien.'  đồng</del>
                                         </div>
                                     </div>

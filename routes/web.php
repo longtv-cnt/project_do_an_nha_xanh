@@ -120,7 +120,7 @@ Route::post('/sanpham_bds/store', [sanpham_bdsController::class,'store'])->name(
 Route::DELETE('/sanpham_bds/destroy/{id}', [sanpham_bdsController::class,'destroy']);
 Route::get('/sanpham_bds/edit/{id}', [sanpham_bdsController::class,'edit'])->name('sanpham_bds.edit');
 Route::PATCH('/sanpham_bds/update/{id}', [sanpham_bdsController::class,'update']);
-
+Route::get('/sanpham_bds/show/{id}', [RealEsatateController::class,'show'])->name('sanpham.show');
 
 Route::get('/phanhoi', [phanhoiController::class,'index'])->name('phanhoi');
 Route::get('/phanhoi/create', [phanhoiController::class,'create'])->name('phanhoi.create');
