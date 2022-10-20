@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
 use App\Models\gallery;
-use App\Models\sanpham_bds;
+use App\Models\RealEstate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,13 +17,15 @@ class galleryController extends Controller
      */
     public function index()
     {
+
+        $products=RealEstate::all();
         $gallery = DB::table('gallery')->select('*');
         $gallery = $gallery->get();
         $sanpham_id = DB::table('gallery')
         ->join('sanpham_bds', 'gallery.sanpham_id', '=', 'sanpham_bds.id')
         ->select('gallery.*', 'sanpham_bds.id')
         ->get();
-        return view('admin.gallery.gallery',compact('gallery','sanpham_id'));
+        return view('admin.gallery.gallery',compact('gallery','sanpham_id','products',));
     }
 
 
