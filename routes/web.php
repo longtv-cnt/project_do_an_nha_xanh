@@ -53,11 +53,13 @@ Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 Route::post('/',[SearchController::class,'filter'])->name('filter');
 Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
 Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
-Route::get('/gallery',function(){
-    return view('admin.gallery.gallery');
-})->name('gallery');
+// Route::get('/home',function(){
+//     return view('admin.home');
+// })->name('admin');
 
 Route::get('/adminhome', [adminhomeController::class,'index'])->name('adminhome');
+
+
 
 Route::get('/duan', [du_anController::class,'index'])->name('duan');
 Route::get('/duan/create', [du_anController::class,'create'])->name('du_an.create');
@@ -122,7 +124,7 @@ Route::post('/sanpham_bds/store', [sanpham_bdsController::class,'store'])->name(
 Route::DELETE('/sanpham_bds/destroy/{id}', [sanpham_bdsController::class,'destroy']);
 Route::get('/sanpham_bds/edit/{id}', [sanpham_bdsController::class,'edit'])->name('sanpham_bds.edit');
 Route::PATCH('/sanpham_bds/update/{id}', [sanpham_bdsController::class,'update']);
-Route::get('/sanpham_bds/show/{id}', [RealEsatateController::class,'show'])->name('sanpham.show');
+
 
 Route::get('/phanhoi', [phanhoiController::class,'index'])->name('phanhoi');
 Route::get('/phanhoi/create', [phanhoiController::class,'create'])->name('phanhoi.create');
