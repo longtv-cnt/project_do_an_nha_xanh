@@ -5,12 +5,51 @@ use App\Models\Duan;
 use App\Models\RealEstate;
 use App\Models\TypeProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
+
     public function filter(Request $request)
     {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        if($request->sapxep == 1){
+            $products = DB::table('sanpham_bds')
+                ->orwhere('tensp','like', "%{$request->tensp}%")
+                ->orwhere('chieudai','like', "%{$request->chieudai}%")
+                ->orwhere('chieurong','like', "%{$request->chieurong}%")
+                ->orwhere('sophongngu','like', "%{$request->sophongngu}%")
+                ->orwhere('sophongtam','like', "%{$request->sophongtam}%")
+                ->orwhere('huong','like', "%{$request->huongnha}%")
+                ->orwhere('diachi','like', "%{$request->diachi}%")
+                ->orderBy('giatien','ASC')
+                ->get();
+            $sapxep = 'Giá tăng dần';
+        }else{
+            $products = DB::table('sanpham_bds')
+                ->orwhere('tensp','like', "%{$request->tensp}%")
+                ->orwhere('chieudai','like', "%{$request->chieudai}%")
+                ->orwhere('chieurong','like', "%{$request->chieurong}%")
+                ->orwhere('sophongngu','like', "%{$request->sophongngu}%")
+                ->orwhere('sophongtam','like', "%{$request->sophongtam}%")
+                ->orwhere('huong','like', "%{$request->huongnha}%")
+                ->orwhere('diachi','like', "%{$request->diachi}%")
+                ->orderBy('giatien','DESC')
+                ->get();
+            $sapxep = 'Giá giảm dần';
+        }
 
+        $title = 'Tất cả dự án';
+        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
+    }
+
+    public function loaibds( Request $request,$maloai)
+    {
+        $products = DB::table('sanpham_bds')
+            ->where('maloai',$maloai)
+            ->orderBy('giatien','ASC')
+            ->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $products = RealEstate::where([
@@ -24,8 +63,19 @@ class SearchController extends Controller
             ['huong', $request->huongnha],
             ['diachi', $request->diachi],
         ])->get();
+    }
 
-        return view('index', compact('products','duans','typeproducts'));
+    public function duan($maduan)
+    {
+        $products = DB::table('sanpham_bds')
+            ->where('maduan',$maduan)
+            ->orderBy('giatien','ASC')
+            ->get();
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $title = $duans[$maduan-1]->tenduan;
+        $sapxep = 'Giá tăng dần';
+        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
     }
 
     function getSearchAjax(Request $request)
@@ -33,9 +83,16 @@ class SearchController extends Controller
         if($request->get('query'))
         {
             $query = $request->get('query');
-            $products = RealEstate::where('tensp', 'LIKE', "%{$query}%")
-                ->orWhere('chieudai', 'LIKE', "%{$query}%")
-                ->orWhere('chieurong', 'LIKE', "%{$query}%")->get();
+            $products = RealEstate::where('maduan','like', "%{$query}%")
+                ->orwhere('maloai', 'like', "%{$query}%")
+                ->orwhere('tensp', 'like', "%{$query}%")
+                ->orwhere('chieudai','like', "%{$query}%")
+                ->orwhere('chieurong','like', "%{$query}%")
+                ->orwhere('sophongngu','like', "%{$query}%")
+                ->orwhere('sophongtam','like', "%{$query}%")
+                ->orwhere('huong','like', "%{$query}%")
+                ->orwhere('diachi','like', "%{$query}%")
+                ->get();
             $output = ' <p>Tìm thấy '.$products->count().' sản phẩm</p>
                             <div class="row">';
             foreach($products as $product)
@@ -64,7 +121,7 @@ class SearchController extends Controller
                                             <h4>'.$product->tensp.'</h4>
                                         </a>
                                         <div class="mt-3">
-                                            <span class="mr-4">'.$product->giatien.'  đồng</span>
+                                            <span class="mr-4">'.number_format($product->giatien).'  đồng</span>
                                             <del>'.$product->giatien.'  đồng</del>
                                         </div>
                                     </div>
@@ -78,6 +135,8 @@ class SearchController extends Controller
 
         }
     }
+
+
 
 }
 
