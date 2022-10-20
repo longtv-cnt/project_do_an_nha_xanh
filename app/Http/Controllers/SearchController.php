@@ -69,7 +69,10 @@ class SearchController extends Controller
         $sapxep = 'Giá tăng dần';
         return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
     }
-
+    public function trangchu()
+    {
+        return view('trangchu');
+    }
     function getSearchAjax(Request $request)
     {
         if($request->get('query'))

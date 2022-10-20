@@ -51,6 +51,7 @@ Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
 Route::post('/',[SearchController::class,'filter'])->name('filter');
 Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
 Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
+Route::get('/test',[SearchController::class,'trangchu'])->name('test');
 // Route::get('/home',function(){
 //     return view('admin.home');
 // })->name('admin');
