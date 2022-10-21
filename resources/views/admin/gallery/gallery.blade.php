@@ -61,7 +61,7 @@
                                                 @endif
 
                                                 <div class="card-body">
-                                                    <a onclick="return confirm('Are you sure?')"
+                                                    <a onclick="return confirm('Bạn có thực sự muốn xóa?')"
                                                       href="{{route('gallery.delete',
                                                        ['id'=>$item->id])}}">
                                                        <i class="fa fa-trash"></i></a>
