@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Gallery</h3>
                 </div>
-                <form action="{{ url('/insert-gallery', $sanpham_id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/insert-gallery') }}" class="mb-3" method="POST" enctype="multipart/form-data">
                     {{-- <form method="post" action="/loaitintuc/update/{{ $loaitintuc->id }}">"/insert-gallery,{{$sanpham_id}}"
             <form action={{route('loaiquyenhan.store')}} method="POST" > --}}
                     @csrf
@@ -23,9 +23,13 @@
                         </div>
                         <div class="col-md-3">
 
-                            <input type="text" name="sanpham_id" class="form-control" placeholder="Nhập Mã Sản Phẩm "
-                                value="">
-                            <input type="text" name="id" class="form-control" placeholder="Nhập Mã " value="">
+                            <select name="sanpham_id"  >
+                                <option value="choose">Chọn sản phẩm</option>
+                                @foreach ($products as $item)
+                                    <option value="{{ $item->id }}">{{ $item->tensp }}</option>
+                                @endforeach
+                            </select>
+                            <input type="text" name="id" class="form-control" placeholder="Nhập Mã " value="" hidden>
                         </div>
                         <div class="col-md-3">
                             <input type="submit" name="upload" name="taianh" value="Tải Ảnh" class="btn btn-success">
@@ -57,8 +61,10 @@
                                                 @endif
 
                                                 <div class="card-body">
-                                                    <a href="{{ url('/delete-gallery', $item->id) }}"
-                                                        class="btn btn-danger">Xóa</a>
+                                                    <a onclick="return confirm('Are you sure?')"
+                                                      href="{{route('gallery.delete',
+                                                       ['id'=>$item->id])}}">
+                                                       <i class="fa fa-trash"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +74,7 @@
                         </div>
                 </div>
                 @endforeach
-               
+
             </div>
 
 

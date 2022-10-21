@@ -92,9 +92,21 @@ class galleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // confirm that the user really wants to delete the record js
+        
+      $gallery = gallery::find($id);
+
+      $image_path = public_path('store/'.$gallery->image);
+        if(file_exists($image_path)){
+            unlink($image_path);
+        }
+        $gallery->delete();
+        Session::flash('success', 'Xóa thành công');
+        return redirect()->back();
+
     }
-    public function insert_gallery(Request $request, $sanpham_id){
+
+    public function insert_gallery(Request $request, ){
         // $get_image = $request->file('file');
         // if($get_image){
         //     foreach($get_image as $image){
@@ -127,6 +139,7 @@ class galleryController extends Controller
         }
         $gallery->sanpham_id = $request->sanpham_id;
         $gallery->save();
+
         return redirect()->route('gallery');
 
     }
