@@ -10,6 +10,9 @@
       <div class="card-header">
         <h3 class="card-title">Tin Tức</h3>
       </div>
+      <div class="card-tools">
+          <a class="btn btn-success" href="{{route('tintuc.create')}}"> Thêm Tin tức</a>
+      </div>
       <div class="card-body p-0">
         <table class="table table-striped projects">
             <thead>
