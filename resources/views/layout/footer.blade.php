@@ -1,70 +1,29 @@
-<footer class="footer-area section_gap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-md-6 single-footer-widget">
-                <h4>Top Products</h4>
-                <ul>
-                    <li><a href="#">Managed Website</a></li>
-                    <li><a href="#">Manage Reputation</a></li>
-                    <li><a href="#">Power Tools</a></li>
-                    <li><a href="#">Marketing Service</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 single-footer-widget">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Brand Assets</a></li>
-                    <li><a href="#">Investor Relations</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 single-footer-widget">
-                <h4>Features</h4>
-                <ul>
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Brand Assets</a></li>
-                    <li><a href="#">Investor Relations</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 single-footer-widget">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Guides</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">Experts</a></li>
-                    <li><a href="#">Agencies</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 single-footer-widget">
-                <h4>Newsletter</h4>
-                <p>You can trust us. we only send promo offers,</p>
-                <div class="form-wrap" id="mc_embed_signup">
-                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                          method="get" class="form-inline">
-                        <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''"
-                               onblur="this.placeholder = 'Your Email Address '" type="email">
-                        <button class="click-btn btn btn-default">Subscribe</button>
-                        <div style="position: absolute; left: -5000px;">
-                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                        </div>
+<footer id="footer" class="footer solid-bg footer-outline-decoration">
 
-                        <div class="info"></div>
-                    </form>
+
+    <!-- !Bottom-bar -->
+    <div id="bottom-bar" class="solid-bg" role="contentinfo">
+        <div class="wf-wrap">
+            <div class="wf-container-bottom">
+                <div class="wf-table wf-mobile-collapsed">
+
+
+                    <div class="wf-td">
+                        <div class="wf-float-left">
+
+                            Copyright © 2022. All Rights Reserved.
+                        </div>
+                    </div>
+
+
+                    <div class="wf-td">
+
+                        <div class="mini-nav wf-float-right"><ul id="bottom-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3298 first"><a href='https://aquacityvn.vn/' data-level='1'><span class="menu-item-text"><span class="menu-text">Aqua City</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5209"><a href='https://aquacityvn.vn/novaworld-ho-tram/' data-level='1'><span class="menu-item-text"><span class="menu-text">NovaWorld Hồ Tràm</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3870"><a href='https://aquacityvn.vn/novaworld-phan-thiet-1/' data-level='1'><span class="menu-item-text"><span class="menu-text">Novaworld Phan Thiết</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3259"><a href='https://aquacityvn.vn/chinh-sach-bao-mat/' data-level='1'><span class="menu-item-text"><span class="menu-text">Chính sách bảo mật</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3260"><a href='https://aquacityvn.vn/dieu-khoan-su-dung/' data-level='1'><span class="menu-item-text"><span class="menu-text">Điều khoản sử dụng</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3862 has-children"><a href='https://aquacityvn.vn/thong-tin-lien-he/' data-level='1'><span class="menu-item-text"><span class="menu-text">Thông tin liên hệ</span></span></a><ul class="sub-nav hover-style-bg level-arrows-on"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5250 first"><a href='https://theclassiavn.vn' data-level='2'><span class="menu-item-text"><span class="menu-text">The Classia</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5251"><a href='https://venezia-binhchau.com.vn' data-level='2'><span class="menu-item-text"><span class="menu-text">Venezia Beach</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5252"><a href='https://izumicityvn.vn' data-level='2'><span class="menu-item-text"><span class="menu-text">Izumi City</span></span></a></li> </ul></li> </ul><div class="menu-select"><span class="customSelect1"><span class="customSelectInner">VIN: 180318</span></span></div></div>
+                    </div>
+
+
                 </div>
-            </div>
-        </div>
-        <div class="footer-bottom row align-items-center">
-            <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            <div class="col-lg-4 col-md-12 footer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-behance"></i></a>
-            </div>
-        </div>
-    </div>
-</footer>
+            </div><!-- .wf-container-bottom -->
+        </div><!-- .wf-wrap -->
+    </div><!-- #bottom-bar -->
+</footer><!-- #footer -->

@@ -42,17 +42,19 @@ class SearchController extends Controller
         return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
     }
 
-    public function loaibds($maloai)
+    public function loaibds($maloai, $maduan)
     {
         $products = DB::table('sanpham_bds')
             ->where('maloai',$maloai)
+            ->where('maduan',$maduan)
             ->orderBy('giatien','ASC')
             ->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $title = $typeproducts[$maloai-1]->tenloai;
+        $title = $duans[$maduan-1]->tenduan;
+        $loaibds = $typeproducts[$maloai-1]->tenloai;
         $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
+        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
     }
 
     public function duan($maduan)
@@ -64,13 +66,56 @@ class SearchController extends Controller
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $title = $duans[$maduan-1]->tenduan;
+        $loaibds = 'Tất cả sản phẩm';
         $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
+        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
     }
 
-    public function trangchu()
+    public function gioithieu($maloai)
     {
-        return view('trangchu');
+        if($maloai == 1){
+            $contents = 'nhà riêng';
+        }
+        if($maloai == 2){
+            $contents = 'aa';
+        }
+        if($maloai == 3){
+            $contents = 'aa';
+        }
+        if($maloai == 4){
+            $contents = 'aa';
+        }
+        if($maloai == 5){
+            $contents = 'aa';
+        }
+        if($maloai == 6){
+            $contents = 'aa';
+        }
+        if($maloai == 7){
+            $contents = 'aa';
+        }
+        if($maloai == 8){
+            $contents = 'aa';
+        }
+        if($maloai == 9){
+            $contents = 'aa';
+        }
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('gioithieu', compact('contents','duans','typeproducts'));
+    }
+
+    public function lienhe()
+    {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('lienhe',compact('duans','typeproducts'));
+    }
+    public function tuyendung()
+    {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('tuyendung',compact('duans','typeproducts'));
     }
     function getSearchAjax(Request $request)
     {
