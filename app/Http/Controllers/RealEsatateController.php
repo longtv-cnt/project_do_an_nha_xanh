@@ -24,8 +24,9 @@ class RealEsatateController extends Controller
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $title = 'Tất cả dự án';
+        $loaibds = 'Tất cả sản phẩm';
         $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'sapxep'));
+        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
     }
 
     /**
