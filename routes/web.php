@@ -49,12 +49,16 @@ Route::get('/login', function () {
     return view('login.login');
 })->name('login');
 
-Route::get('/', [RealEsatateController::class, 'index'])->name('home');
-Route::post('/name', [SearchController::class, 'getSearchAjax'])->name('search');
-Route::post('/', [SearchController::class, 'filter'])->name('filter');
-Route::get('/loaibds{maloai}', [SearchController::class, 'loaibds'])->name('home.loaibds');
-Route::get('/duan{maduan}', [SearchController::class, 'duan'])->name('home.duan');
-Route::get('/test', [SearchController::class, 'trangchu'])->name('test');
+Route::get('/',[RealEsatateController::class,'index'])->name('home');
+Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
+Route::post('/',[SearchController::class,'filter'])->name('filter');
+Route::get('/loaibds{maloai}duan{maduan}',[SearchController::class,'loaibds'])->name('home.loaibds');
+Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
+Route::get('/gioithieu/loaibds{maloai}',[SearchController::class,'gioithieu'])->name('gioithieu');
+Route::get('/lienhe/',[SearchController::class,'lienhe'])->name('lienhe');
+Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung');
+
+
 // Route::get('/home',function(){
 //     return view('admin.home');
 // })->name('admin');
