@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-md-3">
 
-                            <select name="sanpham_id"  >
+                            <select name="sanpham_id">
                                 <option value="choose">Chọn sản phẩm</option>
                                 @foreach ($products as $item)
                                     <option value="{{ $item->id }}">{{ $item->tensp }}</option>
@@ -42,7 +42,7 @@
                     @foreach ($products as $row)
                         <div class="card-header ">
                             @if (in_array($row->id, $gallery->pluck('sanpham_id')->toArray()))
-                                <h3 class="text-danger">{{ $row->id }}</h3>
+                                <h3 style="align-content: left" class="text-danger ">{{ $row->id }}</h3>
                             @endif
 
                         </div>

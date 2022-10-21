@@ -27,7 +27,7 @@ class tintucController extends Controller
      */
     public function create()
     {
-        return view('admin.tintuc.tintuc');
+        return view('admin.tintuc.create');
     }
 
     /**
