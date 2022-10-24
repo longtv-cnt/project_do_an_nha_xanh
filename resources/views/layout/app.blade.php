@@ -285,7 +285,9 @@
                background-color:#e60f1e;
            }.echbay-sms-messenger div.phonering-alo-zalo{
                 background-image:url("https://aquacityvn.vn/wp-content/plugins/echbay-phonering-alo/images/zalo.png");
-            }</style></head>
+            }</style>
+    <link rel="stylesheet" href="style.css" />
+</head>
 <body data-rsssl=1 class="page-template-default page page-id-4396 slideshow-on disabled-hover-icons click-effect-on-img srcset-enabled btn-ios custom-btn-color custom-btn-hover-color footer-overlap contact-form-ios outlines-bullets light-icons phantom-slide phantom-line-decoration phantom-custom-logo-on floating-mobile-menu-icon top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right layzr-loading-on wpb-js-composer js-comp-ver-4.12.1 vc_responsive accent-portfolio-icons album-minuatures-style-1">
 <div id="load" class="spinner-loader">
     <div class="load-wrap"></div>
@@ -319,6 +321,7 @@
         <!-- Header -->
         @include('layout.nav')
 
+
     </div><div class='dt-close-mobile-menu-icon'><span></span></div>
     <div class='dt-mobile-header'>
         <ul id="mobile-menu" class="mobile-main-nav" role="menu">
@@ -343,8 +346,6 @@
 
 
                     </div><!-- #content -->
-
-
 
 
                 </div><!-- .wf-container -->
@@ -481,6 +482,93 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
         <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/873703036/?guid=ON&amp;script=0"/>
     </div>
 </noscript>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.14.4/jquery.min.js"></script>
+<!-- ajaxsearch-->
+<script>
+    $(document).ready(function(){
+
+        $('#country_name').keyup(function(){ //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
+            var query = $(this).val(); //lấy gía trị ng dùng gõ
+            if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
+            {
+                var _token = $('input[name="_token"]').val(); // token để mã hóa dữ liệu
+                $.ajax({
+                    url:"{{ route('search') }}", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+                    method:"POST", // phương thức gửi dữ liệu.
+                    data:{query:query, _token:_token},
+                    success:function(data){ //dữ liệu nhận về
+                        $('#countryList').fadeIn();
+                        $('#countryList').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', 'li', function(){
+            $('#country_name').val($(this).text());
+            $('#countryList').fadeOut();
+        });
+
+    });
+</script>
+<!-- ajaxfilter-->
+
+{{--<script type="text/javascript">--}}
+{{--    $(document).ready(function() {--}}
+{{--        $("#filter").click(function(e){--}}
+{{--            e.preventDefault();--}}
+{{--            var sapxep = $("select[name='sapxep']").val();--}}
+{{--            var diachi = $("select[name='diachi']").val();--}}
+{{--            var maduan = $("select[name='maduan']").val();--}}
+{{--            var maloai = $("select[name='huongnha']").val();--}}
+{{--            var huongnha = $("select[name='maloai']").val();--}}
+{{--            var tensp = $("input[name='tensp']").val();--}}
+{{--            $.ajax({--}}
+{{--                url: "{{ route('filter') }}",--}}
+{{--                type:'POST',--}}
+{{--                data: { sapxep:sapxep, diachi:diachi, maduan:maduan, maloai:maloai, huongnha:huongnha, tensp:tensp},--}}
+{{--                success:function(data){ //dữ liệu nhận về--}}
+{{--                    $('#countryList').fadeIn();--}}
+{{--                    $('#countryList').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList--}}
+
+{{--                }--}}
+{{--            });--}}
+{{--        });--}}
+
+{{--        $(document).on('click', 'li', function(){--}}
+{{--            $("#filter").val($(this).text());--}}
+{{--            $('#countryList').fadeOut();--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
+<script>
+    function filter_data(){
+        $('#countryList').html('<div id="countryList"></div>');
+        var sapxep = $("select[name='sapxep']").val();
+        var diachi = $("select[name='diachi']").val();
+        var maduan = $("select[name='maduan']").val();
+        var maloai = $("select[name='huongnha']").val();
+        var huongnha = $("select[name='maloai']").val();
+        var tensp = $("input[name='tensp']").val();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{ route('filter') }}",
+            type: 'POST',
+            data: { sapxep:sapxep, diachi:diachi, maduan:maduan, maloai:maloai, huongnha:huongnha, tensp:tensp},
+            success:function(data){
+                $('#countryList').html(data);
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
