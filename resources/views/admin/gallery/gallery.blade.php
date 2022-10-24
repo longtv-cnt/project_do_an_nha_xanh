@@ -11,8 +11,6 @@
                     <h3 class="card-title">Gallery</h3>
                 </div>
                 <form action="{{ url('/insert-gallery') }}" class="mb-3" method="POST" enctype="multipart/form-data">
-                    {{-- <form method="post" action="/loaitintuc/update/{{ $loaitintuc->id }}">"/insert-gallery,{{$sanpham_id}}"
-            <form action={{route('loaiquyenhan.store')}} method="POST" > --}}
                     @csrf
                     <div class="row">
 
@@ -29,7 +27,6 @@
                                     <option value="{{ $item->id }}">{{ $item->tensp }}</option>
                                 @endforeach
                             </select>
-                            <input type="text" name="id" class="form-control" placeholder="Nhập Mã " value="" hidden>
                         </div>
                         <div class="col-md-3">
                             <input type="submit" name="upload" name="taianh" value="Tải Ảnh" class="btn btn-success">
@@ -38,14 +35,16 @@
 
                 </form>
 
-                <div class="row text-white bg-dark">
+                <div class="col-12">
                     @foreach ($products as $row)
-                        <div class="card-header ">
+                    <div class="card card-primary">
+                        <div class="card-header">
                             @if (in_array($row->id, $gallery->pluck('sanpham_id')->toArray()))
-                                <h3 style="align-content: left" class="text-danger ">{{ $row->id }}</h3>
+                                <h1 style="align-content: left" class="card-title" class="text-danger ">{{ $row->id }}-{{ $row->tensp }}</h1>
                             @endif
-
                         </div>
+                    </div>
+                        <div class="card-body">
                         <div class="container">
                             @if ($row->gallery)
                                 <div class="row" style="display: flex; justify-content: center">
@@ -70,15 +69,10 @@
                                         </div>
                                     @endforeach
                             @endif
-
+                                </div>
                         </div>
                 </div>
                 @endforeach
-
-            </div>
-
-
-
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
