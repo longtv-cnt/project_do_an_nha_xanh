@@ -12,7 +12,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/css/bootstrap-select.min.css">
-
+    @yield("css")
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -55,6 +55,10 @@
 
     });
 </script>
+<div>
+    
+    @yield("script")
+</div>
 
 </body>
 </html>

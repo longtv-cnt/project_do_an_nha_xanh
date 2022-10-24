@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\tintuc;
 use Illuminate\Http\Request;
+use App\Models\loaitintuc;
 use Illuminate\Support\Facades\DB;
 
 class tintucController extends Controller
@@ -27,7 +28,9 @@ class tintucController extends Controller
      */
     public function create()
     {
-        return view('admin.tintuc.create');
+        $loaitin = loaitintuc::all();
+        return view('admin.tintuc.create', compact('loaitin'));
+
     }
 
     /**
@@ -40,11 +43,12 @@ class tintucController extends Controller
     {
         $data = $request->all();
         $tintuc = new tintuc();
-        $tintuc->id=$data['id'];
-        $tintuc->loaitin=$data['loaitin'];
-        $tintuc->manguoidang=$data['manguoidang'];
-        $tintuc->noidung=$data['noidung'];
-        $tintuc->ngaydang=$data['ngaydang'];
+
+        $tintuc->tentin = $request->tentin;
+        $tintuc->loaitin = $request->loaitin;
+        $tintuc->noidung = $request->noidung;
+        $tintuc->ngaydang = date('Y-m-d');
+        $tintuc->manguoidang=1;
         $tintuc->save();
         return redirect()->back();
     }

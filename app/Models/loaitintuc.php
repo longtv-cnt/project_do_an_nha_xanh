@@ -11,4 +11,7 @@ class loaitintuc extends Model
     protected $primaryKey = 'id';
     protected $table='loaitintuc';
     public $timestamps = false;
+    public function tintuc(){
+        return $this->hasMany('App\Models\tintuc');
+    }
 }

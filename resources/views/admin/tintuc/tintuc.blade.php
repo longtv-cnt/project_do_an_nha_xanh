@@ -23,7 +23,9 @@
                     <th>
                         Mã Loại Tin Tức
                     </th>
-                    <th>
+                    {{-- <th>
+                        Tên Tin Tức
+                    <th> --}}
                         Mã Người Đăng
                     </th>
                     <th>
@@ -73,6 +75,9 @@
                         Mã Loại Tin Tức
                     </th>
                     <th>
+                        tiêu đề
+                    </th>
+                    <th>
                         Mã Người Đăng
                     </th>
                     <th >
@@ -93,8 +98,9 @@
                 <tr>
                         <td>{{$row->id}}</td>
                         <td>{{$row->loaitin}}</td>
+                        <td>{{$row->tentin}}</td>
                         <td>{{$row->manguoidang}}</td>
-                        <td>{{$row->noidung}}</td>
+                        <td>{{$row->tentin}}</td>
                         <td>{{$row->ngaydang}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
