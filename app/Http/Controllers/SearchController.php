@@ -233,44 +233,44 @@ class SearchController extends Controller
 //            echo $output;
         return Response($output);
     }
-//    public function sviproizvodi(){
-//        $products = DB::table('products as p')->join('product_attributes as pa','p.id','=','pa.product_id')->select('p.*','pa.size')->where('p.status', 1)->groupBy('p.id');
-//
-//        if (isset($request->minimum_price) && isset($request->maximum_price)) {
-//            $products->whereBetween('p.price', [$request->minimum_price, $request->maximum_price]);
-//        }
-//        if (isset($request->brand)) {
-//            $products->whereIn('p.brand_id', $request->brand);
-//        }
-//        if (isset($request->cat)) {
-//            $products->whereIn('p.category_id', $request->cat);
-//        }
-//        if (isset($request->orderby)) {
-//            if ($request->orderby == "standardno") {
-//                $products->orderBy('p.id','desc');
-//            }
-//            if ($request->orderby == "istaknute") {
-//                $products->orderBy('p.featured','desc');
-//            }
-//            if ($request->orderby == "novi") {
-//                $products->orderBy('p.id','desc');
-//            }
-//            if ($request->orderby == "cijena1") {
-//                $products->orderBy('p.price','asc');
-//            }
-//            if ($request->orderby == "cijena2") {
-//                $products->orderBy('p.price','desc');
-//            }
-//            if (isset($request->size)) {
-//                $products->whereIn('pa.size', $request->size);
-//            }
-//            if (isset($request->color)) {
-//                $products->whereIn('pa.color', $request->color);
-//            }
-//        }
-//        $proizvodi = $products->paginate(15);
-//        return view('products',compact('proizvodi'));
-//    }
+    public function sviproizvodi(){
+        $products = DB::table('products as p')->join('product_attributes as pa','p.id','=','pa.product_id')->select('p.*','pa.size')->where('p.status', 1)->groupBy('p.id');
+
+        if (isset($request->minimum_price) && isset($request->maximum_price)) {
+            $products->whereBetween('p.price', [$request->minimum_price, $request->maximum_price]);
+        }
+        if (isset($request->brand)) {
+            $products->whereIn('p.brand_id', $request->brand);
+        }
+        if (isset($request->cat)) {
+            $products->whereIn('p.category_id', $request->cat);
+        }
+        if (isset($request->orderby)) {
+            if ($request->orderby == "standardno") {
+                $products->orderBy('p.id','desc');
+            }
+            if ($request->orderby == "istaknute") {
+                $products->orderBy('p.featured','desc');
+            }
+            if ($request->orderby == "novi") {
+                $products->orderBy('p.id','desc');
+            }
+            if ($request->orderby == "cijena1") {
+                $products->orderBy('p.price','asc');
+            }
+            if ($request->orderby == "cijena2") {
+                $products->orderBy('p.price','desc');
+            }
+            if (isset($request->size)) {
+                $products->whereIn('pa.size', $request->size);
+            }
+            if (isset($request->color)) {
+                $products->whereIn('pa.color', $request->color);
+            }
+        }
+        $proizvodi = $products->paginate(15);
+        return view('products',compact('proizvodi'));
+    }
 
 }
 
