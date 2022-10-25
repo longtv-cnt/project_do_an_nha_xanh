@@ -45,6 +45,7 @@ class tintucController extends Controller
         $tintuc = new tintuc();
         $tintuc->id = $request->id;
         $tintuc->loaitin = $request->loaitin;
+        $tintuc->tentin = $request->tentin;
         $tintuc->noidung = $request->noidung;
         $tintuc->ngaydang = date('Y-m-d');
         $tintuc->manguoidang=1;
@@ -109,11 +110,8 @@ class tintucController extends Controller
     }
     public function chitiet($id)
     {
-        $tintuc = DB::table('tintuc')
-        ->join('loaitintuc','tintuc.loaitin','=','loaitintuc.id')
-        ->select('tintuc.*', 'loaitintuc.tenloai')
-        ->get();
-        $chitiet = tintuc::findOrFail($id);
-        return view('admin.tintuc.chitiet', compact('tintuc','chitiet'));
+        $tintuc = tintuc::find($id);
+
+        return view('admin.tintuc.chitiet', compact('tintuc',));
     }
 }

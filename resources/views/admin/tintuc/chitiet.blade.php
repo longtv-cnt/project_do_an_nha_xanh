@@ -9,20 +9,20 @@
     <div class="card">
       <div class="card-header">
 
-            <h2 class="card-title">Chi tiết tin tức số: {{ $chitiet->id}}  </h2>
+            <h2 class="card-title"> {{ $tintuc->tentin}}  </h2>
     <div class="card-tools">
         <a onclick="return " class="btn btn-primary"
             href="{{route('tintuc')}}">
             Quay về</a>
     </div>
       </div>
-      @foreach ($tintuc as $row )
-      <h4 >Thể Loại tin tức:  {{$row->tenloai}}  </h4>
-      @endforeach
-      <h5>Mã Người Đăng {{$chitiet->manguoidang}}</h5>
-      <p> Đăng lúc : {{$chitiet->ngaydang}}</p>
+
+      <h4 >Thể Loại tin tức:  {{$tintuc->loaitintuc->tenloai}}  </h4>
+
+      <h5>Mã Người Đăng {{$tintuc->manguoidang}}</h5>
+      <p> Đăng lúc : {{$tintuc->ngaydang}}</p>
       <div class="card-body p-0" >
-        <h6 style="text-align:center">{{$chitiet->noidung}}</h6>
+        <h6 style="text-align:center">{!! $tintuc->noidung !!}</h6>
 
       </div>
 

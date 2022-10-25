@@ -8,6 +8,7 @@
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8" />
+    yield('css')
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="" />
@@ -162,6 +163,7 @@
                 });
             });
         })</script>
+
     <!-- icon -->
     <link rel="icon" href="https://aquacityvn.vn/wp-content/uploads/2022/09/facicon.png" type="image/png" />
     <link rel="shortcut icon" href="https://aquacityvn.vn/wp-content/uploads/2022/09/facicon.png" type="image/png" />
