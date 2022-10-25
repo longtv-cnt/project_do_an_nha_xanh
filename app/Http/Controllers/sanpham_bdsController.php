@@ -53,7 +53,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->giatien =$request->giatien;
         if ($request->hasFile('anhsp')) {
                 $file = $request->file('anhsp');
-                $fileName = $file->getClientOriginalName().time();
+                $fileName = time().$file->getClientOriginalName();
 
                  $destinationPath = public_path('/sanpham');
                 $file->move($destinationPath, $fileName);

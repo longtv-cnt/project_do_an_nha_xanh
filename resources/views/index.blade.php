@@ -2,6 +2,9 @@
 
 @extends('layout.app')
 @section('title', 'Trang chủ')
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+@endsection
 
 @section('content')
     <!-- ======= Property Search Section ======= -->
