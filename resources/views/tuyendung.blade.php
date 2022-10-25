@@ -212,6 +212,5 @@
         </article>
 
     </div>
-
-
+    
 @endsection
