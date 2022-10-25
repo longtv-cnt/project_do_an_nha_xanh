@@ -2,6 +2,9 @@
 
 @extends('layout.app')
 @section('title', 'Trang chủ')
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+@endsection
 
 @section('content')
     <!-- ======= Property Search Section ======= -->
@@ -22,92 +25,89 @@
 
                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">TÌM BẤT ĐỘNG SẢN</button>
                     <div id="demo" class="collapse">
+                        {{--                        {{ route('filter') }}--}}
+                        {{--                            <form action="{{ route('filter') }}" method="POST" id="filterform" enctype="multipart/form-data">--}}
+                        {{--                                @csrf--}}
+                        <div id="pnlFillter" class="box_filter mgb20">
 
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div id="pnlFillter" class="box_filter mgb20">
+                            <div class="container clearfix pdt15 pdb5">
+                                <ul class="list-unstyled menu-top menu_filter bold text-uppercase hidden-xs">
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[1]->id)}}" title="{{$typeproducts[1]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010100-nha-mat-duong.png" alt="Nhà - đất Mặt đường"></span>{{$typeproducts[1]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[2]->id)}}" title="{{$typeproducts[2]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010200-nha-trong-ngo.png" alt="Nhà - đất trong Ngõ"></span>{{$typeproducts[2]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[3]->id)}}" title="{{$typeproducts[3]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010300-nha-trong-du-an-phan-lo.png" alt="Nhà - đất trong Dự án phân lô"></span>{{$typeproducts[3]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[4]->id)}}" title="{{$typeproducts[4]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010400-nha-tap-the-can-ho-chung-cu.png" alt="Căn hộ, chung cư"></span>{{$typeproducts[4]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[5]->id)}}" title="{{$typeproducts[5]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/020000-nha-biet-thu.png" alt="Nhà - đất Biệt thự"></span>{{$typeproducts[5]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[6]->id)}}" title="{{$typeproducts[6]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010600-van-phong-kiot-cua-hang.png" alt="Văn phòng, kiot, cửa hàng"></span>{{$typeproducts[6]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[7]->id)}}" title="{{$typeproducts[7]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010900-nha-xuong-kho-ben-bai.png" alt="Nhà xưởng, kho, bến bãi"></span>{{$typeproducts[7]->tenloai}}</a></li>
+                                </ul>
+                                <div id="UpdatePanel3">
+                                    <div class="tit_filter hidden-xs bold titH3 mgt0">LỌC TÌM BẤT ĐỘNG SẢN</div>
+                                    <div class="mTit hidden-desk text-center bold"><span>TÌM BẤT ĐỘNG SẢN</span></div>
+                                    <div class="box_fil clearfix">
+                                        <div class="item-fil mgb10">
+                                            <select name="sapxep" id="sapxep" class="form-control no-radius no-shadow icon2">
+                                                <option selected="selected" value="Chưa lựa chọn">Sắp xếp</option>
+                                                <option value="1">Giá tăng dần</option>
+                                                <option value="2">Giá giảm dần</option>
+                                            </select></div>
+                                        <div class="item-filA">
+                                            <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
+                                                <option selected="selected" value="Chưa lựa chọn">Tỉnh thành</option>
+                                                @foreach ($products as $product)
+                                                    <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>
+                                                @endforeach
 
-                                    <div class="container clearfix pdt15 pdb5">
-                                        <ul class="list-unstyled menu-top menu_filter bold text-uppercase hidden-xs">
+                                            </select></div>
+                                        <div class="item-fil mgb10">
+                                            <select name="maduan" id="maduan" class="form-control no-radius no-shadow icon1">
+                                                <option selected="selected" value="Chưa lựa chọn">Loại dự án</option>
+                                                @foreach ($duans as $duan)
+                                                    <option value="{{ $duan->id }}">{{ $duan->tenduan }}</option>
+                                                @endforeach
+                                            </select></div>
+                                        <div class="item-fil mgb10">
+                                            <select name="maloai" id="maloai" class="form-control no-radius no-shadow icon1">
+                                                <option selected="selected" value="Chưa lựa chọn">Loại bất động sản</option>
+                                                @foreach ($typeproducts as $typeproduct)
+                                                    <option value="{{ $typeproduct->id }}">{{ $typeproduct->tenloai }}</option>
+                                                @endforeach
+                                            </select></div>
+                                        {{--                                                <div class="item-fil mgb10">--}}
+                                        {{--                                                    <select name="giatien" id="GiaT" class="form-control no-radius no-shadow icon3">--}}
+                                        {{--                                                        <option selected="selected" value="0">Giá</option>--}}
+                                        {{--                                                        <option value="1">Thoả thuận</option>--}}
+                                        {{--                                                        <option value="2">&lt; 1 tỷ</option>--}}
+                                        {{--                                                        <option value="3">1 tỷ - 3 tỷ</option>--}}
+                                        {{--                                                        <option value="4">3 tỷ - 5 tỷ</option>--}}
+                                        {{--                                                        <option value="5">&gt; 7 tỷ</option>--}}
 
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[1]->id)}}" title="{{$typeproducts[1]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010100-nha-mat-duong.png" alt="Nhà - đất Mặt đường"></span>{{$typeproducts[1]->tenloai}}</a></li>
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[2]->id)}}" title="{{$typeproducts[2]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010200-nha-trong-ngo.png" alt="Nhà - đất trong Ngõ"></span>{{$typeproducts[2]->tenloai}}</a></li>
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[3]->id)}}" title="{{$typeproducts[3]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010300-nha-trong-du-an-phan-lo.png" alt="Nhà - đất trong Dự án phân lô"></span>{{$typeproducts[3]->tenloai}}</a></li>
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[4]->id)}}" title="{{$typeproducts[4]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010400-nha-tap-the-can-ho-chung-cu.png" alt="Căn hộ, chung cư"></span>{{$typeproducts[4]->tenloai}}</a></li>
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[5]->id)}}" title="{{$typeproducts[5]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/020000-nha-biet-thu.png" alt="Nhà - đất Biệt thự"></span>{{$typeproducts[5]->tenloai}}</a></li>
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[6]->id)}}" title="{{$typeproducts[6]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010600-van-phong-kiot-cua-hang.png" alt="Văn phòng, kiot, cửa hàng"></span>{{$typeproducts[6]->tenloai}}</a></li>
-                                            <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[7]->id)}}" title="{{$typeproducts[7]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010900-nha-xuong-kho-ben-bai.png" alt="Nhà xưởng, kho, bến bãi"></span>{{$typeproducts[7]->tenloai}}</a></li>
+                                        {{--                                                    </select></div>--}}
+                                        <div class="item-fil mgb10">
+                                            <select name="huongnha" id="huongnha" class="form-control no-radius no-shadow icon2">
+                                                <option selected="selected" value="Chưa lựa chọn">Hướng</option>
+                                                @foreach ($products as $product)
+                                                    <option value="{{ $product->huong }}">{{ $product->huong }}</option>
+                                                @endforeach
 
-                                        </ul>
-                                        <div id="UpdatePanel3">
-                                            <div class="tit_filter hidden-xs bold titH3 mgt0">LỌC TÌM BẤT ĐỘNG SẢN</div>
-                                            <div class="mTit hidden-desk text-center bold"><span>TÌM BẤT ĐỘNG SẢN</span></div>
-                                            <div class="box_fil clearfix">
-                                                <div class="item-fil mgb10">
-                                                    <select name="sapxep" id="sapxep" class="form-control no-radius no-shadow icon2">
-                                                        <option selected="selected" value="0">Sắp xếp</option>
-                                                        <option value="1">Giá tăng dần</option>
-                                                        <option value="2">Giá giảm dần</option>
-                                                    </select></div>
-                                                <div class="item-filA">
-                                                    <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="CityIDR" class="form-control no-radius no-shadow icon1">
-                                                        <option selected="selected" value="0">Tỉnh thành</option>
-                                                        @foreach ($products as $product)
-                                                            <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>
-                                                        @endforeach
-
-                                                    </select></div>
-                                                <div class="item-fil mgb10">
-                                                    <select name="maduan" id="Menu1" class="form-control no-radius no-shadow icon1">
-                                                        <option selected="selected" value="0">Loại dự án</option>
-                                                        @foreach ($duans as $duan)
-                                                            <option value="{{ $duan->maduan }}">{{ $duan->tenduan }}</option>
-                                                        @endforeach
-                                                    </select></div>
-                                                <div class="item-fil mgb10">
-                                                    <select name="maloai" id="Menu2" class="form-control no-radius no-shadow icon1">
-                                                        <option selected="selected" value="0">Loại bất động sản</option>
-                                                        @foreach ($typeproducts as $typeproduct)
-                                                            <option value="{{ $typeproduct->id }}">{{ $typeproduct->tenloai }}</option>
-                                                        @endforeach
-                                                    </select></div>
-{{--                                                <div class="item-fil mgb10">--}}
-{{--                                                    <select name="giatien" id="GiaT" class="form-control no-radius no-shadow icon3">--}}
-{{--                                                        <option selected="selected" value="0">Giá</option>--}}
-{{--                                                        <option value="1">Thoả thuận</option>--}}
-{{--                                                        <option value="2">&lt; 1 tỷ</option>--}}
-{{--                                                        <option value="3">1 tỷ - 3 tỷ</option>--}}
-{{--                                                        <option value="4">3 tỷ - 5 tỷ</option>--}}
-{{--                                                        <option value="5">&gt; 7 tỷ</option>--}}
-
-{{--                                                    </select></div>--}}
-                                                <div class="item-fil mgb10">
-                                                    <select name="huongnha" id="HuongID" class="form-control no-radius no-shadow icon2">
-                                                        <option selected="selected" value="0">Hướng</option>
-                                                        @foreach ($products as $product)
-                                                            <option value="{{ $product->huong }}">{{ $product->huong }}</option>
-                                                        @endforeach
-
-                                                    </select></div>
-                                                <div class="sear-sticky clearfix hidden-desk"></div>
-                                                <div class="item-fil2 mgb10">
-                                                    <input name="name=tensp" type="text" id="txtSearch" class="form-control no-radius no-shadow pdl10" placeholder="Tên sản phẩm bất động sản">
-                                                    <input type="submit" name="filter" value="TÌM KIẾM" id="filter" class="btn btn-danger no-radius bold">
-                                                </div>
-                                                </div>
-                                            </div>
+                                            </select></div>
+                                        <div class="sear-sticky clearfix hidden-desk"></div>
+                                        <div class="item-fil2 mgb10">
+                                            <input name="tensp" type="text" id="tensp" class="form-control no-radius no-shadow pdl10" placeholder="Tên sản phẩm bất động sản">
+                                            <input type="submit" name="filter" value="Tìm Kiếm" id="filter" class="btn btn-danger no-radius bold">
+                                            {{ csrf_field() }}
                                         </div>
-
                                     </div>
-                                </form>
-                            <input type="text" name="country_name" id="country_name" class="form-control no-radius no-shadow pdl10" placeholder="Từ khóa tìm kiếm, mã tin, số ĐT"/>
-                            {{ csrf_field() }}
+                                </div>
+                            </div>
+
+                        </div>
+                        {{--                                </form>--}}
+                        <input type="text" name="country_name" id="country_name" class="form-control no-radius no-shadow pdl10" placeholder="Từ khóa tìm kiếm, mã tin, số ĐT"/>
+                        {{ csrf_field() }}
                     </div>
                     <h2></h2>
 
-
                     <div id="countryList1">
-                    <div id="countryList">
                     <div class="vc_row wpb_row vc_inner vc_row-fluid">
                         @if ($products)
                             @foreach ($products as $product)
@@ -139,7 +139,6 @@
                         </div>
                         @endforeach
                         @endif
-                    </div>
                     </div>
                     </div>
                 </div>

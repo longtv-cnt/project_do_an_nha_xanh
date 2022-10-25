@@ -49,7 +49,7 @@ class tintucController extends Controller
         $tintuc->ngaydang = date('Y-m-d');
         $tintuc->manguoidang=1;
         $tintuc->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Thêm thành công');
     }
 
     /**
