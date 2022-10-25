@@ -502,8 +502,8 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
                     method:"POST", // phương thức gửi dữ liệu.
                     data:{query:query, _token:_token},
                     success:function(data){ //dữ liệu nhận về
-                        $('#countryList').fadeIn();
-                        $('#countryList').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+                        $('#countryList1').fadeIn();
+                        $('#countryList1').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
 
                     }
                 });
@@ -512,62 +512,48 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
 
         $(document).on('click', 'li', function(){
             $('#country_name').val($(this).text());
-            $('#countryList').fadeOut();
+            $('#countryList1').fadeOut();
         });
 
     });
 </script>
 <!-- ajaxfilter-->
 
-{{--<script type="text/javascript">--}}
-{{--    $(document).ready(function() {--}}
-{{--        $("#filter").click(function(e){--}}
-{{--            e.preventDefault();--}}
-{{--            var sapxep = $("select[name='sapxep']").val();--}}
-{{--            var diachi = $("select[name='diachi']").val();--}}
-{{--            var maduan = $("select[name='maduan']").val();--}}
-{{--            var maloai = $("select[name='huongnha']").val();--}}
-{{--            var huongnha = $("select[name='maloai']").val();--}}
-{{--            var tensp = $("input[name='tensp']").val();--}}
-{{--            $.ajax({--}}
-{{--                url: "{{ route('filter') }}",--}}
-{{--                type:'POST',--}}
-{{--                data: { sapxep:sapxep, diachi:diachi, maduan:maduan, maloai:maloai, huongnha:huongnha, tensp:tensp},--}}
-{{--                success:function(data){ //dữ liệu nhận về--}}
-{{--                    $('#countryList').fadeIn();--}}
-{{--                    $('#countryList').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList--}}
-
-{{--                }--}}
-{{--            });--}}
-{{--        });--}}
-
-{{--        $(document).on('click', 'li', function(){--}}
-{{--            $("#filter").val($(this).text());--}}
-{{--            $('#countryList').fadeOut();--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}
 <script>
-    function filter_data(){
-        $('#countryList').html('<div id="countryList"></div>');
-        var sapxep = $("select[name='sapxep']").val();
-        var diachi = $("select[name='diachi']").val();
-        var maduan = $("select[name='maduan']").val();
-        var maloai = $("select[name='huongnha']").val();
-        var huongnha = $("select[name='maloai']").val();
-        var tensp = $("input[name='tensp']").val();
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "{{ route('filter') }}",
-            type: 'POST',
-            data: { sapxep:sapxep, diachi:diachi, maduan:maduan, maloai:maloai, huongnha:huongnha, tensp:tensp},
-            success:function(data){
-                $('#countryList').html(data);
-            }
+    $(document).ready(function(){
+
+        $("#filter").click(function(){
+            var sapxep = $("#sapxep").val();
+            var diachi = $("#diachi").val();
+            var maduan = $("#maduan").val();
+            var maloai = $("#maloai").val();
+            var huongnha = $("#huongnha").val();
+            var tensp = $("#tensp").val();
+
+            $.ajax({
+                type: 'get',
+                dataType: 'html',
+                url: '{{ route('filter') }}',
+                data: "sapxep=" + sapxep
+                    + "&diachi=" + diachi
+                    + "&maduan=" + maduan
+                    + "&maloai=" + maloai
+                    + "&huongnha=" + huongnha
+                    + "&tensp=" + tensp,
+
+                success:function(response){
+                    console.log(response);
+                    $("#countryList1").html(response);
+                }
+            });
+
+
         });
-    }
+        $(document).on('click', 'li', function(){
+            $('#filter').val($(this).text());
+            $('#countryList1').fadeOut();
+        });
+    });
 </script>
 
 </body>
