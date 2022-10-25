@@ -122,8 +122,25 @@ class SearchController extends Controller
                 ->orwhere('huong','like', "%{$query}%")
                 ->orwhere('diachi','like', "%{$query}%")
                 ->get();
-            $output = ' <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                            <p>Tìm thấy '.$products->count().' sản phẩm</p>';
+            $output = '
+                     <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
+                        <div id="ucRaoVat_pnlTitle">
+                            <div class="mgt0 clearfix titH3 bold500 tit_box"><h1 class="font-size-18px mg0 line-height-26px display-inline"><span class="tit_span text-uppercase">KẾT QUẢ TÌM KIẾM</span></h1>
+                                <span class="link_home hidden-xs">
+                                </span>
+                            </div>
+                        </div>
+                        <div id="ucRaoVat_pnlSdt" class="pnlSdt mgt10">
+                            <fieldset class="bd pd10 UserDt bg_full2 mgb15">
+                                <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo từ khóa ' . $query . '</legend>
+                            </fieldset>
+                        </div>
+                        <div id="ucRaoVat_pnlalert">
+                            Nếu bạn không thấy thông tin vui lòng kiểm tra lại lọc tìm kiếm thông tin hoặc liên hệ hỗ trợ: 0936.601.601
+                        </div>
+                        <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15"></span>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">';
             foreach($products as $product)
             {
                 $output .= '
@@ -162,46 +179,78 @@ class SearchController extends Controller
     }
     public function filter(Request $request)
     {
-
-//        $duans = Duan::all();
-//        $typeproducts = TypeProduct::all();
-//        if($request->sapxep == 1){
-//            $products = DB::table('sanpham_bds')
-//                ->where('maloai', $request->maloai)
-//                ->where('maduan', $request->maduan)
-//                ->where('chieudai', $request->chieudai)
-//                ->where('chieurong', $request->chieurong)
-//                ->where('huong',$request->huongnha)
-//                ->where('diachi',$request->diachi)
-//                ->orwhere('tensp','like', "%{$request->tensp}%")
-//                ->orderBy('giatien','ASC')
-//                ->get();
-//            $sapxep = 'Giá tăng dần';
-//        }else{
-//            $products = DB::table('sanpham_bds')
-//                ->where('maloai', $request->maloai)
-//                ->where('maduan', $request->maduan)
-//                ->where('chieudai', $request->chieudai)
-//                ->where('chieurong', $request->chieurong)
-//                ->where('huong',$request->huongnha)
-//                ->where('diachi',$request->diachi)
-//                ->orwhere('tensp','like', "%{$request->tensp}%")
-//                ->orderBy('giatien','ASC')
-//                ->get();
-//            $sapxep = 'Giá giảm dần';
-//        }
-        $products = DB::table('sanpham_bds')
-            ->where('tensp', 'aa')
-            ->get();
-//        $sapxep = 'Giá giảm dần';
-//        $title = 'Kết quả tìm kiếm được';
-//        $loaibds = 'Tất cả sản phẩm';
-//        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
-        $output = ' <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                            <p>Tìm thấy '.$products->count().' sản phẩm</p>';
-        foreach($products as $product)
-        {
-            $output .= '
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        if (isset($request)) {
+            $query = $request;
+            $products = DB::table('sanpham_bds as p');
+            if ($query->sapxep == 1) {
+                if (isset($query->maloai)) {
+                    $products->where('p.maloai', $query->maloai);
+                }
+                if (isset($query->maduan)) {
+                    $products->where('p.maduan', $query->maduan);
+                }
+                if (isset($query->huongnha)) {
+                    $products->where('p.huong', $query->huongnha);
+                }
+                if (isset($query->diachi)) {
+                    $products->where('p.diachi', $query->diachi);
+                }
+                if (isset($query->tensp)) {
+                    $products->orwhere('p.tensp', 'like', "%{$query->tensp}%");
+                }
+                $products->orderBy('p.giatien', 'ASC')->get();
+                $sapxep = 'Giá tăng dần';
+            } else {
+                if (isset($query->maloai)) {
+                    $products->where('p.maloai', $query->maloai);
+                }
+                if (isset($query->maduan)) {
+                    $products->where('p.maduan', $query->maduan);
+                }
+                if (isset($query->huongnha)) {
+                    $products->where('p.huong', $query->huongnha);
+                }
+                if (isset($query->diachi)) {
+                    $products->where('p.diachi', $query->diachi);
+                }
+                if (isset($query->tensp)) {
+                    $products->orwhere('p.tensp', 'like', "%{$query->tensp}%");
+                }
+                $products->orderBy('p.giatien', 'DESC')->get();
+                $sapxep = 'Giá giảm dần';
+            }
+            $products = $products->get();
+            $tduan = $duans[$request->maduan-1]->tenduan;
+            $loaibds = $typeproducts[$request->maloai-1]->tenloai;
+            $output = '
+                     <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
+                        <div id="ucRaoVat_pnlTitle">
+                            <div class="mgt0 clearfix titH3 bold500 tit_box"><h1 class="font-size-18px mg0 line-height-26px display-inline"><span class="tit_span text-uppercase">KẾT QUẢ TÌM KIẾM</span></h1>
+                                <span class="link_home hidden-xs">
+                                </span>
+                            </div>
+                        </div>
+                        <div id="ucRaoVat_pnlSdt" class="pnlSdt mgt10">
+                            <fieldset class="bd pd10 UserDt bg_full2 mgb15">
+                                <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo tiêu chí</legend>
+                                Tỉnh thành : ' .$request ->diachi. '<br>
+                                Dự án : ' .$tduan. '<br>
+                                Loại bất động sản : ' .$loaibds. '<br>
+                                Hướng : ' .$request ->huongnha. '<br>
+                                Từ khóa : ' .$request ->tensp. '<br>
+                                Sắp xếp theo : ' .$sapxep. '
+                            </fieldset>
+                        </div>
+                        <div id="ucRaoVat_pnlalert">
+                            Nếu bạn không thấy thông tin vui lòng kiểm tra lại lọc tìm kiếm thông tin hoặc liên hệ hỗ trợ: 0936.601.601
+                        </div>
+                        <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15"></span>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">';
+            foreach ($products as $product) {
+                $output .= '
                         <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
@@ -210,17 +259,17 @@ class SearchController extends Controller
                                             <p style="text-align: center;">
                                                 <span style="font-size: 12pt; color: #0000ff;">
                                                     <strong>
-                                                    <a href="/chitiet'.$product->id.'" class="mask">';
-            if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="uploads/product/'.$product->anhsp.'" data-src="uploads/product/'.$product->anhsp.'" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w"></img>';
-            else
-                $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src='.$product->anhsp.' data-src='.$product->anhsp.' alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset='.$product->anhsp.'  800w, '.$product->anhsp.'  300w,  '.$product->anhsp.'  768w" sizes="(max-width: 800px) 100vw, 800px" srcset= '.$product->anhsp.'  800w,  '.$product->anhsp.'  300w,  '.$product->anhsp.' 768w"></img>';
-            $output .= '</a>
+                                                    <a href="/chitiet' . $product->id . '" class="mask">';
+                if (file_exists(public_path('uploads/product/' . $product->anhsp)))
+                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="uploads/product/' . $product->anhsp . '" data-src="uploads/product/' . $product->anhsp . '" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="uploads/product/' . $product->anhsp . '" 800w, "uploads/product/' . $product->anhsp . '" 300w, "uploads/product/' . $product->anhsp . '" 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="uploads/product/' . $product->anhsp . '" 800w, "uploads/product/' . $product->anhsp . '" 300w, "uploads/product/' . $product->anhsp . '" 768w"></img>';
+                else
+                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src=' . $product->anhsp . ' data-src=' . $product->anhsp . ' alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset=' . $product->anhsp . '  800w, ' . $product->anhsp . '  300w,  ' . $product->anhsp . '  768w" sizes="(max-width: 800px) 100vw, 800px" srcset= ' . $product->anhsp . '  800w,  ' . $product->anhsp . '  300w,  ' . $product->anhsp . ' 768w"></img>';
+                $output .= '</a>
                                                    </strong>
                                                 </span>
                                             </p>
-                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$product->tensp.'</b></span></span></p>
-                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Quy mô rộng '.$product->giatien.' ha</strong></span></p>
+                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>' . $product->tensp . '</b></span></span></p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Quy mô rộng ' . $product->giatien . ' ha</strong></span></p>
 
                                         </div>
                                     </div>
@@ -228,49 +277,12 @@ class SearchController extends Controller
                             </div>
                         </div>
                ';
+            }
+            $output .= '</div>';
+            echo $output;
+//            return Response($output);
         }
-        $output .= '</div>';
-//            echo $output;
-        return Response($output);
     }
-//    public function sviproizvodi(){
-//        $products = DB::table('products as p')->join('product_attributes as pa','p.id','=','pa.product_id')->select('p.*','pa.size')->where('p.status', 1)->groupBy('p.id');
-//
-//        if (isset($request->minimum_price) && isset($request->maximum_price)) {
-//            $products->whereBetween('p.price', [$request->minimum_price, $request->maximum_price]);
-//        }
-//        if (isset($request->brand)) {
-//            $products->whereIn('p.brand_id', $request->brand);
-//        }
-//        if (isset($request->cat)) {
-//            $products->whereIn('p.category_id', $request->cat);
-//        }
-//        if (isset($request->orderby)) {
-//            if ($request->orderby == "standardno") {
-//                $products->orderBy('p.id','desc');
-//            }
-//            if ($request->orderby == "istaknute") {
-//                $products->orderBy('p.featured','desc');
-//            }
-//            if ($request->orderby == "novi") {
-//                $products->orderBy('p.id','desc');
-//            }
-//            if ($request->orderby == "cijena1") {
-//                $products->orderBy('p.price','asc');
-//            }
-//            if ($request->orderby == "cijena2") {
-//                $products->orderBy('p.price','desc');
-//            }
-//            if (isset($request->size)) {
-//                $products->whereIn('pa.size', $request->size);
-//            }
-//            if (isset($request->color)) {
-//                $products->whereIn('pa.color', $request->color);
-//            }
-//        }
-//        $proizvodi = $products->paginate(15);
-//        return view('products',compact('proizvodi'));
-//    }
 
 }
 

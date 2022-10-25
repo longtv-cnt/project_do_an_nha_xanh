@@ -51,7 +51,7 @@ Route::get('/login', function () {
 
 Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
-Route::post('/',[SearchController::class,'filter'])->name('filter');
+Route::get('/filter',[SearchController::class,'filter'])->name('filter');
 Route::get('/loaibds{maloai}duan{maduan}',[SearchController::class,'loaibdsduan'])->name('home.loaibds.duan');
 Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
 Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
