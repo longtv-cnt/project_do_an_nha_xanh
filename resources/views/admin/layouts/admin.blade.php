@@ -31,7 +31,10 @@
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
+
+
 
     $('file').change(function() {
         var error ='';
@@ -56,7 +59,7 @@
     });
 </script>
 <div>
-    
+
     @yield("script")
 </div>
 

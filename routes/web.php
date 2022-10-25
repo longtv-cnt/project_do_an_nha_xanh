@@ -123,7 +123,9 @@ Route::get('/tintuc/create', [tintucController::class, 'create'])->name('tintuc.
 Route::post('/tintuc/store', [tintucController::class, 'store'])->name('tintuc.store');
 Route::DELETE('/tintuc/destroy/{matin}', [tintucController::class, 'destroy']);
 Route::get('/tintuc/edit/{matin}', [tintucController::class, 'edit'])->name('tintuc.edit');
+Route::get('/tintuc/chitiet/{matin}', [tintucController::class, 'chitiet'])->name('tintuc.chitiet');
 Route::PATCH('/tintuc/update/{matin}', [tintucController::class, 'update']);
+
 
 
 Route::get('/sanpham_bds', [sanpham_bdsController::class, 'index'])->name('sanpham_bds');

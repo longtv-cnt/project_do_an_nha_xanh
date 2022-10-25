@@ -23,9 +23,9 @@
                     <th>
                         Mã Loại Tin Tức
                     </th>
-                    {{-- <th>
+                    <th>
                         Tên Tin Tức
-                    <th> --}}
+                    <th>
                         Mã Người Đăng
                     </th>
                     <th>
@@ -65,7 +65,7 @@
         </table>
       </div>
       <div class="card-body p-0">
-        <table class="table table-striped projects">
+        <table class="table table-striped projects" >
             <thead>
                 <tr>
                     <th >
@@ -74,9 +74,9 @@
                     <th>
                         Mã Loại Tin Tức
                     </th>
-                    <th>
+                    {{-- <th>
                         tiêu đề
-                    </th>
+                    </th> --}}
                     <th>
                         Mã Người Đăng
                     </th>
@@ -98,12 +98,17 @@
                 <tr>
                         <td>{{$row->id}}</td>
                         <td>{{$row->loaitin}}</td>
-                        <td>{{$row->tentin}}</td>
+                        {{-- <td>{{$row->tentin}}</td> --}}
                         <td>{{$row->manguoidang}}</td>
-                        <td>{{$row->tentin}}</td>
+                        <td>{{$row->noidung}}</td>
                         <td>{{$row->ngaydang}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a href="/tintuc/chitiet/{{$row->id}}">
+                                    <div type="button" class="btn btn-primary btn-sm" >
+                                        Chi Tiết
+                                    </div>
+                                </a>
                                 <a href="/tintuc/edit/{{$row->id}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
@@ -125,7 +130,5 @@
     <!-- /.card -->
     </div>
   </section>
-@endsection
-
-
-      </div>
+ @endsection
+</div>

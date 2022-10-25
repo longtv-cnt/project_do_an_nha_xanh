@@ -23,3 +23,4 @@ options.forEach(val => {
          document.getElementById('rotate').style.transform = 'translate(-50%) rotate(' + rotatedeg + 'deg)';
     })
 })
+

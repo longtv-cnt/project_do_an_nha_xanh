@@ -206,7 +206,7 @@
               </div>
           </div>
           <div class="card-body p-0">
-            <table class="table table-striped projects">
+            <table class="table table-striped projects" >
                 <thead>
                     <tr>
                         <th>
@@ -321,8 +321,6 @@
     <!-- /.card -->
     </div>
   </section>
+</div>
 
-
-
-      </div>
-      @endsection
+@endsection
