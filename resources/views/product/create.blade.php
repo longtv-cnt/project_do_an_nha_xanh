@@ -29,7 +29,7 @@
                     <h2 class="contact-title">Nhập sản phẩm</h2>
                 </div>
                 <div class="col-lg-8 mb-4 mb-lg-0">
-                    <form class="form-contact contact_form" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data" id="contactForm" novalidate="novalidate">
+                    <form class="form-contact contact_form" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-12">
