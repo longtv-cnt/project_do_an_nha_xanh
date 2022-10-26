@@ -226,13 +226,8 @@
     </div>
 
 
-    <div class="single-share-box">
-        <div class="share-link-description">Chia sẻ bài này</div>
-        <div class="share-buttons">
-            <a class="facebook" href="" title="Facebook" target="_blank"></a>
-            <a class="twitter" href="" title="Twitter" target="_blank"></a>
-            <a class="pinterest pinit-marklet" href="" title="Pinterest" target="_blank" data-pin-config="above" data-pin-do="buttonBookmark"></a>
-            <a class="linkedin" href="" title="LinkedIn" target="_blank"></a>
+    <div class="single-share-box"><div class="share-link-description">Chia sẻ bài này</div><div class="share-buttons"><a class="fa-brands fa-facebook" href="http://www.facebook.com/sharer.php?u=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/&#038;t=Aqua%20City%20Novaland%20Đồng%20Nai" title="Facebook" target="_blank"></a>
+            <a class="twitter" href="https://twitter.com/share?text=Aqua%20City%20Novaland%20Đồng%20Nai&#038;url=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/" title="Twitter" target="_blank"></a><a class="pinterest pinit-marklet" href="//pinterest.com/pin/create/button/" title="Pinterest" target="_blank" data-pin-config="above" data-pin-do="buttonBookmark"></a><a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&#038;url=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/&#038;title=Aqua%20City%20Novaland%20Đồng%20Nai&#038;summary=&#038;source=AQUA%20CITY" title="LinkedIn" target="_blank"></a>
         </div>
     </div>
 
