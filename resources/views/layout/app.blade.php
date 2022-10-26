@@ -8,7 +8,6 @@
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8" />
-    yield('css')
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="" />
@@ -529,6 +528,7 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
             var diachi = $("#diachi").val();
             var maduan = $("#maduan").val();
             var maloai = $("#maloai").val();
+            var giatien = $("#giatien").val();
             var huongnha = $("#huongnha").val();
             var tensp = $("#tensp").val();
 
@@ -540,6 +540,7 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
                     + "&diachi=" + diachi
                     + "&maduan=" + maduan
                     + "&maloai=" + maloai
+                    + "&giatien=" + giatien
                     + "&huongnha=" + huongnha
                     + "&tensp=" + tensp,
 
