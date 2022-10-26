@@ -3,7 +3,7 @@
     <title>Tin Tức</title>
 @endsection
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 @section('content')
     <section class="content">
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <form action="{{ route('tintuc.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <div class="form-group">
                             <select name="loaitin" id="">
                                 <option value="">Chọn loại tin</option>
@@ -39,16 +39,16 @@
                             <button type="submit" class="btn btn-primary">Thêm</button>
                     </form>
                 </div>
-            @section('script')
-                <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+                @section('script')
+                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-                <script>
-                    $('#noidung').summernote({
-                        placeholder: 'Nhập nội dung tin tức',
-                        tabsize: 2,
-                        height: 100
-                    });
-                </script>
-            @endsection
-</section>
+                    <script>
+                        $('#noidung').summernote({
+                            placeholder: 'Nhập nội dung tin tức',
+                            tabsize: 2,
+                            height: 100
+                        });
+                    </script>
+        @endsection
+    </section>
 @endsection

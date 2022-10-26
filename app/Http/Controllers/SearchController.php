@@ -52,8 +52,10 @@ class SearchController extends Controller
     }
     public function gioithieu($maloai)
     {
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
         if($maloai == 1){
-            $contents = 'nhà riêng';
+            $contents = $tintuc[$maloai-1]->noidung;
         }
         if($maloai == 2){
             $contents = 'aa';
@@ -70,17 +72,9 @@ class SearchController extends Controller
         if($maloai == 6){
             $contents = 'aa';
         }
-        if($maloai == 7){
-            $contents = 'aa';
-        }
-        if($maloai == 8){
-            $contents = 'aa';
-        }
-        if($maloai == 9){
-            $contents = 'aa';
-        }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
+        return Response($contents);
         return view('gioithieu', compact('contents','duans','typeproducts'));
     }
 
@@ -162,7 +156,7 @@ class SearchController extends Controller
                                                 </span>
                                             </p>
                                             <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$product->tensp.'</b></span></span></p>
-                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Quy mô rộng '.$product->giatien.' ha</strong></span></p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' đồng</strong></span></p>
 
                                         </div>
                                     </div>
@@ -181,49 +175,65 @@ class SearchController extends Controller
     {
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        if (isset($request)) {
-            $query = $request;
+//        if (isset($request)) {
             $products = DB::table('sanpham_bds as p');
-            if ($query->sapxep == 1) {
-                if (isset($query->maloai)) {
-                    $products->where('p.maloai', $query->maloai);
+            if ($request->sapxep == '1') {
+                if (isset($request->maloai)) {
+                    $products->where('p.maloai', $request->maloai);
                 }
-                if (isset($query->maduan)) {
-                    $products->where('p.maduan', $query->maduan);
+                if(isset($request->maduan)) {
+                    $products->where('p.maduan', $request->maduan);;
                 }
-                if (isset($query->huongnha)) {
-                    $products->where('p.huong', $query->huongnha);
+                if (isset($request->huongnha)) {
+                    $products->where('p.huong', $request->huongnha);
                 }
-                if (isset($query->diachi)) {
-                    $products->where('p.diachi', $query->diachi);
+                if (isset($request->diachi)) {
+                    $products->where('p.diachi', $request->diachi);
                 }
-                if (isset($query->tensp)) {
-                    $products->orwhere('p.tensp', 'like', "%{$query->tensp}%");
+                if (isset($request->tensp)) {
+                    $products->orwhere('p.tensp', 'like', "%{$request->tensp}%");
                 }
-                $products->orderBy('p.giatien', 'ASC')->get();
+                if (isset($request->giatien)) {
+                    $price = explode("-",$request->giatien);
+                    $start = $price[0];
+                    $end = $price[1];
+                    //echo "price is selected";
+                    $products
+                        ->where('p.giatien', ">=", $start)
+                        ->where('p.giatien', "<=", $end);
+
+                }
+                $products->orderBy('p.giatien', 'ASC');
                 $sapxep = 'Giá tăng dần';
-            } else {
-                if (isset($query->maloai)) {
-                    $products->where('p.maloai', $query->maloai);
+            }
+            else {
+                if (isset($request->maloai)) {
+                    $products->where('p.maloai', $request->maloai);
                 }
-                if (isset($query->maduan)) {
-                    $products->where('p.maduan', $query->maduan);
+                if(isset($request->maduan)) {
+                    $products->where('p.maduan', $request->maduan);;
                 }
-                if (isset($query->huongnha)) {
-                    $products->where('p.huong', $query->huongnha);
+                if (isset($request->huongnha)) {
+                    $products->where('p.huong', $request->huongnha);
                 }
-                if (isset($query->diachi)) {
-                    $products->where('p.diachi', $query->diachi);
+                if (isset($request->diachi)) {
+                    $products->where('p.diachi', $request->diachi);
                 }
-                if (isset($query->tensp)) {
-                    $products->orwhere('p.tensp', 'like', "%{$query->tensp}%");
+                if (isset($request->tensp)) {
+                    $products->orwhere('p.tensp', 'like', "%{$request->tensp}%");
                 }
-                $products->orderBy('p.giatien', 'DESC')->get();
+                if (isset($request->giatien)) {
+                    $price = explode("-",$request->giatien);
+                    $start = $price[0];
+                    $end = $price[1];
+                    $products
+                        ->where('p.giatien', ">=", $start)
+                        ->where('p.giatien', "<=", $end);
+                }
+                $products->orderBy('p.giatien', 'DESC');
                 $sapxep = 'Giá giảm dần';
             }
             $products = $products->get();
-            $tduan = $duans[$request->maduan-1]->tenduan;
-            $loaibds = $typeproducts[$request->maloai-1]->tenloai;
             $output = '
                      <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
                         <div id="ucRaoVat_pnlTitle">
@@ -235,12 +245,33 @@ class SearchController extends Controller
                         <div id="ucRaoVat_pnlSdt" class="pnlSdt mgt10">
                             <fieldset class="bd pd10 UserDt bg_full2 mgb15">
                                 <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo tiêu chí</legend>
-                                Tỉnh thành : ' .$request ->diachi. '<br>
-                                Dự án : ' .$tduan. '<br>
-                                Loại bất động sản : ' .$loaibds. '<br>
-                                Hướng : ' .$request ->huongnha. '<br>
-                                Từ khóa : ' .$request ->tensp. '<br>
-                                Sắp xếp theo : ' .$sapxep. '
+                                Tỉnh thành : ' .$request ->diachi. '<br>';
+                 if (isset($request->maloai)&&isset($request->maduan)) {
+                    $loaibds = $typeproducts[$request->maloai-1]->tenloai;
+                    $tduan = $duans[$request->maduan-1]->tenduan;
+                    $output .='Loại bất động sản : ' .$loaibds. '<br>
+                               Dự án : ' .$tduan. '<br>';
+                }
+                else if(isset($request->maloai)&&empty($request->maduan)) {
+                    $loaibds = $typeproducts[$request->maloai-1]->tenloai;
+                    $tduan = '';
+                    $output .='Loại bất động sản : ' .$loaibds. '<br>
+                               Dự án : ' .$tduan. '<br>';
+                }
+                else if(empty($request->maloai)&&isset($request->maduan)) {
+                    $tduan = $duans[$request->maduan-1]->tenduan;
+                    $loaibds = '';
+                    $output .='Loại bất động sản : ' .$loaibds. '<br>
+                               Dự án : ' .$tduan. '<br>';
+                }
+                $output .= '    Hướng : ' .$request ->huongnha. '<br>
+                                Từ khóa : ' .$request ->tensp. '<br>';
+                if (isset($request->giatien)) {
+                    $output .= '    Giá tiền : Từ  ' .explode("-",$request->giatien)[0]. ' Đến ' .explode("-",$request->giatien)[1]. ' đồng<br>';
+
+                }
+
+                $output .= '   Sắp xếp theo : ' .$sapxep. '
                             </fieldset>
                         </div>
                         <div id="ucRaoVat_pnlalert">
@@ -269,7 +300,7 @@ class SearchController extends Controller
                                                 </span>
                                             </p>
                                             <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>' . $product->tensp . '</b></span></span></p>
-                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Quy mô rộng ' . $product->giatien . ' ha</strong></span></p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' đồng</strong></span></p>
 
                                         </div>
                                     </div>
@@ -279,12 +310,12 @@ class SearchController extends Controller
                ';
             }
             $output .= '</div>';
-            echo $output;
-//            return Response($output);
-        }
+//            echo $output;
+            return Response($output);
+//        }
     }
 
-}
 
+}
 
 

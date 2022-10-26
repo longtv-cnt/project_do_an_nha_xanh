@@ -440,7 +440,7 @@
 <!-- hide mobile -->
 
 <!-- hide desktop -->
-<ul id="main-slideshow-content" class="rsHomePorthole"><li><img loading="lazy" class=" lazy preload-me" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://aquacityvn.vn/wp-content/uploads/2015/01/quang-truong-aqua-city.jpg" data-srcset="https://aquacityvn.vn/wp-content/uploads/2015/01/quang-truong-aqua-city.jpg 1920w" data-rsTmb="https://aquacityvn.vn/wp-content/uploads/2015/01/quang-truong-aqua-city-150x150.jpg" alt="" width="1920" height="1012"  /></li><li><img loading="lazy" class=" lazy preload-me" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://aquacityvn.vn/wp-content/uploads/2015/01/3.jpg" data-srcset="https://aquacityvn.vn/wp-content/uploads/2015/01/3.jpg 1920w" data-rsTmb="https://aquacityvn.vn/wp-content/uploads/2015/01/3-150x150.jpg" alt="" width="1920" height="1012"  /></li></ul><script id="hqjs">/* <![CDATA[ */
+<ul id="main-slideshow-content" class="rsHomePorthole"><li><img loading="lazy" class=" lazy preload-me" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/1.jpg" data-srcset="img/1.jpg 1920w" data-rsTmb="img/1.jpg" alt="" width="1920" height="1012"  /></li><li><img loading="lazy" class=" lazy preload-me" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/2.jpg" data-srcset="img/2.jpg 1920w" data-rsTmb="img/2.jpg" alt="" width="1920" height="1012"  /></li></ul><script id="hqjs">/* <![CDATA[ */
     /*[dt-above-fold]*/
     var dtLocal = {"themeUrl":"https:\/\/aquacityvn.vn\/wp-content\/themes\/dt-the7","passText":"To view this protected post, enter the password below:","moreButtonText":{"loading":"Loading..."},"postID":"4396","ajaxurl":"https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php","contactNonce":"15f7928a13","ajaxNonce":"49a9d79db1","pageData":{"type":"page","template":"page","layout":null},"themeSettings":{"smoothScroll":"on","lazyLoading":false,"accentColor":{"mode":"solid","color":"#405868"},"floatingHeader":{"showAfter":150,"showMenu":true,"height":38,"logo":{"showLogo":true,"html":"<img class=\" preload-me\" src=\"https:\/\/aquacityvn.vn\/wp-content\/uploads\/2020\/10\/logo-aqua-2.png\" srcset=\"{{ 'uploads/product/logo1.png' }} 130w, {{ 'uploads/product/logo1.png' }} 130w\" width=\"130\" height=\"33\"   sizes=\"130px\" alt=\"AQUA CITY\" \/>"}},"mobileHeader":{"firstSwitchPoint":1024,"secondSwitchPoint":760},"content":{"responsivenessTreshold":800,"textColor":"#003e68","headerColor":"#003e68"},"stripes":{"stripe1":{"textColor":"#004922","headerColor":"#004922"},"stripe2":{"textColor":"#ffffff","headerColor":"#ffffff"},"stripe3":{"textColor":"#ffffff","headerColor":"#ffffff"}}},"VCMobileScreenWidth":"768"};
     /*[kk-star-ratings]*/
@@ -527,6 +527,7 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
             var diachi = $("#diachi").val();
             var maduan = $("#maduan").val();
             var maloai = $("#maloai").val();
+            var giatien = $("#giatien").val();
             var huongnha = $("#huongnha").val();
             var tensp = $("#tensp").val();
 
@@ -538,6 +539,7 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
                     + "&diachi=" + diachi
                     + "&maduan=" + maduan
                     + "&maloai=" + maloai
+                    + "&giatien=" + giatien
                     + "&huongnha=" + huongnha
                     + "&tensp=" + tensp,
 

@@ -43,9 +43,9 @@ class tintucController extends Controller
     {
         $data = $request->all();
         $tintuc = new tintuc();
-
-        $tintuc->tentin = $request->tentin;
+        $tintuc->id = $request->id;
         $tintuc->loaitin = $request->loaitin;
+        $tintuc->tentin = $request->tentin;
         $tintuc->noidung = $request->noidung;
         $tintuc->ngaydang = date('Y-m-d');
         $tintuc->manguoidang=1;
@@ -107,5 +107,11 @@ class tintucController extends Controller
 
         $tintuc->delete();
         return redirect()->action([tintucController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+    }
+    public function chitiet($id)
+    {
+        $tintuc = tintuc::find($id);
+
+        return view('admin.tintuc.chitiet', compact('tintuc',));
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\sanpham_bds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\RealEstate;
+use App\Models\loaisanpham;
 
 class sanpham_bdsController extends Controller
 {
@@ -22,7 +24,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds = DB::table('sanpham_bds')->select('*');
         $sanpham_bds = $sanpham_bds->get();
         return view('admin.sanpham_bds.sanpham_bds', compact('loaisp','duan','sanpham_bds'));
-   }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +34,7 @@ class sanpham_bdsController extends Controller
     public function create()
     {
         return view('admin.sanpham_bds.sanpham_bds');
-   }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,21 +45,21 @@ class sanpham_bdsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $sanpham_bds = new sanpham_bds();
+        $sanpham_bds = new RealEstate();
         $sanpham_bds->id =$request->id;
         $sanpham_bds->maduan =$request->maduan;
         $sanpham_bds->maloai =$request->maloai;
         $sanpham_bds->tensp =$request->tensp;
         $sanpham_bds->giatien =$request->giatien;
         if ($request->hasFile('anhsp')) {
-                $file = $request->file('anhsp');
-                $extension = $file->getClientOriginalName();
-                $fileName =time().'.'.$extension;
-                // $destinationPath = asset('sanpham/');
-                $file->move('sanpham/', $fileName);
-                $sanpham_bds->anhsp = $fileName;
+            $file = $request->file('anhsp');
+            $fileName = time().$file->getClientOriginalName();
+
+            $destinationPath = public_path('/sanpham');
+            $file->move($destinationPath, $fileName);
+            $sanpham_bds->anhsp = $fileName;
         }
-        $sanpham_bds->anhsp =$request->anhsp;
+
         $sanpham_bds->huong =$request->huong;
         $sanpham_bds->chieudai =$request->chieudai;
         $sanpham_bds->chieurong =$request->chieurong;
@@ -68,34 +70,11 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->nhaxanh =$request->nhaxanh;
         $sanpham_bds->lienhe =$request->lienhe;
         $sanpham_bds->save();
+
         return redirect()->back();
 
 
-        // $sanpham_bds->id=$data['id'];
-        // $sanpham_bds->maduan=$data['maduan'];
-        // $sanpham_bds->maloai=$data['maloai'];
-        // $sanpham_bds->tensp=$data['tensp'];
-        // $sanpham_bds->giatien=$data['giatien'];
-        // if ($request->hasFile('anhsp')) {
-        //     $file = $request->file('anhsp');
-        //     $fileName = $file->getClientOriginalName();
-        //     $destinationPath = public_path('/sanpham');
-        //     $file->move($destinationPath, $fileName);
-        //     $sanpham_bds->anhsp = $fileName;
-        // }
-        // $sanpham_bds->huong=$data['huong'];
-        // $sanpham_bds->chieudai=$data['chieudai'];
-        // $sanpham_bds->chieurong=$data['chieurong'];
-        // $sanpham_bds->sophongtam=$data['sophongtam'];
-        // $sanpham_bds->sophongngu=$data['sophongngu'];
-        // $sanpham_bds->xetduyet=$data['xetduyet'];
-        // $sanpham_bds->diachi=$data['diachi'];
-        // $sanpham_bds->nhaxanh=$data['nhaxanh'];
-        // $sanpham_bds->nhaxanh=$data['lienhe'];
-        // $sanpham_bds->save();
-        // return redirect()->back();
     }
-
     /**
      * Display the specified resource.
      *

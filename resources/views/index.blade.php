@@ -43,13 +43,13 @@
                                     <div class="box_fil clearfix">
                                         <div class="item-fil mgb10">
                                             <select name="sapxep" id="sapxep" class="form-control no-radius no-shadow icon2">
-                                                <option selected="selected" value="Chưa lựa chọn">Sắp xếp</option>
+                                                <option selected="selected" value=""><strong>Sắp xếp</strong></option>
                                                 <option value="1">Giá tăng dần</option>
                                                 <option value="2">Giá giảm dần</option>
                                             </select></div>
                                         <div class="item-filA">
                                             <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
-                                                <option selected="selected" value="Chưa lựa chọn">Tỉnh thành</option>
+                                                <option selected="selected" value=""><strong>Tỉnh thành</strong></option>
                                                 @foreach ($products as $product)
                                                     <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>
                                                 @endforeach
@@ -57,31 +57,30 @@
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maduan" id="maduan" class="form-control no-radius no-shadow icon1">
-                                                <option selected="selected" value="Chưa lựa chọn">Loại dự án</option>
+                                                <option selected="selected" value=""><strong>Loại dự án</strong></option>
                                                 @foreach ($duans as $duan)
                                                     <option value="{{ $duan->id }}">{{ $duan->tenduan }}</option>
                                                 @endforeach
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maloai" id="maloai" class="form-control no-radius no-shadow icon1">
-                                                <option selected="selected" value="Chưa lựa chọn">Loại bất động sản</option>
+                                                <option selected="selected" value=""><strong>Loại bất động sản</strong></option>
                                                 @foreach ($typeproducts as $typeproduct)
                                                     <option value="{{ $typeproduct->id }}">{{ $typeproduct->tenloai }}</option>
                                                 @endforeach
                                             </select></div>
-                                        {{--                                                <div class="item-fil mgb10">--}}
-                                        {{--                                                    <select name="giatien" id="GiaT" class="form-control no-radius no-shadow icon3">--}}
-                                        {{--                                                        <option selected="selected" value="0">Giá</option>--}}
-                                        {{--                                                        <option value="1">Thoả thuận</option>--}}
-                                        {{--                                                        <option value="2">&lt; 1 tỷ</option>--}}
-                                        {{--                                                        <option value="3">1 tỷ - 3 tỷ</option>--}}
-                                        {{--                                                        <option value="4">3 tỷ - 5 tỷ</option>--}}
-                                        {{--                                                        <option value="5">&gt; 7 tỷ</option>--}}
-
-                                        {{--                                                    </select></div>--}}
+                                        <div class="item-fil mgb10">
+                                            <select name="giatien" id="giatien" class="form-control no-radius no-shadow icon3">
+                                                <option selected="selected" value="">Giá</option>
+                                                <option value="0-1000000000">0 - 1tỷ</option>
+                                                <option value="1000000000-3000000000">1tỷ - 3tỷ</option>
+                                                <option value="3000000000-5000000000">3tỷ - 5tỷ</option>
+                                                <option value="5000000000-10000000000">5tỷ - 100tỷ</option>
+                                                <option value="10000000000-9999999999999999999">100tỷ trở lên</option>
+                                            </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="huongnha" id="huongnha" class="form-control no-radius no-shadow icon2">
-                                                <option selected="selected" value="Chưa lựa chọn">Hướng</option>
+                                                <option selected="selected" value=""><strong>Hướng</strong></option>
                                                 @foreach ($products as $product)
                                                     <option value="{{ $product->huong }}">{{ $product->huong }}</option>
                                                 @endforeach
@@ -89,7 +88,7 @@
                                             </select></div>
                                         <div class="sear-sticky clearfix hidden-desk"></div>
                                         <div class="item-fil2 mgb10">
-                                            <input name="tensp" type="text" id="tensp" class="form-control no-radius no-shadow pdl10" placeholder="Tên sản phẩm bất động sản">
+                                            <input name="tensp" type="text" id="tensp" value="" class="form-control no-radius no-shadow pdl10" placeholder="Tên sản phẩm bất động sản">
                                             <input type="submit" name="filter" value="Tìm Kiếm" id="filter" class="btn btn-danger no-radius bold">
                                             {{ csrf_field() }}
                                         </div>
@@ -127,7 +126,7 @@
                                                 </span>
                                             </p>
                                             <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>{{ $product->tensp }}</b></span></span></p>
-                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Quy mô rộng {{ $product->giatien }} ha</strong></span></p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền {{ $product->giatien }} đồng</strong></span></p>
 
                                         </div>
                                     </div>
@@ -227,7 +226,13 @@
     </div>
 
 
-    <div class="single-share-box"><div class="share-link-description">Chia sẻ bài này</div><div class="share-buttons"><a class="facebook" href="http://www.facebook.com/sharer.php?u=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/&#038;t=Aqua%20City%20Novaland%20Đồng%20Nai" title="Facebook" target="_blank"></a><a class="twitter" href="https://twitter.com/share?text=Aqua%20City%20Novaland%20Đồng%20Nai&#038;url=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/" title="Twitter" target="_blank"></a><a class="pinterest pinit-marklet" href="//pinterest.com/pin/create/button/" title="Pinterest" target="_blank" data-pin-config="above" data-pin-do="buttonBookmark"></a><a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&#038;url=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/&#038;title=Aqua%20City%20Novaland%20Đồng%20Nai&#038;summary=&#038;source=AQUA%20CITY" title="LinkedIn" target="_blank"></a>
+    <div class="single-share-box">
+        <div class="share-link-description">Chia sẻ bài này</div>
+        <div class="share-buttons">
+            <a class="facebook" href="" title="Facebook" target="_blank"></a>
+            <a class="twitter" href="" title="Twitter" target="_blank"></a>
+            <a class="pinterest pinit-marklet" href="" title="Pinterest" target="_blank" data-pin-config="above" data-pin-do="buttonBookmark"></a>
+            <a class="linkedin" href="" title="LinkedIn" target="_blank"></a>
         </div>
     </div>
 
