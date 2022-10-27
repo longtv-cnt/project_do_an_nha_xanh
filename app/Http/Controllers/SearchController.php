@@ -245,7 +245,10 @@ class SearchController extends Controller
                         <div id="ucRaoVat_pnlSdt" class="pnlSdt mgt10">
                             <fieldset class="bd pd10 UserDt bg_full2 mgb15">
                                 <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo tiêu chí</legend>
-                                Tỉnh thành : ' .$request ->diachi. '<br>';
+                                ';
+        if (isset($request->diachi)) {
+            $output .= '    Tỉnh thành : ' .$request ->diachi. '<br>';
+        }
         if (isset($request->maloai)&&isset($request->maduan)) {
             $loaibds = $typeproducts[$request->maloai-1]->tenloai;
             $tduan = $duans[$request->maduan-1]->tenduan;
@@ -254,20 +257,35 @@ class SearchController extends Controller
         }
         else if(isset($request->maloai)&&empty($request->maduan)) {
             $loaibds = $typeproducts[$request->maloai-1]->tenloai;
-            $tduan = '';
+            $tduan = 'Tất cả các dự án';
             $output .='Loại bất động sản : ' .$loaibds. '<br>
                                Dự án : ' .$tduan. '<br>';
         }
         else if(empty($request->maloai)&&isset($request->maduan)) {
             $tduan = $duans[$request->maduan-1]->tenduan;
-            $loaibds = '';
+            $loaibds = 'Tất cả các loại bất động sản';
             $output .='Loại bất động sản : ' .$loaibds. '<br>
                                Dự án : ' .$tduan. '<br>';
         }
-        $output .= '    Hướng : ' .$request ->huongnha. '<br>
-                                Từ khóa : ' .$request ->tensp. '<br>';
+        if (isset($request->huongnha)) {
+            $output .= '    Hướng :  ' .$request ->huongnha. '<br>';
+        }
+        if (isset($request->tensp)) {
+            $output .= '    Từ khóa :  ' .$request ->tensp. '<br>';
+        }
         if (isset($request->giatien)) {
-            $output .= '    Giá tiền : Từ  ' .explode("-",$request->giatien)[0]. ' Đến ' .explode("-",$request->giatien)[1]. ' đồng<br>';
+             if ($request->giatien == '0-1000000000'){
+                $giatien = 'Từ 0 đồng đến 1 tỷ đồng';
+            }elseif ($request->giatien == '1000000000-3000000000'){
+                $giatien = 'Từ 1 đồng đến 3 tỷ đồng';
+            }elseif ($request->giatien == '3000000000-5000000000'){
+                $giatien = 'Từ 3 đồng đến 5 tỷ đồng';
+            }elseif ($request->giatien == '5000000000-10000000000'){
+                $giatien = 'Từ 5 đồng đến 100 tỷ đồng';
+            }elseif ($request->giatien == '10000000000-9999999999999999999'){
+                $giatien = 'Từ 100 tỷ đồng trở lên';
+            }
+            $output .= '    Giá tiền :  ' .$giatien. '<br>';
 
         }
 
