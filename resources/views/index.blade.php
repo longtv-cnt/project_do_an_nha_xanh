@@ -53,7 +53,7 @@
                                                 @foreach ($products as $product)
                                                     <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>
                                                 @endforeach
-
+                                                <option value=""><strong>Tất cả tỉnh thành</strong></option>
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maduan" id="maduan" class="form-control no-radius no-shadow icon1">
@@ -61,6 +61,7 @@
                                                 @foreach ($duans as $duan)
                                                     <option value="{{ $duan->id }}">{{ $duan->tenduan }}</option>
                                                 @endforeach
+                                                <option value=""><strong>Tất cả dự án</strong></option>
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maloai" id="maloai" class="form-control no-radius no-shadow icon1">
@@ -68,6 +69,7 @@
                                                 @foreach ($typeproducts as $typeproduct)
                                                     <option value="{{ $typeproduct->id }}">{{ $typeproduct->tenloai }}</option>
                                                 @endforeach
+                                                <option value=""><strong>Tất cả loại BĐS</strong></option>
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="giatien" id="giatien" class="form-control no-radius no-shadow icon3">
@@ -77,6 +79,7 @@
                                                 <option value="3000000000-5000000000">3tỷ - 5tỷ</option>
                                                 <option value="5000000000-10000000000">5tỷ - 100tỷ</option>
                                                 <option value="10000000000-9999999999999999999">100tỷ trở lên</option>
+                                                <option value=""><strong>Mọi giá cả</strong></option>
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="huongnha" id="huongnha" class="form-control no-radius no-shadow icon2">
@@ -84,7 +87,7 @@
                                                 @foreach ($products as $product)
                                                     <option value="{{ $product->huong }}">{{ $product->huong }}</option>
                                                 @endforeach
-
+                                                <option value=""><strong>Tất cả các hướng</strong></option>
                                             </select></div>
                                         <div class="sear-sticky clearfix hidden-desk"></div>
                                         <div class="item-fil2 mgb10">
