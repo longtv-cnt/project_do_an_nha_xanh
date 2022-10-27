@@ -177,62 +177,80 @@ class SearchController extends Controller
         $typeproducts = TypeProduct::all();
 //        if (isset($request)) {
         $products = DB::table('sanpham_bds as p');
-        if ($request->sapxep == '1') {
-            if (isset($request->maloai)) {
-                $products->where('p.maloai', $request->maloai);
-            }
-            if(isset($request->maduan)) {
-                $products->where('p.maduan', $request->maduan);;
-            }
-            if (isset($request->huongnha)) {
-                $products->where('p.huong', $request->huongnha);
-            }
-            if (isset($request->diachi)) {
-                $products->where('p.diachi', $request->diachi);
-            }
-            if (isset($request->tensp)) {
-                $products->orwhere('p.tensp', 'like', "%{$request->tensp}%");
-            }
-            if (isset($request->giatien)) {
-                $price = explode("-",$request->giatien);
-                $start = $price[0];
-                $end = $price[1];
-                //echo "price is selected";
-                $products
-                    ->where('p.giatien', ">=", $start)
-                    ->where('p.giatien', "<=", $end);
-
-            }
-            $products->orderBy('p.giatien', 'ASC');
-            $sapxep = 'Giá tăng dần';
+        if (isset($request->maloai)&&isset($request->maduan)) {
+            $loaibds = $typeproducts[$request->maloai-1]->tenloai;
+            $tduan = $duans[$request->maduan-1]->tenduan;
+            $products->where('p.maloai', $request->maloai);
+            $products->where('p.maduan', $request->maduan);
         }
-        else {
-            if (isset($request->maloai)) {
-                $products->where('p.maloai', $request->maloai);
+        else if(isset($request->maloai)&&empty($request->maduan)) {
+            $loaibds = $typeproducts[$request->maloai-1]->tenloai;
+            $tduan = 'Tất cả các dự án';
+            $products->where('p.maloai', $request->maloai);
+        }
+        else if(empty($request->maloai)&&isset($request->maduan)) {
+            $tduan = $duans[$request->maduan-1]->tenduan;
+            $loaibds = 'Tất cả các loại bất động sản';
+            $products->where('p.maduan', $request->maduan);
+        }else{
+            $tduan = 'Tất cả các dự án';
+            $loaibds = 'Tất cả các loại bất động sản';
+        }
+        if (isset($request->huongnha)) {
+            $products->where('p.huong', $request->huongnha);
+            $huongnha = $request->huongnha;
+        }else{
+            $huongnha = 'Tất cả các hướng';
+        }
+        if (isset($request->diachi)) {
+            $products->where('p.diachi', $request->diachi);
+            $diachi = $request->diachi;
+        }else{
+            $diachi = 'Tất cả các tỉnh thành';
+        }
+        if (isset($request->tensp)) {
+            $products->where('p.tensp', 'like', "%{$request->tensp}%");
+            $tensp = $request->tensp;
+        }else{
+            $tensp = 'Nhập từ khóa';
+        }
+        if (isset($request->giatien)) {
+            $price = explode("-",$request->giatien);
+            $start = $price[0];
+            $end = $price[1];
+            //echo "price is selected";
+            $products
+                ->where('p.giatien', ">=", $start)
+                ->where('p.giatien', "<=", $end);
+            if ($request->giatien == '0-1000000000'){
+                $giatien = 'Từ 0 đồng đến 1 tỷ đồng';
+            }elseif ($request->giatien == '1000000000-3000000000'){
+                $giatien = 'Từ 1 đồng đến 3 tỷ đồng';
+            }elseif ($request->giatien == '3000000000-5000000000'){
+                $giatien = 'Từ 3 đồng đến 5 tỷ đồng';
+            }elseif ($request->giatien == '5000000000-10000000000'){
+                $giatien = 'Từ 5 đồng đến 100 tỷ đồng';
+            }elseif ($request->giatien == '10000000000-9999999999999999999'){
+                $giatien = 'Từ 100 tỷ đồng trở lên';
+            }else{
+                $giatien = 'Mọi giá tiền';
             }
-            if(isset($request->maduan)) {
-                $products->where('p.maduan', $request->maduan);;
+        }else{
+            $giatien = 'Mọi giá tiền';
+        }
+        if (isset($request->sapxep)){
+            if ($request->sapxep == '1') {
+                $products->orderBy('p.giatien', 'ASC');
+                $sapxep = 'Giá tăng dần';
+            }else{
+                $products->orderBy('p.giatien', 'DESC');
+                $sapxep = 'Giá giảm dần';
             }
-            if (isset($request->huongnha)) {
-                $products->where('p.huong', $request->huongnha);
-            }
-            if (isset($request->diachi)) {
-                $products->where('p.diachi', $request->diachi);
-            }
-            if (isset($request->tensp)) {
-                $products->orwhere('p.tensp', 'like', "%{$request->tensp}%");
-            }
-            if (isset($request->giatien)) {
-                $price = explode("-",$request->giatien);
-                $start = $price[0];
-                $end = $price[1];
-                $products
-                    ->where('p.giatien', ">=", $start)
-                    ->where('p.giatien', "<=", $end);
-            }
+        }else{
             $products->orderBy('p.giatien', 'DESC');
             $sapxep = 'Giá giảm dần';
         }
+
         $products = $products->get();
         $output = '
                      <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
@@ -246,50 +264,13 @@ class SearchController extends Controller
                             <fieldset class="bd pd10 UserDt bg_full2 mgb15">
                                 <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo tiêu chí</legend>
                                 ';
-        if (isset($request->diachi)) {
-            $output .= '    Tỉnh thành : ' .$request ->diachi. '<br>';
-        }
-        if (isset($request->maloai)&&isset($request->maduan)) {
-            $loaibds = $typeproducts[$request->maloai-1]->tenloai;
-            $tduan = $duans[$request->maduan-1]->tenduan;
-            $output .='Loại bất động sản : ' .$loaibds. '<br>
-                               Dự án : ' .$tduan. '<br>';
-        }
-        else if(isset($request->maloai)&&empty($request->maduan)) {
-            $loaibds = $typeproducts[$request->maloai-1]->tenloai;
-            $tduan = 'Tất cả các dự án';
-            $output .='Loại bất động sản : ' .$loaibds. '<br>
-                               Dự án : ' .$tduan. '<br>';
-        }
-        else if(empty($request->maloai)&&isset($request->maduan)) {
-            $tduan = $duans[$request->maduan-1]->tenduan;
-            $loaibds = 'Tất cả các loại bất động sản';
-            $output .='Loại bất động sản : ' .$loaibds. '<br>
-                               Dự án : ' .$tduan. '<br>';
-        }
-        if (isset($request->huongnha)) {
-            $output .= '    Hướng :  ' .$request ->huongnha. '<br>';
-        }
-        if (isset($request->tensp)) {
-            $output .= '    Từ khóa :  ' .$request ->tensp. '<br>';
-        }
-        if (isset($request->giatien)) {
-             if ($request->giatien == '0-1000000000'){
-                $giatien = 'Từ 0 đồng đến 1 tỷ đồng';
-            }elseif ($request->giatien == '1000000000-3000000000'){
-                $giatien = 'Từ 1 đồng đến 3 tỷ đồng';
-            }elseif ($request->giatien == '3000000000-5000000000'){
-                $giatien = 'Từ 3 đồng đến 5 tỷ đồng';
-            }elseif ($request->giatien == '5000000000-10000000000'){
-                $giatien = 'Từ 5 đồng đến 100 tỷ đồng';
-            }elseif ($request->giatien == '10000000000-9999999999999999999'){
-                $giatien = 'Từ 100 tỷ đồng trở lên';
-            }
+            $output .= '    Tỉnh thành : ' .$diachi. '<br>';
+            $output .= '    Loại bất động sản : ' .$loaibds. '<br>';
+            $output .= '    Dự án : ' .$tduan. '<br>';
+            $output .= '    Hướng :  ' .$huongnha. '<br>';
+            $output .= '    Từ khóa :  ' .$tensp. '<br>';
             $output .= '    Giá tiền :  ' .$giatien. '<br>';
-
-        }
-
-        $output .= '   Sắp xếp theo : ' .$sapxep. '
+            $output .= '   Sắp xếp theo : ' .$sapxep. '
                             </fieldset>
                         </div>
                         <div id="ucRaoVat_pnlalert">
