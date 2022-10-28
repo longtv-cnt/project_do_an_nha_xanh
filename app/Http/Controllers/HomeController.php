@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Duan;
+use App\Models\TypeProduct;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,6 +35,13 @@ class HomeController extends Controller
         return view('home.blog-single');
     }
     public function login(){
-        return view('login.login');
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('login.login', compact('duans', 'typeproducts'));
+    }
+    public function dangki(){
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        return view('dangki.dangki', compact('duans', 'typeproducts'));
     }
 }

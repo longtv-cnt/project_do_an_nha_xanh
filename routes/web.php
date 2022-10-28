@@ -42,12 +42,11 @@ Route::get('/agentsgrid', [HomeController::class, 'agentsgrid'])->name('agents-g
 Route::get('/bloggrid', [HomeController::class, 'bloggrid'])->name('blog-grid');
 Route::get('/blogsingle', [HomeController::class, 'blogsingle'])->name('blog-single');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/dangki', [HomeController::class, 'dangki'])->name('dangki');
 Route::get('/product', [RealEsatateController::class, 'create'])->name('product');
 Route::get('/product/create', [RealEsatateController::class, 'create'])->name('product.create');
 Route::post('/product/store', [RealEsatateController::class, 'store'])->name('product.store');
-Route::get('/login', function () {
-    return view('login.login');
-})->name('login');
+
 
 Route::get('/',[RealEsatateController::class,'index'])->name('home');
 Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
