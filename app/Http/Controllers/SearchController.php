@@ -356,20 +356,18 @@ class SearchController extends Controller
                     <div class="vc_row wpb_row vc_inner vc_row-fluid">';
         foreach($tintuc as $tin)
         {
-            $output .= ' <div class="wpb_column vc_column_container vc_col-sm-6">
+            $output .= '        <div class="wpb_column vc_column_container vc_col-sm-6">
                                     <div class="vc_column-inner ">
                                         <div class="wpb_wrapper">
-                                            <div class="wpb_text_column wpb_content_element  vc_custom_1631612444151">
-                                                <div class="wpb_wrapper">
+                                                    <div class="col-xs-12 col-sm-7 col-md-8 pdl10 pdr0">
+                                                        <h3 class="titH5 mgb5 bold500 mgt0"><a class="c_red" href="/tintuc{id}">'.$tin->tentin.'</a></h3>
+                                                        <p class="mgb5 mDesc hidden-xs">'.$tin->ngaydang.'</p>
+                                                    </div>
 
-                                                    <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$tin->tentin.'</b></span></span></p>
-                                                    <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$tin->loaitin.'</b></span></span></p>
-
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                ';
             }
         $output .= '</div>';
