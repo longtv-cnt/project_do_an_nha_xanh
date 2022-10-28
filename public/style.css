@@ -8279,7 +8279,7 @@ button.close {
     width: 26px;
     height: 60px;
     overflow: hidden;
-    background: url(/js/owl-carousel/arrow.png) no-repeat rgba(0, 0, 0, .5);
+    background: url(/img/arrow.png) no-repeat rgba(0, 0, 0, .5);
     text-indent: 9999px
 }
 
@@ -9960,7 +9960,7 @@ hr {
     display: inline-block;
     padding: 6px 10px 6px 40px;
     position: relative;
-    background: url(/images/bg/bg-tit2.png)no-repeat 10px 11px, #68bd45;
+    background: url(/img/tin.png)no-repeat 10px 11px, #68bd45;
     color: #fff
 }
 
@@ -10315,7 +10315,7 @@ hr {
 
 .tit_filter {
     padding: 30px 0 0 40px;
-    background: url('https://nhadatvanminh.com.vn/images/bg/bg-tit1.png')no-repeat left top
+    background: url(/img/xanh.jpg)no-repeat left top
 }
 
 .box_fil {
@@ -10343,7 +10343,7 @@ hr {
 }
 
 .item-filA .icon1 {
-    background: url(/images/bg/bg-filter1.png)no-repeat 7px center;
+    background: url(/img/xanh2.png)no-repeat 7px center;
     border: none !important;
     color: #f15b40;
     font-weight: bold
@@ -10772,7 +10772,7 @@ span.vld-error {
 
 .d_image {
     padding-left: 35px !important;
-    background: url(/images/bg/d_image.png)no-repeat left center
+    background: url(/img/do1.png)no-repeat left center
 }
 
 .d_img1 {
@@ -10793,12 +10793,12 @@ span.vld-error {
 
 .d_map {
     padding-left: 35px !important;
-    background: url(/images/bg/d_map.png)no-repeat left center
+    background: url(/img/do2.png)no-repeat left center
 }
 
 .d_video {
     padding-left: 35px !important;
-    background: url(/images/bg/d_youtube.png)no-repeat left center
+    background: url(/img/do3.png)no-repeat left center
 }
 
 .d_table>tbody>tr>td {

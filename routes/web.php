@@ -59,7 +59,7 @@ Route::get('/gioithieu/loaibds{maloai}',[SearchController::class,'gioithieu'])->
 Route::get('/lienhe/',[SearchController::class,'lienhe'])->name('lienhe');
 Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung');
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
-
+Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
 
 // Route::get('/home',function(){
 //     return view('admin.home');
