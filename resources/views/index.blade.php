@@ -161,81 +161,78 @@
             </div>
         </div>
     </div>
-    <div class="kk-star-ratings
-     kksr-valign-bottom     kksr-align-right    "
-         data-payload="{&quot;align&quot;:&quot;right&quot;,&quot;id&quot;:&quot;4396&quot;,&quot;slug&quot;:&quot;default&quot;,&quot;valign&quot;:&quot;bottom&quot;,&quot;reference&quot;:&quot;auto&quot;,&quot;count&quot;:&quot;72&quot;,&quot;readonly&quot;:&quot;&quot;,&quot;score&quot;:&quot;4.7&quot;,&quot;best&quot;:&quot;5&quot;,&quot;gap&quot;:&quot;4&quot;,&quot;greet&quot;:&quot;\u0110\u00e1nh gi\u00e1 b\u00e0i vi\u1ebft.&quot;,&quot;legend&quot;:&quot;4.7\/5 - (72 b\u00ecnh ch\u1ecdn)&quot;,&quot;size&quot;:&quot;24&quot;,&quot;width&quot;:&quot;129.6&quot;,&quot;_legend&quot;:&quot;{score}\/{best} - ({count} {votes})&quot;}">
 
-        <div class="kksr-stars">
+    <div class="vc_row wpb_row vc_row-fluid dt-default" style="margin-top: 0px; margin-bottom: 0px; min-height: 0px;">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <div class="wpb_text_column wpb_content_element ">
+                        <div class="wpb_wrapper">
+                            <p style="text-align: center;"><span style="color: #008000; font-size: 16pt;"><strong><span style="font-family: verdana, geneva, sans-serif;">Tin tức</span></strong></span></p>
+{{--                            <p style="text-align: center;"><span style="color: #0000ff; font-size: 18pt;"><strong><span style="font-family: verdana, geneva, sans-serif;">{{$title}}</span></strong></span></p>--}}
 
-            <div class="kksr-stars-inactive">
-                <div class="kksr-star" data-star="1" style="padding-right: 4px">
+                        </div>
+                    </div>
+                    <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_20 vc_sep_border_width_2 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_green vc_custom_1647596904498  vc_custom_1647596904498"><span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                    </div>
 
+                    <div class="titH3 bold500 tit_box mgt0">
+                        <h2 class="display-inline font-size-18px line-height-26px mg0">
+                            <span class="tit_span">Loại tin tức</span>
+                        </h2>
+                        <h2 class="display-inline font-size-18px line-height-26px mg0">
+                            <select name="tintuc" id="tintuc" class="">
+                                <option selected="selected" value=""><strong>Loại tin</strong></option>
+                                @foreach ($loaitintuc as $loai)
+                                    <option value="{{$loai->tenloai}}">{{$loai->tenloai}}</option>
+                                @endforeach
+                                <option value=""><strong>Tất cả tin tức</strong></option>
+                            </select>
+                        </h2>
+                        <h2 class="display-inline font-size-18px line-height-26px mg0">
+                            <input type="submit" name="tin" value="Lọc" id="tin" class="tit_span">
+                        </h2>
 
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="2" style="padding-right: 4px">
+                    </div>
+                    <div id="countryList2">
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                        @if ($tintuc)
+                            @foreach ($tintuc as $tin)
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                                    <div class="col-xs-12 col-sm-7 col-md-8 pdl10 pdr0">
+                                                        <h3 class="titH5 mgb5 bold500 mgt0"><a class="c_red" href="/tintuc{id}">{{$tin->tentin}}</a></h3>
+                                                        <p class="mgb5 mDesc hidden-xs">{{$tin->ngaydang}}</p>
+                                                    </div>
 
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="3" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="4" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="5" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-            </div>
-
-            <div class="kksr-stars-active" style="width: 129.6px;">
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
+                            @endforeach
+                        @endif
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="kksr-legend">
-            4.7/5 - (72 bình chọn)    </div>
     </div>
 
-
-    <div class="single-share-box">
-        <div class="share-link-description">Chia sẻ bài này</div>
-        <div class="share-buttons">
-            <a class="facebook" href="" title="Facebook" target="_blank"></a>
-            <a class="twitter" href="" title="Twitter" target="_blank"></a>
-            <a class="pinterest pinit-marklet" href="" title="Pinterest" target="_blank" data-pin-config="above" data-pin-do="buttonBookmark"></a>
-            <a class="linkedin" href="" title="LinkedIn" target="_blank"></a>
+    <div class="vc_row wpb_row vc_row-fluid full-width-wrap dt-default" style="padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; width: 1710.4px; margin-left: -145px; opacity: 1; min-height: 0px;">
+        <div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_pos_align_center vc_sep_color_blue vc_separator-has-text">
+                        <span class="vc_sep_holder vc_sep_holder_l">
+                            <span class="vc_sep_line"></span>
+                        </span>
+                        <h4>⭐️ ⭐️ ⭐️ ⭐️ ⭐️</h4>
+                        <span class="vc_sep_holder vc_sep_holder_r">
+                            <span class="vc_sep_line"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

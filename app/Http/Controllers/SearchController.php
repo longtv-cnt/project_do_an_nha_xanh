@@ -11,6 +11,10 @@ class SearchController extends Controller
 
     public function loaibdsduan($maloai, $maduan)
     {
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        $loaitintuc = DB::table('loaitintuc')->select('*');
+        $loaitintuc = $loaitintuc->get();
         $products = DB::table('sanpham_bds')
             ->where('maloai',$maloai)
             ->where('maduan',$maduan)
@@ -21,11 +25,16 @@ class SearchController extends Controller
         $title = $duans[$maduan-1]->tenduan;
         $loaibds = $typeproducts[$maloai-1]->tenloai;
         $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
+        return view('index', compact('products',
+            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc'));
     }
 
     public function duan($maduan)
     {
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        $loaitintuc = DB::table('loaitintuc')->select('*');
+        $loaitintuc = $loaitintuc->get();
         $products = DB::table('sanpham_bds')
             ->where('maduan',$maduan)
             ->orderBy('giatien','ASC')
@@ -35,10 +44,16 @@ class SearchController extends Controller
         $title = $duans[$maduan-1]->tenduan;
         $loaibds = 'Tất cả sản phẩm';
         $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
+        return view('index', compact('products',
+            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc'));
     }
+
     public function loaibds($maloai)
     {
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        $loaitintuc = DB::table('loaitintuc')->select('*');
+        $loaitintuc = $loaitintuc->get();
         $products = DB::table('sanpham_bds')
             ->where('maloai',$maloai)
             ->orderBy('giatien','ASC')
@@ -48,7 +63,8 @@ class SearchController extends Controller
         $loaibds = $typeproducts[$maloai-1]->tenloai;
         $title = 'Tất cả dự án';
         $sapxep = 'Giá tăng dần';
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'sapxep'));
+        return view('index', compact('products',
+            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc'));
     }
     public function gioithieu($maloai)
     {
@@ -312,6 +328,54 @@ class SearchController extends Controller
 //            echo $output;
         return Response($output);
 //        }
+    }
+    function tintuc(Request $request)
+    {
+
+        if (isset($request->tintuc)){
+            $loaitintuc = DB::table('loaitintuc')
+                ->where('tenloai', $request->tintuc)
+                ->get();
+            foreach ($loaitintuc as $tin) {
+                $tintuc = DB::table('tintuc')
+                    ->where('loaitin', $tin->id)
+                    ->get();
+            }
+            $title = $request->tintuc;
+        }else{
+            $tintuc = DB::table('tintuc')->select('*')
+                ->get();
+            $title = 'Tất cả tin tức';
+        }
+        $output = '
+              <div id="ucRaoVat_pnlSdt" class="pnlSdt mgt10">
+                            <fieldset class="bd pd10 UserDt bg_full2 mgb15">
+                                <legend class="bold">' . $title . '</legend>
+                            </fieldset>
+                        </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">';
+        foreach($tintuc as $tin)
+        {
+            $output .= ' <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element  vc_custom_1631612444151">
+                                                <div class="wpb_wrapper">
+
+                                                    <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$tin->tentin.'</b></span></span></p>
+                                                    <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$tin->loaitin.'</b></span></span></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+               ';
+            }
+        $output .= '</div>';
+//            echo $output;
+        return Response($output);
+
     }
 
 

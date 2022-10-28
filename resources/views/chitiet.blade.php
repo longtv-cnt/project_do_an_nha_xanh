@@ -88,6 +88,120 @@
         @endforeach
     @endif
 
+    <div id="ucRaoVat_rptDetailRv_pnlLH_0">
+
+        <div class="titH4 bold">THÔNG TIN LIÊN HỆ</div>
+        <table class="table table-raovat table-striped">
+            <tbody><tr>
+                <td class="bold" style="width:140px">Người liên hệ</td>
+                <td class="dtr2">:&nbsp;&nbsp;<strong class="text-uppercase">qua điện thoại</strong></td>
+            </tr>
+            <tr>
+                <td class="bold">Điện thoại</td>
+                <td class="dtr2">:&nbsp;&nbsp;<a href="tel:0936921488 - 0936621488"><strong>0936.921.488 - 0936.621.488</strong></a></td>
+            </tr>
+
+
+            <tr><td class="bold">Địa chỉ</td><td class="dtr2">:&nbsp;&nbsp;Số 6/2/33 Kiều Sơn, Hải An, Hải Phòng</td></tr>
+            </tbody></table>
+
+    </div>
+
+    <ul class="nav nav-tabs mgb10 bold tabs_raovat">
+        <li class=""><a class="pdr0 mgr20 d_image" href="#d_images" role="tab" data-toggle="tab" aria-expanded="false">Hình ảnh</a></li>
+        <li class=""><a class="pdr0 mgr20 d_map" href="#d_map" role="tab" data-toggle="tab" aria-expanded="false">Bản đồ</a></li>
+        <li class="active"><a class="pdr0 mgr20 d_video" href="#d_video" role="tab" data-toggle="tab" aria-expanded="true">Video</a></li>
+    </ul>
+    @if ($products)
+        @foreach ($products as $product)
+    <div class="tab-content mgb15">
+        <div class="tab-pane fade" id="d_images">
+            <p class="d_img1 img4x3 bd pd10 mgb0 clearfix" id="aimg">
+                @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
+                <img class="img img2" id="img1" src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                <a class="img" data-fancybox="d_image" href="{{ 'uploads/product/'.$product->anhsp }}">
+                    <img class="img2" src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                </a>
+                @else
+                    <img class="img img2" id="img1" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                    <a class="img" data-fancybox="d_image" href="{{ $product->anhsp }}">
+                        <img class="img2" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                    </a>
+                @endif
+            </p>
+            <div class="owl-carousel clearfix pd15 text-center owl-loaded owl-drag owl-hidden" id="gallery">
+
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1635px;">
+                        <div class="owl-item active" style="width: 153.5px; margin-right: 10px;">
+                            <a href="javascript:void()" class="img4x3 bd pd5 ahover active" data-image="{{ $product->anhsp }}">
+                                <img class="img img2" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                            </a>
+                        </div>
+                        <div class="owl-item active" style="width: 153.5px; margin-right: 10px;">
+                            <a class="img4x3 bd pd5 ahover" data-fancybox="d_image" href="{{ $product->anhsp }}" data-image="{{ $product->anhsp }}">
+                                <img class="img img2" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                            </a>
+                        </div>
+                        <div class="owl-item active" style="width: 153.5px; margin-right: 10px;">
+                            <a class="img4x3 bd pd5 ahover" data-fancybox="d_image" href="{{ $product->anhsp }}" data-image="{{ $product->anhsp }}">
+                                <img class="img img2" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="owl-nav">
+                    <div class="owl-prev disabled">prev</div>
+                    <div class="owl-next">next</div>
+                </div>
+                <div class="owl-dots disabled"></div>
+            </div>
+        </div>
+        <div class="tab-pane fade bd pd10" id="d_map" style="opacity: 1; overflow: visible;">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="/map.html?map=224543"></iframe>
+            </div>
+        </div>
+        <div class="tab-pane fade bd pd10 active in" id="d_video" style="opacity: 1; overflow: visible;">
+            <div class="embed-responsive embed-responsive-4by3">
+
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/?rel=0&amp;hd=1&amp;controls=1&amp;showinfo=0"></iframe>
+
+            </div>
+        </div>
+    </div>
+
+        @endforeach
+    @endif
+
+    <fieldset class="bd pdl10 pdr10 UserDt bg_full2 mgb20">
+        <legend class="bold">THÔNG TIN NGƯỜI ĐĂNG</legend>
+
+        <div class="row row-md">
+            <div class="col-xs-12 col-md-3 col-md mgb15"><span class="d_imgU mgt10"><img class="img img1" src="/images/user/5.jpg" alt="Nhà Đất Văn Minh"></span></div>
+            <div class="col-xs-12 col-md-9 col-xs table-responsive no-border mgb0">
+                <table class="table d_table mgb0">
+                    <tbody><tr>
+                        <td class="bold">Công ty / Cá nhân</td>
+                        <td>: Nhà Đất Văn Minh</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Số điện thoại</td>
+                        <td>: <a href="tel:02253 601601">02253 601601</a></td>
+                    </tr>
+                    <tr><td class="bold">Địa chỉ email</td><td>: <a href="mailto:nhadatvanminh@gmail.com?Subject=Hello%20Nhà Đất Văn Minh" target="_top">nhadatvanminh@gmail.com</a></td></tr>
+                    <tr>
+                        <td class="bold">Địa chỉ liên lạc</td>
+                        <td>: 448 Võ Nguyên Giáp, Vĩnh Niệm, Lê Chân, Hải Phòng</td>
+                    </tr>
+                    <tr><td class="bold">Website</td><td>: <a href="https://nhadatvanminh.com.vn" target="_blank">nhadatvanminh.com.vn</a></td></tr>
+                    </tbody></table>
+            </div>
+        </div>
+
+    </fieldset>
 
     <div class="vc_row wpb_row vc_row-fluid full-width-wrap dt-default" style="padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; width: 1710.4px; margin-left: -145px; opacity: 1; min-height: 0px;">
         <div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner ">
@@ -105,76 +219,6 @@
             </div>
         </div>
     </div>
-    <div class="kk-star-ratings
-     kksr-valign-bottom     kksr-align-right    "
-         data-payload="{&quot;align&quot;:&quot;right&quot;,&quot;id&quot;:&quot;4396&quot;,&quot;slug&quot;:&quot;default&quot;,&quot;valign&quot;:&quot;bottom&quot;,&quot;reference&quot;:&quot;auto&quot;,&quot;count&quot;:&quot;72&quot;,&quot;readonly&quot;:&quot;&quot;,&quot;score&quot;:&quot;4.7&quot;,&quot;best&quot;:&quot;5&quot;,&quot;gap&quot;:&quot;4&quot;,&quot;greet&quot;:&quot;\u0110\u00e1nh gi\u00e1 b\u00e0i vi\u1ebft.&quot;,&quot;legend&quot;:&quot;4.7\/5 - (72 b\u00ecnh ch\u1ecdn)&quot;,&quot;size&quot;:&quot;24&quot;,&quot;width&quot;:&quot;129.6&quot;,&quot;_legend&quot;:&quot;{score}\/{best} - ({count} {votes})&quot;}">
 
-        <div class="kksr-stars">
-
-            <div class="kksr-stars-inactive">
-                <div class="kksr-star" data-star="1" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="2" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="3" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="4" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" data-star="5" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-            </div>
-
-            <div class="kksr-stars-active" style="width: 129.6px;">
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="kksr-star" style="padding-right: 4px">
-
-
-                    <div class="kksr-icon" style="width: 24px; height: 24px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="kksr-legend">
-            4.7/5 - (72 bình chọn)    </div>
-    </div>
-
-
-    <div class="single-share-box"><div class="share-link-description">Chia sẻ bài này</div><div class="share-buttons"><a class="facebook" href="http://www.facebook.com/sharer.php?u=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/&#038;t=Aqua%20City%20Novaland%20Đồng%20Nai" title="Facebook" target="_blank"></a><a class="twitter" href="https://twitter.com/share?text=Aqua%20City%20Novaland%20Đồng%20Nai&#038;url=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/" title="Twitter" target="_blank"></a><a class="pinterest pinit-marklet" href="//pinterest.com/pin/create/button/" title="Pinterest" target="_blank" data-pin-config="above" data-pin-do="buttonBookmark"></a><a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&#038;url=https://aquacityvn.vn/aqua-city-novaland-dong-nai-8/&#038;title=Aqua%20City%20Novaland%20Đồng%20Nai&#038;summary=&#038;source=AQUA%20CITY" title="LinkedIn" target="_blank"></a>
-        </div>
-    </div>
 
 @endsection

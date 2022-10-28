@@ -25,7 +25,12 @@ class RealEsatateController extends Controller
         $typeproducts = TypeProduct::all();
         $title = 'Tất cả dự án';
         $loaibds = 'Tất cả sản phẩm';
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds'));
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        $loaitintuc = DB::table('loaitintuc')->select('*');
+        $loaitintuc = $loaitintuc->get();
+
+        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'tintuc', 'loaitintuc'));
     }
 
     /**
