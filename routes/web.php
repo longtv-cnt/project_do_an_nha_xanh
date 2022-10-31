@@ -178,3 +178,4 @@ Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');;
 Route::post('/gallery/store', [galleryController::class, 'store'])->name('gallery.store');
 Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
 Route::get('/gallery/delete/{id}', [galleryController::class,'destroy'])->name('gallery.delete');
+

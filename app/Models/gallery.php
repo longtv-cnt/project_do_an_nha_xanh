@@ -14,7 +14,8 @@ class gallery extends Model
         'id',
         'sanpham_id',
         'image',
+        'video',
 
     ];
-   
+
     use HasFactory;}

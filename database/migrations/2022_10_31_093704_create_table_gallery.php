@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('image');
+            $table->string('video');
             $table->unsignedBigInteger('sanpham_id')->nullable()->references('id')->on('sanpham_bds')
             ->onDelete('set null')->onUpdate('set null');
         });

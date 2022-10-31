@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <section class="content">
+        {{-- <link rel="stylesheet"  href="{{asset('style1.css')}}"/> --}}
         <div class="content-wrapper">
             <!-- Default box -->
             <div class="card">
@@ -15,12 +16,11 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <input type="file" class="form-control" id="file" name="image" accept="image/*"
-                                multiple>
+                            <input type="file" class="form-control" id="file" name="image" accept="image/*" multiple>
+                            <input type="file" class="form-control" name="video">
                             <span id="error_gallery "></span>
                         </div>
                         <div class="col-md-3">
-
                             <select name="sanpham_id">
                                 <option value="choose">Chọn sản phẩm</option>
                                 @foreach ($products as $item)
@@ -31,6 +31,7 @@
                         <div class="col-md-3">
                             <input type="submit" name="upload" name="taianh" value="Tải Ảnh" class="btn btn-success">
                         </div>
+                    </div>
                     </div>
 
                 </form>
@@ -55,10 +56,26 @@
                                                     <img class="card-img" src="{{ 'store/' . $item->image }}" alt=""
                                                         height="150px">
                                                 @else
-                                                    <img class="card-img" src="{{ $item->image }}" alt=""
+                                                    <img class="card-img" src="{{ 'store/' . $item->image }}" alt=""
                                                         height="150px">
                                                 @endif
-
+                                                <div class="card-body">
+                                                    <a onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-danger"
+                                                      href="{{route('gallery.delete',
+                                                       ['id'=>$item->id])}}">
+                                                       <i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                @if (file_exists(public_path('store/video/' . $item->video)))
+                                                    <video height="150px" autoplay muted>
+                                                        <source src="{{asset('store/video/')}}/{{$item['video']}}" type="video/mp4">
+                                                    </video>
+                                                @else
+                                                    <video height="150px" autoplay muted>
+                                                        <source src="{{asset('store/video/')}}/{{$item['video']}}" type="video/mp4">
+                                                    </video>
+                                                @endif
                                                 <div class="card-body">
                                                     <a onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-danger"
                                                       href="{{route('gallery.delete',

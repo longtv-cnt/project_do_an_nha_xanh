@@ -17,7 +17,7 @@ class galleryController extends Controller
      */
     public function index()
     {
-
+        $data= gallery::all()->toArray();
         $products=RealEstate::all();
         $gallery = DB::table('gallery')->select('*');
         $gallery = $gallery->get();
@@ -25,7 +25,7 @@ class galleryController extends Controller
         ->join('sanpham_bds', 'gallery.sanpham_id', '=', 'sanpham_bds.id')
         ->select('gallery.*', 'sanpham_bds.id')
         ->get();
-        return view('admin.gallery.gallery',compact('gallery','sanpham_id','products',));
+        return view('admin.gallery.gallery',compact('gallery','sanpham_id','products','data'));
     }
 
 
@@ -93,7 +93,7 @@ class galleryController extends Controller
     public function destroy($id)
     {
         // confirm that the user really wants to delete the record js
-        
+
       $gallery = gallery::find($id);
 
       $image_path = public_path('store/'.$gallery->image);
@@ -125,7 +125,9 @@ class galleryController extends Controller
         // }
         // Session::put('message','Thêm Thành Công');
         // return redirect()->back();
-
+        $request->validate([
+            'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm'
+        ]);
 
         $gallery = new gallery();
         $gallery->id = $request->id;
@@ -137,10 +139,24 @@ class galleryController extends Controller
             $file->move($destinationPath, $fileName);
             $gallery->image = $fileName;
         }
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $fileName = $file->getClientOriginalName();
+            $destinationPath = public_path('/store/video');
+            $file->move($destinationPath, $fileName);
+            // $insert = new gallery();
+            // $insert ->video = $fileName;
+            $gallery->video = $fileName;
+        }
         $gallery->sanpham_id = $request->sanpham_id;
         $gallery->save();
 
         return redirect()->route('gallery');
 
     }
+    // public function fetch(Request $request, ){
+    //     $data= gallery::all()->toArray();
+    //     return view('gallery',compact('
+
+    // }
 }
