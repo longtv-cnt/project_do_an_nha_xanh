@@ -9770,7 +9770,7 @@ a:hover {
     height: 50px;
     position: fixed;
     z-index: 5000;
-    background: url(/images/icon/icon-top.png)no-repeat center, rgba(0, 0, 0, .2);
+    background: url(/img/scroll-top.png)no-repeat center, rgba(0, 0, 0, .2);
     cursor: pointer
 }
 
