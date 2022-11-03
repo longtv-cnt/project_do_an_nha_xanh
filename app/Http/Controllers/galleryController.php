@@ -93,7 +93,7 @@ class galleryController extends Controller
     public function destroy($id)
     {
         // confirm that the user really wants to delete the record js
-        
+
       $gallery = gallery::find($id);
 
       $image_path = public_path('store/'.$gallery->image);
@@ -107,27 +107,7 @@ class galleryController extends Controller
     }
 
     public function insert_gallery(Request $request, ){
-        // $get_image = $request->file('file');
-        // if($get_image){
-        //     foreach($get_image as $image){
-        //         $get_name_image = $image->getClientOriginalName();
-        //         $name_image = current(explode('.',$get_name_image));
-        //         $new_image = $name_image.rand(0,99).'.'.$image->getClientOriginalExtension();
-        //         $image->move('public/uploads',$new_image);
-        //         $data = $request->all();
-        //         $gallery = new gallery();
-        //         $gallery->id = $data['id'];
-        //         $gallery->name =$new_image;
-        //         $gallery->image = $new_image;
-        //         $gallery->sanpham_id= $sanpham_id;
-        //         $gallery->save();
-        //     }
-        // }
-        // Session::put('message','Thêm Thành Công');
-        // return redirect()->back();
-
-
-        $gallery = new gallery();
+         $gallery = new gallery();
         $gallery->id = $request->id;
         $gallery->name = $request->name;
         if ($request->hasFile('image')) {
