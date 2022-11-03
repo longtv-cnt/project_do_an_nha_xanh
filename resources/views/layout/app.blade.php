@@ -314,7 +314,7 @@
                 <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('login')}}">
                             Đăng nhập
                         </a></span>
-                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="contact.html">
+                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('dangki')}}">
                             Đăng kí
                         </a></span>
 
