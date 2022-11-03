@@ -80,14 +80,9 @@
             </div>
 
             <div class="form-group cbcheck mgb20">
-                <span class="checkOK"><input id="ucLogin_ckbOK" type="checkbox" name="ucLogin$ckbOK"><label for="ucLogin_ckbOK">&nbsp; Tôi đồng ý với các điều khoản của Nhà đất Văn Minh</label></span>
+                <span class="checkOK"><input id="ucLogin_ckbOK" type="checkbox" name="ucLogin$ckbOK"><label for="ucLogin_ckbOK">&nbsp; Tôi đồng ý với các điều khoản</label></span>
             </div>
 
-            <div class="form-group code2">
-                <input name="ucLogin$txtCode2" type="text" maxlength="5" id="ucLogin_txtCode2" class="form-control no-radius no-shadow" placeholder="Mã xác nhận *" autocomplete="off">
-                <img src="/controls/code.ashx?f=43562" class="code-img" alt="code" style="height:40px !important;">
-                <span id="ucLogin_RFV5" class="vld-error" style="display:none;">Vui lòng nhập mã xác nhận.</span>
-            </div>
 
             <div class="form-group">
                 <input type="button" name="ucLogin$btnRegister" value="ĐĂNG KÝ" onclick="if (!Page_ClientValidate()){ return false; } this.disabled = true; this.value = 'Sending...';WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ucLogin$btnRegister&quot;, &quot;&quot;, true, &quot;vldReg&quot;, &quot;&quot;, false, true))" id="ucLogin_btnRegister" class="btn bold no-radius btnRegister">
@@ -103,7 +98,7 @@
 
             <p>Để được trợ giúp vui lòng liên hệ :</p>
 
-            <p>Hotline&nbsp;<strong><a href="http://tel:0936601601/"><span style="color:#f15b40">0936-601-601</span></a></strong>&nbsp;hoặc email&nbsp;<strong><a href="http://mailto:nhadatvanminh@gmail.com">nhadatvanminh@gmail.com</a></strong></p>
+            <p>Hotline&nbsp;<strong><a href="http://tel:0936601601/"><span style="color:#f15b40">0936-601-601</span></a></strong>&nbsp;hoặc email&nbsp;<strong><a href="http://mailto:nhadatvanminh@gmail.com">abc@gmail.com</a></strong></p>
         </div>
     </div>
 

@@ -20,11 +20,6 @@
                 <input name="ucLogin$txtPass" type="password" maxlength="50" id="ucLogin_txtPass" class="form-control no-radius no-shadow" placeholder="Mật khẩu *">
                 <span id="ucLogin_RFV2" class="vld-error" style="display:none;">Vui lòng nhập mật khẩu.</span>
             </div>
-            <div class="form-group code">
-                <input name="ucLogin$txtCode" type="text" maxlength="5" id="ucLogin_txtCode" class="form-control no-radius no-shadow" placeholder="Mã xác nhận *" autocomplete="off">
-                <img src="/controls/code.ashx?f=69018" class="code-img" alt="code" style="height:40px !important;">
-                <span id="ucLogin_RFV3" class="vld-error" style="display:none;">Vui lòng nhập mã xác nhận.</span>
-            </div>
             <div class="form-group cbcheck mgb20"><input id="ucLogin_ckbSaver" type="checkbox" name="ucLogin$ckbSaver"><label for="ucLogin_ckbSaver">&nbsp; Nhớ mật khẩu</label></div>
             <div class="form-group"><input type="button" name="ucLogin$btnLogin" value="ĐĂNG NHẬP" onclick="if (!Page_ClientValidate()){ return false; } this.disabled = true; this.value = 'Sending...';WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ucLogin$btnLogin&quot;, &quot;&quot;, true, &quot;vldlogin&quot;, &quot;&quot;, false, true))" id="ucLogin_btnLogin" class="btn bold no-radius"></div>
 

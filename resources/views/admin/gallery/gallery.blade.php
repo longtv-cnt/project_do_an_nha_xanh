@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Gallery</h3>
                 </div>
-                <form action="{{ url('/insert-gallery') }}" class="mb-3" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('insert_gallery') }}" class="mb-3" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
 
@@ -53,7 +53,7 @@
                                         <div class="col-md-3">
                                             <div class="card">
                                                 @if (file_exists(public_path('store/' . $item->image)))
-                                                    <img class="card-img" src="{{ 'store/' . $item->image }}" alt=""
+                                                    <img class="card-img" src="{{asset('store/').'/'. $item->image }}" alt=""
                                                         height="150px">
                                                 @else
                                                     <img class="card-img" src="{{ 'store/' . $item->image }}" alt=""

@@ -125,9 +125,7 @@ class galleryController extends Controller
         // }
         // Session::put('message','Thêm Thành Công');
         // return redirect()->back();
-        $request->validate([
-            'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm'
-        ]);
+
 
         $gallery = new gallery();
         $gallery->id = $request->id;
