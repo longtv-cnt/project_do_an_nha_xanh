@@ -2,7 +2,7 @@
 @section('title', 'Giới thiệu')
 
 @section('content')
-
-    {{Response($contents)}}
-
+  <?php
+    echo $output;
+   ?>
 @endsection
