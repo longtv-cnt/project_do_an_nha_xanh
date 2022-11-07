@@ -27,7 +27,7 @@ class UserController extends Controller
         // get all users by get() method
         $users = User::paginate(10);
         $roles = Role::all();
-// get user attached roles
+
 
         // $userlist = this->user->all();
         //$roles = this->role->all();
@@ -124,9 +124,9 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
         $roles = Role::all();
-        $roleids = DB::table('role_user')->where('user_id', $id)->pluck('role_id')->toArray();
+        $roleids = $user->roles->pluck('id');
         if ($user) {
-            return view('user.edit', compact('user', 'roles', 'roleids'));
+            return view('admin.Users.edit', compact('user', 'roles', 'roleids'));
         }
     }
     //
@@ -155,11 +155,13 @@ class UserController extends Controller
             'password.required' => 'Password is required',
 
             'roles.required' => 'Role is required',
+            'date_of_birth.required' => 'Date of birth is required',
         ]);
         $this->user->findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'ngaysinh' => $request->date_of_birth,
         ]);
         //update role_user table
         DB::table('role_user')->where('user_id', $id)->delete();

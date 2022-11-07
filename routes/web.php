@@ -185,7 +185,7 @@ Route::prefix('admin')->group(function () {
     Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     // end route cho user
     // route cho permission
-    
+
     Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 
     Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
