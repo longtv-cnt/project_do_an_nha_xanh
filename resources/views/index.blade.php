@@ -119,8 +119,8 @@
                                                 <span style="font-size: 12pt; color: #0000ff;">
                                                     <strong>
                                                         <a href="{{URL::to('/chitiet'.$product->id)}}" class="mask">
-                                                        @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                                                                <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ 'uploads/product/'.$product->anhsp }}" data-src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w">
+                                                        @if (file_exists(public_path('uploads/product/'.$product->anhsp)))
+                                                                <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ "uploads/product/.$product->anhsp"}}" data-src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w">
                                                             @else
                                                                 <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ $product->anhsp }}" data-src="{{ $product->anhsp }}" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="{{ $product->anhsp }} 800w, {{ $product->anhsp }} 300w, {{ $product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ $product->anhsp }} 800w, {{ $product->anhsp }} 300w, {{ $product->anhsp }} 768w">
                                                             @endif
@@ -139,6 +139,10 @@
                                 @endforeach
                             @endif
                         </div>
+                        <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
+                            <a class="apage" href="">{!! $paginate->links()!!}</a>
+                        </span>
+
                     </div>
                 </div>
             </div>

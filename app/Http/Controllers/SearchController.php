@@ -74,23 +74,23 @@ class SearchController extends Controller
             $contents = $tintuc[$maloai-1]->noidung;
         }
         if($maloai == 2){
-            $contents = 'aa';
+            $contents = $tintuc[$maloai-1]->noidung;
         }
         if($maloai == 3){
-            $contents = 'aa';
+            $contents = $tintuc[$maloai-1]->noidung;
         }
         if($maloai == 4){
-            $contents = 'aa';
+            $contents = $tintuc[$maloai-1]->noidung;
         }
         if($maloai == 5){
-            $contents = 'aa';
+            $contents = $tintuc[$maloai-1]->noidung;;
         }
         if($maloai == 6){
-            $contents = 'aa';
+            $contents = $tintuc[$maloai-1]->noidung;;
         }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        return Response($contents);
+//        return Response($contents);
         return view('gioithieu', compact('contents','duans','typeproducts'));
     }
 
@@ -131,7 +131,8 @@ class SearchController extends Controller
                 ->orwhere('sophongtam','like', "%{$query}%")
                 ->orwhere('huong','like', "%{$query}%")
                 ->orwhere('diachi','like', "%{$query}%")
-                ->get();
+                ->paginate(8);
+            $paginate = new \Illuminate\Pagination\Paginator($products, 8);
             $output = '
                      <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
                         <div id="ucRaoVat_pnlTitle">
@@ -163,10 +164,10 @@ class SearchController extends Controller
                                                 <span style="font-size: 12pt; color: #0000ff;">
                                                     <strong>
                                                     <a href="/chitiet'.$product->id.'" class="mask">';
-                if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="uploads/product/'.$product->anhsp.'" data-src="uploads/product/'.$product->anhsp.'" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w"></img>';
+                if (file_exists(public_path('uploads/product/'.$product->anhsp)))
+                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="uploads/product/'.$product->anhsp.'" data-src="uploads/product/'.$product->anhsp.'"  width="800" height="439" data-srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w"></img>';
                 else
-                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src='.$product->anhsp.' data-src='.$product->anhsp.' alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset='.$product->anhsp.'  800w, '.$product->anhsp.'  300w,  '.$product->anhsp.'  768w" sizes="(max-width: 800px) 100vw, 800px" srcset= '.$product->anhsp.'  800w,  '.$product->anhsp.'  300w,  '.$product->anhsp.' 768w"></img>';
+                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src='.$product->anhsp.' data-src='.$product->anhsp.'  width="800" height="439" data-srcset='.$product->anhsp.'  800w, '.$product->anhsp.'  300w,  '.$product->anhsp.'  768w" sizes="(max-width: 800px) 100vw, 800px" srcset= '.$product->anhsp.'  800w,  '.$product->anhsp.'  300w,  '.$product->anhsp.' 768w"></img>';
                 $output .= '</a>
                                                    </strong>
                                                 </span>
@@ -181,7 +182,10 @@ class SearchController extends Controller
                         </div>
                ';
             }
-            $output .= '</div>';
+            $output .= '</div><br>
+                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
+                            <a class="apage" href="">'.$paginate->links().'</a>
+                        </span>';
 //            echo $output;
             return Response($output);
 
@@ -267,7 +271,8 @@ class SearchController extends Controller
             $sapxep = 'Giá giảm dần';
         }
 
-        $products = $products->get();
+        $products = $products->paginate(8);
+        $paginate = new \Illuminate\Pagination\Paginator($products, 8);
         $output = '
                      <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
                         <div id="ucRaoVat_pnlTitle">
@@ -322,9 +327,13 @@ class SearchController extends Controller
                                 </div>
                             </div>
                         </div>
+
                ';
         }
-        $output .= '</div>';
+        $output .= '</div><br>
+                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
+                            <a class="apage" href="">'.$paginate->links().'</a>
+                        </span>';
 //            echo $output;
         return Response($output);
 //        }
