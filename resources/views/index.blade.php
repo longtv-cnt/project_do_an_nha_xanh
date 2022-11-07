@@ -206,7 +206,7 @@
                                     <div class="vc_column-inner ">
                                         <div class="wpb_wrapper">
                                                     <div class="col-xs-12 col-sm-7 col-md-8 pdl10 pdr0">
-                                                        <h3 class="titH5 mgb5 bold500 mgt0"><a class="c_red" href="/tintuc{id}">{{$tin->tentin}}</a></h3>
+                                                        <h3 class="titH5 mgb5 bold500 mgt0"><a class="c_red" href="{{URL::to('/tintuc'.$tin->id)}}">{{$tin->tentin}}</a></h3>
                                                         <p class="mgb5 mDesc hidden-xs">{{$tin->ngaydang}}</p>
                                                     </div>
 

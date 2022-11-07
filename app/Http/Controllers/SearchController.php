@@ -88,23 +88,49 @@ class SearchController extends Controller
         if($maloai == 6){
             $contents = $tintuc[$maloai-1]->noidung;;
         }
+        if($maloai == 7){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
+        if($maloai == 8){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
+        if($maloai == 9){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-//        return Response($contents);
-        return view('gioithieu', compact('contents','duans','typeproducts'));
-    }
 
+        $output = $contents;
+//        return response($output);
+        return view('gioithieu', compact('output','duans','typeproducts'));
+    }
+    public function tintucchitiet($id)
+    {
+
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $tintuc = DB::table('tintuc')->get();
+        $output =$tintuc[$id-1]->noidung;
+
+        return view('tintuc', compact('output','duans','typeproducts'));
+    }
     public function lienhe()
     {
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        return view('lienhe',compact('duans','typeproducts'));
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        $output = $tintuc[11-1]->noidung;
+        return view('lienhe',compact('duans','typeproducts', 'output'));
     }
     public function tuyendung()
     {
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        return view('tuyendung',compact('duans','typeproducts'));
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        $output = $tintuc[10-1]->noidung;
+        return view('tuyendung',compact('duans','typeproducts', 'output'));
     }
     public function chitiet($id)
     {
