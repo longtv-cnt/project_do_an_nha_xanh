@@ -521,7 +521,6 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
 <!-- ajaxsearch-->
 <script>
     $(document).ready(function(){
-
         $('#country_name').keyup(function(){ //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
             var query = $(this).val(); //lấy gía trị ng dùng gõ
             if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
@@ -534,24 +533,20 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
                     success:function(data){ //dữ liệu nhận về
                         $('#countryList1').fadeIn();
                         $('#countryList1').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
-
                     }
                 });
             }
         });
-
         $(document).on('click', 'li', function(){
             $('#country_name').val($(this).text());
             $('#countryList1').fadeOut();
         });
-
     });
 </script>
-<!-- ajaxfilter-->
 
+<!-- ajaxfilter-->
 <script>
     $(document).ready(function(){
-
         $("#filter").click(function(){
             var sapxep = $("#sapxep").val();
             var diachi = $("#diachi").val();
@@ -560,7 +555,6 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
             var giatien = $("#giatien").val();
             var huongnha = $("#huongnha").val();
             var tensp = $("#tensp").val();
-
             $.ajax({
                 type: 'get',
                 dataType: 'html',
@@ -572,14 +566,11 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
                     + "&giatien=" + giatien
                     + "&huongnha=" + huongnha
                     + "&tensp=" + tensp,
-
                 success:function(response){
                     console.log(response);
                     $("#countryList1").html(response);
                 }
             });
-
-
         });
         $(document).on('click', 'li', function(){
             $('#filter').val($(this).text());
@@ -589,10 +580,8 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
 </script>
 
 <!-- ajaxTintuc-->
-
 <script>
     $(document).ready(function(){
-
         $("#tin").click(function(){
             var tintuc = $("#tintuc").val();
             $.ajax({
@@ -605,8 +594,6 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
                     $("#countryList2").html(response);
                 }
             });
-
-
         });
         $(document).on('click', 'li', function(){
             $('#tin').val($(this).text());
@@ -614,6 +601,7 @@ Không thể liên kết thẻ tiếp thị lại với thông tin nhận dạng
         });
     });
 </script>
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

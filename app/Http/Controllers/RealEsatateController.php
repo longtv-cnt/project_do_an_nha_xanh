@@ -20,17 +20,17 @@ class RealEsatateController extends Controller
         //
         $products = DB::table('sanpham_bds')
             ->orderBy('giatien','ASC')
-            ->get();
+            ->paginate(8);
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $title = 'Tất cả dự án';
         $loaibds = 'Tất cả sản phẩm';
         $tintuc = DB::table('tintuc')->select('*');
-        $tintuc = $tintuc->get();
+        $tintuc = $tintuc->paginate(16);
         $loaitintuc = DB::table('loaitintuc')->select('*');
         $loaitintuc = $loaitintuc->get();
-
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'tintuc', 'loaitintuc'));
+        $paginate = new \Illuminate\Pagination\Paginator($products, 8);
+        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'tintuc', 'loaitintuc','paginate'));
     }
 
     /**
