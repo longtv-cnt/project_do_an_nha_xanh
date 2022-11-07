@@ -22,7 +22,8 @@
                         <div class="form-group">
                             <textarea name="display_name" class="form-control" required
                                 placeholder="Nhập mô tả vai trò hoặc tên hiển thị mà khách hàng nhìn thấy" rows="5"></textarea>
-                            <div class="form-group">
+                        </div>
+                                <div class="form-group">
                                 <label for="permissions">Các Quyền</label>
                                 <div>
                                 <label>
@@ -94,7 +95,7 @@
                 $('input:checkbox').not(this).prop('checked', this.checked);
             });
         });
-    </script>   
+    </script>
 
     </script>
 @endsection
