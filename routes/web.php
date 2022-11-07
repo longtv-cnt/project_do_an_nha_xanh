@@ -168,7 +168,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/baocao', [baocaoController::class, 'index'])->name('baocao');
     Route::get('baocao/chart', [baocaoController::class, 'chart'])->name('baocao.chart');
 
-// route cho role
+    // route cho role
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
     Route::post('create/role/', [RoleController::class, 'store'])->name('role.store');
@@ -181,3 +181,4 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
     Route::get('/gallery/delete/{id}', [galleryController::class,'destroy'])->name('gallery.delete');
+});

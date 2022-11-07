@@ -295,7 +295,6 @@
       //- DONUT CHART -
       //-------------
       // Get context with jQuery - using jQuery's .get() method.
-
       @foreach($tenloaisp_1 as $row )
       @foreach($tenloaisp_2 as $riw )
       @foreach($tenloaisp_3 as $raw )
@@ -325,6 +324,7 @@
       @endforeach
       @endforeach
       @endforeach
+
 
 
       @foreach($tenloaikhach_1 as $row )
