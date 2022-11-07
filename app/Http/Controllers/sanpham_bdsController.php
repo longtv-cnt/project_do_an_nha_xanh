@@ -55,7 +55,7 @@ class sanpham_bdsController extends Controller
                 $file = $request->file('anhsp');
                 $fileName = time().$file->getClientOriginalName();
 
-                 $destinationPath = public_path('/sanpham');
+                 $destinationPath = public_path('uploads/product/');
                 $file->move($destinationPath, $fileName);
                 $sanpham_bds->anhsp = $fileName;
         }

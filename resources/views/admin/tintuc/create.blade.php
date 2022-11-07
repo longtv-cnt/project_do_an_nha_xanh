@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <form action="{{ route('tintuc.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <div class="form-group">
                             <select name="loaitin" id="">
                                 <option value="">Chọn loại tin</option>
@@ -24,6 +24,10 @@
                                     <option value="{{ $lt->id }}">{{ $lt->tenloai }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div>
+                            <label for="">ID</label>
+                            <input type="number" name="id" class="form-control">
                         </div>
                         <div>
                             <label for="">Tiêu đề tin tức</label>

@@ -27,11 +27,20 @@ class UserController extends Controller
         // get all users by get() method
         $users = User::paginate(10);
         $roles = Role::all();
-// get user attached roles
+
 
         // $userlist = this->user->all();
         //$roles = this->role->all();
-        return view('user.index', compact('users'));
+
+
+
+        // $rolecon=  DB::table('role_user')
+        //     ->join('users', 'users.id', '=', 'role_user.user_id')
+        //     ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        //     ->select('*', )->pluck('role_id')->toArray();
+        // dd($rolecon);
+
+        return view('admin.Users.index', compact('users', 'roles', ));
         //
     }
 
@@ -44,7 +53,7 @@ class UserController extends Controller
 
     {
         $roles = Role::all();
-        return view('user.create', compact('roles'));
+        return view('admin.Users.create', compact('roles'));
         //
     }
 
@@ -56,30 +65,38 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all()) ;
         //
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'roles' => 'required',
+            'date_of_birth' => 'required',
 
+        ], [
+            'name.required' => 'Name is required',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email is invalid',
+            'email.unique' => 'Email is already taken',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password must be at least 6 characters',
+            'roles.required' => 'Roles is required',
+            'date_of_birth.required' => 'Date of birth is required',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'ngaysinh' => $request->date_of_birth,
         ]);
         $roles = ($request->roles);
+        $user->roles()->attach($roles);
 
 
-        foreach ($roles as $role) {
-            DB::table('role_user')->insert([
-                'user_id' => $user->id,
-                'role_id' => $role,
-            ]);
-        }
-        return redirect()->route('users.index');
+        return redirect()->route('user.index')->with('success', 'User created successfully');
+        // return redirect()->route('user.index');
     }
 
 
@@ -107,9 +124,9 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
         $roles = Role::all();
-        $roleids = DB::table('role_user')->where('user_id', $id)->pluck('role_id')->toArray();
+        $roleids = $user->roles->pluck('id');
         if ($user) {
-            return view('user.edit', compact('user', 'roles', 'roleids'));
+            return view('admin.Users.edit', compact('user', 'roles', 'roleids'));
         }
     }
     //
@@ -138,11 +155,13 @@ class UserController extends Controller
             'password.required' => 'Password is required',
 
             'roles.required' => 'Role is required',
+            'date_of_birth.required' => 'Date of birth is required',
         ]);
         $this->user->findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'ngaysinh' => $request->date_of_birth,
         ]);
         //update role_user table
         DB::table('role_user')->where('user_id', $id)->delete();
@@ -152,7 +171,7 @@ class UserController extends Controller
                 'role_id' => $role,
             ]);
         }
-        return redirect()->route('users.index');
+        return redirect()->route('user.index');
     }
 
     /**
@@ -168,6 +187,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         DB::table('role_user')->where('user_id', $id)->delete();
-       return redirect()->route('users.index');
+       return redirect()->route('user.index');
     }
 }

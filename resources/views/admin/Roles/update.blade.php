@@ -8,7 +8,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Sửa vai trò mới</h3>
+                    <h3 class="card-title">Sửa vai trò </h3>
 
                     <form action='{{ route('role.update', ['id' => $role->id]) }}' method="POST">
                         @method('PUT')
@@ -24,6 +24,7 @@
                                 placeholder="Nhập mô tả vai trò hoặc tên hiển thị mà khách hàng nhìn thấy" rows="5">
                             {{ $role->display_name }}
                             </textarea>
+                        </div>
                             <div class="form-group">
                                 <label for="permissions">Các Quyền</label>
                                 <div>
@@ -98,5 +99,5 @@
                 $('input:checkbox').not(this).prop('checked', this.checked);
             });
         });
-    </script>   
+    </script>
 @endsection

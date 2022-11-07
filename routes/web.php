@@ -21,7 +21,7 @@ use App\Http\Controllers\bannersController;
 use App\Http\Controllers\baocaoController;
 use App\Http\Controllers\galleryController;
 use App\Http\Controllers\RoleController;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +59,7 @@ Route::get('/lienhe/',[SearchController::class,'lienhe'])->name('lienhe');
 Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung');
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
 Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
+Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintucchitiet');
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');
 
@@ -176,7 +177,16 @@ Route::prefix('admin')->group(function () {
     Route::PUT('/role/update/{id}', [RoleController::class, 'update'])->name('role.update');
     Route::DELETE('/role/destroy/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
     // end route cho role
-    // Route::get('/gallery', [galleryController::class,'index'])->name('gallery');
+    // route cho user
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('create/user/', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::PUT('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    // end route cho user
+    // route cho permission
+
     Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 
     Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
