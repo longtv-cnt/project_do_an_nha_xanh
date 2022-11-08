@@ -66,7 +66,10 @@
                     <span>Dài 100 ký tự. VD: demo@gmail.com.</span>
                 </div>
             </div>
-
+<div class="form-group">
+    <label for="date_of_birth">Ngày Sinh</label>
+    <input id="date_of_birth" class="form-control" type="date" name="date_of_birth">
+</div>
             <div class="form-group hidden">
                 <div class="rdivl">Địa chỉ liên lạc</div>
                 <input name="ucLogin$DaiChi" type="text" maxlength="255" id="ucLogin_DaiChi" class="form-control no-radius no-shadow">
@@ -94,7 +97,7 @@
 
 
 
-        <div class="intro clearfix pdt15 mgb20"><p>Đã là thành viên?&nbsp;&nbsp;&nbsp;<a href="/dang-nhap.html">Đăng&nbsp;nhập</a>.</p>
+        <div class="intro clearfix pdt15 mgb20"><p>Đã là thành viên?&nbsp;&nbsp;&nbsp;<a href="{{ route('login') }}">Đăng&nbsp;nhập</a>.</p>
 
             <p>Để được trợ giúp vui lòng liên hệ :</p>
 

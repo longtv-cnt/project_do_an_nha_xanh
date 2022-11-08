@@ -33,7 +33,7 @@
 
         <div class="intro clearfix pdt15 mgb20"><p><img alt="Quên mật khẩu" src="/img/dn1.jpg">&nbsp;&nbsp;<a href="/quen-mat-khau.html">Quên mật khẩu?</a></p>
 
-            <p><img alt="Đăng ký" src="/img/dn2.jpg">&nbsp;&nbsp;<a href="/dang-ky.html">Đăng ký thành viên</a></p>
+            <p><img alt="Đăng ký" src="/img/dn2.jpg">&nbsp;&nbsp;<a href="{{ route('dangki') }}">Đăng ký thành viên</a></p>
 
             <p>Để được trợ giúp vui lòng liên hệ :</p>
 
