@@ -66,10 +66,14 @@
                     <span>Dài 100 ký tự. VD: demo@gmail.com.</span>
                 </div>
             </div>
-<div class="form-group">
-    <label for="date_of_birth">Ngày Sinh</label>
-    <input id="date_of_birth" class="form-control" type="date" name="date_of_birth">
-</div>
+
+            <div class="form-group">
+                <div class="rdivl"> Ngày sinh</div>
+                <div class="rdivr">
+                    <input name="date_of_birth" type="date" maxlength="100" id="date_of_birth" class="form-control no-radius no-shadow">
+
+                </div>
+            </div>
             <div class="form-group hidden">
                 <div class="rdivl">Địa chỉ liên lạc</div>
                 <input name="ucLogin$DaiChi" type="text" maxlength="255" id="ucLogin_DaiChi" class="form-control no-radius no-shadow">

@@ -45,4 +45,12 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany('App\Models\Role','role_user','user_id','role_id');
     }
+    //lấy quyền của user
+    //so sánh quyền của user với quyền được truyền vào
+    public function checkPermissionAccess(){
+        $roles = auth()->user()->roles;
+
+        dd($roles);
+
+    }
 }

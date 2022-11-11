@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('image');
             $table->string('video');
-            $table->unsignedBigInteger('sanpham_id')->nullable()->references('id')->on('sanpham_bds')
+            $table->unsignedBigInteger('sanpham_id')->nullable();
+            $table->foreign('sanpham_id')->references('id')->on('sanpham_bds')
             ->onDelete('set null')->onUpdate('set null');
         });
     }

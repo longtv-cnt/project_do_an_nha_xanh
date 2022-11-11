@@ -70,32 +70,14 @@ class SearchController extends Controller
     {
         $tintuc = DB::table('tintuc')->select('*');
         $tintuc = $tintuc->get();
-        if($maloai == 1){
+        $so = array( "1", "2", "3", "4", "5", "6", "7", "8", "9");
+        if (in_array($maloai, $so))
+        {
             $contents = $tintuc[$maloai-1]->noidung;
         }
-        if($maloai == 2){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 3){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 4){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 5){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 6){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 7){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 8){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 9){
-            $contents = $tintuc[$maloai-1]->noidung;;
+        else
+        {
+            $contents = 'Chưa có bài viết';
         }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
