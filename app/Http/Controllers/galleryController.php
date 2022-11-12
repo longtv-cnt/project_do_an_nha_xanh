@@ -17,7 +17,7 @@ class galleryController extends Controller
      */
     public function index()
     {
-        $data= gallery::all()->toArray();
+
         $products=RealEstate::all();
         $gallery = DB::table('gallery')->select('*');
         $gallery = $gallery->get();
@@ -25,7 +25,7 @@ class galleryController extends Controller
         ->join('sanpham_bds', 'gallery.sanpham_id', '=', 'sanpham_bds.id')
         ->select('gallery.*', 'sanpham_bds.id')
         ->get();
-        return view('admin.gallery.gallery',compact('gallery','sanpham_id','products','data'));
+        return view('admin.gallery.gallery',compact('gallery','sanpham_id','products',));
     }
 
 
@@ -95,7 +95,6 @@ class galleryController extends Controller
         // confirm that the user really wants to delete the record js
 
       $gallery = gallery::find($id);
-
       $image_path = public_path('store/'.$gallery->image);
         if(file_exists($image_path)){
             unlink($image_path);
@@ -107,27 +106,7 @@ class galleryController extends Controller
     }
 
     public function insert_gallery(Request $request, ){
-        // $get_image = $request->file('file');
-        // if($get_image){
-        //     foreach($get_image as $image){
-        //         $get_name_image = $image->getClientOriginalName();
-        //         $name_image = current(explode('.',$get_name_image));
-        //         $new_image = $name_image.rand(0,99).'.'.$image->getClientOriginalExtension();
-        //         $image->move('public/uploads',$new_image);
-        //         $data = $request->all();
-        //         $gallery = new gallery();
-        //         $gallery->id = $data['id'];
-        //         $gallery->name =$new_image;
-        //         $gallery->image = $new_image;
-        //         $gallery->sanpham_id= $sanpham_id;
-        //         $gallery->save();
-        //     }
-        // }
-        // Session::put('message','Thêm Thành Công');
-        // return redirect()->back();
-
-
-        $gallery = new gallery();
+         $gallery = new gallery();
         $gallery->id = $request->id;
         $gallery->name = $request->name;
         if ($request->hasFile('image')) {
@@ -137,24 +116,10 @@ class galleryController extends Controller
             $file->move($destinationPath, $fileName);
             $gallery->image = $fileName;
         }
-        if ($request->hasFile('video')) {
-            $file = $request->file('video');
-            $fileName = $file->getClientOriginalName();
-            $destinationPath = public_path('/store/video');
-            $file->move($destinationPath, $fileName);
-            // $insert = new gallery();
-            // $insert ->video = $fileName;
-            $gallery->video = $fileName;
-        }
         $gallery->sanpham_id = $request->sanpham_id;
         $gallery->save();
 
         return redirect()->route('gallery');
 
     }
-    // public function fetch(Request $request, ){
-    //     $data= gallery::all()->toArray();
-    //     return view('gallery',compact('
-
-    // }
 }

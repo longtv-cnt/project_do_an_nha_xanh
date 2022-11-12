@@ -19,6 +19,8 @@ class RealEsatateController extends Controller
     {
         //
         $products = DB::table('sanpham_bds')
+            ->where('nhaxanh', 1)
+            ->where('xetduyet', 1)
             ->orderBy('giatien','ASC')
             ->paginate(8);
         $duans = Duan::all();

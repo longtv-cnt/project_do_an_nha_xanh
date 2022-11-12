@@ -49,8 +49,8 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $role = Role::where('name', '=', $request->name)->first();
-if ($role === null) {
-   // user doesn't exist
+        if ($role === null) {
+       // user doesn't exist
        $roleCreate= $this->role->create([
             'name'=>$request->name,
             'display_name'=>$request->display_name,
@@ -61,8 +61,6 @@ if ($role === null) {
                 $roleCreate->permission()->attach($permission);
             }
         }
-
-
         return redirect()->route('role.index');
         }else{
             return redirect()->back()->with('error', 'Role already exists');

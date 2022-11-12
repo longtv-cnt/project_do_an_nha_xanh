@@ -175,7 +175,7 @@ class SearchController extends Controller
             foreach($products as $product)
             {
                 if($product->nhaxanh == 1 && $product->xetduyet == 1 ){
-                    $output .= '
+                $output .= '
                         <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
@@ -185,11 +185,11 @@ class SearchController extends Controller
                                                 <span style="font-size: 12pt; color: #0000ff;">
                                                     <strong>
                                                     <a href="/chitiet'.$product->id.'" class="mask">';
-                    if (file_exists(public_path('uploads/product/'.$product->anhsp)))
-                        $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="uploads/product/'.$product->anhsp.'" data-src="uploads/product/'.$product->anhsp.'"  width="800" height="439" data-srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w"></img>';
-                    else
-                        $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src='.$product->anhsp.' data-src='.$product->anhsp.'  width="800" height="439" data-srcset='.$product->anhsp.'  800w, '.$product->anhsp.'  300w,  '.$product->anhsp.'  768w" sizes="(max-width: 800px) 100vw, 800px" srcset= '.$product->anhsp.'  800w,  '.$product->anhsp.'  300w,  '.$product->anhsp.' 768w"></img>';
-                    $output .= '</a>
+                if (file_exists(public_path('uploads/product/'.$product->anhsp)))
+                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="uploads/product/'.$product->anhsp.'" data-src="uploads/product/'.$product->anhsp.'"  width="800" height="439" data-srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="uploads/product/'.$product->anhsp.'" 800w, "uploads/product/'.$product->anhsp.'" 300w, "uploads/product/'.$product->anhsp.'" 768w"></img>';
+                else
+                    $output .= '<img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src='.$product->anhsp.' data-src='.$product->anhsp.'  width="800" height="439" data-srcset='.$product->anhsp.'  800w, '.$product->anhsp.'  300w,  '.$product->anhsp.'  768w" sizes="(max-width: 800px) 100vw, 800px" srcset= '.$product->anhsp.'  800w,  '.$product->anhsp.'  300w,  '.$product->anhsp.' 768w"></img>';
+                $output .= '</a>
                                                    </strong>
                                                 </span>
                                             </p>
@@ -308,13 +308,13 @@ class SearchController extends Controller
                             <fieldset class="bd pd10 UserDt bg_full2 mgb15">
                                 <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo tiêu chí</legend>
                                 ';
-        $output .= '    Tỉnh thành : ' .$diachi. '<br>';
-        $output .= '    Loại bất động sản : ' .$loaibds. '<br>';
-        $output .= '    Dự án : ' .$tduan. '<br>';
-        $output .= '    Hướng :  ' .$huongnha. '<br>';
-        $output .= '    Từ khóa :  ' .$tensp. '<br>';
-        $output .= '    Giá tiền :  ' .$giatien. '<br>';
-        $output .= '   Sắp xếp theo : ' .$sapxep. '
+            $output .= '    Tỉnh thành : ' .$diachi. '<br>';
+            $output .= '    Loại bất động sản : ' .$loaibds. '<br>';
+            $output .= '    Dự án : ' .$tduan. '<br>';
+            $output .= '    Hướng :  ' .$huongnha. '<br>';
+            $output .= '    Từ khóa :  ' .$tensp. '<br>';
+            $output .= '    Giá tiền :  ' .$giatien. '<br>';
+            $output .= '   Sắp xếp theo : ' .$sapxep. '
                             </fieldset>
                         </div>
                         <div id="ucRaoVat_pnlalert">
@@ -398,7 +398,7 @@ class SearchController extends Controller
                                 </div>
 
                ';
-        }
+            }
         $output .= '</div>';
 //            echo $output;
         return Response($output);

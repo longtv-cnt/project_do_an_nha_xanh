@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Duan;
 use App\Models\sanpham_bds;
+use App\Models\TypeProduct;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\RealEstate;
 use App\Models\loaisanpham;
@@ -26,6 +29,20 @@ class sanpham_bdsController extends Controller
         return view('admin.sanpham_bds.sanpham_bds', compact('loaisp','duan','sanpham_bds'));
    }
 
+    public function sanpham()
+    {
+        //
+        $products = DB::table('sanpham_bds')
+            ->where('xetduyet', 1)
+            ->orderBy('giatien','ASC')
+            ->paginate(8);
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $title = 'Tất cả dự án';
+        $loaibds = 'Tất cả sản phẩm';
+        $paginate = new Paginator($products, 8);
+        return view('sanpham', compact('products','duans','typeproducts', 'title', 'loaibds','paginate'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -139,7 +156,6 @@ class sanpham_bdsController extends Controller
     {
 
         $sanpham_bds = sanpham_bds::find($id);
-
         $sanpham_bds->delete();
         return redirect()->action([sanpham_bdsController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
