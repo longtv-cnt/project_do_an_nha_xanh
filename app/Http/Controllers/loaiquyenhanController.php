@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\loaitintuc;
+use App\Models\loaiquyenhan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class loaitintucController extends Controller
+class loaiquyenhanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class loaitintucController extends Controller
      */
     public function index()
     {
-        $loaitintuc = DB::table('loaitintuc')->select('*');
-        $loaitintuc = $loaitintuc->get();
-        return view('admin.loaitintuc.loaitintuc', compact('loaitintuc'));
+        $loaiquyenhan = DB::table('loaiquyenhan')->select('*');
+        $loaiquyenhan = $loaiquyenhan->get();
+        return view('admin.loaiquyenhan.loaiquyenhan', compact('loaiquyenhan'));
     }
 
     /**
@@ -27,7 +27,7 @@ class loaitintucController extends Controller
      */
     public function create()
     {
-        return view('admin.loaitintuc.loaitintuc');
+        return view('admin.loaiquyenhan.loaiquyenhan');
     }
 
     /**
@@ -39,10 +39,10 @@ class loaitintucController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $loaitintuc = new loaitintuc();
-        $loaitintuc->id=$data['id'];
-        $loaitintuc->tenloai=$data['tenloai'];
-        $loaitintuc->save();
+        $loaiquyenhan = new loaiquyenhan();
+        $loaiquyenhan->id=$data['id'];
+        $loaiquyenhan->tenquyenhan=$data['tenquyenhan'];
+        $loaiquyenhan->save();
         return redirect()->back();
     }
 
@@ -65,8 +65,8 @@ class loaitintucController extends Controller
      */
     public function edit($id)
     {
-        $loaitintuc = loaitintuc::findOrFail($id);
-        return view('admin.loaitintuc.update', compact('loaitintuc'));
+        $loaiquyenhan = loaiquyenhan::findOrFail($id);
+        return view('admin.loaiquyenhan.update', compact('loaiquyenhan'));
     }
 
     /**
@@ -78,11 +78,11 @@ class loaitintucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $loaitintuc = loaitintuc::find($id);
-        $loaitintuc->id = $request->id;
-        $loaitintuc->tenloai = $request->tenloai;
-        $loaitintuc->save();
-        return redirect()->action([loaitintucController::class,'index']);
+        $loaiquyenhan = loaiquyenhan::find($id);
+        $loaiquyenhan->id = $request->id;
+        $loaiquyenhan->tenquyenhan = $request->tenquyenhan;
+        $loaiquyenhan->save();
+        return redirect()->action([loaiquyenhanController::class,'index']);
     }
 
     /**
@@ -93,8 +93,9 @@ class loaitintucController extends Controller
      */
     public function destroy($id)
     {
-        $loaitintuc = loaitintuc::find($id);
-        $loaitintuc->delete();
-        return redirect()->action([loaitintucController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+        $loaiquyenhan = loaiquyenhan::find($id);
+
+        $loaiquyenhan->delete();
+        return redirect()->action([loaiquyenhanController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
 }

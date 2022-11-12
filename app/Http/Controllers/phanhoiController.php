@@ -115,7 +115,6 @@ class phanhoiController extends Controller
     public function destroy($id)
     {
             $phanhoi = phanhoi::find($id);
-
             $phanhoi->delete();
             return redirect()->action([phanhoiController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

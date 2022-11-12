@@ -11,18 +11,7 @@
                 <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">
-                 @if (Auth::check())
-                    {{ Auth::user()->name }}
-                    @else
-                    Admin
-                 @endif
-
-                </a>
-
-
-
-
+                <a href="#" class="d-block">Alexander Pierce</a>
             </div>
         </div>
 
@@ -129,7 +118,12 @@
                                             <p>Loại Khách Hàng</p>
                                         </a>
                                     </li>
-
+                                    <li class="nav-item">
+                                        <a href="{{ route('loaiquyenhan') }}" class="nav-link">
+                                            <i class="fa-solid fa-people-group"></i>
+                                            <p>Loại Quyền Hạn</p>
+                                        </a>
+                                    </li>
                                     <li class="nav-item">
                                         <a href="{{ route('loaisp_bds') }}" class="nav-link">
                                             <i class="fa-solid fa-people-group"></i>

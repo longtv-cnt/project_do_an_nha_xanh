@@ -91,8 +91,6 @@ class khachhangController extends Controller
         $khachhang->diachi = $request->diachi;
         $khachhang->maloaikhach = $request->maloaikhach;
         $khachhang->idUser = $request->idUser;
-
-
         $khachhang->save();
         return redirect()->action([khachhangController::class,'index']);
 
@@ -108,7 +106,6 @@ class khachhangController extends Controller
     {
 
         $khachhang = khachhang::find($id);
-
         $khachhang->delete();
         return redirect()->action([khachhangController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

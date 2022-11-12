@@ -89,11 +89,11 @@
     </style>
     <!--[if lt IE 10]>
     <noscript>
-        <link rel='stylesheet' id='dt-old-ie-css'  href='https://aquacityvn.vn/wp-content/themes/dt-the7/css/old-ie.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dt-old-ie-css'  href='https://aquacityvn.vn/wp-content/themes/dt-the7/css/old-ie.css' type='text/css' media='all' />
     </noscript><![endif]-->
     <!--[if lt IE 10]>
     <noscript>
-        <link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='https://aquacityvn.vn/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-fad3f2c8a7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='https://aquacityvn.vn/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-fad3f2c8a7.css' type='text/css' media='all' />
     </noscript><![endif]-->
 
     <script src="https://aquacityvn.vn/wp-content/mmr/bootstrap.js" async defer type="text/javascript"></script>
@@ -102,7 +102,7 @@
 
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+<link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
 
 
     <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1631610934072{background-color: #1e73be !important;}.vc_custom_1649931316320{background-color: #ffffff !important;}.vc_custom_1631611535656{background-color: #1e73be !important;}.vc_custom_1618462955904{margin-bottom: 30px !important;}.vc_custom_1631611737515{background-color: #1e73be !important;}.vc_custom_1624075676068{background-color: #105e12 !important;}.vc_custom_1631611802047{background-color: #1e73be !important;}.vc_custom_1631611847463{background-color: #1e73be !important;}.vc_custom_1631611931305{background-color: #1e73be !important;}.vc_custom_1647606738061{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1649931394214{background-color: #ffffff !important;}.vc_custom_1664013455597{background-color: #ffffff !important;}.vc_custom_1647596154532{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612245268{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612275700{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612444151{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612466450{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612494893{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612513579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612538928{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612559584{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612680876{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612706481{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612733832{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612762473{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612786098{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612808991{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1631613523227{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;background-color: #c2ffba !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-top-color: #00526d !important;border-top-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1631613572499{border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1618462570165{background-color: #eded9e !important;}.vc_custom_1631612836399{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612865995{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612894704{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612925290{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612943815{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612969993{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1618469757311{background-color: #006b49 !important;}.vc_custom_1619520363269{border: 2px solid #282fff !important;}.vc_custom_1619520378239{border: 2px solid #282fff !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631613011562{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613028174{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613049323{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613072490{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613094579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613110407{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613133541{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613154471{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613178566{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613203260{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613222077{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613242745{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613260406{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613282887{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -190,7 +190,7 @@
 
 
 
-    {{--    <a href="#" class="scroll-top"></a>--}}
+{{--    <a href="#" class="scroll-top"></a>--}}
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up" style="display: block;"></div>
 
 </div><!-- #page -->
@@ -328,15 +328,15 @@
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/63612b90b0d6371309ccb34f/1ggpp4bn1';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63612b90b0d6371309ccb34f/1ggpp4bn1';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
-<!--End of Tawk.to Script-->
+    </script>
+    <!--End of Tawk.to Script-->
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">

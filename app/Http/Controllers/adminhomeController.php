@@ -43,8 +43,7 @@ class adminhomeController extends Controller
         $sanpham_count = sanpham_bds::count();
         $duan_count = Duan::count();
     return view('admin.home',compact('phanhoi','khachhang_count','phanhoi_count','tintuc_count','sanpham_count','duan_count','phieuthu_count','sanpham_bds'));
-
-}
+    }
 
     /**
      * Show the form for creating a new resource.
