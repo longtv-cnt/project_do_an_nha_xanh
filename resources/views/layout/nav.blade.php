@@ -14,7 +14,7 @@
             <a href="{{ route('home') }}" data-level="1"><span class="menu-item-text"><span class="menu-text">Danh sách dự án</span></span></a><i class="next-level-button"></i>
             <ul class="sub-nav hover-style-bg level-arrows-on" style="left: 0px; opacity: 0; visibility: hidden;">
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3002 first has-children">
-                    <a href="{{ route('home') }}" data-level="2"><span class="menu-item-text"><span class="menu-text">Tất cả sản phẩm</span></span></a>
+                    <a href="{{ route('tatcasanpham') }}" data-level="2"><span class="menu-item-text"><span class="menu-text">Tất cả sản phẩm</span></span></a>
                 </li>
                 @foreach($duans as $duan)
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3002 first has-children">

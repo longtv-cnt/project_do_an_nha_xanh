@@ -109,7 +109,6 @@ class du_anController extends Controller
     public function destroy($id)
     {
             $du_an = Duan::find($id);
-
             $du_an->delete();
             return redirect()->action([du_anController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

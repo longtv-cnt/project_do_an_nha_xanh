@@ -36,6 +36,8 @@ class SearchController extends Controller
         $loaitintuc = DB::table('loaitintuc')->select('*');
         $loaitintuc = $loaitintuc->get();
         $products = DB::table('sanpham_bds')
+            ->where('nhaxanh', 1)
+            ->where('xetduyet', 1)
             ->where('maduan',$maduan)
             ->orderBy('giatien','ASC')
             ->get();
@@ -55,6 +57,8 @@ class SearchController extends Controller
         $loaitintuc = DB::table('loaitintuc')->select('*');
         $loaitintuc = $loaitintuc->get();
         $products = DB::table('sanpham_bds')
+            ->where('nhaxanh', 1)
+            ->where('xetduyet', 1)
             ->where('maloai',$maloai)
             ->orderBy('giatien','ASC')
             ->get();
@@ -70,58 +74,14 @@ class SearchController extends Controller
     {
         $tintuc = DB::table('tintuc')->select('*');
         $tintuc = $tintuc->get();
-        if($maloai == 1){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 2){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 3){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 4){
-            $contents = $tintuc[$maloai-1]->noidung;
-        }
-        if($maloai == 5){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 6){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 7){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 8){
-            $contents = $tintuc[$maloai-1]->noidung;;
-        }
-        if($maloai == 9){
-            $contents = $tintuc[$maloai-1]->noidung;;
+        if(isset($tintuc[$maloai-1])){
+            $output = $tintuc[$maloai-1]->noidung;
+        }else{
+            $output = 'Chưa có bài viết';
         }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-
-        $output = $contents;
-//        return response($output);
         return view('gioithieu', compact('output','duans','typeproducts'));
-    }
-    public function tintucchitiet($id)
-    {
-
-        $duans = Duan::all();
-        $typeproducts = TypeProduct::all();
-        $tintuc = DB::table('tintuc')->get();
-        $output =$tintuc[$id-1]->noidung;
-
-        return view('tintuc', compact('output','duans','typeproducts'));
-    }
-    public function lienhe()
-    {
-        $duans = Duan::all();
-        $typeproducts = TypeProduct::all();
-        $tintuc = DB::table('tintuc')->select('*');
-        $tintuc = $tintuc->get();
-        $output = $tintuc[11-1]->noidung;
-        return view('lienhe',compact('duans','typeproducts', 'output'));
     }
     public function tuyendung()
     {
@@ -129,8 +89,33 @@ class SearchController extends Controller
         $typeproducts = TypeProduct::all();
         $tintuc = DB::table('tintuc')->select('*');
         $tintuc = $tintuc->get();
-        $output = $tintuc[10-1]->noidung;
+        if(isset($tintuc[10-1])){
+            $output = $tintuc[10-1]->noidung;
+        }else{
+            $output = 'Chưa có bài viết';
+        }
         return view('tuyendung',compact('duans','typeproducts', 'output'));
+    }
+    public function lienhe()
+    {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $tintuc = DB::table('tintuc')->select('*');
+        $tintuc = $tintuc->get();
+        if(isset($tintuc[11-1])){
+            $output = $tintuc[11-1]->noidung;
+        }else{
+            $output = 'Chưa có bài viết';
+        }
+        return view('lienhe',compact('duans','typeproducts', 'output'));
+    }
+    public function tintucchitiet($id)
+    {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $tintuc = DB::table('tintuc')->get();
+        $output =$tintuc[$id-1]->noidung;
+        return view('tintuc', compact('output','duans','typeproducts'));
     }
     public function chitiet($id)
     {
@@ -140,8 +125,15 @@ class SearchController extends Controller
         foreach($products as $product) {
             $title = $duans[$product->maduan - 1]->tenduan;
             $loaibds = $typeproducts[$product->maloai-1]->tenloai;
+            if(isset($duans[$product->maduan - 1]->mota)){
+                $duan = $duans[$product->maduan - 1]->mota;
+            }else{
+                $duan = 'table dự án chưa có mô tả (^-^)';
+            }
+
         }
-        return view('chitiet',compact('products','duans','typeproducts', 'title', 'loaibds'));
+
+        return view('chitiet',compact('products','duans','typeproducts', 'title', 'loaibds', 'duan'));
     }
     function getSearchAjax(Request $request)
     {
@@ -155,10 +147,12 @@ class SearchController extends Controller
                 ->orwhere('chieurong','like', "%{$query}%")
                 ->orwhere('sophongngu','like', "%{$query}%")
                 ->orwhere('sophongtam','like', "%{$query}%")
+                ->orwhere('giatien','like', "%{$query}%")
                 ->orwhere('huong','like', "%{$query}%")
                 ->orwhere('diachi','like', "%{$query}%")
                 ->paginate(8);
-            $paginate = new \Illuminate\Pagination\Paginator($products, 8);
+
+//            $paginate = new \Illuminate\Pagination\Paginator($products, 8);
             $output = '
                      <div class="col-xs-12 col-md-7 col-md pull-left mgb15">
                         <div id="ucRaoVat_pnlTitle">
@@ -169,7 +163,7 @@ class SearchController extends Controller
                         </div>
                         <div id="ucRaoVat_pnlSdt" class="pnlSdt mgt10">
                             <fieldset class="bd pd10 UserDt bg_full2 mgb15">
-                                <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo từ khóa ' . $query . '</legend>
+                                <legend class="bold">Tìm thấy sản phẩm theo từ khóa ' . $query . '</legend>
                             </fieldset>
                         </div>
                         <div id="ucRaoVat_pnlalert">
@@ -180,6 +174,7 @@ class SearchController extends Controller
                     <div class="vc_row wpb_row vc_inner vc_row-fluid">';
             foreach($products as $product)
             {
+                if($product->nhaxanh == 1 && $product->xetduyet == 1 ){
                 $output .= '
                         <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner ">
@@ -207,11 +202,12 @@ class SearchController extends Controller
                             </div>
                         </div>
                ';
+                }
+                else{
+                    $output .= '';
+                }
             }
-            $output .= '</div><br>
-                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
-                            <a class="apage" href="">'.$paginate->links().'</a>
-                        </span>';
+            $output .= '</div>';
 //            echo $output;
             return Response($output);
 
@@ -221,8 +217,9 @@ class SearchController extends Controller
     {
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-//        if (isset($request)) {
-        $products = DB::table('sanpham_bds as p');
+        $products = DB::table('sanpham_bds as p')
+            ->where('nhaxanh', 1)
+            ->where('xetduyet', 1);
         if (isset($request->maloai)&&isset($request->maduan)) {
             $loaibds = $typeproducts[$request->maloai-1]->tenloai;
             $tduan = $duans[$request->maduan-1]->tenduan;
@@ -356,10 +353,7 @@ class SearchController extends Controller
 
                ';
         }
-        $output .= '</div><br>
-                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
-                            <a class="apage" href="">'.$paginate->links().'</a>
-                        </span>';
+        $output .= '</div>';
 //            echo $output;
         return Response($output);
 //        }

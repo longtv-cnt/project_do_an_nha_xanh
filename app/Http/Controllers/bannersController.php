@@ -111,7 +111,6 @@ class bannersController extends Controller
     public function destroy($id)
     {
             $banners = banners::find($id);
-
             $banners->delete();
             return redirect()->action([bannersController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

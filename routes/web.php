@@ -32,15 +32,7 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/', [HomeController::class,'home'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/propertygrid', [HomeController::class, 'propertygrid'])->name('property-grid');
-Route::get('/propertysingle', [HomeController::class, 'propertysingle'])->name('property-single');
-Route::get('/agentsingle', [HomeController::class, 'agentsingle'])->name('agent-single');
-Route::get('/agentsgrid', [HomeController::class, 'agentsgrid'])->name('agents-grid');
-Route::get('/bloggrid', [HomeController::class, 'bloggrid'])->name('blog-grid');
-Route::get('/blogsingle', [HomeController::class, 'blogsingle'])->name('blog-single');
+
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/dangki', [HomeController::class, 'dangki'])->name('dangki');
 Route::get('/product', [RealEsatateController::class, 'create'])->name('product');
@@ -60,6 +52,8 @@ Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
 Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
 Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintucchitiet');
+Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tatcasanpham');
+
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');
 
@@ -186,7 +180,7 @@ Route::prefix('admin')->group(function () {
     Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     // end route cho user
     // route cho permission
-    
+
     Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 
     Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');

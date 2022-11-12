@@ -22,20 +22,16 @@
 
                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">TÌM BẤT ĐỘNG SẢN</button>
                     <div id="demo" class="collapse">
-                        {{--                        {{ route('filter') }}--}}
-                        {{--                            <form action="{{ route('filter') }}" method="POST" id="filterform" enctype="multipart/form-data">--}}
-                        {{--                                @csrf--}}
                         <div id="pnlFillter" class="box_filter mgb20">
-
                             <div class="container clearfix pdt15 pdb5">
                                 <ul class="list-unstyled menu-top menu_filter bold text-uppercase hidden-xs">
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[1]->id)}}" title="{{$typeproducts[1]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010100-nha-mat-duong.png" alt="Nhà - đất Mặt đường"></span>{{$typeproducts[1]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[2]->id)}}" title="{{$typeproducts[2]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010200-nha-trong-ngo.png" alt="Nhà - đất trong Ngõ"></span>{{$typeproducts[2]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[3]->id)}}" title="{{$typeproducts[3]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010300-nha-trong-du-an-phan-lo.png" alt="Nhà - đất trong Dự án phân lô"></span>{{$typeproducts[3]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[4]->id)}}" title="{{$typeproducts[4]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010400-nha-tap-the-can-ho-chung-cu.png" alt="Căn hộ, chung cư"></span>{{$typeproducts[4]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[5]->id)}}" title="{{$typeproducts[5]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/020000-nha-biet-thu.png" alt="Nhà - đất Biệt thự"></span>{{$typeproducts[5]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[6]->id)}}" title="{{$typeproducts[6]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010600-van-phong-kiot-cua-hang.png" alt="Văn phòng, kiot, cửa hàng"></span>{{$typeproducts[6]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[7]->id)}}" title="{{$typeproducts[7]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010900-nha-xuong-kho-ben-bai.png" alt="Nhà xưởng, kho, bến bãi"></span>{{$typeproducts[7]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[1]->id)}}" title="{{$typeproducts[1]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010100-nha-mat-duong.png" ></span>{{$typeproducts[1]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[2]->id)}}" title="{{$typeproducts[2]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010200-nha-trong-ngo.png" ></span>{{$typeproducts[2]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[3]->id)}}" title="{{$typeproducts[3]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010300-nha-trong-du-an-phan-lo.png" ></span>{{$typeproducts[3]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[4]->id)}}" title="{{$typeproducts[4]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010400-nha-tap-the-can-ho-chung-cu.png" ></span>{{$typeproducts[4]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[5]->id)}}" title="{{$typeproducts[5]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/020000-nha-biet-thu.png" ></span>{{$typeproducts[5]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[6]->id)}}" title="{{$typeproducts[6]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010600-van-phong-kiot-cua-hang.png" ></span>{{$typeproducts[6]->tenloai}}</a></li>
+                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[7]->id)}}" title="{{$typeproducts[7]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010900-nha-xuong-kho-ben-bai.png" ></span>{{$typeproducts[7]->tenloai}}</a></li>
                                 </ul>
                                 <div id="UpdatePanel3">
                                     <div class="tit_filter hidden-xs bold titH3 mgt0">LỌC TÌM BẤT ĐỘNG SẢN</div>
@@ -109,7 +105,7 @@
                     <div id="countryList1">
                         <div class="vc_row wpb_row vc_inner vc_row-fluid">
                             @if ($products)
-                                @foreach ($products as $product)
+                                @foreach ($products as $product )
                                     <div class="wpb_column vc_column_container vc_col-sm-6">
                                         <div class="vc_column-inner ">
                                             <div class="wpb_wrapper">
@@ -120,9 +116,9 @@
                                                     <strong>
                                                         <a href="{{URL::to('/chitiet'.$product->id)}}" class="mask">
                                                         @if (file_exists(public_path('uploads/product/'.$product->anhsp)))
-                                                                <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ "uploads/product/.$product->anhsp"}}" data-src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w">
+                                                                <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ "uploads/product/.$product->anhsp"}}" data-src="{{ 'uploads/product/'.$product->anhsp }}" width="800" height="439" data-srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w">
                                                             @else
-                                                                <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ $product->anhsp }}" data-src="{{ $product->anhsp }}" alt="Bến du thuyền Aqua Marina" width="800" height="439" data-srcset="{{ $product->anhsp }} 800w, {{ $product->anhsp }} 300w, {{ $product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ $product->anhsp }} 800w, {{ $product->anhsp }} 300w, {{ $product->anhsp }} 768w">
+                                                                <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ $product->anhsp }}" data-src="{{ $product->anhsp }}"  width="800" height="439" data-srcset="{{ $product->anhsp }} 800w, {{ $product->anhsp }} 300w, {{ $product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ $product->anhsp }} 800w, {{ $product->anhsp }} 300w, {{ $product->anhsp }} 768w">
                                                             @endif
                                                         </a>
                                                     </strong>
@@ -140,7 +136,7 @@
                             @endif
                         </div>
                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
-                            <a class="apage" href="">{!! $paginate->links()!!}</a>
+{{--                            <a class="apage" href="">{!! $paginate->links()!!}</a>--}}
                         </span>
 
                     </div>
@@ -239,5 +235,29 @@
             </div>
         </div>
     </div>
+
+
+    <h1>Câu hỏi thường gặp</h1>
+    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+        @if ($tintuc)
+            @foreach ($tintuc as $tin)
+                <div class="wpb_wrapper">
+                    <div class="col-xs-12 col-sm-7 col-md-8 pdl10 pdr0">
+
+                        <h2></h2>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#faq{{$tin->id}}" style="width: 1000px;">
+                            <h2 class="titH5 mgb5 bold500 mgt0" style="font-size: 22px; color: white;">{{$tin->id}}. {{$tin->tentin}}</h2>
+                            <div id="faq{{$tin->id}}" class="collapse" style="background-color: lightskyblue; color: black; font-size: 18px">
+
+                                {{$tin->ngaydang}}
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+    </div>
+
+
 
 @endsection

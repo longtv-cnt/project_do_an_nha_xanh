@@ -95,7 +95,6 @@ class galleryController extends Controller
         // confirm that the user really wants to delete the record js
 
       $gallery = gallery::find($id);
-
       $image_path = public_path('store/'.$gallery->image);
         if(file_exists($image_path)){
             unlink($image_path);
