@@ -70,14 +70,32 @@ class SearchController extends Controller
     {
         $tintuc = DB::table('tintuc')->select('*');
         $tintuc = $tintuc->get();
-        $so = array( "1", "2", "3", "4", "5", "6", "7", "8", "9");
-        if (in_array($maloai, $so))
-        {
+        if($maloai == 1){
             $contents = $tintuc[$maloai-1]->noidung;
         }
-        else
-        {
-            $contents = 'Chưa có bài viết';
+        if($maloai == 2){
+            $contents = $tintuc[$maloai-1]->noidung;
+        }
+        if($maloai == 3){
+            $contents = $tintuc[$maloai-1]->noidung;
+        }
+        if($maloai == 4){
+            $contents = $tintuc[$maloai-1]->noidung;
+        }
+        if($maloai == 5){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
+        if($maloai == 6){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
+        if($maloai == 7){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
+        if($maloai == 8){
+            $contents = $tintuc[$maloai-1]->noidung;;
+        }
+        if($maloai == 9){
+            $contents = $tintuc[$maloai-1]->noidung;;
         }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
@@ -293,13 +311,13 @@ class SearchController extends Controller
                             <fieldset class="bd pd10 UserDt bg_full2 mgb15">
                                 <legend class="bold">Tìm thấy ' . $products->count() . ' sản phẩm theo tiêu chí</legend>
                                 ';
-            $output .= '    Tỉnh thành : ' .$diachi. '<br>';
-            $output .= '    Loại bất động sản : ' .$loaibds. '<br>';
-            $output .= '    Dự án : ' .$tduan. '<br>';
-            $output .= '    Hướng :  ' .$huongnha. '<br>';
-            $output .= '    Từ khóa :  ' .$tensp. '<br>';
-            $output .= '    Giá tiền :  ' .$giatien. '<br>';
-            $output .= '   Sắp xếp theo : ' .$sapxep. '
+        $output .= '    Tỉnh thành : ' .$diachi. '<br>';
+        $output .= '    Loại bất động sản : ' .$loaibds. '<br>';
+        $output .= '    Dự án : ' .$tduan. '<br>';
+        $output .= '    Hướng :  ' .$huongnha. '<br>';
+        $output .= '    Từ khóa :  ' .$tensp. '<br>';
+        $output .= '    Giá tiền :  ' .$giatien. '<br>';
+        $output .= '   Sắp xếp theo : ' .$sapxep. '
                             </fieldset>
                         </div>
                         <div id="ucRaoVat_pnlalert">
@@ -386,7 +404,7 @@ class SearchController extends Controller
                                 </div>
 
                ';
-            }
+        }
         $output .= '</div>';
 //            echo $output;
         return Response($output);
@@ -395,5 +413,4 @@ class SearchController extends Controller
 
 
 }
-
 
