@@ -61,6 +61,7 @@ Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
 Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
 Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintucchitiet');
+Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tatcasanpham');
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');
 
