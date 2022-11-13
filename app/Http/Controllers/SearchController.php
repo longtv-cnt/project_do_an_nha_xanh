@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Duan;
 use App\Models\RealEstate;
 use App\Models\TypeProduct;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class SearchController extends Controller
@@ -121,6 +122,7 @@ class SearchController extends Controller
     {
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
+        $user_id = 1;
         $products = RealEstate::where('id', $id)->get();
         foreach($products as $product) {
             $title = $duans[$product->maduan - 1]->tenduan;
@@ -133,7 +135,7 @@ class SearchController extends Controller
 
         }
 
-        return view('chitiet',compact('products','duans','typeproducts', 'title', 'loaibds', 'duan'));
+        return view('chitiet',compact('products','duans','typeproducts', 'title', 'loaibds', 'duan', 'user_id'));
     }
     function getSearchAjax(Request $request)
     {

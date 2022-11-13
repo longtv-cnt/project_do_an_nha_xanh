@@ -12,4 +12,10 @@ class sanpham_bds extends Model
     protected $table='sanpham_bds';
     public $timestamps = false;
     use HasFactory;
+    public function comments()
+    {
+        return $this->hasMany(phanhoi::class)->whereNull('parent_id');
+
+    }
+
 }

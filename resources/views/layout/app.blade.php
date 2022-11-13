@@ -89,11 +89,11 @@
     </style>
     <!--[if lt IE 10]>
     <noscript>
-<link rel='stylesheet' id='dt-old-ie-css'  href='https://aquacityvn.vn/wp-content/themes/dt-the7/css/old-ie.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='dt-old-ie-css'  href='https://aquacityvn.vn/wp-content/themes/dt-the7/css/old-ie.css' type='text/css' media='all' />
     </noscript><![endif]-->
     <!--[if lt IE 10]>
     <noscript>
-<link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='https://aquacityvn.vn/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-fad3f2c8a7.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='https://aquacityvn.vn/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-fad3f2c8a7.css' type='text/css' media='all' />
     </noscript><![endif]-->
 
     <script src="https://aquacityvn.vn/wp-content/mmr/bootstrap.js" async defer type="text/javascript"></script>
@@ -102,7 +102,7 @@
 
 
     <!--[if lte IE 9]>
-<link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
 
 
     <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1631610934072{background-color: #1e73be !important;}.vc_custom_1649931316320{background-color: #ffffff !important;}.vc_custom_1631611535656{background-color: #1e73be !important;}.vc_custom_1618462955904{margin-bottom: 30px !important;}.vc_custom_1631611737515{background-color: #1e73be !important;}.vc_custom_1624075676068{background-color: #105e12 !important;}.vc_custom_1631611802047{background-color: #1e73be !important;}.vc_custom_1631611847463{background-color: #1e73be !important;}.vc_custom_1631611931305{background-color: #1e73be !important;}.vc_custom_1647606738061{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1649931394214{background-color: #ffffff !important;}.vc_custom_1664013455597{background-color: #ffffff !important;}.vc_custom_1647596154532{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612245268{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612275700{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612444151{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612466450{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612494893{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612513579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612538928{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612559584{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612680876{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612706481{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612733832{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612762473{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612786098{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612808991{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1631613523227{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;background-color: #c2ffba !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-top-color: #00526d !important;border-top-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1631613572499{border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1618462570165{background-color: #eded9e !important;}.vc_custom_1631612836399{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612865995{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612894704{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612925290{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612943815{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612969993{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1618469757311{background-color: #006b49 !important;}.vc_custom_1619520363269{border: 2px solid #282fff !important;}.vc_custom_1619520378239{border: 2px solid #282fff !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631613011562{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613028174{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613049323{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613072490{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613094579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613110407{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613133541{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613154471{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613178566{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613203260{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613222077{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613242745{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613260406{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613282887{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -118,6 +118,7 @@
 
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
 </head>
 <body data-rsssl=1 class="page-template-default page page-id-4396 slideshow-on disabled-hover-icons click-effect-on-img srcset-enabled btn-ios custom-btn-color custom-btn-hover-color footer-overlap contact-form-ios outlines-bullets light-icons phantom-slide phantom-line-decoration phantom-custom-logo-on floating-mobile-menu-icon top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right layzr-loading-on wpb-js-composer js-comp-ver-4.12.1 vc_responsive accent-portfolio-icons album-minuatures-style-1">
 <div id="load" class="spinner-loader">
@@ -190,7 +191,7 @@
 
 
 
-{{--    <a href="#" class="scroll-top"></a>--}}
+    {{--    <a href="#" class="scroll-top"></a>--}}
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up" style="display: block;"></div>
 
 </div><!-- #page -->
@@ -324,6 +325,54 @@
     });
 </script>
 
+<!-- loadcomment-->
+<script>
+    $(document).ready(function(){
+        loadcomment();
+        function loadcomment(){
+            var product_id = $('.comment_product_id').val();
+            var user_id = $('.user_id').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{ route('load-comment') }}",
+                method:"POST",
+                data:{product_id:product_id, user_id:user_id, _token:_token},
+                success:function(data){
+                    $('#commentshow').html(data);
+                }
+            });
+        }
+        $('#sendcomment').click(function (){
+            var product_id = $('.comment_product_id').val();
+            var user_id = $('.user_id').val();
+            var comment = $('.comment').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{ route('send-comment') }}",
+                method:"POST",
+                data:{product_id:product_id, user_id:user_id, comment:comment, _token:_token},
+                success:function(data){
+                    $('#notify_comment').html('<p class="text text-success">Thêm bình luận thành công</p>');
+                    loadcomment();
+                }
+            });
+        });
+
+    });
+</script>
+<style type="text/css">
+    .style_comment{
+        margin-top: 20px;
+        boder: 1px solid #ddd;
+        border-radius: 10px;
+        background: #f0f0e9;
+        align-items: center;
+        align-content: center;
+    }
+    .style_comment .img{
+        margin-top: 0px;
+    }
+</style>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -357,150 +406,7 @@
 <script type="text/javascript" src="/js/details.js"></script>
 <script type="text/javascript" src="/js/library.js"></script>
 
-<iframe src="about:blank" frameborder="0" scrolling="no" width="350px" height="450px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:0px !important; bottom:0px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:450px !important; min-width:350px !important; max-height:450px !important; max-width:350px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:350px !important; height:450px !important; display:block !important; z-index:auto !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:5px 5px  0 0 !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="e9f9bsm710n1667314826587" class="open" title="chat widget">
-    <html lang="vi"><head><meta content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"><link href="https://embed.tawk.to/_s/v4/app/635a92a45e8/css/max-widget.css" rel="stylesheet"><style>:root {
-                --tawk-header-background-color: #62b034 !important;
-                --tawk-header-text-color: #f7f4f4 !important;' +
-            }.tawk-visitor-chat-bubble {
-                 background :  #f2ebeb !important;
-                 color :  #000000 !important;
-             }.tawk-agent-chat-bubble {
-                  background :  #cdd8d0 !important;
-                  color :  #0d0707 !important;
-              }</style>
-    </head>
-    <body class="font-lato">
-    <div style="width: 100%; height: 100%;"><div>
-            <div class="tawk-max-container tawk-flex tawk-flex-column" style="border-radius: 5px 5px 0px 0px;">
-                <div class="tawk-toolbar tawk-card-primary tawk-flex tawk-card-small tawk-flex-none tawk-flex-middle tawk-custom-color" style="border-radius: 5px 5px 0px 0px;">
-                    <div role="navigation" aria-label="primary" class="tawk-toolbar-nav"><!----><!----></div>
-                    <div role="navigation" aria-label="secondary" class="tawk-margin-auto-left tawk-flex-none tawk-flex tawk-flex-middle"><!----><!---->
-                        <button type="button" class="tawk-header-text tawk-flex-none tawk-button-hover tawk-custom-color tawk-button tawk-button-text tawk-tooltip" data-text="Thu nhỏ" aria-label="Thu nhỏ"><i class="tawk-icon tawk-icon-close tawk-icon-small"></i>
-                            <span class="tawk-tooltip-hover ">Thu nhỏ<span class="tawk-tooltip-arrow"></span></span>
-                        </button>
-                    </div>
-                </div><!---->
-                <div class="tawk-overlay" style="border-radius: 5px 5px 0px 0px;">
-                    <div class="tawk-overlay-header tawk-custom-color">
-                        <div class="tawk-overlay-header-left">
-                            <button type="button" class="tawk-button tawk-tooltip" data-text="Quay lại">
-                                <i class="tawk-icon tawk-icon-left-arrow tawk-icon-small"></i>
-                                <span class="tawk-tooltip-hover ">Quay lại<span class="tawk-tooltip-arrow"></span></span>
-                            </button><p class="tawk-overlay-title">  </p>
-                        </div>
-                        <div class="tawk-overlay-header-right">
-                            <div>
-                                <div class="tawk-toolbar tawk-card-primary tawk-flex tawk-card-small tawk-flex-none tawk-flex-middle tawk-custom-color" style="border-radius: 5px 5px 0px 0px;"><div role="navigation" aria-label="primary" class="tawk-toolbar-nav"><!----><!---->
-                                    </div>
-                                    <div role="navigation" aria-label="secondary" class="tawk-margin-auto-left tawk-flex-none tawk-flex tawk-flex-middle"><!----><!---->
-                                        <button type="button" class="tawk-header-text tawk-flex-none tawk-button-hover tawk-custom-color tawk-button tawk-button-text tawk-tooltip" data-text="Thu nhỏ" aria-label="Thu nhỏ"><i class="tawk-icon tawk-icon-close tawk-icon-small"></i><span class="tawk-tooltip-hover ">Thu nhỏ<span class="tawk-tooltip-arrow"></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tawk-overlay-body">
-                        <div class="tawk-flex tawk-flex-column" style="height: 100%; overflow: hidden;">
-                            <div class="tawk-flex tawk-flex-column tawk-flex-1 tawk-custom-flex-1">
-                                <div class="tawk-router-view tawk-flex tawk-flex-1 tawk-custom-flex-1"><!----></div>
-                                <div class="tawk-card tawk-card-inverse tawk-card-xsmall tawk-footer tawk-flex-none" style="border-radius: 0px;"><!----><!---->
-                                    <div id="o06e67c05i71667314827523" class="tawk-text-centertawk-padding-small">
-                                        <a id="l3b41m1vpr3o1667314827523" tabindex="-1"></a>
-                                        <a id="c1t4ek0std41667314827523" tabindex="-1"></a>
-                                        <a id="ia8mfc7h27g1667314827523" tabindex="-1"></a>
-                                        <a id="gpm4qvdohr1g1667314827523" href="https://www.tawk.to/?utm_source=tawk-messenger&amp;utm_medium=link&amp;utm_campaign=referral&amp;utm_term=5d27ead99b94cd38bbe6ec91" class="tawk-branding" style="color: rgb(79, 79, 79); font-size: 0.75em; font-weight: 400; text-decoration: none; padding: 0.5em;">
-                                            <img src="https://embed.tawk.to/_s/v4/assets/images/Tawky_16x16.svg" style="margin: 0px 4px 0px 2px; display: inline-block; vertical-align: middle; width: 16px; float: left;"> Add free <b>live chat</b> to your site </a><a id="k1fpqsge1vsg1667314827523" tabindex="-1"></a>
-                                    </div><!----><!---->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!----><!---->
-                <div class="tawk-flex tawk-flex-column tawk-flex-1">
-                    <div class="tawk-router-view tawk-flex tawk-flex-1"><!----><!----><!---->
-                        <div class="tawk-main-panel tawk-custom-flex-1 tawk-home-view tawk-custom-flex-1">
-                            <div class="tawk-chat-panel tawk-custom-flex-1 ps ps--active-y" style="margin-right: 0px;">
-                                <div class="tawk-chat-panel-inner tawk-flex tawk-flex-column">
-                                    <div class="tawk-card tawk-card-primary tawk-card-small tawk-header-container tawk-flex-none tawk-header tawk-custom-color">
-                                        <div class="tawk-text-center">
-                                            <div>
-                                                <div><!----><!---->
-                                                    <div class="header-card card--text">
-                                                        <p class="tawk-text-regular-4 tawk-header-text tawk-custom-color card--alignment-center">
-                                                            <span class="" style="">Bạn vui lòng điền vào biểu mẫu dưới đây và chúng tôi sẽ liên hệ lại với bạn ngay khi có thể.</span>
-                                                        </p>
-                                                    </div><!----><!----><!----><!---->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="tawk-body" class="tawk-body">
-                                        <div class="tawk-form-width-100 tawk-flex tawk-flex-column"><!----><!---->
-                                            <div class="card-container">
-                                                <div class="card--form">
-                                                    <div>
-                                                        <div id="tawk-form-container" style="width: 100%;">
-                                                            <div class="tawk-card tawk-card-inverse tawk-form-input tawk-box-shadow-xsmall tawk-card-small tawk-custom-border-left">
-                                                                <form id="tawk-prechat-form" name="tawk-prechat-form">
-                                                                    <div>
-                                                                        <fieldset><!---->
-                                                                            <div class="tawk-form-wrapper tawk-margin-small">
-                                                                                <input role="input" id="q49suq2id5mg1667314827601" required="required" aria-required="true" aria-placeholder="Tên" aria-labellby="q49suq2id5mg1667314827601" class="tawk-input">
-                                                                                <label for="q49suq2id5mg1667314827601" class="tawk-form-label"><span>*</span> Tên </label><!---->
-                                                                            </div><!----><!----><!----><!---->
-                                                                        </fieldset>
-                                                                    </div>
-                                                                    <div>
-                                                                        <fieldset><!---->
-                                                                            <div class="tawk-form-wrapper tawk-margin-small">
-                                                                                <input role="input" id="utgtd85hmri81667314827601" required="required" aria-required="true" aria-placeholder="Email" aria-labellby="utgtd85hmri81667314827601" class="tawk-input"><label for="utgtd85hmri81667314827601" class="tawk-form-label"><span>*</span> Email </label><!---->
-                                                                            </div><!----><!----><!----><!---->
-                                                                        </fieldset>
-                                                                    </div>
-                                                                    <div>
-                                                                        <fieldset><!----><!---->
-                                                                            <div class="tawk-form-wrapper tawk-margin-small">
-                                                                                <textarea role="textarea" id="" required="required" aria-required="true" aria-placeholder="Nội dung cần trao đổi" aria-labellby="" maxlength="500" class="tawk-textarea tawk-padding-small tawk-border-radius"></textarea><label class="tawk-form-label"><span>*</span> Nội dung cần trao đổi</label><!---->
-                                                                            </div><!----><!----><!---->
-                                                                        </fieldset>
-                                                                    </div>
-                                                                </form>
-                                                                <div class="tawk-form-footer">
-                                                                    <button type="button" class="tawk-margin-small-top tawk-button-hover width-100 tawk-custom-color tawk-custom-border-color tawk-button"><p><i class="tawk-icon tawk-icon-mobile-send"></i> Hoàn tất </p></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><!---->
-                                                </div>
-                                            </div><!---->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                                    <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                                </div>
-                                <div class="ps__rail-y" style="top: 0px; right: 0px; height: 341px;">
-                                    <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 266px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tawk-card tawk-card-inverse tawk-card-xsmall tawk-footer tawk-flex-none" style="border-radius: 0px;"><!----><!---->
-                        <div id="tklcmhmlg2vg1667314827526" class="tawk-text-centertawk-padding-small">
-                            <a id="bc0mpp8u1pug1667314827526" tabindex="-1"></a>
-                            <a id="ufi8aj9383981667314827526" href="https://www.tawk.to/?utm_source=tawk-messenger&amp;utm_medium=link&amp;utm_campaign=referral&amp;utm_term=5d27ead99b94cd38bbe6ec91" class="tawk-branding" style="color: rgb(79, 79, 79); font-size: 0.75em; font-weight: 400; text-decoration: none; padding: 0.5em;">
-                                <img src="https://embed.tawk.to/_s/v4/assets/images/Tawky_16x16.svg" style="margin: 0px 4px 0px 2px; display: inline-block; vertical-align: middle; width: 16px; float: left;"> Add free <b>live chat</b> to your site </a><a id="r5j1cfvt7n4o1667314827526" tabindex="-1"></a>
-                            <a id="w17o7rs3gm31667314827526" tabindex="-1"></a>
-                        </div><!----><!---->
-                    </div>
-                </div><!---->
-            </div>
-        </div>
-    </div>
-    </body>
-    </html>
-</iframe>
+
 
 
 </body>
