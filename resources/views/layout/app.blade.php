@@ -331,12 +331,11 @@
         loadcomment();
         function loadcomment(){
             var product_id = $('.comment_product_id').val();
-            var user_id = $('.user_id').val();
             var _token = $('input[name="_token"]').val();
             $.ajax({
                 url:"{{ route('load-comment') }}",
                 method:"POST",
-                data:{product_id:product_id, user_id:user_id, _token:_token},
+                data:{product_id:product_id, _token:_token},
                 success:function(data){
                     $('#commentshow').html(data);
                 }
