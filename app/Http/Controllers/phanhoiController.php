@@ -40,20 +40,17 @@ class phanhoiController extends Controller
     public function load_comment(Request $request)
     {
         $comments = DB::table('phanhoi')
+            ->join('users', 'users.id', '=', 'phanhoi.user_id')
             ->where('masp', $request->product_id)
             ->get();
         $output = '';
-        $user = User::Where('id', $request->user_id)->get();
-        foreach ($user as $u){
-            $tenbl = $u->name;
-        }
         foreach ($comments as $comment){
             $output .= '<div class="row style_comment ">
 <div class="col-md-2">
 <img width="40%" src="uploads/product/avatar-icon.jpg" class="img img-responsive img-thumbnail">
 </div>
 <div class="col-md-10">
-<p style="color: green">@'.$tenbl.'</p>
+<p style="color: green">@'.$comment->name.'</p>
 <p>Ngày comment: '.$comment->ngaytao.'</p>
 <p>Nội Dung: '.$comment->comment.'</p>
 </div>
