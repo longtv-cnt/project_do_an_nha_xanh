@@ -104,60 +104,9 @@
 
     </div>
 
-    <ul class="nav nav-tabs mgb10 bold tabs_raovat">
-        <li class="">
-            <a class="pdr0 mgr20 d_image" href="#d_images" role="tab" data-toggle="tab" aria-expanded="false" style="opacity: 1; overflow: visible;">Hình ảnh</a>
-        </li>
-    </ul>
-
-    <div class="tab-content mgb15">
-        <div class="tab-pane fade" id="d_images">
-            <p class="d_img1 img4x3 bd pd10 mgb0 clearfix" id="aimg">
-                @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                <img class="img img2" id="img1" src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
-                <a class="img" data-fancybox="d_image" href="{{ 'uploads/product/'.$product->anhsp }}">
-                    <img class="img2" src="{{ 'uploads/product/'.$product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
-                </a>
-                @else
-                    <img class="img img2" id="img1" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
-                    <a class="img" data-fancybox="d_image" href="{{ $product->anhsp }}">
-                        <img class="img2" src="{{ $product->anhsp }}" alt="Bán nhà số 6/2/33 Kiều Sơn, Hải An, Hải Phòng">
-                    </a>
-                @endif
-            </p>
-            <div class="owl-carousel clearfix pd15 text-center owl-loaded owl-drag owl-hidden" id="gallery">
-
-                <div class="owl-stage-outer">
-                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1635px;">
-                        <div class="owl-item active" style="width: 153.5px; margin-right: 10px;">
-                            <a href="javascript:void()" class="img4x3 bd pd5 ahover active" data-image="{{ $product->anhsp }}">
-                                <img class="img img2" src="{{ $product->anhsp }}" >
-                            </a>
-                        </div>
-                        <div class="owl-item active" style="width: 153.5px; margin-right: 10px;">
-                            <a class="img4x3 bd pd5 ahover" data-fancybox="d_image" href="{{ $product->anhsp }}" data-image="{{ $product->anhsp }}">
-                                <img class="img img2" src="{{ $product->anhsp }}" >
-                            </a>
-                        </div>
-                        <div class="owl-item active" style="width: 153.5px; margin-right: 10px;">
-                            <a class="img4x3 bd pd5 ahover" data-fancybox="d_image" href="{{ $product->anhsp }}" data-image="{{ $product->anhsp }}">
-                                <img class="img img2" src="{{ $product->anhsp }}" >
-                            </a>
-                        </div>
 
 
-                    </div>
-                </div>
-                <div class="owl-nav">
-                    <div class="owl-prev disabled">prev</div>
-                    <div class="owl-next">next</div>
-                </div>
-                <div class="owl-dots disabled"></div>
-            </div>
-        </div>
 
-
-    </div>
 
         @endforeach
     @endif
@@ -180,5 +129,96 @@
         </div>
     </div>
 
+
+    <div class="category-tab shop-details-tab"><!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
+                <li class="active"><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade" id="companyprofile" >
+                <p>.
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel" style=" height: 500px">
+
+                    <style type="text/css">
+                        img.img.img-responsive.img-slider {
+                            height: 500px;
+                            margin-top: 10px;
+                            margin-left: 50px;
+                        }
+                    </style>
+                    <div class="carousel-inner" style=" height: 600px; width: 50%;">
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($products as $product)
+                            @php
+                                $i++;
+                            @endphp
+                            <div class="item {{$i==1 ? 'active' : '' }}">
+                                @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
+                                    <img alt="{{$product->tensp}}" src="{{ 'uploads/product/'.$product->anhsp }}" height="50%" width="100%" class="img img-responsive img-slider">
+
+                                @else
+                                    <img alt="{{$product->tensp}}" src="{{$product->anhsp}}" height="50%" width="100%" class="img img-responsive img-slider">
+
+                                @endif
+                            </div>
+                        @endforeach
+
+
+                    </div><br>
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+
+
+
+                .</p>
+            </div>
+
+            <div class="tab-pane fade in active" id="reviews" >
+                <div class="col-sm-12">
+
+                    <form>
+                        @csrf
+                        <input type="hidden" name="comment_product_id" class="comment_product_id" value="{{$product->id}}">
+                        <div id="commentshow">
+
+                        </div>
+                    </form>
+                    <p><b>Viết đánh giá của bạn</b></p>
+
+                    <form action="#">
+                        @csrf
+                        <input type="hidden" name="user_id" class="user_id" value="{{$user_id}}">
+
+                        <textarea name="comment" class="comment" placeholder="Nội dung bình luận"></textarea>
+                        <div id="notify_comment">
+
+                        </div>
+                        <b>Rating: </b> <img src="public/img/rating.png" alt="" />
+                        <button type="button" class="btn btn-default pull-right send-comment" id="sendcomment">
+                            Gửi bình luận
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div><!--/category-tab-->
 
 @endsection
