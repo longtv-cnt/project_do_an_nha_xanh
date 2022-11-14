@@ -15,8 +15,8 @@ class phanhoiController extends Controller
      */
     public function index()
     {
-        $phanhoi = DB::table('phanhoi')->select('*');
-        $phanhoi = $phanhoi->get();
+        $phanhoi = phanhoi::with('product')->get();
+
         return view('admin.phanhoi.phanhoi', compact('phanhoi'));
     }
 
@@ -140,8 +140,8 @@ class phanhoiController extends Controller
      */
     public function destroy($id)
     {
-            $phanhoi = phanhoi::find($id);
-            $phanhoi->delete();
-            return redirect()->action([phanhoiController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+        $phanhoi = phanhoi::find($id);
+        $phanhoi->delete();
+        return redirect()->action([phanhoiController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
 }
