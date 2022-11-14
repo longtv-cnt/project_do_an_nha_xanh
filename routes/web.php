@@ -41,9 +41,15 @@ Route::get('/agentsingle', [HomeController::class, 'agentsingle'])->name('agent-
 Route::get('/agentsgrid', [HomeController::class, 'agentsgrid'])->name('agents-grid');
 Route::get('/bloggrid', [HomeController::class, 'bloggrid'])->name('blog-grid');
 Route::get('/blogsingle', [HomeController::class, 'blogsingle'])->name('blog-single');
+
+
+//Không được xóa
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::post('/login', [HomeController::class, 'postLogin'])->name('postLogin');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/dangki', [HomeController::class, 'dangki'])->name('dangki');
+Route::post('/dangki', [HomeController::class, 'postDangki'])->name('postDangki');
+//////
 Route::get('/product', [RealEsatateController::class, 'create'])->name('product');
 Route::get('/product/create', [RealEsatateController::class, 'create'])->name('product.create');
 Route::post('/product/store', [RealEsatateController::class, 'store'])->name('product.store');

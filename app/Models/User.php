@@ -48,4 +48,4 @@ class User extends Authenticatable
     public function checkPermissionAccess($permissionCheck){
 
 }
-
+}
