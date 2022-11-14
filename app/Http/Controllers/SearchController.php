@@ -132,6 +132,7 @@ class SearchController extends Controller
         $banners = $banners->get();
         return view('tintuc', compact('output','duans','typeproducts', 'banners'));
     }
+
     public function chitiet($id)
     {
         $duans = Duan::all();
