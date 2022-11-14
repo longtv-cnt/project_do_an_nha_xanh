@@ -27,83 +27,7 @@
             return v;
         });
     </script>
-
-
-
-    <style type='text/css'>
-        /*[dt-main]*/
-        body #load {
-            display: block;
-            height: 100%;
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            z-index: 9901;
-        }
-        .load-wrap {
-            width: 100%;
-            height: 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            text-align: center;
-        }
-        .load-wrap > svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%,-50%);
-            -webkit-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
-        }
-        #load {
-            background-color: #405868;
-        }
-        .uil-default rect:not(.bk) {
-            fill: #ffffff;
-        }
-        .uil-ring > path {
-            fill: #ffffff;
-        }
-        .ring-loader .circle {
-            fill: #ffffff;
-        }
-        .ring-loader .moving-circle {
-            fill: #ffffff;
-        }
-        .uil-hourglass .glass {
-            stroke: #ffffff;
-        }
-        .uil-hourglass .sand {
-            fill: #ffffff;
-        }
-        .spinner-loader .load-wrap {
-            background-image: url("data:image/svg+xml,%3Csvg width='75px' height='75px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='uil-default'%3E%3Crect x='0' y='0' width='100' height='100' fill='none' class='bk'%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(0 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(30 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(60 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.16666666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(90 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.25s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(120 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(150 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4166666666666667s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(180 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(210 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5833333333333334s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(240 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(270 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.75s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(300 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8333333333333334s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(330 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9166666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
-        }
-        .ring-loader .load-wrap {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='72' height='72' fill='%23ffffff'%3E   %3Cpath opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/%3E   %3Cpath d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'%3E     %3CanimateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /%3E   %3C/path%3E %3C/svg%3E");
-        }
-        .hourglass-loader .load-wrap {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='72' height='72' fill='%23ffffff'%3E   %3Cpath transform='translate(2)' d='M0 12 V20 H4 V12z'%3E      %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline'  /%3E   %3C/path%3E   %3Cpath transform='translate(8)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.2' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline'  /%3E   %3C/path%3E   %3Cpath transform='translate(14)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.4' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E   %3Cpath transform='translate(20)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.6' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E   %3Cpath transform='translate(26)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.8' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E %3C/svg%3E");
-        }
-
-    </style>
-    <!--[if lt IE 10]>
-    <noscript>
-        <link rel='stylesheet' id='dt-old-ie-css'  href='https://aquacityvn.vn/wp-content/themes/dt-the7/css/old-ie.css' type='text/css' media='all' />
-    </noscript><![endif]-->
-    <!--[if lt IE 10]>
-    <noscript>
-        <link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='https://aquacityvn.vn/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-fad3f2c8a7.css' type='text/css' media='all' />
-    </noscript><![endif]-->
-
     <script src="https://aquacityvn.vn/wp-content/mmr/bootstrap.js" async defer type="text/javascript"></script>
-    <link rel="https://api.w.org/" href="https://aquacityvn.vn/wp-json/" /><link rel="alternate" type="application/json" href="https://aquacityvn.vn/wp-json/wp/v2/pages/4396" /><link rel="alternate" type="application/json+oembed" href="https://aquacityvn.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faquacityvn.vn%2Faqua-city-novaland-dong-nai-8%2F" />
-    <link rel="alternate" type="text/xml+oembed" href="https://aquacityvn.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faquacityvn.vn%2Faqua-city-novaland-dong-nai-8%2F&#038;format=xml" />
-
-
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
-
 
     <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1631610934072{background-color: #1e73be !important;}.vc_custom_1649931316320{background-color: #ffffff !important;}.vc_custom_1631611535656{background-color: #1e73be !important;}.vc_custom_1618462955904{margin-bottom: 30px !important;}.vc_custom_1631611737515{background-color: #1e73be !important;}.vc_custom_1624075676068{background-color: #105e12 !important;}.vc_custom_1631611802047{background-color: #1e73be !important;}.vc_custom_1631611847463{background-color: #1e73be !important;}.vc_custom_1631611931305{background-color: #1e73be !important;}.vc_custom_1647606738061{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1649931394214{background-color: #ffffff !important;}.vc_custom_1664013455597{background-color: #ffffff !important;}.vc_custom_1647596154532{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612245268{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612275700{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612444151{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612466450{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612494893{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612513579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612538928{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612559584{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612680876{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612706481{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612733832{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612762473{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612786098{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612808991{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1631613523227{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;background-color: #c2ffba !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-top-color: #00526d !important;border-top-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1631613572499{border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1618462570165{background-color: #eded9e !important;}.vc_custom_1631612836399{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612865995{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612894704{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612925290{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612943815{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612969993{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1618469757311{background-color: #006b49 !important;}.vc_custom_1619520363269{border: 2px solid #282fff !important;}.vc_custom_1619520378239{border: 2px solid #282fff !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631613011562{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613028174{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613049323{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613072490{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613094579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613110407{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613133541{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613154471{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613178566{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613203260{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613222077{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613242745{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613260406{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613282887{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -115,15 +39,14 @@
             gtag('config', 'UA-53977714-32');
         })</script>
 
-
-
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="main.css" />
 </head>
+
 <body data-rsssl=1 class="page-template-default page page-id-4396 slideshow-on disabled-hover-icons click-effect-on-img srcset-enabled btn-ios custom-btn-color custom-btn-hover-color footer-overlap contact-form-ios outlines-bullets light-icons phantom-slide phantom-line-decoration phantom-custom-logo-on floating-mobile-menu-icon top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right layzr-loading-on wpb-js-composer js-comp-ver-4.12.1 vc_responsive accent-portfolio-icons album-minuatures-style-1">
-<div id="load" class="spinner-loader">
-    <div class="load-wrap"></div>
-</div>
+{{--<div id="load" class="spinner-loader">--}}
+{{--    <div class="load-wrap"></div>--}}
+{{--</div>--}}
 <div id="page">
     <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
@@ -167,8 +90,62 @@
 
 
     <div class="page-inner">
-        <div id="main-slideshow" data-width="1920" data-height="1012" data-autoslide="3000" data-scale="fit" data-paused="false">
-        </div>
+{{--        <div id="main-slideshow" data-width="1920" data-height="1012" data-autoslide="3000" data-scale="fit" data-paused="false">--}}
+{{--        </div>--}}
+        <section id="slider"><!--slider-->
+            <div id="slider-carousel" class="carousel slide" data-ride="carousel" style=" height: 500px">
+
+                <style type="text/css">
+                    img.img.img-responsive.img-slider {
+                        height: 500px;
+                        margin-top: 10px;
+                    }
+                </style>
+
+                <div class="carousel-inner" style=" height: 500px; width: 100%;">
+                    @php
+                        $i = 0;
+                    @endphp
+                    @foreach($banners as $banner)
+                        @php
+                            $i++;
+                        @endphp
+                        <div class="item {{$i==1 ? 'active' : '' }}">
+                            <a href="{{URL::to('/sanphambanner'.$banner->id)}}" class="mask">
+                            @if (file_exists(public_path('uploads/banner/' . $banner->image)))
+                                <img alt="{{$banner->id}}" src="{{ 'uploads/banner/'.$banner->image }}" height="50%" width="100%" class="img img-responsive img-slider">
+
+                            @else
+                                <img alt="{{$banner->id}}" src="{{$banner->image}}" height="50%" width="100%" class="img img-responsive img-slider">
+
+                            @endif
+                            </a>
+                        </div>
+                    @endforeach
+
+
+                </div><br>
+                <ol class="carousel-indicators">
+                    @php
+                        $i = 0;
+                    @endphp
+                    @foreach($banners as $banner)
+                        @php
+                            $i++;
+                        @endphp
+                    <li data-target="#slider-carousel" data-slide-to="{{$i}}" class="active"></li>
+                    @endforeach
+                </ol>
+
+                <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+
+        </section><!--/slider-->
         <div id="main" class="sidebar-none sidebar-divider-off"  >
             <div class="main-gradient"></div>
             <div class="wf-wrap">

@@ -142,13 +142,7 @@
                 <p>.
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel" style=" height: 500px">
 
-                    <style type="text/css">
-                        img.img.img-responsive.img-slider {
-                            height: 500px;
-                            margin-top: 10px;
-                            margin-left: 50px;
-                        }
-                    </style>
+
                     <div class="carousel-inner" style=" height: 600px; width: 50%;">
                         @php
                             $i = 0;

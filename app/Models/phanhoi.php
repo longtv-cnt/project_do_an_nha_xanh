@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class phanhoi extends Model
 {
@@ -12,14 +13,8 @@ class phanhoi extends Model
     public $timestamps = false;
     use HasFactory;
 
-//    protected $fillable = ['user_id', 'post_id', 'parent_id', 'body'];
-
-    public function user()
+    public function product()
     {
-        return $this->belongsTo(User::class);
-    }
-    public function replies()
-    {
-        return $this->hasMany(phanhoi::class, 'parent_id');
+        return $this->belongsTo('App\Models\sanpham_bds','masp');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\loaiquyenhanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealEsatateController;
 use App\Http\Controllers\SearchController;
@@ -55,13 +56,14 @@ Route::get('/filter',[SearchController::class,'filter'])->name('filter');
 Route::get('/loaibds{maloai}duan{maduan}',[SearchController::class,'loaibdsduan'])->name('home.loaibds.duan');
 Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
 Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
-Route::get('/gioithieu/loaibds{maloai}',[SearchController::class,'gioithieu'])->name('gioithieu');
+Route::get('/gioithieu-loaibds{maloai}',[SearchController::class,'gioithieu'])->name('gioithieu');
 Route::get('/lienhe/',[SearchController::class,'lienhe'])->name('lienhe');
 Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung');
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
 Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
 Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintucchitiet');
 Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tatcasanpham');
+Route::get('/sanphambanner{id}', [sanpham_bdsController::class,'sanphambanner'])->name('sanphambanner');
 Route::post('/loadcomment', [phanhoiController::class,'load_comment'])->name('load-comment');
 Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('send-comment');
 Route::prefix('admin')->group(function () {
@@ -95,12 +97,12 @@ Route::prefix('admin')->group(function () {
     Route::PATCH('/loaikhach/update/{id}', [loaikhachController::class, 'update']);
 
 
-    // Route::get('/loaiquyenhan', [loaiquyenhanController::class, 'index'])->name('loaiquyenhan');
-    // Route::get('/loaiquyenhan/create', [loaiquyenhanController::class, 'create'])->name('loaiquyenhan.create');
-    // Route::post('/loaiquyenhan/store', [loaiquyenhanController::class, 'store'])->name('loaiquyenhan.store');
-    // Route::DELETE('/loaiquyenhan/destroy/{id}', [loaiquyenhanController::class, 'destroy']);
-    // Route::get('/loaiquyenhan/edit/{id}', [loaiquyenhanController::class, 'edit'])->name('loaiquyenhan.edit');
-    // Route::PATCH('/loaiquyenhan/update/{id}', [loaiquyenhanController::class, 'update']);
+     Route::get('/loaiquyenhan', [loaiquyenhanController::class, 'index'])->name('loaiquyenhan');
+     Route::get('/loaiquyenhan/create', [loaiquyenhanController::class, 'create'])->name('loaiquyenhan.create');
+     Route::post('/loaiquyenhan/store', [loaiquyenhanController::class, 'store'])->name('loaiquyenhan.store');
+     Route::DELETE('/loaiquyenhan/destroy/{id}', [loaiquyenhanController::class, 'destroy']);
+     Route::get('/loaiquyenhan/edit/{id}', [loaiquyenhanController::class, 'edit'])->name('loaiquyenhan.edit');
+     Route::PATCH('/loaiquyenhan/update/{id}', [loaiquyenhanController::class, 'update']);
 
 
     Route::get('/loaisp_bds', [loaisp_bdsController::class, 'index'])->name('loaisp_bds');

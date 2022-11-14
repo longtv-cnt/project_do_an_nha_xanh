@@ -39,7 +39,7 @@
             <ul class="sub-nav hover-style-bg level-arrows-on" style="left: 0px; opacity: 0; visibility: hidden;">
                 @foreach($typeproducts as $key => $typeproduct)
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3002 first has-children">
-                        <a href="{{URL::to('/gioithieu/loaibds'.$typeproduct->id)}}"  data-level="2"><span class="menu-item-text"><span class="menu-text">{{$typeproduct->tenloai}}</span></span></a><i class="next-level-button"></i>
+                        <a href="{{URL::to('/gioithieu-loaibds'.$typeproduct->id)}}"  data-level="2"><span class="menu-item-text"><span class="menu-text">{{$typeproduct->tenloai}}</span></span></a><i class="next-level-button"></i>
                     </li>
                 @endforeach
             </ul>

@@ -15,8 +15,8 @@ class phanhoiController extends Controller
      */
     public function index()
     {
-        $phanhoi = DB::table('phanhoi')->select('*');
-        $phanhoi = $phanhoi->get();
+        $phanhoi = phanhoi::with('product')->get();
+
         return view('admin.phanhoi.phanhoi', compact('phanhoi'));
     }
 
