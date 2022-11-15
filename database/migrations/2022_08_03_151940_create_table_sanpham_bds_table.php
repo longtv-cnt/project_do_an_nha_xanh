@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('sanpham_bds', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('maduan')->nullable()->references('maduan')->on('duan')
+            $table->unsignedBigInteger('maduan')->nullable();
+            $table->foreign('maduan')->references('maduan')->on('duan')
             ->onDelete('set null')->onUpdate('set null');
-            $table->unsignedBigInteger('maloai')->nullable()->references('id')->on('loaisp_bds')
+            $table->unsignedBigInteger('maloai')->nullable();
+            $table->foreign('maloai')->references('id')->on('loaisp_bds')
             ->onDelete('set null')->onUpdate('set null');
             $table->string('tensp',50);
             $table->double('giatien',10,2)->nullable();

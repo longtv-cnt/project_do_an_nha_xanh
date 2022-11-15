@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\du_anController;
 use App\Http\Controllers\khachhangController;
 use App\Http\Controllers\loaikhachController;
-use App\Http\Controllers\loaiquyenhanController;
+
 use App\Http\Controllers\loaisp_bdsController;
 use App\Http\Controllers\loaitintucController;
 use App\Http\Controllers\tintucController;
@@ -41,8 +41,15 @@ Route::get('/agentsingle', [HomeController::class, 'agentsingle'])->name('agent-
 Route::get('/agentsgrid', [HomeController::class, 'agentsgrid'])->name('agents-grid');
 Route::get('/bloggrid', [HomeController::class, 'bloggrid'])->name('blog-grid');
 Route::get('/blogsingle', [HomeController::class, 'blogsingle'])->name('blog-single');
+
+
+//Không được xóa
 Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::post('/login', [HomeController::class, 'postLogin'])->name('postLogin');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/dangki', [HomeController::class, 'dangki'])->name('dangki');
+Route::post('/dangki', [HomeController::class, 'postDangki'])->name('postDangki');
+//////
 Route::get('/product', [RealEsatateController::class, 'create'])->name('product');
 Route::get('/product/create', [RealEsatateController::class, 'create'])->name('product.create');
 Route::post('/product/store', [RealEsatateController::class, 'store'])->name('product.store');
@@ -60,11 +67,14 @@ Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
 Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
 Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintucchitiet');
+Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tatcasanpham');
+Route::get('/sanphambanner{id}', [sanpham_bdsController::class,'sanphambanner'])->name('sanphambanner');
+Route::post('/loadcomment', [phanhoiController::class,'load_comment'])->name('load-comment');
+Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('send-comment');
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');
 
     Route::get('/adminhome', [adminhomeController::class, 'index'])->name('adminhome');
-
 
 
     Route::get('/duan', [du_anController::class, 'index'])->name('duan');
@@ -92,12 +102,12 @@ Route::prefix('admin')->group(function () {
     Route::PATCH('/loaikhach/update/{id}', [loaikhachController::class, 'update']);
 
 
-    Route::get('/loaiquyenhan', [loaiquyenhanController::class, 'index'])->name('loaiquyenhan');
-    Route::get('/loaiquyenhan/create', [loaiquyenhanController::class, 'create'])->name('loaiquyenhan.create');
-    Route::post('/loaiquyenhan/store', [loaiquyenhanController::class, 'store'])->name('loaiquyenhan.store');
-    Route::DELETE('/loaiquyenhan/destroy/{id}', [loaiquyenhanController::class, 'destroy']);
-    Route::get('/loaiquyenhan/edit/{id}', [loaiquyenhanController::class, 'edit'])->name('loaiquyenhan.edit');
-    Route::PATCH('/loaiquyenhan/update/{id}', [loaiquyenhanController::class, 'update']);
+    // Route::get('/loaiquyenhan', [loaiquyenhanController::class, 'index'])->name('loaiquyenhan');
+    // Route::get('/loaiquyenhan/create', [loaiquyenhanController::class, 'create'])->name('loaiquyenhan.create');
+    // Route::post('/loaiquyenhan/store', [loaiquyenhanController::class, 'store'])->name('loaiquyenhan.store');
+    // Route::DELETE('/loaiquyenhan/destroy/{id}', [loaiquyenhanController::class, 'destroy']);
+    // Route::get('/loaiquyenhan/edit/{id}', [loaiquyenhanController::class, 'edit'])->name('loaiquyenhan.edit');
+    // Route::PATCH('/loaiquyenhan/update/{id}', [loaiquyenhanController::class, 'update']);
 
 
     Route::get('/loaisp_bds', [loaisp_bdsController::class, 'index'])->name('loaisp_bds');
@@ -116,7 +126,7 @@ Route::prefix('admin')->group(function () {
     Route::PATCH('/loaitintuc/update/{id}', [loaitintucController::class, 'update']);
 
 
-    Route::get('/tintuc', [tintucController::class, 'index'])->name('tintuc');
+    Route::get('/tintuc', [tintucController::class, 'index'])->name('tintuc')->middleware('can:list-tin-tuc');;
     Route::get('/tintuc/create', [tintucController::class, 'create'])->name('tintuc.create');
     Route::post('/tintuc/store', [tintucController::class, 'store'])->name('tintuc.store');
     Route::DELETE('/tintuc/destroy/{matin}', [tintucController::class, 'destroy']);

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Duan;
 use App\Models\sanpham_bds;
+use App\Models\TypeProduct;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\RealEstate;
 use App\Models\loaisanpham;
@@ -24,8 +27,44 @@ class sanpham_bdsController extends Controller
         $sanpham_bds = DB::table('sanpham_bds')->select('*');
         $sanpham_bds = $sanpham_bds->get();
         return view('admin.sanpham_bds.sanpham_bds', compact('loaisp','duan','sanpham_bds'));
-   }
+    }
 
+    public function sanpham()
+    {
+        //
+        $products = DB::table('sanpham_bds')
+            ->where('xetduyet', 1)
+            ->orderBy('giatien','ASC')
+            ->paginate(8);
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $title = 'Tất cả dự án';
+        $loaibds = 'Tất cả sản phẩm';
+        $banners = DB::table('banners')->select('*');
+        $banners = $banners->get();
+        $paginate = new Paginator($products, 8);
+        return view('sanpham',
+            compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners'));
+    }
+    public function sanphambanner($id)
+    {
+        //
+        $products = DB::table('sanpham_bds')
+            ->where('id', $id)
+            ->where('xetduyet', 1)
+            ->orderBy('giatien','ASC')
+            ->paginate(8);
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+
+        $loaibds = 'Các sản phẩm';
+        $banners = DB::table('banners')->select('*');
+        $banners = $banners->get();
+        $title = $banners[$id]->link;
+        $paginate = new Paginator($products, 8);
+        return view('sanphambanner',
+            compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +73,7 @@ class sanpham_bdsController extends Controller
     public function create()
     {
         return view('admin.sanpham_bds.sanpham_bds');
-   }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,12 +91,12 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->tensp =$request->tensp;
         $sanpham_bds->giatien =$request->giatien;
         if ($request->hasFile('anhsp')) {
-                $file = $request->file('anhsp');
-                $fileName = time().$file->getClientOriginalName();
+            $file = $request->file('anhsp');
+            $fileName = time().$file->getClientOriginalName();
 
-                 $destinationPath = public_path('uploads/product/');
-                $file->move($destinationPath, $fileName);
-                $sanpham_bds->anhsp = $fileName;
+            $destinationPath = public_path('uploads/product/');
+            $file->move($destinationPath, $fileName);
+            $sanpham_bds->anhsp = $fileName;
         }
 
         $sanpham_bds->huong =$request->huong;
@@ -139,7 +178,6 @@ class sanpham_bdsController extends Controller
     {
 
         $sanpham_bds = sanpham_bds::find($id);
-
         $sanpham_bds->delete();
         return redirect()->action([sanpham_bdsController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

@@ -118,12 +118,12 @@
                                             <p>Loại Khách Hàng</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a href="{{ route('loaiquyenhan') }}" class="nav-link">
                                             <i class="fa-solid fa-people-group"></i>
                                             <p>Loại Quyền Hạn</p>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <a href="{{ route('loaisp_bds') }}" class="nav-link">
                                             <i class="fa-solid fa-people-group"></i>

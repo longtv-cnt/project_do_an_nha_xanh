@@ -113,7 +113,6 @@ class phieuthuController extends Controller
     public function destroy($maphieu)
     {
             $phieuthu = phieuthu::find($maphieu);
-
             $phieuthu->delete();
             return redirect()->action([phieuthuController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

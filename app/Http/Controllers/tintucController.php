@@ -104,7 +104,6 @@ class tintucController extends Controller
     public function destroy($id)
     {
         $tintuc = tintuc::find($id);
-
         $tintuc->delete();
         return redirect()->action([tintucController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

@@ -19,6 +19,8 @@ class RealEsatateController extends Controller
     {
         //
         $products = DB::table('sanpham_bds')
+            ->where('nhaxanh', 1)
+            ->where('xetduyet', 1)
             ->orderBy('giatien','ASC')
             ->paginate(8);
         $duans = Duan::all();
@@ -29,8 +31,10 @@ class RealEsatateController extends Controller
         $tintuc = $tintuc->paginate(16);
         $loaitintuc = DB::table('loaitintuc')->select('*');
         $loaitintuc = $loaitintuc->get();
+        $banners = DB::table('banners')->select('*');
+        $banners = $banners->get();
         $paginate = new \Illuminate\Pagination\Paginator($products, 8);
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'tintuc', 'loaitintuc','paginate'));
+        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'tintuc', 'loaitintuc','paginate', 'banners'));
     }
 
     /**

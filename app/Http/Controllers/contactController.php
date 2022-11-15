@@ -113,7 +113,6 @@ class contactController extends Controller
     public function destroy($id)
     {
             $contact = contact::find($id);
-
             $contact->delete();
             return redirect()->action([contactController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

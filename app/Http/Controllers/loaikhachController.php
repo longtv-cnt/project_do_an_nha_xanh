@@ -94,7 +94,6 @@ class loaikhachController extends Controller
     public function destroy($id)
     {
         $loaikhach = loaikhach::find($id);
-
         $loaikhach->delete();
         return redirect()->action([loaikhachController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

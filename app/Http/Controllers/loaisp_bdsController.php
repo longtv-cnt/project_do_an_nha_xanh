@@ -94,7 +94,6 @@ class loaisp_bdsController extends Controller
     public function destroy($id)
     {
         $loaisp_bds = loaisp_bds::find($id);
-
         $loaisp_bds->delete();
         return redirect()->action([loaisp_bdsController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }

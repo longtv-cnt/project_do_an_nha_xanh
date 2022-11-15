@@ -94,7 +94,6 @@ class loaitintucController extends Controller
     public function destroy($id)
     {
         $loaitintuc = loaitintuc::find($id);
-
         $loaitintuc->delete();
         return redirect()->action([loaitintucController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
