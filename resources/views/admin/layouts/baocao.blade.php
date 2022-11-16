@@ -236,19 +236,30 @@
                         <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                       </div>
                     </div>
+
                     <!-- /.card-body -->
                   </div>
                   <!-- /.card -->
-
-                </div>
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h3 class="card-title">Mới</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="sanphamtheoloai" style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 <!-- /.col (RIGHT) -->
               </div>
             </div>
-
+         </div>
+      </div>
     </div>
-
-</div>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -258,7 +269,33 @@
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
-<script>
+<script type="text/javascript">
+
+// Load google charts
+google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['tenloai', 'count'],
+      @foreach ($result as $r )
+                ['{{$r["maloai"]}}', {{$r["total"]}}],
+      @endforeach
+            ]);
+            var options = {'title':'Sản Phẩm Theo Loại', 'width':600, 'height':300,
+            'is3D':true,
+            'pieSliceText':'value',}
+            var chart = new google.visualization.PieChart(document.getElementById('sanphamtheoloai'));
+            chart.draw(data, options);
+        }
+
+
+
+
+
+
+
     $(function () {
       /* ChartJS
        * -------
@@ -327,7 +364,7 @@
       @endforeach
 
 
-      @foreach($tenloaikhach_1 as $row )
+      @foreach($tenloaikhach as $row )
       @foreach($tenloaikhach_2 as $riw )
       @foreach($tenloaikhach_3 as $raw )
       var khachhangData=

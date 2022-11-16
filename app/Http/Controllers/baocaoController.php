@@ -10,6 +10,8 @@ use App\Models\phanhoi;
 use App\Models\phieuthu;
 use App\Models\sanpham_bds;
 use App\Models\tintuc;
+use App\Models\loaisp_bds;
+
 
 class baocaoController extends Controller
 {
@@ -20,6 +22,11 @@ class baocaoController extends Controller
      */
     public function index()
     {
+        $result = sanpham_bds::select('maloai', DB::raw('count(maloai) as total'))
+        ->join('loaisp_bds', 'sanpham_bds.maloai', '=', 'loaisp_bds.id')
+        // ->select('sanpham_bds.maloai', 'loaisp_bds.tenloai')
+        ->groupBy('maloai')
+        ->get()->toArray();
         $khachhang = DB::table('khachhang')
         ->join('loaikhach', 'khachhang.maloaikhach', '=', 'loaikhach.id')
         ->select('khachhang.*', 'loaikhach.tenloai')
@@ -31,7 +38,7 @@ class baocaoController extends Controller
         $price = DB::table('sanpham_bds')->sum('giatien');
         // $contact = DB::table('contact')->select('*');
         // $contact = $contact->get();
-        $tenloaikhach = DB::table('loaikhach')->select('*')->get();
+        $tenloaikhach = DB::table('loaikhach')->select('*')->get()->toArray();
         $tenloaikhach_1 = DB::table('loaikhach')->where('id','=',1)->select('tenloai')->get();
         $tenloaikhach_2 = DB::table('loaikhach')->where('id','=',2)->select('tenloai')->get();
         $tenloaikhach_3 = DB::table('loaikhach')->where('id','=',3)->select('tenloai')->get();
@@ -80,7 +87,7 @@ class baocaoController extends Controller
         $phieuthu_count = phieuthu::count();
         $khachhang_count = khachhang::count();
         $sanpham_count = sanpham_bds::count();
-        return view('admin.layouts.baocao', compact('tenloaikhach','masp_1','masp_2','masp_3','masp_4','masp_5','masp_6','masp_7','masp_8','masp_9','masp_10',
+        return view('admin.layouts.baocao', compact('result','tenloaikhach','masp_1','masp_2','masp_3','masp_4','masp_5','masp_6','masp_7','masp_8','masp_9','masp_10',
                                                     'tenloaisp_1','tenloaisp_2','tenloaisp_3','tenloaisp_4','tenloaisp_5','tenloaisp_6','tenloaisp_7','tenloaisp_8','tenloaisp_9','tenloaisp_10',
                                                     'tenduan_6','tenduan_5','tenduan_4','tenduan_3','tenduan_2','tenduan_1',
                                                     'maduan_6','maduan_5','maduan_4','maduan_3','maduan_2','maduan_1',
