@@ -10,6 +10,7 @@ class phanhoi extends Model
 {
     protected $primaryKey = 'id';
     protected $table='phanhoi';
+    protected $fillable = ['id','user_id', 'masp', 'comment', 'comment_parent', 'ngaytao', 'ngaycapnhat'];
     public $timestamps = false;
     use HasFactory;
 

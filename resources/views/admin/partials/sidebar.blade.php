@@ -80,6 +80,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('sanphambanners') }}" class="nav-link">
+                                    <i class="fa fa-align-center"></i>
+                                    <p>Sản phẩm banners</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('tintuc') }}" class="nav-link">
                                     <i class="fa fa-newspaper"></i>
                                     <p>Tin Tức</p>

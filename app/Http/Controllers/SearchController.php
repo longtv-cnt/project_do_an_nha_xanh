@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Duan;
+use App\Models\gallery;
 use App\Models\RealEstate;
 use App\Models\TypeProduct;
 use App\Models\User;
@@ -137,7 +138,6 @@ class SearchController extends Controller
     {
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $user_id = 1;
         $products = RealEstate::where('id', $id)->get();
         foreach($products as $product) {
             $title = $duans[$product->maduan - 1]->tenduan;
@@ -149,10 +149,11 @@ class SearchController extends Controller
             }
 
         }
+        $gallerys = gallery::where('sanpham_id', $id)->get();
         $banners = DB::table('banners')->select('*');
         $banners = $banners->get();
         return view('chitiet',
-            compact('products','duans','typeproducts', 'title', 'loaibds', 'duan', 'user_id', 'banners'));
+            compact('products','duans','typeproducts', 'title', 'loaibds', 'duan', 'banners', 'gallerys'));
     }
     function getSearchAjax(Request $request)
     {
