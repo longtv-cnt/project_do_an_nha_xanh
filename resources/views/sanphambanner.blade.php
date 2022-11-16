@@ -30,7 +30,7 @@
                                                         <p style="text-align: center;">
                                                 <span style="font-size: 12pt; color: #0000ff;">
                                                     <strong>
-                                                        <a href="{{URL::to('/chitiet'.$product->id)}}" class="mask">
+                                                        <a href="{{URL::to('/chitiet'.$product->product_id)}}" class="mask">
                                                         @if (file_exists(public_path('uploads/product/'.$product->anhsp)))
                                                                 <img style="max-height: 300px;" loading="lazy" class="aligncenter wp-image-4167 size-full lazyloaded" src="{{ "uploads/product/.$product->anhsp"}}" data-src="{{ 'uploads/product/'.$product->anhsp }}" width="800" height="439" data-srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="{{ 'uploads/product/'.$product->anhsp }} 800w, {{ 'uploads/product/'.$product->anhsp }} 300w, {{ 'uploads/product/'.$product->anhsp }} 768w">
                                                             @else
@@ -42,7 +42,6 @@
                                                         </p>
                                                         <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>{{ $product->tensp }}</b></span></span></p>
                                                         <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền {{ $product->giatien }} đồng</strong></span></p>
-
                                                     </div>
                                                 </div>
                                             </div>
