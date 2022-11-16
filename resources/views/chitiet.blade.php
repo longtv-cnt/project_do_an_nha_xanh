@@ -209,7 +209,7 @@
 
                     <form action="#">
                         @csrf
-                        <input type="hidden" name="user_id" class="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="user_id" class="user_id" value="{{ $user_id }}">
                         <input type="hidden" name="comment_product_id" class="comment_product_id" value="{{$product->id}}">
                         <textarea name="comment" class="comment" placeholder="Nội dung bình luận"></textarea>
                         <div id="notify_comment">
