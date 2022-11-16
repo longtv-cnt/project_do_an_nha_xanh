@@ -72,10 +72,28 @@
                             Admin
                         </a>
                 </span>
-                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('login')}}">
+                @if (!Auth::check())
+                    <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch"> <a
+                            href="{{ route('login') }}">
                             Đăng nhập
                         </a>
-                </span>
+                    </span>
+                @endif
+                @if (Auth::check())
+                    <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
+                        <div class="dropdown show">
+                            <a class="btn btn-secondary-outline dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <div><a class="dropdown-item" href="#">Hồ sơ</a></div>
+                              <div><a class="dropdown-item" href="#">Chuyển tài khoản</a></div>
+                              <div><a class="dropdown-item text-center" href="{{ route('logout') }}">Đăng xuất</a></div>
+                            </div>
+                          </div>
+                    </span>
+                @endif
                 <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('dangki')}}">
                             Đăng kí
                         </a>
@@ -99,6 +117,7 @@
                     img.img.img-responsive.img-slider {
                         height: 500px;
                         margin-top: 10px;
+                        margin-left: 0px;
                     }
                 </style>
 
@@ -323,8 +342,9 @@
             var user_id = $('.user_id').val();
             var comment = $('.comment').val();
             var _token = $('input[name="_token"]').val();
+            // alert(product_id);
             $.ajax({
-                url:"{{ route('send-comment') }}",
+                url:"{{url('/sendcomment')}}",
                 method:"POST",
                 data:{product_id:product_id, user_id:user_id, comment:comment, _token:_token},
                 success:function(data){
@@ -335,6 +355,30 @@
         });
 
     });
+</script>
+
+{{--<script>--}}
+{{--    $(document).ready(function(){--}}
+{{--        $('#replycomment').click(function (){--}}
+{{--            var product_id = $('.comment_product_id1').val();--}}
+{{--            // var comment_id = $('.comment_id1').val();--}}
+{{--            // var comment = $('.comment1').val();--}}
+{{--            // var user_id = $('.user_id1').val();--}}
+{{--            // var _token = $('input[name="_token"]').val();--}}
+{{--            // alert(product_id);--}}
+            {{--$.ajax({--}}
+            {{--    url:"{{url('/replycomment')}}",--}}
+            {{--    method:"POST",--}}
+            {{--    data:{product_id:product_id, comment_id:comment_id, comment:comment, user_id:user_id, _token:_token},--}}
+            {{--    success:function(data){--}}
+            {{--        $('#rep_comment').html('<p class="text text-success">Thêm trả lời thành công</p>');--}}
+            {{--        $('.comment1').val('');--}}
+
+            {{--    }--}}
+            {{--});--}}
+{{--        });--}}
+
+{{--    });--}}
 </script>
 <style type="text/css">
     .style_comment{

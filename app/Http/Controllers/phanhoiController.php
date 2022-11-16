@@ -5,6 +5,7 @@ use App\Models\phanhoi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class phanhoiController extends Controller
 {
@@ -15,9 +16,15 @@ class phanhoiController extends Controller
      */
     public function index()
     {
-        $phanhoi = phanhoi::with('product')->get();
-
-        return view('admin.phanhoi.phanhoi', compact('phanhoi'));
+        $phanhoi = phanhoi::with('product')
+//            ->join('users', 'users.id', '=', 'phanhoi.user_id')
+            ->where('comment_parent','=',0)
+            ->get();
+        $phanhoi_rep = phanhoi::with('product')
+//            ->join('users', 'users.id', '=', 'phanhoi.user_id')
+                ->where('comment_parent','>',0)
+            ->get();
+        return view('admin.phanhoi.phanhoi', compact('phanhoi', 'phanhoi_rep'));
     }
 
     /**
@@ -37,28 +44,19 @@ class phanhoiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function load_comment(Request $request)
-    {
-        $comments = DB::table('phanhoi')
-            ->join('users', 'users.id', '=', 'phanhoi.user_id')
-            ->where('masp', $request->product_id)
-            ->get();
-        $output = '';
-        foreach ($comments as $comment){
-            $output .= '<div class="row style_comment ">
-<div class="col-md-2">
-<img width="40%" src="uploads/product/avatar-icon.jpg" class="img img-responsive img-thumbnail">
-</div>
-<div class="col-md-10">
-<p style="color: green">@'.$comment->name.'</p>
-<p>Ngày comment: '.$comment->ngaytao.'</p>
-<p>Nội Dung: '.$comment->comment.'</p>
-</div>
-</div>';
-        }
-        echo $output;
-
-    }
+//    public function reply_comment(Request $request)
+//    {
+//        $data = $request->all();
+//        $phanhoi = new phanhoi();
+//        $phanhoi->masp = $data['product_id'];
+//        $phanhoi->user_id = $data['user_id'];
+//        $phanhoi->comment = $data['comment'];
+//        $phanhoi->ngaytao = date('Y-m-d');
+//        $phanhoi->ngaycapnhat = date('Y-m-d');
+//        $phanhoi->comment_parent = $data['comment_id'];
+//        $phanhoi->save();
+//
+//    }
     public function send_comment(Request $request)
     {
 
@@ -69,22 +67,90 @@ class phanhoiController extends Controller
         $phanhoi->comment = $data['comment'];
         $phanhoi->ngaytao = date('Y-m-d');
         $phanhoi->ngaycapnhat = date('Y-m-d');
+        $phanhoi->comment_parent = 0;
         $phanhoi->save();
-        return redirect()->back();
+
 
     }
+    public function load_comment(Request $request)
+    {
+        $comments = DB::table('phanhoi')
+//            ->join('users', 'phanhoi.user_id', '=', 'users.id')
+            ->where('masp', $request->product_id)
+            ->where('comment_parent','=',0)
+            ->orderBy('ngaytao','DESC')
+            ->get();
+        $comment_reps = DB::table('phanhoi')
+//            ->join('users', 'phanhoi.user_id', '=', 'users.id')
+            ->where('masp', $request->product_id)
+            ->where('comment_parent','>',0)
+            ->orderBy('ngaytao','DESC')
+            ->get();
+        $output = '';
+
+
+        foreach ($comments as $comment) {
+            $user = DB::table('users')
+                ->where('id', $comment->user_id)
+                ->get();
+
+            $output .= '<div class="row style_comment ">
+<div class="col-md-2">
+<img width="40%" src="uploads/product/avatar-icon.jpg" class="img img-responsive img-thumbnail">
+</div>
+<div class="col-md-10">';
+            foreach ($user as $t) {
+                $output .= '<p style="color: green">@' . $t->name . '</p>';
+            }
+            $output .= '<p>Ngày comment: ' . $comment->ngaytao . '</p>
+<p>Nội Dung: ' . $comment->comment . '</p>
+</div>
+</div>';
+
+
+            foreach ($comment_reps as $rep) {
+                $user2 = DB::table('users')
+                    ->where('id', $rep->user_id)
+                    ->get();
+                if ($rep->comment_parent == $comment->id) {
+                    $output .= '<div class="row style_comment" style="margin-left: 10px; background-color: lightskyblue">
+<div class="col-md-2">
+<img width="30%" src="uploads/product/avatar-icon1.jpg" class="img img-responsive img-thumbnail">
+</div>
+<div class="col-md-10">';
+                    foreach ($user2 as $t) {
+                        $output .= '<p style="color: green">@' . $t->name . '</p>';
+                    }
+                    $output .= '<p>Ngày comment: ' . $rep->ngaytao . '</p>
+<p>Nội Dung: ' . $rep->comment . '</p>
+
+</div>
+</div>';
+
+                } else {
+                    $output .= '<div></div>';
+                }
+            }
+
+        }
+
+        $output .= '';
+        echo $output;
+
+    }
+
     public function store(Request $request)
     {
-        $request->validate([
-            'comment'=>'required',
-        ]);
-
-        $input = $request->all();
-        $input['user_id'] = auth()->user()->id;
-
-        phanhoi::create($input);
-
-        return redirect()->back();;
+        $data = $request->all();
+        $phanhoi = new phanhoi();
+        $phanhoi->masp = $data['comment_product_id1'];
+        $phanhoi->user_id = $data['user_id1'];
+        $phanhoi->comment = $data['comment1'];
+        $phanhoi->ngaytao = date('Y-m-d');
+        $phanhoi->ngaycapnhat = date('Y-m-d');
+        $phanhoi->comment_parent = $data['comment_id1'];
+        $phanhoi->save();
+        return redirect()->back()->with('success', 'Thêm thành công');
     }
     /**
      * Display the specified resource.
@@ -142,6 +208,7 @@ class phanhoiController extends Controller
     {
         $phanhoi = phanhoi::find($id);
         $phanhoi->delete();
-        return redirect()->action([phanhoiController::class,'index'])->with('success','Dữ liệu xóa thành công.');
+        Session::flash('success', 'Xóa thành công');
+        return redirect()->back();
     }
 }

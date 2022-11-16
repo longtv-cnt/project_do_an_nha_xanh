@@ -153,16 +153,16 @@
                         @php
                             $i = 0;
                         @endphp
-                        @foreach($products as $product)
+                        @foreach($gallerys as $gallery)
                             @php
                                 $i++;
                             @endphp
                             <div class="item {{$i==1 ? 'active' : '' }}">
-                                @if (file_exists(public_path('uploads/product/' . $product->anhsp)))
-                                    <img alt="{{$product->tensp}}" src="{{ 'uploads/product/'.$product->anhsp }}" height="50%" width="100%" class="img img-responsive img-slider">
+                                @if (file_exists(public_path('uploads/gallery/' . $gallery->image)))
+                                    <img alt="" src="{{ 'uploads/gallery/'.$gallery->image }}" height="50%" width="100%" class="img img-responsive img-slider">
 
                                 @else
-                                    <img alt="{{$product->tensp}}" src="{{$product->anhsp}}" height="50%" width="100%" class="img img-responsive img-slider">
+                                    <img alt="" src="{{$gallery->image}}" height="50%" width="100%" class="img img-responsive img-slider">
 
                                 @endif
                             </div>
@@ -171,9 +171,15 @@
 
                     </div><br>
                     <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($gallerys as $gallery)
+                            @php
+                                $i++;
+                            @endphp
+                            <li data-target="#slider-carousel" data-slide-to="{{$i}}" class="active"></li>
+                        @endforeach
                     </ol>
                     <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                         <i class="fa fa-angle-left"></i>
@@ -194,7 +200,7 @@
 
                     <form>
                         @csrf
-                        <input type="hidden" name="comment_product_id" class="comment_product_id" value="{{$product->id}}">
+
                         <div id="commentshow">
 
                         </div>
@@ -203,8 +209,8 @@
 
                     <form action="#">
                         @csrf
-                        <input type="hidden" name="user_id" class="user_id" value="{{$user_id}}">
-
+                        <input type="hidden" name="user_id" class="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="comment_product_id" class="comment_product_id" value="{{$product->id}}">
                         <textarea name="comment" class="comment" placeholder="Nội dung bình luận"></textarea>
                         <div id="notify_comment">
 

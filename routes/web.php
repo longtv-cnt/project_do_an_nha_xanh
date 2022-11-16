@@ -22,6 +22,7 @@ use App\Http\Controllers\baocaoController;
 use App\Http\Controllers\galleryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\sanphambannersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,6 +72,9 @@ Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tat
 Route::get('/sanphambanner{id}', [sanpham_bdsController::class,'sanphambanner'])->name('sanphambanner');
 Route::post('/loadcomment', [phanhoiController::class,'load_comment'])->name('load-comment');
 Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('send-comment');
+Route::post('/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
+
+
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');
 
@@ -145,9 +149,10 @@ Route::prefix('admin')->group(function () {
 
 
     Route::get('/phanhoi', [phanhoiController::class, 'index'])->name('phanhoi');
+    Route::get('/phanhoi/destroy/{id}', [phanhoiController::class, 'destroy'])->name('phanhoi.delete');;
+    Route::post('/phanhoi/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
     Route::get('/phanhoi/create', [phanhoiController::class, 'create'])->name('phanhoi.create');
     Route::post('/phanhoi/store', [phanhoiController::class, 'store'])->name('phanhoi.store');
-    Route::DELETE('/phanhoi/destroy/{id}', [phanhoiController::class, 'destroy']);
     Route::get('/phanhoi/edit/{id}', [phanhoiController::class, 'edit'])->name('phanhoi.edit');
     Route::PATCH('/phanhoi/update/{id}', [phanhoiController::class, 'update']);
 
@@ -175,6 +180,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/banners/edit/{maphieu}', [bannersController::class, 'edit'])->name('banners.edit');
     Route::PATCH('/banners/update/{maphieu}', [bannersController::class, 'update']);
 
+    Route::get('/sanphambanners', [sanphambannersController::class, 'index'])->name('sanphambanners');
+    Route::get('/sanphambanners/create', [sanphambannersController::class, 'create'])->name('sanphambanners.create');
+    Route::post('/sanphambanners/store', [sanphambannersController::class, 'store'])->name('sanphambanners.store');
+    Route::DELETE('/sanphambanners/destroy/{maphieu}', [sanphambannersController::class, 'destroy']);
+    Route::get('/sanphambanners/edit/{maphieu}', [sanphambannersController::class, 'edit'])->name('sanphambanners.edit');
+    Route::PATCH('/sanphambanners/update/{maphieu}', [sanphambannersController::class, 'update']);
 
     Route::get('/baocao', [baocaoController::class, 'index'])->name('baocao');
     Route::get('baocao/chart', [baocaoController::class, 'chart'])->name('baocao.chart');
