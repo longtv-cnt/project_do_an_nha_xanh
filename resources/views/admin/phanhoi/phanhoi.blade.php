@@ -12,18 +12,6 @@
                 </div>
                 <div class="card-body p-0">
 
-                    <div class="row w3-res-tb">
-                        <div class="col-sm-5 m-b-xs">
-                            <select class="input-sm form-control w-sm inline v-middle">
-                                <option value="0">Bulk action</option>
-                                <option value="1">Delete selected</option>
-                                <option value="2">Bulk edit</option>
-                                <option value="3">Export</option>
-                            </select>
-                            <button class="btn btn-sm btn-default">Apply</button>
-                        </div>
-                    </div>
-
                     <div class="table-responsive">
                         <!--                      --><?php
                         //                      $message = Session::get('message');
@@ -73,27 +61,39 @@
                                     <td>{{$row->user_id}}</td>
                                     <td><a href="{{URL::to('/chitiet'.$row->product->id)}}" target="_blank">{{$row->product->tensp}}</a></td>
                                     <td>{{$row->comment}}
-                                        <br><textarea class="form-control reply_comment" rows="3"></textarea>
-                                        <br><button class="btn btn-default btn-xs btn-reply-comment">Trả lời bình luận</button>
+                                        <ul class="list-rep">
+                                            @foreach($phanhoi_rep as $rep)
+                                                @if($rep->comment_parent==$row->id)
+
+                                                    <li>Trả lời: {{$rep->comment}}</li>
+                                                @endif
+
+                                            @endforeach
+                                        </ul>
+                                        <form action={{route('phanhoi.store')}} method="POST" >
+                                            @csrf
+                                            <input type="hidden" name="user_id1" class="user_id1" value="{{$row->user_id}}">
+                                            <input type="hidden" name="comment_product_id1" class="comment_product_id1" value="{{$row->product->id}}">
+                                            <input type="hidden" name="comment_id1" class="comment_id1" value="{{$row->id}}">
+                                            <textarea name="comment1" class="comment1" rows="3" value=""></textarea><br>
+                                            <button class="btn btn-success btn-sm" type="submit">Trả lời</button>
+                                        </form>
                                     </td>
                                     <td>{{$row->ngaytao}}</td>
                                     <td>{{$row->ngaycapnhat}}</td>
 
                                     <td >
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <a href="/phanhoi/edit/{{$row->id}}">
-                                                <div type="button" class="btn btn-warning btn-sm" >
-                                                    Edit
-                                                </div>
-                                            </a>
-                                            <form method="POST" action="/phanhoi/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
-                                            </form>
+                                            <div class="card-body">
+                                                <a onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-danger"
+                                                   href="{{route('phanhoi.delete',
+                                                       ['id'=>$row->id])}}">
+                                                    <i class="fa fa-trash"></i></a>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
+
                             @endforeach
                             </tbody>
                         </table>

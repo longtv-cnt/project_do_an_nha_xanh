@@ -95,7 +95,7 @@ class galleryController extends Controller
         // confirm that the user really wants to delete the record js
 
       $gallery = gallery::find($id);
-      $image_path = public_path('store/'.$gallery->image);
+      $image_path = public_path('uploads/gallery/'.$gallery->image);
         if(file_exists($image_path)){
             unlink($image_path);
         }
@@ -112,7 +112,7 @@ class galleryController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = $file->getClientOriginalName();
-            $destinationPath = public_path('/store');
+            $destinationPath = public_path('uploads/gallery/');
             $file->move($destinationPath, $fileName);
             $gallery->image = $fileName;
         }

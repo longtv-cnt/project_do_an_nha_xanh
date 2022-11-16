@@ -50,17 +50,19 @@ class sanpham_bdsController extends Controller
     {
         //
         $products = DB::table('sanpham_bds')
-            ->where('id', $id)
+            ->join('banner_product', 'sanpham_bds.id', '=', 'product_id')
+            ->join('banners', 'banner_product.banner_id', '=', 'banners.id')
+            ->distinct('product_id')
+            ->where('banner_id', $id)
             ->where('xetduyet', 1)
             ->orderBy('giatien','ASC')
             ->paginate(8);
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-
         $loaibds = 'Các sản phẩm';
         $banners = DB::table('banners')->select('*');
         $banners = $banners->get();
-        $title = $banners[$id]->link;
+        $title = $banners[$id-1]->link;
         $paginate = new Paginator($products, 8);
         return view('sanphambanner',
             compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners'));

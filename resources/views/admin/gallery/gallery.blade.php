@@ -51,8 +51,8 @@
                                     @foreach ($row->gallery as $item)
                                         <div class="col-md-3">
                                             <div class="card">
-                                                @if (file_exists(public_path('store/' . $item->image)))
-                                                    <img class="card-img" src="{{asset('store/').'/'. $item->image }}" alt=""
+                                                @if (file_exists(public_path('uploads/gallery/' . $item->image)))
+                                                    <img class="card-img" src="{{asset('uploads/gallery/').'/'. $item->image }}" alt=""
                                                         height="150px">
                                                 @else
                                                     <img class="card-img" src="{{ $item->image }}" alt=""
