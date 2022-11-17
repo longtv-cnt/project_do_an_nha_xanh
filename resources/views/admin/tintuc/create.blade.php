@@ -26,10 +26,6 @@
                             </select>
                         </div>
                         <div>
-                            <label for="">ID</label>
-                            <input type="number" name="id" class="form-control">
-                        </div>
-                        <div>
                             <label for="">Tiêu đề tin tức</label>
                             <input type="text" name="tentin" class="form-control">
                         </div>

@@ -63,12 +63,12 @@
                         <td>{{$row->tenquyenhan}}</td>
                         <td >
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                <a href="/loaiquyenhan/edit/{{$row->id}}">
+                                <a href="/admin/loaiquyenhan/edit/{{$row->id}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
                                     </div>
                                 </a>
-                            <form method="POST" action="/loaiquyenhan/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="/admin/loaiquyenhan/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

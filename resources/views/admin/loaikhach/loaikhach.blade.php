@@ -63,12 +63,12 @@
                         <td>{{$row->tenloai}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="/loaikhach/edit/{{$row->id}}">
+                                <a href="/admin/loaikhach/edit/{{$row->id}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
                                     </div>
                                 </a>
-                            <form method="POST" action="/loaikhach/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="/admin/loaikhach/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

@@ -41,9 +41,6 @@
                 @csrf
             <tbody>
                 <td>
-                    <input type="text" name="id" class="form-control" placeholder="Nhập Mã Tin Tức" value="">
-                </td>
-                <td>
                     <input type="text" name="loaitin" class="form-control" placeholder="Nhập Mã Loại Tin Tức" value="">
                 </td>
                 <td>
@@ -104,17 +101,17 @@
                         <td>{{$row->ngaydang}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="/tintuc/chitiet/{{$row->id}}">
+                                <a href="admin/tintuc/chitiet/{{$row->id}}">
                                     <div type="button" class="btn btn-primary btn-sm" >
                                         Chi Tiết
                                     </div>
                                 </a>
-                                <a href="/tintuc/edit/{{$row->id}}">
+                                <a href="admin/tintuc/edit/{{$row->id}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
                                     </div>
                                 </a>
-                            <form method="POST" action="/tintuc/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="admin/tintuc/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
@@ -129,6 +126,7 @@
     </div>
     <!-- /.card -->
     </div>
+    </div>
   </section>
  @endsection
-</div>
+

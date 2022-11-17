@@ -94,12 +94,12 @@
                         <td>{{$row->ngaytao}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="/phieuthu/edit/{{$row->maphieu}}">
+                                <a href="/admin/phieuthu/edit/{{$row->maphieu}}">
                                     <div type="button" class="btn btn-warning btn-sm" >
                                         Edit
                                     </div>
                                 </a>
-                            <form method="POST" action="/phieuthu/destroy/{{$row->maphieu}}" onsubmit="return ConfirmDelete( this )">
+                            <form method="POST" action="/admin/phieuthu/destroy/{{$row->maphieu}}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
