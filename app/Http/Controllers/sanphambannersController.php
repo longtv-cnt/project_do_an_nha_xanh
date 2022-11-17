@@ -83,8 +83,12 @@ class sanphambannersController extends Controller
      */
     public function edit($id)
     {
-        $sanphambanners = banners::findOrFail($id);
-        return view('admin.banners.update', compact('sanphambanners'));
+        $sanphambanners = sanphambanners::findOrFail($id);
+        $sanpham_bds = DB::table('sanpham_bds')->select('*');
+        $sanpham_bds = $sanpham_bds->get();
+        $banners = DB::table('banners')->select('*');
+        $banners = $banners->get();
+        return view('admin.sanphambanner.update', compact('sanphambanners','sanpham_bds','banners'));
         // $banners = banners::find($id);
         // $list = banners::All();
         // return view('admin.duan.duan', compact('list','banners'));

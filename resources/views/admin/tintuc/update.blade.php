@@ -39,7 +39,7 @@
                 <tbody>
                         <input type="hidden" name="id" value="{{ $tintuc->id }}">
                         <td>
-                            <input type="text" name="id" value="{{ $tintuc->id }}">
+                            {{ $tintuc->id }}
                         </td>
                         <td>
                             <input type="text" name="loaitin" value="{{ $tintuc->loaitin }}">

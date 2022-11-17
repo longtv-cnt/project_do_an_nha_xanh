@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/phanhoi/update/{{ $phanhoi->id }}">
+                <form method="post" action="/admin/phanhoi/update/{{ $phanhoi->id }}">
                     @method('PATCH')
                     @csrf
                 <thead>

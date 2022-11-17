@@ -27,7 +27,7 @@
                     </th>
                 </tr>
             </thead>
-            <form method="post" action="/duan/update/{{ $du_an->id }}">
+            <form method="post" action="/admin/duan/update/{{ $du_an->id }}">
                     @method('PATCH')
                     @csrf
                     <tbody>

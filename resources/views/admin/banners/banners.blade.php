@@ -105,12 +105,12 @@
                   <td>{{$row->position}}</td>
                   <td >
                      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <a href="/banners/edit/{{$row->id}}">
+                        <a href="/admin/banners/edit/{{$row->id}}">
                            <div type="button" class="btn btn-warning btn-sm" >
                               Edit
                            </div>
                         </a>
-                        <form method="POST" action="/banners/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
+                        <form method="POST" action="/admin/banners/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                            @method('DELETE')
                            @csrf
                            <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>
@@ -122,6 +122,8 @@
             </tbody>
          </table>
       </div>
+   </div>
+   </div>
 </section>
 @endsection
-</div>
+

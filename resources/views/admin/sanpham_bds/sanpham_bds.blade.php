@@ -317,13 +317,13 @@
                                             </div>
 
 
-                                            <a href="/sanpham_bds/edit/{{ $row->id }}">
+                                            <a href="/admin/sanpham_bds/edit/{{ $row->id }}">
                                                 <div type="button" class="btn btn-warning btn-sm">
                                                     Edit
                                                 </div>
                                             </a>
 
-                                    <form method="POST" action="/sanpham_bds/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
+                                    <form method="POST" action="/admin/sanpham_bds/destroy/{{$row->id}}" onsubmit="return ConfirmDelete( this )">
                                         @method('DELETE')
                                         @csrf
                                         <button class="btn btn-danger btn-sm"  type="submit">Xóa</button>

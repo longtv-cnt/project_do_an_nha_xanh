@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/loaisp_bds/update/{{ $loaisp_bds->id}}">
+                <form method="post" action="/admin/loaisp_bds/update/{{ $loaisp_bds->id}}">
                     @method('PATCH')
                     @csrf
                 <thead>
