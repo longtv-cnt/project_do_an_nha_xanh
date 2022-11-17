@@ -11,7 +11,6 @@
                 <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-
                 <a href="#" class="d-block">Alexander Pierce</a>
             </div>
         </div>
@@ -20,7 +19,7 @@
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
                 <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
+                       aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-sidebar">
                         <i class="fas fa-search fa-fw"></i>
@@ -183,6 +182,12 @@
                                 <a href="{{ route('user.index') }}" class="nav-link">
                                     <i class="fab fa-u"></i>
                                     <p>Tài khoản</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.index') }}" class="nav-link">
+                                    <i class="fab fa-u"></i>
+                                    <p>Tạo dữ liệu tự động bảng permissions</p>
                                 </a>
                             </li>
                         </ul>

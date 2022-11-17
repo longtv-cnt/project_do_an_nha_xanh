@@ -50,18 +50,18 @@ class RoleController extends Controller
     {
         $role = Role::where('name', '=', $request->name)->first();
         if ($role === null) {
-       // user doesn't exist
-       $roleCreate= $this->role->create([
-            'name'=>$request->name,
-            'display_name'=>$request->display_name,
-        ]);
-        $permissions = $request->permissions;
-        if($permissions){
-            foreach($permissions as $permission){
-                $roleCreate->permission()->attach($permission);
+            // user doesn't exist
+            $roleCreate= $this->role->create([
+                'name'=>$request->name,
+                'display_name'=>$request->display_name,
+            ]);
+            $permissions = $request->permissions;
+            if($permissions){
+                foreach($permissions as $permission){
+                    $roleCreate->permissions()->attach($permission);
+                }
             }
-        }
-        return redirect()->route('role.index');
+            return redirect()->route('role.index');
         }else{
             return redirect()->back()->with('error', 'Role already exists');
         }
@@ -89,13 +89,13 @@ class RoleController extends Controller
     {
         $parents_permissions = Permission::where('parent_id', 0)->get();
         $role = $this->role->find($id);
-       // dd($role->permission);
-        if($role->permission!=null)
-       { $permissionsChecked = $role->permission;
-        $permissions = Permission::all();
-        return view('.admin.Roles.update', compact('role', 'permissions', 'permissionsChecked', 'parents_permissions'));
-       }else{
-           $permissionsChecked = [];}
+        // dd($role->permission);
+        if($role->permissions!=null)
+        { $permissionsChecked = $role->permissions;
+            $permissions = Permission::all();
+            return view('.admin.Roles.update', compact('role', 'permissions', 'permissionsChecked', 'parents_permissions'));
+        }else{
+            $permissionsChecked = [];}
 //dd($permissionsChecked);
         $permissionids = DB::table('role_permission')->where('role_id', '=', $id)->pluck('permission_id')->toArray();
         return view('admin.Roles.update', compact('role', 'permissionsChecked','permissionids','parents_permissions'));
@@ -112,7 +112,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
-       // dd($request->all());
+        // dd($request->all());
         $role = $this->role->find($id);
         $role->name = $request->name;
         $role->display_name = $request->display_name;

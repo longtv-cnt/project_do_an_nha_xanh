@@ -16,52 +16,52 @@
 
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Nhập tên vai trò"
-                                value="{{ $role->name }}">
+                                   value="{{ $role->name }}">
                         </div>
 
                         <div class="form-group">
                             <textarea name="display_name" class="form-control"
-                                placeholder="Nhập mô tả vai trò hoặc tên hiển thị mà khách hàng nhìn thấy" rows="5">
+                                      placeholder="Nhập mô tả vai trò hoặc tên hiển thị mà khách hàng nhìn thấy" rows="5">
                             {{ $role->display_name }}
                             </textarea>
                         </div>
-                            <div class="form-group">
-                                <label for="permissions">Các Quyền</label>
-                                <div>
-                                    <label>
-                                        <input type="checkbox" class="checkall">
-                                        check all
-                                    </label>
-                                </div>
-
-                                @foreach ($parents_permissions as $pI)
-                                    <div class="  mb-3 card " id="permissions container">
-                                        <div class="md-12">
-                                            <div class="card-header bg-dark"><label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input checkbox_wrapper"
-                                                        name="permissions[]" value="{{ $pI->id }}"
-                                                        id=""value="">
-                                                    {{ $pI->display_name }}
-                                                </label></div>
-
-                                            <div class="row">
-                                                @foreach ($pI->child as $pIchild)
-                                                    <div class="form-check md-3 m-3">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox"
-                                                                class="form-check-input checkbox_children"
-                                                                name="permissions[]" value="{{ $pIchild->id }}"
-                                                                {{ $permissionsChecked->contains('id', $pIchild->id) && $pIchild != null ? 'checked' : '' }}
-                                                                id="" value="{{ $pIchild->id }}">
-                                                            {{ $pIchild->display_name }}
-                                                        </label>
-                                                    </div>
-                                                @endforeach
-
-                                            </div>
-                                        </div>
-                                @endforeach
+                        <div class="form-group">
+                            <label for="permissions">Các Quyền</label>
+                            <div>
+                                <label>
+                                    <input type="checkbox" class="checkall">
+                                    check all
+                                </label>
                             </div>
+
+                            @foreach ($parents_permissions as $pI)
+                                <div class="  mb-3 card " id="permissions container">
+                                    <div class="md-12">
+                                        <div class="card-header bg-dark"><label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input checkbox_wrapper"
+                                                       name="permissions[]" value="{{ $pI->id }}"
+                                                       id=""value="">
+                                                {{ $pI->display_name }}
+                                            </label></div>
+
+                                        <div class="row">
+                                            @foreach ($pI->child as $pIchild)
+                                                <div class="form-check md-3 m-3">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox"
+                                                               class="form-check-input checkbox_children"
+                                                               name="permissions[]" value="{{ $pIchild->id }}"
+                                                               {{ $permissionsChecked->contains('id', $pIchild->id) && $pIchild != null ? 'checked' : '' }}
+                                                               id="" value="{{ $pIchild->id }}">
+                                                        {{ $pIchild->display_name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
 
                         </div>
                         <button class="btn btn-success btn-sm mb-3" type="submit">Sửa</button>

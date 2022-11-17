@@ -124,9 +124,9 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
         $roles = Role::all();
-        $roleids = DB::table('role_user')->where('user_id', $id)->pluck('role_id')->toArray();
+        $roleids = DB::table('role_user')->where('user_id', $id)->pluck('role_id');
         if ($user) {
-            return view('user.edit', compact('user', 'roles', 'roleids'));
+            return view('admin.Users.edit', compact('user', 'roles', 'roleids'));
         }
     }
     //
@@ -185,6 +185,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         DB::table('role_user')->where('user_id', $id)->delete();
-       return redirect()->route('user.index');
+        return redirect()->route('user.index');
     }
 }
