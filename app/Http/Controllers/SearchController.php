@@ -140,7 +140,12 @@ class SearchController extends Controller
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $products = RealEstate::where('id', $id)->get();
-        $user_id = Auth::user()->id;
+        if (isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+        }else{
+            $user_id = '';
+        }
+
         foreach($products as $product) {
             $title = $duans[$product->maduan - 1]->tenduan;
             $loaibds = $typeproducts[$product->maloai-1]->tenloai;
@@ -149,13 +154,31 @@ class SearchController extends Controller
             }else{
                 $duan = 'table dự án chưa có mô tả (^-^)';
             }
-
+            if($product->huong == 1){
+                $huongnha = 'Đông';
+            }elseif ($product->huong == 2){
+                $huongnha = 'Tây';
+            }elseif ($product->huong == 3){
+                $huongnha = 'Nam';
+            }elseif ($product->huong == 4){
+                $huongnha = 'Bắc';
+            }elseif ($product->huong == 5){
+                $huongnha = 'Đông-Nam';
+            }elseif ($product->huong == 6){
+                $huongnha = 'Đông-Bắc';
+            }elseif ($product->huong == 7){
+                $huongnha = 'Tây-Nam';
+            }elseif ($product->huong == 8){
+                $huongnha = 'Tây-Bắc';
+            }else{
+                $huongnha = '';
+            }
         }
         $gallerys = gallery::where('sanpham_id', $id)->get();
         $banners = DB::table('banners')->select('*');
         $banners = $banners->get();
         return view('chitiet',
-            compact('products','duans','typeproducts', 'title', 'loaibds', 'duan', 'banners', 'gallerys', 'user_id'));
+            compact('products','duans','typeproducts', 'title', 'loaibds', 'duan', 'banners', 'gallerys', 'user_id', 'huongnha'));
     }
     function getSearchAjax(Request $request)
     {
@@ -263,7 +286,24 @@ class SearchController extends Controller
         }
         if (isset($request->huongnha)) {
             $products->where('p.huong', $request->huongnha);
-            $huongnha = $request->huongnha;
+            if($request->huongnha == 1){
+                $huongnha = 'Đông';
+            }elseif ($request->huongnha == 2){
+                $huongnha = 'Tây';
+            }elseif ($request->huongnha == 3){
+                $huongnha = 'Nam';
+            }elseif ($request->huongnha == 4){
+                $huongnha = 'Bắc';
+            }elseif ($request->huongnha == 5){
+                $huongnha = 'Đông-Nam';
+            }elseif ($request->huongnha == 6){
+                $huongnha = 'Đông-Bắc';
+            }elseif ($request->huongnha == 7){
+                $huongnha = 'Tây-Nam';
+            }elseif ($request->huongnha == 8){
+                $huongnha = 'Tây-Bắc';
+            }
+
         }else{
             $huongnha = 'Tất cả các hướng';
         }
