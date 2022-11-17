@@ -108,8 +108,17 @@
                                         <span id="error_gallery "></span>
                                     </td>
                                     <td>
-                                        <input type="text" name="huong" class="form-control"
-                                            placeholder="Nhập Hướng"value="">
+                                        <select name="huong" id="huong">
+                                            <option value="">Chọn hướng</option>
+                                            <option value="1">Đông</option>
+                                            <option value="2">Tây</option>
+                                            <option value="3">Nam</option>
+                                            <option value="4">Bắc</option>
+                                            <option value="5">Đông-Nam</option>
+                                            <option value="6">Đông-Bắc</option>
+                                            <option value="7">Tây-Nam</option>
+                                            <option value="8">Tây-Bắc</option>
+                                        </select>
                                     </td>
                                 </tbody>
 
@@ -177,9 +186,71 @@
                                                     placeholder="Xét Duyệt"value="">
                                             </td>
                                             <td>
-                                                <input type="text" name="diachi" class="form-control"
-                                                    placeholder="Nhập Địa Chỉ"value="">
+                                                <select name="diachi" id="diachi">
+                                                    <option value="">Tỉnh thành</option>
+                                                    <option selected="selected" value="2">Hải Phòng</option>
+                                                    <option value="3">Hà Nội</option>
+                                                    <option value="4">Đà Nẵng</option>
+                                                    <option value="5">TP-HCM</option>
+                                                    <option value="6">An Giang</option>
+                                                    <option value="7">Bà Rịa Vũng tàu</option>
+                                                    <option value="8">Bình Dương</option>
+                                                    <option value="9">Bình thuận</option>
+                                                    <option value="10">Bình Định</option>
+                                                    <option value="11">Bạc Liêu</option>
+                                                    <option value="12">Bắc Giang</option>
+                                                    <option value="13">Bắc Kạn</option>
+                                                    <option value="14">Bắc Ninh</option>
+                                                    <option value="15">Bến Tre</option>
+                                                    <option value="16">Cao Bằng</option>
+                                                    <option value="17">Cà Mau</option>
+                                                    <option value="18">Cần Thơ</option>
+                                                    <option value="19">Gia Lai</option>
+                                                    <option value="20">Hoà Bình</option>
+                                                    <option value="21">Hà Giang</option>
+                                                    <option value="22">Hà Nam</option>
+                                                    <option value="23">Hà Tĩnh</option>
+                                                    <option value="24">Hưng Yên</option>
+                                                    <option value="25">Hải Dương</option>
+                                                    <option value="26">Khánh Hoà</option>
+                                                    <option value="27">Kiên Giang</option>
+                                                    <option value="28">Kon Tum</option>
+                                                    <option value="29">Lai Châu</option>
+                                                    <option value="30">Long An</option>
+                                                    <option value="31">Lào Cai</option>
+                                                    <option value="32">Lâm Đồng</option>
+                                                    <option value="33">Lạng Sơn</option>
+                                                    <option value="34">Ninh Bình</option>
+                                                    <option value="62">Móng Cái</option>
+                                                    <option value="35">Ninh Thuận</option>
+                                                    <option value="36">Phan Rang</option>
+                                                    <option value="37">Phan Thiết</option>
+                                                    <option value="38">Quảng Bình</option>
+                                                    <option value="39">Quảng Nam</option>
+                                                    <option value="40">Quảng Ngãi</option>
+                                                    <option value="41">Quảng Ninh</option>
+                                                    <option value="42">Quảng Trị</option>
+                                                    <option value="43">Sóc Trăng</option>
+                                                    <option value="44">Sơn La</option>
+                                                    <option value="45">Thanh Hoá</option>
+                                                    <option value="46">Thái Bình</option>
+                                                    <option value="47">Thái Nguyên</option>
+                                                    <option value="48">Thừa Thiên Huế</option>
+                                                    <option value="49">Tiền Giang</option>
+                                                    <option value="50">Trà Vinh</option>
+                                                    <option value="51">Tuyên Quang</option>
+                                                    <option value="52">Tây Ninh</option>
+                                                    <option value="53">Vĩnh Long</option>
+                                                    <option value="54">Vĩnh Phúc</option>
+                                                    <option value="55">Yên Bái</option>
+                                                    <option value="56">Điện Biên</option>
+                                                    <option value="57">Đắc Lắk</option>
+                                                    <option value="58">Đắc Nông</option>
+                                                    <option value="59">Đồng Nai</option>
+                                                    <option value="60">Đồng Tháp</option>
+                                                </select>
                                             </td>
+
                                             <td>
                                                 <input type="text" name="lienhe" class="form-control"
                                                     placeholder="Liên Hệ"value="">

@@ -44,13 +44,77 @@
                                                 <option value="2">Giá giảm dần</option>
                                             </select></div>
                                         <div class="item-filA">
-                                            <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
-                                                <option selected="selected" value=""><strong>Tỉnh thành</strong></option>
-                                                @foreach ($products as $product)
-                                                    <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>
-                                                @endforeach
-                                                <option value=""><strong>Tất cả tỉnh thành</strong></option>
-                                            </select></div>
+{{--                                            <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">--}}
+{{--                                                <option selected="selected" value=""><strong>Tỉnh thành</strong></option>--}}
+{{--                                                @foreach ($products as $product)--}}
+{{--                                                    <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>--}}
+{{--                                                @endforeach--}}
+{{--                                                <option value=""><strong>Tất cả tỉnh thành</strong></option>--}}
+{{--                                            </select></div>--}}
+                                        <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
+                                            <option selected="selected" value="">Tỉnh thành</option>
+                                            <option value="1">Hải Phòng</option>
+                                            <option value="2">Hà Nội</option>
+                                            <option value="3">Đà Nẵng</option>
+                                            <option value="4">TP-HCM</option>
+                                            <option value="5">An Giang</option>
+                                            <option value="6">Bà Rịa Vũng tàu</option>
+                                            <option value="7">Bình Dương</option>
+                                            <option value="8">Bình thuận</option>
+                                            <option value="9">Bình Định</option>
+                                            <option value="10">Bạc Liêu</option>
+                                            <option value="11">Bắc Giang</option>
+                                            <option value="12">Bắc Kạn</option>
+                                            <option value="13">Bắc Ninh</option>
+                                            <option value="14">Bến Tre</option>
+                                            <option value="15">Cao Bằng</option>
+                                            <option value="16">Cà Mau</option>
+                                            <option value="17">Cần Thơ</option>
+                                            <option value="18">Gia Lai</option>
+                                            <option value="19">Hoà Bình</option>
+                                            <option value="20">Hà Giang</option>
+                                            <option value="21">Hà Nam</option>
+                                            <option value="22">Hà Tĩnh</option>
+                                            <option value="23">Hưng Yên</option>
+                                            <option value="24">Hải Dương</option>
+                                            <option value="25">Khánh Hoà</option>
+                                            <option value="26">Kiên Giang</option>
+                                            <option value="27">Kon Tum</option>
+                                            <option value="28">Lai Châu</option>
+                                            <option value="29">Long An</option>
+                                            <option value="30">Lào Cai</option>
+                                            <option value="31">Lâm Đồng</option>
+                                            <option value="33">Lạng Sơn</option>
+                                            <option value="34">Ninh Bình</option>
+                                            <option value="35">Móng Cái</option>
+                                            <option value="36">Ninh Thuận</option>
+                                            <option value="37">Phan Rang</option>
+                                            <option value="38">Phan Thiết</option>
+                                            <option value="39">Quảng Bình</option>
+                                            <option value="40">Quảng Nam</option>
+                                            <option value="41">Quảng Ngãi</option>
+                                            <option value="42">Quảng Ninh</option>
+                                            <option value="43">Quảng Trị</option>
+                                            <option value="44">Sóc Trăng</option>
+                                            <option value="45">Sơn La</option>
+                                            <option value="46">Thanh Hoá</option>
+                                            <option value="47">Thái Bình</option>
+                                            <option value="48">Thái Nguyên</option>
+                                            <option value="49">Thừa Thiên Huế</option>
+                                            <option value="50">Tiền Giang</option>
+                                            <option value="51">Trà Vinh</option>
+                                            <option value="52">Tuyên Quang</option>
+                                            <option value="53">Tây Ninh</option>
+                                            <option value="54">Vĩnh Long</option>
+                                            <option value="55">Vĩnh Phúc</option>
+                                            <option value="56">Yên Bái</option>
+                                            <option value="57">Điện Biên</option>
+                                            <option value="58">Đắc Lắk</option>
+                                            <option value="59">Đắc Nông</option>
+                                            <option value="60">Đồng Nai</option>
+                                            <option value="61">Đồng Tháp</option>
+
+                                        </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maduan" id="maduan" class="form-control no-radius no-shadow icon1">
                                                 <option selected="selected" value=""><strong>Loại dự án</strong></option>
@@ -79,10 +143,15 @@
                                             </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="huongnha" id="huongnha" class="form-control no-radius no-shadow icon2">
-                                                <option selected="selected" value=""><strong>Hướng</strong></option>
-                                                @foreach ($products as $product)
-                                                    <option value="{{ $product->huong }}">{{ $product->huong }}</option>
-                                                @endforeach
+                                                <option selected="selected" value="">Chọn hướng</option>
+                                                <option value="1">Đông</option>
+                                                <option value="2">Tây</option>
+                                                <option value="3">Nam</option>
+                                                <option value="4">Bắc</option>
+                                                <option value="5">Đông-Nam</option>
+                                                <option value="6">Đông-Bắc</option>
+                                                <option value="7">Tây-Nam</option>
+                                                <option value="8">Tây-Bắc</option>
                                                 <option value=""><strong>Tất cả các hướng</strong></option>
                                             </select></div>
                                         <div class="sear-sticky clearfix hidden-desk"></div>

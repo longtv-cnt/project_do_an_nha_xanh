@@ -49,7 +49,7 @@
                                                 </tr>
                                                 <tr style="height: 22px;">
                                                     <td style="height: 22px; width: 27.649051090530346%;"><span style="font-size: 12pt;">✅&nbsp;Hướng:</span></td>
-                                                    <td style="height: 22px; width: 182.3455444625794%;"><span style="font-size: 12pt;"><strong>{{$product->huong}}</strong></span></td>
+                                                    <td style="height: 22px; width: 182.3455444625794%;"><span style="font-size: 12pt;"><strong>{{$huongnha}}</strong></span></td>
                                                 </tr>
                                                 <tr style="height: 22px;">
                                                     <td style="height: 22px; width: 27.649051090530346%;"><span style="font-size: 12pt;">✅&nbsp;Số phòng tắm:</span></td>
