@@ -35,6 +35,9 @@
                     <th>
                         Mã ID User
                     </th>
+                    <th>
+                        Ghi Chú
+                    </th>
                 </tr>
             </thead>
             <form action={{route('khachhang.store')}} method="POST" >
@@ -61,6 +64,9 @@
                 </td>
                 <td>
                     <input type="text" name="idUser" class="form-control" placeholder="Nhập ID User" value="">
+                </td>
+                <td>
+                    <input type="text" name="ghichu" class="form-control" placeholder="Ghi Chú" value="">
                 </td>
                 <td>
                     <button class="btn btn-success btn-sm" type="submit">Thêm Khách Hàng</button>
@@ -97,6 +103,9 @@
                         Mã ID User
                     </th>
                     <th>
+                        Ghi CHú
+                    </th>
+                    <th>
                         Công Cụ
                     </th>
 
@@ -112,6 +121,7 @@
                         <td>{{$row->diachi}}</td>
                         <td>{{$row->maloaikhach}}</td>
                         <td>{{$row->idUser}}</td>
+                        <td>{{$row->ghichu}}</td>
                         <td >
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <a href="/admin/khachhang/edit/{{$row->id}}">

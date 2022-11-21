@@ -31,20 +31,12 @@
                         <th>
                             Tên Sản Phẩm
                         </th>
-                        {{-- <th>
-                            Slug
-                        </th> --}}
                         <th>
                             Giá Tiền
                         </th>
-
-                        <th>
-                            Ảnh Sản Phẩm
-                        </th>
-                        <th>
-                            Hướng
-                        </th>
-
+                        {{-- <th>
+                            Slug
+                        </th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -61,23 +53,21 @@
                         <td>
                             <input type="text" name="tensp" value="{{ $sanpham_bds->tensp }}">
                         </td>
-                        {{-- <td>
-                            <input type="text" name="slug" value="{{ $sanpham_bds->slug }}">
-                        </td> --}}
                         <td>
                             <input type="text" name="giatien" value="{{ $sanpham_bds->giatien }}">
                         </td>
-                        <td>
-                            <input type="text" name="anhsp" value="{{ $sanpham_bds->anhsp }}">
-                        </td>
-                        <td>
-                            <input type="text" name="huong" value="{{ $sanpham_bds->huong }}">
-                        </td>
-
-
+                        {{-- <td>
+                            <input type="text" name="slug" value="{{ $sanpham_bds->slug }}">
+                        </td> --}}
                      </tbody>
                      <thead>
                         <tr>
+                            <th>
+                                Ảnh Sản Phẩm
+                            </th>
+                            <th>
+                                Hướng
+                            </th>
                             <th>
                                 Chiều Dài
                             </th>
@@ -87,6 +77,29 @@
                             <th>
                                 Số Phòng Tắm
                             </th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <td>
+                            <input type="file" id="anhsp" name="anhsp" value="{{ $sanpham_bds->anhsp }}">
+                        </td>
+                        <td>
+                            <input type="text" name="huong" value="{{ $sanpham_bds->huong }}">
+                        </td>
+                        <td>
+                            <input type="text" name="chieudai" value="{{ $sanpham_bds->chieudai }}">
+                        </td>
+                        <td>
+                            <input type="text" name="chieurong" value="{{ $sanpham_bds->chieurong }}">
+                        </td>
+                        <td>
+                            <input type="text" name="sophongtam" value="{{ $sanpham_bds->sophongtam }}">
+                        </td>
+
+                     </tbody>
+                     <thead>
+                        <tr>
                             <th>
                                 Số Phòng Ngủ
                             </th>
@@ -102,19 +115,9 @@
                             <th>
                                 Nhà Xanh
                             </th>
-
                         </tr>
                      </thead>
                      <tbody>
-                        <td>
-                            <input type="text" name="chieudai" value="{{ $sanpham_bds->chieudai }}">
-                        </td>
-                        <td>
-                            <input type="text" name="chieurong" value="{{ $sanpham_bds->chieurong }}">
-                        </td>
-                        <td>
-                            <input type="text" name="sophongtam" value="{{ $sanpham_bds->sophongtam }}">
-                        </td>
                         <td>
                             <input type="text" name="sophongngu" value="{{ $sanpham_bds->sophongngu }}">
                         </td>

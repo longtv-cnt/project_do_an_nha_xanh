@@ -47,6 +47,7 @@ class khachhangController extends Controller
         $khachhang->diachi=$data['diachi'];
         $khachhang->maloaikhach=$data['maloaikhach'];
         $khachhang->idUser=$data['idUser'];
+        $khachhang->ghichu=$data['ghichu'];
         $khachhang->save();
         return redirect()->back();
     }
@@ -91,6 +92,7 @@ class khachhangController extends Controller
         $khachhang->diachi = $request->diachi;
         $khachhang->maloaikhach = $request->maloaikhach;
         $khachhang->idUser = $request->idUser;
+        $khachhang->ghichu = $request->ghichu;
         $khachhang->save();
         return redirect()->action([khachhangController::class,'index']);
 

@@ -116,6 +116,13 @@ class galleryController extends Controller
             $file->move($destinationPath, $fileName);
             $gallery->image = $fileName;
         }
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $fileName = $file->getClientOriginalName();
+            $destinationPath = public_path('uploads/gallery/');
+            $file->move($destinationPath, $fileName);
+            $gallery->video = $fileName;
+        }
         $gallery->sanpham_id = $request->sanpham_id;
         $gallery->save();
 
