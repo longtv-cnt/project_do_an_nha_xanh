@@ -238,10 +238,20 @@ class SearchController extends Controller
                                                    </strong>
                                                 </span>
                                             </p>
-                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$product->tensp.'</b></span></span></p>
-                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' đồng</strong></span></p>
+                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>'.$product->tensp.'</b></span></span></p>';
+            if($product->giatien<1000000) {
+                $output .= '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' đồng</strong></span></p>';
+            }
+            elseif($product->giatien>=1000000 && $product->giatien<1000000000) {
+                $product->giatien = ($product->giatien) / 1000000;
+                $output .= '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' triệu đồng</strong></span></p>';
+            }
+            elseif($product->giatien>=1000000000) {
+                $product->giatien = ($product->giatien) / 1000000000;
+                $output .= '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' tỷ đồng</strong></span></p>';
+            }
 
-                                        </div>
+            $output .='</div>
                                     </div>
                                 </div>
                             </div>
@@ -404,10 +414,21 @@ class SearchController extends Controller
                                                    </strong>
                                                 </span>
                                             </p>
-                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>' . $product->tensp . '</b></span></span></p>
-                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' đồng</strong></span></p>
+                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>' . $product->tensp . '</b></span></span></p>';
 
-                                        </div>
+            if($product->giatien<1000000) {
+                $output .= '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' đồng</strong></span></p>';
+            }
+            elseif($product->giatien>=1000000 && $product->giatien<1000000000) {
+                $product->giatien = ($product->giatien) / 1000000;
+                $output .= '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' triệu đồng</strong></span></p>';
+            }
+            elseif($product->giatien>=1000000000) {
+                $product->giatien = ($product->giatien) / 1000000000;
+                $output .= '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: ' . $product->giatien . ' tỷ đồng</strong></span></p>';
+            }
+
+            $output .='</div>
                                     </div>
                                 </div>
                             </div>

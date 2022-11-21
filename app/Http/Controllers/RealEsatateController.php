@@ -45,9 +45,11 @@ class RealEsatateController extends Controller
     public function create()
     {
         //
+        $banners = DB::table('banners')->select('*');
+        $banners = $banners->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        return view('product.create', compact('duans','typeproducts'));
+        return view('product.create', compact('duans','typeproducts', 'banners'));
     }
 
     /**
@@ -59,6 +61,7 @@ class RealEsatateController extends Controller
     public function store(Request $request)
     {
         $product = new RealEstate();
+
         $product->maduan=$request->maduan;
         $product->maloai=$request->maloai;
         $product->tensp = $request->tensp;
