@@ -62,7 +62,7 @@ Route::get('/filter',[SearchController::class,'filter'])->name('filter');
 Route::get('/loaibds{maloai}duan{maduan}',[SearchController::class,'loaibdsduan'])->name('home.loaibds.duan');
 Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
 Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
-Route::get('/gioithieu/loaibds{maloai}',[SearchController::class,'gioithieu'])->name('gioithieu');
+Route::get('/gioithieu-loaibds{maloai}',[SearchController::class,'gioithieu'])->name('gioithieu');
 Route::get('/lienhe/',[SearchController::class,'lienhe'])->name('lienhe');
 Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung');
 Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
@@ -71,6 +71,7 @@ Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintu
 Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tatcasanpham');
 Route::get('/sanphambanner{id}', [sanpham_bdsController::class,'sanphambanner'])->name('sanphambanner');
 Route::post('/loadcomment', [phanhoiController::class,'load_comment'])->name('load-comment');
+Route::post('/loadcomment2', [phanhoiController::class,'load_comment2'])->name('load-comment2');
 Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('send-comment');
 Route::post('/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
 

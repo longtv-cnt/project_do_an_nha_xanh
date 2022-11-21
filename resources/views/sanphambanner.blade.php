@@ -17,7 +17,15 @@
                     </div>
                     <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_20 vc_sep_border_width_2 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_green vc_custom_1647596904498  vc_custom_1647596904498"><span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
                     </div>
-
+                    <style type="text/css">
+                        #countryList1{
+                            border:3px solid #b3d7ff;
+                            width:100%;
+                            height:1000px;
+                            overflow-x:hidden;
+                            overflow-y:auto;
+                        }
+                    </style>
                     <div id="countryList1">
                         <div class="vc_row wpb_row vc_inner vc_row-fluid">
                             @if ($products)
@@ -50,9 +58,9 @@
                                 @endforeach
                             @endif
                         </div>
-                        <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
-                            <a class="apage" href="">{!! $paginate->links()!!}</a>
-                        </span>
+{{--                        <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">--}}
+{{--                            <a class="apage" href="">{!! $paginate->links()!!}</a>--}}
+{{--                        </span>--}}
 
                     </div>
                 </div>

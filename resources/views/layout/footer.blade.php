@@ -55,13 +55,13 @@
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3298 first">
                                     <a href='{{route('home')}}' data-level='1'><span class="menu-item-text"><span class="menu-text">Nhà xanh</span></span></a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3259">
-                                    <a href='https://aquacityvn.vn/chinh-sach-bao-mat/' data-level='1'><span class="menu-item-text"><span class="menu-text">Chính sách bảo mật</span></span></a></li>
+                                    <a href='' data-level='1'><span class="menu-item-text"><span class="menu-text">Chính sách bảo mật</span></span></a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3260">
-                                    <a href='https://aquacityvn.vn/dieu-khoan-su-dung/' data-level='1'><span class="menu-item-text"><span class="menu-text">Điều khoản sử dụng</span></span></a></li>
+                                    <a href='' data-level='1'><span class="menu-item-text"><span class="menu-text">Điều khoản sử dụng</span></span></a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3862 has-children"><a href='https://aquacityvn.vn/thong-tin-lien-he/' data-level='1'><span class="menu-item-text"><span class="menu-text">Thông tin liên hệ</span></span></a>
                                     <ul class="sub-nav hover-style-bg level-arrows-on"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5250 first"><a href='https://theclassiavn.vn' data-level='2'><span class="menu-item-text"><span class="menu-text">The Classia</span></span></a></li>
                                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5251">
-                                            <a href='https://venezia-binhchau.com.vn' data-level='2'><span class="menu-item-text"><span class="menu-text">Venezia Beach</span></span></a></li>
+                                            <a href='' data-level='2'><span class="menu-item-text"><span class="menu-text">Venezia Beach</span></span></a></li>
                                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5252"><a href='https://izumicityvn.vn' data-level='2'><span class="menu-item-text"><span class="menu-text">Izumi City</span></span></a></li> </ul></li> </ul>
                             <div class="menu-select"><span class="customSelect1"><span class="customSelectInner">VIN: 180318</span></span></div></div>
                     </div>
