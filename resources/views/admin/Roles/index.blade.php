@@ -57,8 +57,9 @@
 
     <!-- /.card -->
     </div>
+    </div>
   </section>
 @endsection
 
 
-      </div>
+

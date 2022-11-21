@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body p-0">
 
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="hinhthuc">
                         <table class="table table-striped b-t b-light">
                             <thead>
                             <tr>
@@ -45,12 +45,12 @@
                                 #hinhthuc{
                                     border:3px solid #b3d7ff;
                                     width:100%;
-                                    height:300px;
+                                    height:500px;
                                     overflow-x:hidden;
                                     overflow-y:auto;
                                 }
                             </style>
-                            <tbody id="hinhthuc">
+                            <tbody>
 
                             @foreach($phanhoi as $row)
                                 <tr>
@@ -84,8 +84,7 @@
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                             <div class="card-body">
                                                 <a onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-danger"
-                                                   href="{{route('phanhoi.delete',
-                                                       ['id'=>$row->id])}}">
+                                                   href="{{route('phanhoi.delete', ['id'=>$row->id])}}">
                                                     <i class="fa fa-trash"></i></a>
                                             </div>
                                         </div>
@@ -102,7 +101,7 @@
                     <h3 class="card-title">Phản Hồi Chất Lượng</h3>
                 </div>
                 <div class="card-body p-0">
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="chatluong">
                         <table class="table table-striped b-t b-light">
                             <thead>
                             <tr>
@@ -135,12 +134,12 @@
                                 #chatluong{
                                     border:3px solid #b3d7ff;
                                     width:100%;
-                                    height:300px;
+                                    height:500px;
                                     overflow-x:hidden;
                                     overflow-y:auto;
                                 }
                             </style>
-                            <tbody id="chatluong">
+                            <tbody>
                             @foreach($phanhoi2 as $row)
                                 <tr>
                                     <td>{{$row->id}}</td>

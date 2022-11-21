@@ -55,7 +55,6 @@ class User extends Authenticatable
         foreach ($roles as $role) {
             $permissions = $role->permissions;
             if ($permissions->contains('name', $permissionsCheck)) {
-                dd($permissions);
                 return true;
             }
         }

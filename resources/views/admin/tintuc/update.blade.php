@@ -14,7 +14,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/tintuc/update/{{ $tintuc->id }}">
+                <form method="post" action="admin/tintuc/update/{{ $tintuc->id }}">
                     @method('PATCH')
                     @csrf
                 <thead>

@@ -115,45 +115,45 @@ Route::prefix('admin')->group(function () {
     // Route::PATCH('/loaiquyenhan/update/{id}', [loaiquyenhanController::class, 'update']);
 
 
-    Route::get('/loaisp_bds', [loaisp_bdsController::class, 'index'])->name('loaisp_bds');
+    Route::get('/loaisp_bds', [loaisp_bdsController::class, 'index'])->name('loaisp_bds')->middleware('can:danh-sach-loai-san-pham');
     Route::get('/loaisp_bds/create', [loaisp_bdsController::class, 'create'])->name('loaisp_bds.create');
-    Route::post('/loaisp_bds/store', [loaisp_bdsController::class, 'store'])->name('loaisp_bds.store');
-    Route::DELETE('/loaisp_bds/destroy/{id}', [loaisp_bdsController::class, 'destroy']);
-    Route::get('/loaisp_bds/edit/{id}', [loaisp_bdsController::class, 'edit'])->name('loaisp_bds.edit');
+    Route::post('/loaisp_bds/store', [loaisp_bdsController::class, 'store'])->name('loaisp_bds.store')->middleware('can:them-loai-san-pham');
+    Route::DELETE('/loaisp_bds/destroy/{id}', [loaisp_bdsController::class, 'destroy'])->middleware('can:xoa-loai-san-pham');
+    Route::get('/loaisp_bds/edit/{id}', [loaisp_bdsController::class, 'edit'])->name('loaisp_bds.edit')->middleware('can:sua-loai-san-pham');
     Route::PATCH('/loaisp_bds/update/{id}', [loaisp_bdsController::class, 'update']);
 
 
-    Route::get('/loaitintuc', [loaitintucController::class, 'index'])->name('loaitintuc');
+    Route::get('/loaitintuc', [loaitintucController::class, 'index'])->name('loaitintuc')->middleware('can:danh-sach-loaitintuc');
     Route::get('/loaitintuc/create', [loaitintucController::class, 'create'])->name('loaitintuc.create');
-    Route::post('/loaitintuc/store', [loaitintucController::class, 'store'])->name('loaitintuc.store');
-    Route::DELETE('/loaitintuc/destroy/{id}', [loaitintucController::class, 'destroy']);
-    Route::get('/loaitintuc/edit/{id}', [loaitintucController::class, 'edit'])->name('loaitintuc.edit');
+    Route::post('/loaitintuc/store', [loaitintucController::class, 'store'])->name('loaitintuc.store')->middleware('can:them-loaitintuc');
+    Route::DELETE('/loaitintuc/destroy/{id}', [loaitintucController::class, 'destroy'])->middleware('can:xoa-loaitintuc');
+    Route::get('/loaitintuc/edit/{id}', [loaitintucController::class, 'edit'])->name('loaitintuc.edit')->middleware('can:sua-loaitintuc');
     Route::PATCH('/loaitintuc/update/{id}', [loaitintucController::class, 'update']);
 
 
-    Route::get('/tintuc', [tintucController::class, 'index'])->name('tintuc')->middleware('can:list-tin-tuc');;
+    Route::get('/tintuc', [tintucController::class, 'index'])->name('tintuc')->middleware('can:danh-sach-tin-tuc');
     Route::get('/tintuc/create', [tintucController::class, 'create'])->name('tintuc.create');
-    Route::post('/tintuc/store', [tintucController::class, 'store'])->name('tintuc.store');
-    Route::DELETE('/tintuc/destroy/{matin}', [tintucController::class, 'destroy']);
-    Route::get('/tintuc/edit/{matin}', [tintucController::class, 'edit'])->name('tintuc.edit');
+    Route::post('/tintuc/store', [tintucController::class, 'store'])->name('tintuc.store')->middleware('can:them-tin-tuc');
+    Route::DELETE('/tintuc/destroy/{matin}', [tintucController::class, 'destroy'])->middleware('can:xoa-tin-tuc');
+    Route::get('/tintuc/edit/{matin}', [tintucController::class, 'edit'])->name('tintuc.edit')->middleware('can:sua-tin-tuc');
     Route::get('/tintuc/chitiet/{matin}', [tintucController::class, 'chitiet'])->name('tintuc.chitiet');
     Route::PATCH('/tintuc/update/{matin}', [tintucController::class, 'update']);
 
 
 
-    Route::get('/sanpham_bds', [sanpham_bdsController::class, 'index'])->name('sanpham_bds');
+    Route::get('/sanpham_bds', [sanpham_bdsController::class, 'index'])->name('sanpham_bds')->middleware('can:danh-sach-san-pham');
     Route::get('/sanpham_bds/create', [sanpham_bdsController::class, 'create'])->name('sanpham_bds.create');
-    Route::post('/sanpham_bds/store', [sanpham_bdsController::class, 'store'])->name('sanpham_bds.store');
-    Route::DELETE('/sanpham_bds/destroy/{id}', [sanpham_bdsController::class, 'destroy']);
-    Route::get('/sanpham_bds/edit/{id}', [sanpham_bdsController::class, 'edit'])->name('sanpham_bds.edit');
+    Route::post('/sanpham_bds/store', [sanpham_bdsController::class, 'store'])->name('sanpham_bds.store')->middleware('can:them-san-pham');
+    Route::DELETE('/sanpham_bds/destroy/{id}', [sanpham_bdsController::class, 'destroy'])->middleware('can:xoa-san-pham');
+    Route::get('/sanpham_bds/edit/{id}', [sanpham_bdsController::class, 'edit'])->name('sanpham_bds.edit')->middleware('can:sua-san-pham');
     Route::PATCH('/sanpham_bds/update/{id}', [sanpham_bdsController::class, 'update']);
 
 
-    Route::get('/phanhoi', [phanhoiController::class, 'index'])->name('phanhoi');
-    Route::get('/phanhoi/destroy/{id}', [phanhoiController::class, 'destroy'])->name('phanhoi.delete');;
+    Route::get('/phanhoi', [phanhoiController::class, 'index'])->name('phanhoi')->middleware('can:danh-sach-phan-hoi');
+    Route::get('/phanhoi/destroy/{id}', [phanhoiController::class, 'destroy'])->name('phanhoi.delete')->middleware('can:xoa-phan-hoi');
     Route::post('/phanhoi/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
     Route::get('/phanhoi/create', [phanhoiController::class, 'create'])->name('phanhoi.create');
-    Route::post('/phanhoi/store', [phanhoiController::class, 'store'])->name('phanhoi.store');
+    Route::post('/phanhoi/store', [phanhoiController::class, 'store'])->name('phanhoi.store')->middleware('can:them-phan-hoi');
     Route::get('/phanhoi/edit/{id}', [phanhoiController::class, 'edit'])->name('phanhoi.edit');
     Route::PATCH('/phanhoi/update/{id}', [phanhoiController::class, 'update']);
 
@@ -174,18 +174,18 @@ Route::prefix('admin')->group(function () {
     Route::PATCH('/contact/update/{maphieu}', [contactController::class, 'update']);
 
 
-    Route::get('/banners', [bannersController::class, 'index'])->name('banners');
+    Route::get('/banners', [bannersController::class, 'index'])->name('banners')->middleware('can:danh-sach-banner');
     Route::get('/banners/create', [bannersController::class, 'create'])->name('banners.create');
-    Route::post('/banners/store', [bannersController::class, 'store'])->name('banners.store');
-    Route::DELETE('/banners/destroy/{maphieu}', [bannersController::class, 'destroy']);
-    Route::get('/banners/edit/{maphieu}', [bannersController::class, 'edit'])->name('banners.edit');
+    Route::post('/banners/store', [bannersController::class, 'store'])->name('banners.store')->middleware('can:them-banner');
+    Route::DELETE('/banners/destroy/{maphieu}', [bannersController::class, 'destroy'])->middleware('can:xoa-banner');
+    Route::get('/banners/edit/{maphieu}', [bannersController::class, 'edit'])->name('banners.edit')->middleware('can:sua-banner');
     Route::PATCH('/banners/update/{maphieu}', [bannersController::class, 'update']);
 
-    Route::get('/sanphambanners', [sanphambannersController::class, 'index'])->name('sanphambanners');
+    Route::get('/sanphambanners', [sanphambannersController::class, 'index'])->name('sanphambanners')->middleware('can:danh-sach-san-pham-banner');
     Route::get('/sanphambanners/create', [sanphambannersController::class, 'create'])->name('sanphambanners.create');
-    Route::post('/sanphambanners/store', [sanphambannersController::class, 'store'])->name('sanphambanners.store');
-    Route::DELETE('/sanphambanners/destroy/{maphieu}', [sanphambannersController::class, 'destroy']);
-    Route::get('/sanphambanners/edit/{maphieu}', [sanphambannersController::class, 'edit'])->name('sanphambanners.edit');
+    Route::post('/sanphambanners/store', [sanphambannersController::class, 'store'])->name('sanphambanners.store')->middleware('can:them-san-pham-banner');
+    Route::DELETE('/sanphambanners/destroy/{maphieu}', [sanphambannersController::class, 'destroy'])->middleware('can:xoa-san-pham-banner');
+    Route::get('/sanphambanners/edit/{maphieu}', [sanphambannersController::class, 'edit'])->name('sanphambanners.edit')->middleware('can:sua-san-pham-banner');
     Route::PATCH('/sanphambanners/update/{maphieu}', [sanphambannersController::class, 'update']);
 
     Route::get('/baocao', [baocaoController::class, 'index'])->name('baocao');
