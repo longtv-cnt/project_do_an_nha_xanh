@@ -14,7 +14,11 @@
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="" />
     <style id="critical-css" name="page-page-a22d0e6b8a07f971eba2317e1174cb35" data-unique="0">
-        .spinner-loader {
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
+       .spinner-loader {
             display: none !important;
         }
         .mini-nav li {
@@ -2146,8 +2150,8 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <div><a class="dropdown-item" href="#">Hồ sơ</a></div>
-                              <div><a class="dropdown-item" href="#">Chuyển tài khoản</a></div>
+                              <div><a class="dropdown-item text-center" href="#">Hồ sơ</a></div>
+                              <div><a class="dropdown-item text-center" href="#">Chuyển tài khoản</a></div>
                               <div><a class="dropdown-item text-center" href="{{ route('logout') }}">Đăng xuất</a></div>
                             </div>
                           </div>
@@ -2345,7 +2349,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </script>
@@ -2505,7 +2509,11 @@
         s0.parentNode.insertBefore(s1, s0);
     })();
 </script>
-<!--End of Tawk.to Script-->
+<script>
+    $('.dropdown').hover(function(){
+  $('.dropdown-toggle', this).trigger('click');
+});
+    </script>
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">

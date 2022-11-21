@@ -23,6 +23,7 @@ use App\Http\Controllers\galleryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\sanphambannersController;
+use App\Http\Controllers\PermissionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,23 +57,23 @@ Route::get('/product/create', [RealEsatateController::class, 'create'])->name('p
 Route::post('/product/store', [RealEsatateController::class, 'store'])->name('product.store');
 
 
-Route::get('/',[RealEsatateController::class,'index'])->name('home');
-Route::post('/name',[SearchController::class,'getSearchAjax'])->name('search');
-Route::get('/filter',[SearchController::class,'filter'])->name('filter');
-Route::get('/loaibds{maloai}duan{maduan}',[SearchController::class,'loaibdsduan'])->name('home.loaibds.duan');
-Route::get('/duan{maduan}',[SearchController::class,'duan'])->name('home.duan');
-Route::get('/loaibds{maloai}',[SearchController::class,'loaibds'])->name('home.loaibds');
-Route::get('/gioithieu/loaibds{maloai}',[SearchController::class,'gioithieu'])->name('gioithieu');
-Route::get('/lienhe/',[SearchController::class,'lienhe'])->name('lienhe');
-Route::get('/tuyendung/',[SearchController::class,'tuyendung'])->name('tuyendung');
-Route::get('/chitiet{id}',[SearchController::class,'chitiet'])->name('chitiet');
-Route::get('/hometintuc',[SearchController::class,'tintuc'])->name('hometintuc');
-Route::get('/tintuc{id}',[SearchController::class,'tintucchitiet'])->name('tintucchitiet');
-Route::get('/tatcasanpham', [sanpham_bdsController::class,'sanpham'])->name('tatcasanpham');
-Route::get('/sanphambanner{id}', [sanpham_bdsController::class,'sanphambanner'])->name('sanphambanner');
-Route::post('/loadcomment', [phanhoiController::class,'load_comment'])->name('load-comment');
-Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('send-comment');
-Route::post('/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
+Route::get('/', [RealEsatateController::class, 'index'])->name('home');
+Route::post('/name', [SearchController::class, 'getSearchAjax'])->name('search');
+Route::get('/filter', [SearchController::class, 'filter'])->name('filter');
+Route::get('/loaibds{maloai}duan{maduan}', [SearchController::class, 'loaibdsduan'])->name('home.loaibds.duan');
+Route::get('/duan{maduan}', [SearchController::class, 'duan'])->name('home.duan');
+Route::get('/loaibds{maloai}', [SearchController::class, 'loaibds'])->name('home.loaibds');
+Route::get('/gioithieu/loaibds{maloai}', [SearchController::class, 'gioithieu'])->name('gioithieu');
+Route::get('/lienhe/', [SearchController::class, 'lienhe'])->name('lienhe');
+Route::get('/tuyendung/', [SearchController::class, 'tuyendung'])->name('tuyendung');
+Route::get('/chitiet{id}', [SearchController::class, 'chitiet'])->name('chitiet');
+Route::get('/hometintuc', [SearchController::class, 'tintuc'])->name('hometintuc');
+Route::get('/tintuc{id}', [SearchController::class, 'tintucchitiet'])->name('tintucchitiet');
+Route::get('/tatcasanpham', [sanpham_bdsController::class, 'sanpham'])->name('tatcasanpham');
+Route::get('/sanphambanner{id}', [sanpham_bdsController::class, 'sanphambanner'])->name('sanphambanner');
+Route::post('/loadcomment', [phanhoiController::class, 'load_comment'])->name('load-comment');
+Route::post('/sendcomment', [phanhoiController::class, 'send_comment'])->name('send-comment');
+Route::post('/replycomment', [phanhoiController::class, 'reply_comment'])->name('reply-comment');
 
 
 Route::prefix('admin')->group(function () {
@@ -130,7 +131,7 @@ Route::prefix('admin')->group(function () {
     Route::PATCH('/loaitintuc/update/{id}', [loaitintucController::class, 'update']);
 
 
-    Route::get('/tintuc', [tintucController::class, 'index'])->name('tintuc')->middleware('can:list-tin-tuc');;
+    Route::get('/tintuc', [tintucController::class, 'index'])->name('tintuc')->middleware('can:tintuc-list');
     Route::get('/tintuc/create', [tintucController::class, 'create'])->name('tintuc.create');
     Route::post('/tintuc/store', [tintucController::class, 'store'])->name('tintuc.store');
     Route::DELETE('/tintuc/destroy/{matin}', [tintucController::class, 'destroy']);
@@ -150,7 +151,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/phanhoi', [phanhoiController::class, 'index'])->name('phanhoi');
     Route::get('/phanhoi/destroy/{id}', [phanhoiController::class, 'destroy'])->name('phanhoi.delete');;
-    Route::post('/phanhoi/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
+    Route::post('/phanhoi/replycomment', [phanhoiController::class, 'reply_comment'])->name('reply-comment');
     Route::get('/phanhoi/create', [phanhoiController::class, 'create'])->name('phanhoi.create');
     Route::post('/phanhoi/store', [phanhoiController::class, 'store'])->name('phanhoi.store');
     Route::get('/phanhoi/edit/{id}', [phanhoiController::class, 'edit'])->name('phanhoi.edit');
@@ -207,9 +208,11 @@ Route::prefix('admin')->group(function () {
     Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     // end route cho user
     // route cho permission
-
+    Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
+    Route::post('/permission/create', [PermissionController::class, 'store'])->name('permission.store');
+    // end route cho permission
     Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 
     Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
-    Route::get('/gallery/delete/{id}', [galleryController::class,'destroy'])->name('gallery.delete');
+    Route::get('/gallery/delete/{id}', [galleryController::class, 'destroy'])->name('gallery.delete');
 });

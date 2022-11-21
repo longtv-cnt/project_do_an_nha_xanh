@@ -25,11 +25,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         Gate::define('tintuc-list', function ($user) {
             // $roles= $user->roles;
-
+            // dd(config('permissions.access.tintuc-list'));
             return $user->checkPermissionAccess('danh-sach-tin-tuc');
         });
         $this->registerPolicies();
 
         //
-    }
-}
+    }}

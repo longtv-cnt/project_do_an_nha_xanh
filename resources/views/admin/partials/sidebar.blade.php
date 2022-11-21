@@ -185,7 +185,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('user.index') }}" class="nav-link">
+                                <a href="{{ route('permission.create') }}" class="nav-link">
                                     <i class="fab fa-u"></i>
                                     <p>Tạo dữ liệu tự động bảng permissions</p>
                                 </a>
