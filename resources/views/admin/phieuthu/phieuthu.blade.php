@@ -88,7 +88,7 @@
                 @foreach($phieuthu as $row)
                 <tr>
                         <td>{{$row->maphieu}}</td>
-                        <td>{{$row->sotiennop}}</td>
+                        <td>{{number_format($row->sotiennop)}}</td>
                         <td>{{$row->lydo}}</td>
                         <td>{{$row->makhach}}</td>
                         <td>{{$row->ngaytao}}</td>

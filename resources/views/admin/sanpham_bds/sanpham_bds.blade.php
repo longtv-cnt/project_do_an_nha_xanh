@@ -357,14 +357,14 @@
                                     <td>{{ $row->maduan }}</td>
                                     <td>{{ $row->maloai }}</td>
                                     <td>{{ $row->tensp }}</td>
-                                    <td>{{ $row->giatien }}</td>
+                                    <td>{{ number_format($row->giatien) }}</td>
                                     <td>
                                         @if (file_exists(public_path('sanpham/' . $row->anhsp)))
-                                            <img class="card-img" src="{{ 'sanpham/' . $row->anhsp }}"
+                                            <img class="card-img" src="{{asset( 'sanpham/').'/' . $row->anhsp }}"
                                                 alt="" height="100px">
                                         @else
-                                            <img class="card-img" src="{{ $row->anhsp }}" alt=""
-                                                height="100px">
+                                            <img class="card-img" src="{{ 'sanpham/' . $row->anhsp }}"
+                                                alt="" height="100px">
                                         @endif
                                     </td>
                                     <td>{{ $row->xetduyet }}</td>
@@ -410,9 +410,6 @@
     </div>
     <!-- /.card -->
     </div>
-  </section>
-
-
-
       </div>
+    </section>
       @endsection

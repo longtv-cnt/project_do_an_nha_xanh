@@ -60,6 +60,9 @@
                             <th>
                                 Mã ID User
                             </th>
+                            <th>
+                                Ghí Chú
+                            </th>
                         </tr>
                      </thead>
                      <tbody>
@@ -71,6 +74,9 @@
                         </td>
                         <td>
                             <input type="text" name="idUser" value="{{ $khachhang->idUser }}">
+                        </td>
+                        <td>
+                            <input type="text" name="ghichu" value="{{ $khachhang->ghichu }}">
                         </td>
                         <td>
                             <button type="submit">Sửa</button>

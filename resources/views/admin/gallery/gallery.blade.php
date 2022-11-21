@@ -15,8 +15,8 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <input type="file" class="form-control" id="file" name="image" accept="image/*"
-                                multiple>
+                            <input type="file" class="form-control" id="file" name="image" accept="image/*"multiple>
+                            <input type="file" class="form-control" name="video">
                             <span id="error_gallery "></span>
                         </div>
                         <div class="col-md-3">
@@ -40,7 +40,7 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             @if (in_array($row->id, $gallery->pluck('sanpham_id')->toArray()))
-                                <h1 style="align-content: left" class="card-title" class="text-danger ">{{ $row->id }}-{{ $row->tensp }}</h1>
+                                <h1 style="align-content: left" class="card-title" class="text-danger ">ID :{{ $row->id }} - Tên Sản Phẩm : {{ $row->tensp }}</h1>
                             @endif
                         </div>
                     </div>
@@ -53,12 +53,28 @@
                                             <div class="card">
                                                 @if (file_exists(public_path('uploads/gallery/' . $item->image)))
                                                     <img class="card-img" src="{{asset('uploads/gallery/').'/'. $item->image }}" alt=""
-                                                        height="150px">
+                                                        height="190px">
                                                 @else
                                                     <img class="card-img" src="{{ $item->image }}" alt=""
-                                                        height="150px">
+                                                        height="190px">
                                                 @endif
 
+                                                <div class="card-body">
+                                                    <a onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-danger"
+                                                      href="{{route('gallery.delete',
+                                                       ['id'=>$item->id])}}">
+                                                       <i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                @if (file_exists(public_path('uploads/gallery/' . $item->video)))
+                                                <video autoplay>
+                                                    <source src="{{asset('uploads/gallery/').'/'. $item->video }}" alt="" height="250px">
+                                                </video>
+                                            @else
+                                                <video autoplay src="{{ $item->video }}" alt=""
+                                                    height="250px">
+                                            @endif
                                                 <div class="card-body">
                                                     <a onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-danger"
                                                       href="{{route('gallery.delete',
