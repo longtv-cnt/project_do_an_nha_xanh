@@ -44,76 +44,69 @@
                                                 <option value="2">Giá giảm dần</option>
                                             </select></div>
                                         <div class="item-filA">
-{{--                                            <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">--}}
-{{--                                                <option selected="selected" value=""><strong>Tỉnh thành</strong></option>--}}
-{{--                                                @foreach ($products as $product)--}}
-{{--                                                    <option value="{{ $product->diachi }}">{{ $product->diachi }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                                <option value=""><strong>Tất cả tỉnh thành</strong></option>--}}
-{{--                                            </select></div>--}}
                                         <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
                                             <option selected="selected" value="">Tỉnh thành</option>
-                                            <option value="1">Hải Phòng</option>
-                                            <option value="2">Hà Nội</option>
-                                            <option value="3">Đà Nẵng</option>
-                                            <option value="4">TP-HCM</option>
-                                            <option value="5">An Giang</option>
-                                            <option value="6">Bà Rịa Vũng tàu</option>
-                                            <option value="7">Bình Dương</option>
-                                            <option value="8">Bình thuận</option>
-                                            <option value="9">Bình Định</option>
-                                            <option value="10">Bạc Liêu</option>
-                                            <option value="11">Bắc Giang</option>
-                                            <option value="12">Bắc Kạn</option>
-                                            <option value="13">Bắc Ninh</option>
-                                            <option value="14">Bến Tre</option>
-                                            <option value="15">Cao Bằng</option>
-                                            <option value="16">Cà Mau</option>
-                                            <option value="17">Cần Thơ</option>
-                                            <option value="18">Gia Lai</option>
-                                            <option value="19">Hoà Bình</option>
-                                            <option value="20">Hà Giang</option>
-                                            <option value="21">Hà Nam</option>
-                                            <option value="22">Hà Tĩnh</option>
-                                            <option value="23">Hưng Yên</option>
-                                            <option value="24">Hải Dương</option>
-                                            <option value="25">Khánh Hoà</option>
-                                            <option value="26">Kiên Giang</option>
-                                            <option value="27">Kon Tum</option>
-                                            <option value="28">Lai Châu</option>
-                                            <option value="29">Long An</option>
-                                            <option value="30">Lào Cai</option>
-                                            <option value="31">Lâm Đồng</option>
-                                            <option value="33">Lạng Sơn</option>
-                                            <option value="34">Ninh Bình</option>
-                                            <option value="35">Móng Cái</option>
-                                            <option value="36">Ninh Thuận</option>
-                                            <option value="37">Phan Rang</option>
-                                            <option value="38">Phan Thiết</option>
-                                            <option value="39">Quảng Bình</option>
-                                            <option value="40">Quảng Nam</option>
-                                            <option value="41">Quảng Ngãi</option>
-                                            <option value="42">Quảng Ninh</option>
-                                            <option value="43">Quảng Trị</option>
-                                            <option value="44">Sóc Trăng</option>
-                                            <option value="45">Sơn La</option>
-                                            <option value="46">Thanh Hoá</option>
-                                            <option value="47">Thái Bình</option>
-                                            <option value="48">Thái Nguyên</option>
-                                            <option value="49">Thừa Thiên Huế</option>
-                                            <option value="50">Tiền Giang</option>
-                                            <option value="51">Trà Vinh</option>
-                                            <option value="52">Tuyên Quang</option>
-                                            <option value="53">Tây Ninh</option>
-                                            <option value="54">Vĩnh Long</option>
-                                            <option value="55">Vĩnh Phúc</option>
-                                            <option value="56">Yên Bái</option>
-                                            <option value="57">Điện Biên</option>
-                                            <option value="58">Đắc Lắk</option>
-                                            <option value="59">Đắc Nông</option>
-                                            <option value="60">Đồng Nai</option>
-                                            <option value="61">Đồng Tháp</option>
-
+                                            <option value="Hải Phòng">Hải Phòng</option>
+                                            <option value="Hà Nội">Hà Nội</option>
+                                            <option value="Đà Nẵng">Đà Nẵng</option>
+                                            <option value="TP-HCM">TP-HCM</option>
+                                            <option value="An Giang">An Giang</option>
+                                            <option value="Bà Rịa Vũng Tàu">Bà Rịa Vũng Tàu</option>
+                                            <option value="Bình Dương">Bình Dương</option>
+                                            <option value="Bình Thuận">Bình Thuận</option>
+                                            <option value="Bình Định">Bình Định</option>
+                                            <option value="Bạc Liêu">Bạc Liêu</option>
+                                            <option value="Bắc Giang">Bắc Giang</option>
+                                            <option value="Bắc Kạn">Bắc Kạn</option>
+                                            <option value="Bắc Ninh">Bắc Ninh</option>
+                                            <option value="Bến Tre">Bến Tre</option>
+                                            <option value="Cao Bằng">Cao Bằng</option>
+                                            <option value="Cà Mau<">Cà Mau</option>
+                                            <option value="Cần Thơ">Cần Thơ</option>
+                                            <option value="Gia Lai">Gia Lai</option>
+                                            <option value="Hoà Bình">Hoà Bình</option>
+                                            <option value="Hà Giang">Hà Giang</option>
+                                            <option value="Hà Nam">Hà Nam</option>
+                                            <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                            <option value="Hưng Yên">Hưng Yên</option>
+                                            <option value="Hải Dương">Hải Dương</option>
+                                            <option value="Khánh Hoà">Khánh Hoà</option>
+                                            <option value="Kiên Giang">Kiên Giang</option>
+                                            <option value="Kon Tum">Kon Tum</option>
+                                            <option value="Lai Châu">Lai Châu</option>
+                                            <option value="Long An">Long An</option>
+                                            <option value="Lào Cai">Lào Cai</option>
+                                            <option value="Lâm Đồng">Lâm Đồng</option>
+                                            <option value="Lạng Sơn">Lạng Sơn</option>
+                                            <option value="Ninh Bình">Ninh Bình</option>
+                                            <option value="Móng Cái">Móng Cái</option>
+                                            <option value="Ninh Thuận">Ninh Thuận</option>
+                                            <option value="Phan Rang">Phan Rang</option>
+                                            <option value="Phan Thiết">Phan Thiết</option>
+                                            <option value="Quảng Bình">Quảng Bình</option>
+                                            <option value="Quảng Nam">Quảng Nam</option>
+                                            <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                            <option value="Quảng Ninh">Quảng Ninh</option>
+                                            <option value="Quảng Trị">Quảng Trị</option>
+                                            <option value="Sóc Trăng">Sóc Trăng</option>
+                                            <option value="Sơn La">Sơn La</option>
+                                            <option value="Thanh Hoá">Thanh Hoá</option>
+                                            <option value="Thái Bình">Thái Bình</option>
+                                            <option value="Thái Nguyên">Thái Nguyên</option>
+                                            <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                            <option value="Tiền Giang">Tiền Giang</option>
+                                            <option value="Trà Vinh">Trà Vinh</option>
+                                            <option value="Tuyên Quang">Tuyên Quang</option>
+                                            <option value="Tây Ninh">Tây Ninh</option>
+                                            <option value="Vĩnh Long">Vĩnh Long</option>
+                                            <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                            <option value="Yên Bái">Yên Bái</option>
+                                            <option value="Điện Biên">Điện Biên</option>
+                                            <option value="Đắc Lắk">Đắc Lắk</option>
+                                            <option value="Đắc Nôn">Đắc Nông</option>
+                                            <option value="Đồng Nai">Đồng Nai</option>
+                                            <option value="Đồng Tháp">Đồng Tháp</option>
+                                            <option value="">Tất cả tỉnh thành</option>
                                         </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maduan" id="maduan" class="form-control no-radius no-shadow icon1">
@@ -170,11 +163,20 @@
                         {{ csrf_field() }}
                     </div>
                     <h2></h2>
-
+                    <style type="text/css">
+                        #countryList1{
+                            border:3px solid #b3d7ff;
+                            width:100%;
+                            height:1000px;
+                            overflow-x:hidden;
+                            overflow-y:auto;
+                        }
+                    </style>
                     <div id="countryList1">
                         <div class="vc_row wpb_row vc_inner vc_row-fluid">
                             @if ($products)
                                 @foreach ($products as $product )
+
                                     <div class="wpb_column vc_column_container vc_col-sm-6">
                                         <div class="vc_column-inner ">
                                             <div class="wpb_wrapper">
@@ -194,8 +196,23 @@
                                                 </span>
                                                         </p>
                                                         <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>{{ $product->tensp }}</b></span></span></p>
-                                                        <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền {{ $product->giatien }} đồng</strong></span></p>
-
+                                                        <?php
+                                                        if($product->giatien<1000000){
+                                                        echo '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: '.$product->giatien.' đồng</strong></span></p>';
+                                                        }
+                                                        ?>
+                                                         <?php
+                                                        if($product->giatien>=1000000 && $product->giatien<1000000000){
+                                                        $product->giatien= ($product->giatien)/1000000;
+                                                        echo '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: '.$product->giatien.' triệu đồng</strong></span></p>';
+                                                        }
+                                                        ?>
+                                                        <?php
+                                                        if($product->giatien>=1000000000){
+                                                            $product->giatien= ($product->giatien)/1000000000;
+                                                            echo '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: '.$product->giatien.' tỷ đồng</strong></span></p>';
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -205,7 +222,7 @@
                             @endif
                         </div>
                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
-{{--                            <a class="apage" href="">{!! $paginate->links()!!}</a>--}}
+                            <a class="apage" href="">{!! $paginate->links()!!}</a>
                         </span>
 
                     </div>
@@ -263,6 +280,15 @@
                         </h2>
 
                     </div>
+                    <style type="text/css">
+                        #countryList2{
+                            border:3px solid #b3d7ff;
+                            width:100%;
+                            height:400px;
+                            overflow-x:hidden;
+                            overflow-y:auto;
+                        }
+                    </style>
                     <div id="countryList2">
                     <div class="vc_row wpb_row vc_inner vc_row-fluid">
                         @if ($tintuc)

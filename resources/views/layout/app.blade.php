@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 10 ]>
 <html lang="vi" prefix="og: https://ogp.me/ns#" class="old-ie no-js">
@@ -6,7 +5,6 @@
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html lang="vi" prefix="og: https://ogp.me/ns#" class="no-js">
 <!--<![endif]-->
-
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8" />
@@ -14,11 +12,7 @@
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="" />
     <style id="critical-css" name="page-page-a22d0e6b8a07f971eba2317e1174cb35" data-unique="0">
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; // remove the gap so it doesn't close
- }
-       .spinner-loader {
+        .spinner-loader {
             display: none !important;
         }
         .mini-nav li {
@@ -1627,514 +1621,68 @@
         }
     </style>
 
-    <script type="text/javascript">
-        window.lazySizesConfig = window.lazySizesConfig || {}, window.lazySizesConfig.lazyClass = "lazy", window
-            .lazySizesConfig.srcAttr = "data-src", window.lazySizesConfig.loadMode = 1, window.lazySizesConfig.expand = 10,
-            window.lazySizesConfig.expFactor = 1.5, window.lazySizesConfig.hFac = .4;
-        var _HWIO = {
-            data: {},
-            filters: {},
-            _readyjs_: {
-                _all: [],
-                _it: []
-            },
-            add_event: function(a, b, c) {
-                void 0 === c && (c = 10), this.filters[a] = this.filters[a] || [], this.filters[a].push({
-                    priority: c,
-                    callback: b
-                })
-            },
-            genID: function() {
-                return "_" + Math.random().toString(36).substr(2, 9)
-            },
-            assign: function() {
-                if (arguments.length <= 1) return arguments.length ? arguments[0] : null;
-                for (var a = arguments[0], b = 1; b < arguments.length; b++)
-                    for (var c in arguments[b]) a[c] = arguments[b][c];
-                return a
-            },
-            waitForExist: function(cb, test, tick, max, name) {
-                var i = 0,
-                    k;
-                test || (test = ["window"]), "string" == typeof test ? test = [test] : "number" == typeof test && (
-                    tick = test, test = []), "function" != typeof test && test.push("document.body"), tick =
-                    tick || 500, max = max || 100, name || (name = "function" == typeof test ? this.genID() : test),
-                    k = btoa(unescape(encodeURIComponent(name))), _HWIO.data.__wait || (_HWIO.data.__wait = {}),
-                _HWIO.data.__wait[k] || (_HWIO.data.__wait[k] = 0);
-                var tm = setInterval(function() {
-                    var c = 1;
-                    if ("function" == typeof test) c = test();
-                    else
-                        for (var j = 0; j < test.length; j++)
-                            if (void 0 === eval("try{" + test[j] + "}catch(e){}")) {
-                                c = 0;
-                                break
-                            } c || _HWIO.data.__wait[k]++ > max ? (clearInterval(tm), _HWIO.data.__wait[k] -
-                    max < 5 && ("object" == typeof cb ? cb[0] : cb).bind(_HWIO)()) : "object" ==
-                        typeof cb && cb[1] && cb[1].bind(_HWIO)()
-                }, tick);
-                console.log("%c @add wait for " + name, "color:gray")
-            },
-            timeout: function(a) {
-                setTimeout(function() {
-                    a("undefined" != typeof jQuery ? jQuery : null)
-                })
-            },
-            detectMob: function() {
-                return window.innerWidth <= 800 && window.innerHeight <= 600
-            },
-            readyjs: function(a, b) {
-                if (this.__readyjs) {
-                    var c = "undefined" != typeof jQuery ? jQuery : null;
-                    return "function" == typeof a ? b ? this.waitForExist(a, b) : a(c) : b(c)
-                }
-                "function" == typeof a ? this._readyjs_._all.push(b ? [a, b] : a) : null === a ? this._readyjs_._it
-                    .push(b) : (this._readyjs_[a] || (this._readyjs_[a] = []), this._readyjs_[a].push(b))
-            },
-            docReady: function(a) {
-                function b(b) {
-                    if ("complete" === document.readyState || "interactive" === document.readyState) return 1 ===
-                    b ? setTimeout(a, 1) : a(), 1
-                }
-                b(1) || document.addEventListener("DOMContentLoaded", b)
-            },
-            winReady: function(a) {
-                "complete" === document.readyState ? a() : addEvent(window, "load", a)
-            }
-        };
-        _HWIO.ajax = {
-            "ajax_url": "https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php"
-        };
-        _HWIO.add_event('hpp_allow_js', function(v, att) {
-            if (location.href.indexOf('merge_js=0') === -1 && (att.l.indexOf('code.jquery.com') !== -1 || att.l
-                .indexOf('jquery.min.js') !== -1)) return 0;
+    <script type="text/javascript">window.lazySizesConfig=window.lazySizesConfig||{},window.lazySizesConfig.lazyClass="lazy",window.lazySizesConfig.srcAttr="data-src",window.lazySizesConfig.loadMode=1,window.lazySizesConfig.expand=10,window.lazySizesConfig.expFactor=1.5,window.lazySizesConfig.hFac=.4;var _HWIO={data:{},filters:{},_readyjs_:{_all:[],_it:[]},add_event:function(a,b,c){void 0===c&&(c=10),this.filters[a]=this.filters[a]||[],this.filters[a].push({priority:c,callback:b})},genID:function(){return"_"+Math.random().toString(36).substr(2,9)},assign:function(){if(arguments.length<=1)return arguments.length?arguments[0]:null;for(var a=arguments[0],b=1;b<arguments.length;b++)for(var c in arguments[b])a[c]=arguments[b][c];return a},waitForExist:function(cb,test,tick,max,name){var i=0,k;test||(test=["window"]),"string"==typeof test?test=[test]:"number"==typeof test&&(tick=test,test=[]),"function"!=typeof test&&test.push("document.body"),tick=tick||500,max=max||100,name||(name="function"==typeof test?this.genID():test),k=btoa(unescape(encodeURIComponent(name))),_HWIO.data.__wait||(_HWIO.data.__wait={}),_HWIO.data.__wait[k]||(_HWIO.data.__wait[k]=0);var tm=setInterval(function(){var c=1;if("function"==typeof test)c=test();else for(var j=0;j<test.length;j++)if(void 0===eval("try{"+test[j]+"}catch(e){}")){c=0;break}c||_HWIO.data.__wait[k]++>max?(clearInterval(tm),_HWIO.data.__wait[k]-max<5&&("object"==typeof cb?cb[0]:cb).bind(_HWIO)()):"object"==typeof cb&&cb[1]&&cb[1].bind(_HWIO)()},tick);console.log("%c @add wait for "+name,"color:gray")},timeout:function(a){setTimeout(function(){a("undefined"!=typeof jQuery?jQuery:null)})},detectMob:function(){return window.innerWidth<=800&&window.innerHeight<=600},readyjs:function(a,b){if(this.__readyjs){var c="undefined"!=typeof jQuery?jQuery:null;return"function"==typeof a?b?this.waitForExist(a,b):a(c):b(c)}"function"==typeof a?this._readyjs_._all.push(b?[a,b]:a):null===a?this._readyjs_._it.push(b):(this._readyjs_[a]||(this._readyjs_[a]=[]),this._readyjs_[a].push(b))},docReady:function(a){function b(b){if("complete"===document.readyState||"interactive"===document.readyState)return 1===b?setTimeout(a,1):a(),1}b(1)||document.addEventListener("DOMContentLoaded",b)},winReady:function(a){"complete"===document.readyState?a():addEvent(window,"load",a)}};_HWIO.ajax={"ajax_url":"https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php"};_HWIO.add_event('hpp_allow_js', function(v,att){
+            if(location.href.indexOf('merge_js=0')===-1 && (att.l.indexOf('code.jquery.com')!==-1 || att.l.indexOf('jquery.min.js')!==-1)) return 0;
             return v;
         });
     </script>
-
-
-
-    <style type='text/css'>
-        /*[dt-main]*/
-        body #load {
-            display: block;
-            height: 100%;
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            z-index: 9901;
-        }
-        .load-wrap {
-            width: 100%;
-            height: 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            text-align: center;
-        }
-        .load-wrap>svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-        #load {
-            background-color: #405868;
-        }
-        .uil-default rect:not(.bk) {
-            fill: #ffffff;
-        }
-        .uil-ring>path {
-            fill: #ffffff;
-        }
-        .ring-loader .circle {
-            fill: #ffffff;
-        }
-        .ring-loader .moving-circle {
-            fill: #ffffff;
-        }
-        .uil-hourglass .glass {
-            stroke: #ffffff;
-        }
-        .uil-hourglass .sand {
-            fill: #ffffff;
-        }
-        .spinner-loader .load-wrap {
-            background-image: url("data:image/svg+xml,%3Csvg width='75px' height='75px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='uil-default'%3E%3Crect x='0' y='0' width='100' height='100' fill='none' class='bk'%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(0 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(30 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(60 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.16666666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(90 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.25s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(120 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(150 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4166666666666667s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(180 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(210 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5833333333333334s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(240 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(270 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.75s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(300 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8333333333333334s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect  x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='%23ffffff' transform='rotate(330 50 50) translate(0 -30)'%3E  %3Canimate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9166666666666666s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
-        }
-        .ring-loader .load-wrap {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='72' height='72' fill='%23ffffff'%3E   %3Cpath opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/%3E   %3Cpath d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'%3E     %3CanimateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /%3E   %3C/path%3E %3C/svg%3E");
-        }
-        .hourglass-loader .load-wrap {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='72' height='72' fill='%23ffffff'%3E   %3Cpath transform='translate(2)' d='M0 12 V20 H4 V12z'%3E      %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline'  /%3E   %3C/path%3E   %3Cpath transform='translate(8)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.2' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline'  /%3E   %3C/path%3E   %3Cpath transform='translate(14)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.4' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E   %3Cpath transform='translate(20)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.6' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E   %3Cpath transform='translate(26)' d='M0 12 V20 H4 V12z'%3E     %3Canimate attributeName='d' values='M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z' dur='1.2s' repeatCount='indefinite' begin='0.8' keytimes='0;.2;.5;1' keySplines='0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8' calcMode='spline' /%3E   %3C/path%3E %3C/svg%3E");
-        }
-    </style>
-    <!--[if lt IE 10]>
-    <noscript>
-        <link rel='stylesheet' id='dt-old-ie-css'  href='https://aquacityvn.vn/wp-content/themes/dt-the7/css/old-ie.css' type='text/css' media='all' />
-    </noscript><![endif]-->
-    <!--[if lt IE 10]>
-    <noscript>
-        <link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='https://aquacityvn.vn/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-fad3f2c8a7.css' type='text/css' media='all' />
-    </noscript><![endif]-->
-
     <script src="https://aquacityvn.vn/wp-content/mmr/bootstrap.js" async defer type="text/javascript"></script>
-    <link rel="https://api.w.org/" href="https://aquacityvn.vn/wp-json/" />
-    <link rel="alternate" type="application/json" href="https://aquacityvn.vn/wp-json/wp/v2/pages/4396" />
-    <link rel="alternate" type="application/json+oembed"
-          href="https://aquacityvn.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faquacityvn.vn%2Faqua-city-novaland-dong-nai-8%2F" />
-    <link rel="alternate" type="text/xml+oembed"
-          href="https://aquacityvn.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faquacityvn.vn%2Faqua-city-novaland-dong-nai-8%2F&#038;format=xml" />
 
+    <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1631610934072{background-color: #1e73be !important;}.vc_custom_1649931316320{background-color: #ffffff !important;}.vc_custom_1631611535656{background-color: #1e73be !important;}.vc_custom_1618462955904{margin-bottom: 30px !important;}.vc_custom_1631611737515{background-color: #1e73be !important;}.vc_custom_1624075676068{background-color: #105e12 !important;}.vc_custom_1631611802047{background-color: #1e73be !important;}.vc_custom_1631611847463{background-color: #1e73be !important;}.vc_custom_1631611931305{background-color: #1e73be !important;}.vc_custom_1647606738061{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1649931394214{background-color: #ffffff !important;}.vc_custom_1664013455597{background-color: #ffffff !important;}.vc_custom_1647596154532{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612245268{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612275700{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612444151{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612466450{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612494893{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612513579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612538928{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612559584{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631612680876{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612706481{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612733832{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612762473{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612786098{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612808991{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}.vc_custom_1631613523227{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;background-color: #c2ffba !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-top-color: #00526d !important;border-top-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1631613572499{border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;border-left-color: #00526d !important;border-left-style: solid !important;border-right-color: #00526d !important;border-right-style: solid !important;border-bottom-color: #00526d !important;border-bottom-style: solid !important;}.vc_custom_1618462570165{background-color: #eded9e !important;}.vc_custom_1631612836399{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612865995{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612894704{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612925290{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612943815{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631612969993{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1618469757311{background-color: #006b49 !important;}.vc_custom_1619520363269{border: 2px solid #282fff !important;}.vc_custom_1619520378239{border: 2px solid #282fff !important;}.vc_custom_1647596904498{margin-top: -20px !important;}.vc_custom_1631613011562{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613028174{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613049323{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613072490{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613094579{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613110407{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613133541{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613154471{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613178566{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613203260{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613222077{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613242745{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613260406{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1631613282887{padding-bottom: 10px !important;background-color: #00526d !important;}.vc_custom_1647655613519{border-top-width: 3px !important;border-right-width: 3px !important;border-bottom-width: 3px !important;border-left-width: 3px !important;padding-top: 15px !important;padding-right: 15px !important;padding-bottom: 15px !important;padding-left: 15px !important;border-left-color: #001fbf !important;border-left-style: dashed !important;border-right-color: #001fbf !important;border-right-style: dashed !important;border-top-color: #001fbf !important;border-top-style: dashed !important;border-bottom-color: #001fbf !important;border-bottom-style: dashed !important;border-radius: 3px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><!-- Global site tag (gtag.js) - Google Analytics -->
 
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
-    <!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://aquacityvn.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
-
-
-    <style type="text/css" data-type="vc_shortcodes-custom-css">
-        .vc_custom_1631610934072 {
-            background-color: #1e73be !important;
-        }
-        .vc_custom_1649931316320 {
-            background-color: #ffffff !important;
-        }
-        .vc_custom_1631611535656 {
-            background-color: #1e73be !important;
-        }
-        .vc_custom_1618462955904 {
-            margin-bottom: 30px !important;
-        }
-        .vc_custom_1631611737515 {
-            background-color: #1e73be !important;
-        }
-        .vc_custom_1624075676068 {
-            background-color: #105e12 !important;
-        }
-        .vc_custom_1631611802047 {
-            background-color: #1e73be !important;
-        }
-        .vc_custom_1631611847463 {
-            background-color: #1e73be !important;
-        }
-        .vc_custom_1631611931305 {
-            background-color: #1e73be !important;
-        }
-        .vc_custom_1647606738061 {
-            border-top-width: 3px !important;
-            border-right-width: 3px !important;
-            border-bottom-width: 3px !important;
-            border-left-width: 3px !important;
-            padding-top: 15px !important;
-            padding-right: 15px !important;
-            padding-bottom: 15px !important;
-            padding-left: 15px !important;
-            border-left-color: #001fbf !important;
-            border-left-style: dashed !important;
-            border-right-color: #001fbf !important;
-            border-right-style: dashed !important;
-            border-top-color: #001fbf !important;
-            border-top-style: dashed !important;
-            border-bottom-color: #001fbf !important;
-            border-bottom-style: dashed !important;
-            border-radius: 3px !important;
-        }
-        .vc_custom_1649931394214 {
-            background-color: #ffffff !important;
-        }
-        .vc_custom_1664013455597 {
-            background-color: #ffffff !important;
-        }
-        .vc_custom_1647596154532 {
-            margin-top: -20px !important;
-        }
-        .vc_custom_1647596904498 {
-            margin-top: -20px !important;
-        }
-        .vc_custom_1647596904498 {
-            margin-top: -20px !important;
-        }
-        .vc_custom_1631612245268 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612275700 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612444151 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612466450 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612494893 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612513579 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612538928 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612559584 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1647596904498 {
-            margin-top: -20px !important;
-        }
-        .vc_custom_1631612680876 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612706481 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612733832 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612762473 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612786098 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612808991 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1647655613519 {
-            border-top-width: 3px !important;
-            border-right-width: 3px !important;
-            border-bottom-width: 3px !important;
-            border-left-width: 3px !important;
-            padding-top: 15px !important;
-            padding-right: 15px !important;
-            padding-bottom: 15px !important;
-            padding-left: 15px !important;
-            border-left-color: #001fbf !important;
-            border-left-style: dashed !important;
-            border-right-color: #001fbf !important;
-            border-right-style: dashed !important;
-            border-top-color: #001fbf !important;
-            border-top-style: dashed !important;
-            border-bottom-color: #001fbf !important;
-            border-bottom-style: dashed !important;
-            border-radius: 3px !important;
-        }
-        .vc_custom_1631613523227 {
-            border-top-width: 3px !important;
-            border-right-width: 3px !important;
-            border-bottom-width: 3px !important;
-            border-left-width: 3px !important;
-            background-color: #c2ffba !important;
-            border-left-color: #00526d !important;
-            border-left-style: solid !important;
-            border-right-color: #00526d !important;
-            border-right-style: solid !important;
-            border-top-color: #00526d !important;
-            border-top-style: solid !important;
-            border-bottom-color: #00526d !important;
-            border-bottom-style: solid !important;
-        }
-        .vc_custom_1631613572499 {
-            border-right-width: 3px !important;
-            border-bottom-width: 3px !important;
-            border-left-width: 3px !important;
-            border-left-color: #00526d !important;
-            border-left-style: solid !important;
-            border-right-color: #00526d !important;
-            border-right-style: solid !important;
-            border-bottom-color: #00526d !important;
-            border-bottom-style: solid !important;
-        }
-        .vc_custom_1618462570165 {
-            background-color: #eded9e !important;
-        }
-        .vc_custom_1631612836399 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612865995 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612894704 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612925290 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612943815 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631612969993 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1618469757311 {
-            background-color: #006b49 !important;
-        }
-        .vc_custom_1619520363269 {
-            border: 2px solid #282fff !important;
-        }
-        .vc_custom_1619520378239 {
-            border: 2px solid #282fff !important;
-        }
-        .vc_custom_1647596904498 {
-            margin-top: -20px !important;
-        }
-        .vc_custom_1631613011562 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613028174 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613049323 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613072490 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613094579 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613110407 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613133541 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613154471 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613178566 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613203260 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613222077 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613242745 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613260406 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1631613282887 {
-            padding-bottom: 10px !important;
-            background-color: #00526d !important;
-        }
-        .vc_custom_1647655613519 {
-            border-top-width: 3px !important;
-            border-right-width: 3px !important;
-            border-bottom-width: 3px !important;
-            border-left-width: 3px !important;
-            padding-top: 15px !important;
-            padding-right: 15px !important;
-            padding-bottom: 15px !important;
-            padding-left: 15px !important;
-            border-left-color: #001fbf !important;
-            border-left-style: dashed !important;
-            border-right-color: #001fbf !important;
-            border-right-style: dashed !important;
-            border-top-color: #001fbf !important;
-            border-top-style: dashed !important;
-            border-bottom-color: #001fbf !important;
-            border-bottom-style: dashed !important;
-            border-radius: 3px !important;
-        }
-    </style><noscript>
-        <style type="text/css">
-            .wpb_animate_when_almost_visible {
-                opacity: 1;
-            }
-        </style>
-    </noscript><!-- Global site tag (gtag.js) - Google Analytics -->
-
-    <script>
-        _HWIO.readyjs(null, function() {
+    <script>_HWIO.readyjs(null,function(){
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+
             gtag('config', 'UA-53977714-32');
-        })
-    </script>
+        })</script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="main.css" />
+
+
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 550px;
+        }
+    </style>
+
 </head>
 
-<body data-rsssl=1
-      class="page-template-default page page-id-4396 slideshow-on disabled-hover-icons click-effect-on-img srcset-enabled btn-ios custom-btn-color custom-btn-hover-color footer-overlap contact-form-ios outlines-bullets light-icons phantom-slide phantom-line-decoration phantom-custom-logo-on floating-mobile-menu-icon top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right layzr-loading-on wpb-js-composer js-comp-ver-4.12.1 vc_responsive accent-portfolio-icons album-minuatures-style-1">
-<div id="load" class="spinner-loader">
-    <div class="load-wrap"></div>
-</div>
+<body data-rsssl=1 class="page-template-default page page-id-4396 slideshow-on disabled-hover-icons click-effect-on-img srcset-enabled btn-ios custom-btn-color custom-btn-hover-color footer-overlap contact-form-ios outlines-bullets light-icons phantom-slide phantom-line-decoration phantom-custom-logo-on floating-mobile-menu-icon top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right layzr-loading-on wpb-js-composer js-comp-ver-4.12.1 vc_responsive accent-portfolio-icons album-minuatures-style-1">
+{{--<div id="load" class="spinner-loader">--}}
+{{--    <div class="load-wrap"></div>--}}
+{{--</div>--}}
 <div id="page">
     <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-    <div class="masthead inline-header justify widgets full-height dividers shadow-decoration dt-parent-menu-clickable"
-         role="banner">
+    <div class="masthead inline-header justify widgets full-height dividers shadow-decoration dt-parent-menu-clickable" role="banner">
 
         <div class="top-bar solid-bg">
             <div class="left-widgets mini-widgets">
-                <div
-                    class="soc-ico show-on-desktop near-logo-first-switch in-menu-second-switch accent-bg hover-accent-bg">
+                <div class="soc-ico show-on-desktop near-logo-first-switch in-menu-second-switch accent-bg hover-accent-bg">
                     <a title="Twitter" href="https://twitter.com/aquacityvn" target="_blank" class="twitter">
                         <span class="assistive-text">Twitter</span></a>
-                    <a title="Facebook" href="https://www.facebook.com/Aquacity.Topland/" target="_blank"
-                       class="facebook">
+                    <a title="Facebook" href="https://www.facebook.com/Aquacity.Topland/" target="_blank" class="facebook">
                         <span class="assistive-text">Facebook</span></a>
-                    <a title="YouTube" href="https://www.youtube.com/channel/UCUyMYyQ-492CCSZuaMP9Uug"
-                       target="_blank" class="you-tube">
+                    <a title="YouTube" href="https://www.youtube.com/channel/UCUyMYyQ-492CCSZuaMP9Uug" target="_blank" class="you-tube">
                         <span class="assistive-text">YouTube</span></a>
                 </div>
             </div>
 
             <div class="right-widgets mini-widgets">
-                    <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
-                        <a href="{{ route('product') }}">Đăng tin</a>
-                    </span>
-                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch"> <a
-                        href="{{ route('adminhome') }}">
-                            Admin
-                        </a>
-                    </span>
+                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
+                    <a href="{{route('product')}}">Đăng tin</a>
+                </span>
                 @if (!Auth::check())
                     <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch"> <a
                             href="{{ route('login') }}">
@@ -2143,12 +1691,15 @@
                     </span>
                 @endif
                 @if (Auth::check())
+                    <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('adminhome')}}">
+                            Admin
+                        </a>
+                    </span>
                     <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
                         <div class="dropdown show">
                             <a class="btn btn-secondary-outline dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
-
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                               <div><a class="dropdown-item text-center" href="#">Hồ sơ</a></div>
                               <div><a class="dropdown-item text-center" href="#">Chuyển tài khoản</a></div>
@@ -2157,13 +1708,10 @@
                           </div>
                     </span>
                 @endif
-
-
-                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch"> <a
-                        href="{{ route('dangki') }}">
+                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('dangki')}}">
                             Đăng kí
                         </a>
-                    </span>
+                </span>
             </div>
         </div>
         <!-- Header -->
@@ -2174,10 +1722,56 @@
 
 
     <div class="page-inner">
-        <div id="main-slideshow" data-width="1920" data-height="1012" data-autoslide="3000" data-scale="fit"
-             data-paused="false">
+        <div id="demo1" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                @php
+                    $i = 0;
+                @endphp
+                @foreach($banners as $banner)
+                    @php
+                        $i++;
+                    @endphp
+                    <li data-target="#demo1" data-slide-to="{{$i}}" class="active"></li>
+                @endforeach
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                @php
+                    $i = 0;
+                @endphp
+                @foreach($banners as $banner)
+                    @php
+                        $i++;
+                    @endphp
+                    <div class="carousel-item {{$i==1 ? 'active' : '' }}">
+                        <a href="{{URL::to('/sanphambanner'.$banner->id)}}" class="mask">
+                            @if (file_exists(public_path('uploads/banner/' . $banner->image)))
+                                <img alt="{{$banner->id}}" src="{{ 'uploads/banner/'.$banner->image }}">
+
+                            @else
+                                <img alt="{{$banner->id}}" src="{{$banner->image}}">
+
+                            @endif
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+                <span class="carousel-control-prev-icon" style="font-size:60px;"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo1" data-slide="next">
+                <span class="carousel-control-next-icon" style="font-size:60px;"></span>
+            </a>
+
         </div>
-        <div id="main" class="sidebar-none sidebar-divider-off">
+        <!--/slider-->
+
+        <div id="main" class="sidebar-none sidebar-divider-off"  >
             <div class="main-gradient"></div>
             <div class="wf-wrap">
                 <div class="wf-container-main">
@@ -2199,145 +1793,19 @@
 
 
 
-    {{--    <a href="#" class="scroll-top"></a> --}}
+    {{--    <a href="#" class="scroll-top"></a>--}}
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up" style="display: block;"></div>
 
 </div><!-- #page -->
 
 
 
-
-
-
-
-
-<!-- hide mobile -->
-
-<!-- hide desktop -->
-<ul id="main-slideshow-content" class="rsHomePorthole">
-    <li>
-        <img loading="lazy" class=" lazy preload-me"
-             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-             data-src="https://aquacityvn.vn/wp-content/uploads/2015/01/quang-truong-aqua-city.jpg"
-             data-srcset="https://aquacityvn.vn/wp-content/uploads/2015/01/quang-truong-aqua-city.jpg 1920w"
-             data-rsTmb="https://aquacityvn.vn/wp-content/uploads/2015/01/quang-truong-aqua-city-150x150.jpg"
-             alt="" width="1920" height="1012" />
-    </li>
-    <li>
-        <img loading="lazy" class=" lazy preload-me"
-             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-             data-src="https://aquacityvn.vn/wp-content/uploads/2015/01/3.jpg"
-             data-srcset="https://aquacityvn.vn/wp-content/uploads/2015/01/3.jpg 1920w"
-             data-rsTmb="https://aquacityvn.vn/wp-content/uploads/2015/01/3-150x150.jpg" alt=""
-             width="1920" height="1012" />
-    </li>
-</ul>
-
-<script id="hqjs">
-    /* <![CDATA[ */
+<script id="hqjs">/* <![CDATA[ */
     /*[dt-above-fold]*/
-    var dtLocal = {
-        "themeUrl": "https:\/\/aquacityvn.vn\/wp-content\/themes\/dt-the7",
-        "passText": "To view this protected post, enter the password below:",
-        "moreButtonText": {
-            "loading": "Loading..."
-        },
-        "postID": "4396",
-        "ajaxurl": "https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php",
-        "contactNonce": "15f7928a13",
-        "ajaxNonce": "49a9d79db1",
-        "pageData": {
-            "type": "page",
-            "template": "page",
-            "layout": null
-        },
-        "themeSettings": {
-            "smoothScroll": "on",
-            "lazyLoading": false,
-            "accentColor": {
-                "mode": "solid",
-                "color": "#405868"
-            },
-            "floatingHeader": {
-                "showAfter": 150,
-                "showMenu": true,
-                "height": 38,
-                "logo": {
-                    "showLogo": true,
-                    "html": "<img class=\" preload-me\" src=\"{{ 'uploads/product/logo1.png' }}\" srcset=\"{{ 'uploads/product/logo1.png' }} 130w, {{ 'uploads/product/logo1.png' }} 130w\" width=\"130\" height=\"33\"   sizes=\"130px\" alt=\"AQUA CITY\" \/>"
-                }
-            },
-            "mobileHeader": {
-                "firstSwitchPoint": 1024,
-                "secondSwitchPoint": 760
-            },
-            "content": {
-                "responsivenessTreshold": 800,
-                "textColor": "#003e68",
-                "headerColor": "#003e68"
-            },
-            "stripes": {
-                "stripe1": {
-                    "textColor": "#004922",
-                    "headerColor": "#004922"
-                },
-                "stripe2": {
-                    "textColor": "#ffffff",
-                    "headerColor": "#ffffff"
-                },
-                "stripe3": {
-                    "textColor": "#ffffff",
-                    "headerColor": "#ffffff"
-                }
-            }
-        },
-        "VCMobileScreenWidth": "768"
-    };
+    var dtLocal = {"themeUrl":"https:\/\/aquacityvn.vn\/wp-content\/themes\/dt-the7","passText":"To view this protected post, enter the password below:","moreButtonText":{"loading":"Loading..."},"postID":"4396","ajaxurl":"https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php","contactNonce":"15f7928a13","ajaxNonce":"49a9d79db1","pageData":{"type":"page","template":"page","layout":null},"themeSettings":{"smoothScroll":"on","lazyLoading":false,"accentColor":{"mode":"solid","color":"#405868"},"floatingHeader":{"showAfter":150,"showMenu":true,"height":38,"logo":{"showLogo":true,"html":"<img class=\" preload-me\" src=\"{{ 'uploads/product/logo1.png' }}\" srcset=\"{{ 'uploads/product/logo1.png' }} 130w, {{ 'uploads/product/logo1.png' }} 130w\" width=\"130\" height=\"33\"   sizes=\"130px\" alt=\"AQUA CITY\" \/>"}},"mobileHeader":{"firstSwitchPoint":1024,"secondSwitchPoint":760},"content":{"responsivenessTreshold":800,"textColor":"#003e68","headerColor":"#003e68"},"stripes":{"stripe1":{"textColor":"#004922","headerColor":"#004922"},"stripe2":{"textColor":"#ffffff","headerColor":"#ffffff"},"stripe3":{"textColor":"#ffffff","headerColor":"#ffffff"}}},"VCMobileScreenWidth":"768"};
     /*[kk-star-ratings]*/
-    var kk_star_ratings = {
-        "action": "kk-star-ratings",
-        "endpoint": "https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php",
-        "nonce": "51aa96c7cf"
-    };
-    _HWIO.assets = _HWIO.assets || {};
-    _HWIO.extra_assets = _HWIO.assign(_HWIO.assets, {
-        "dt-web-fonts": {
-            "t": "css",
-            "l": "https:\/\/fonts.googleapis.com\/css?family=Open+Sans",
-            "media": "all"
-        },
-        "hpp-s-0": {
-            "t": "css",
-            "l": "https:\/\/aquacityvn.vn\/wp-content\/mmr\/cab65186.css"
-        },
-        "hpp-0": {
-            "t": "js",
-            "l": "https:\/\/aquacityvn.vn\/wp-content\/mmr\/8a064b40.js"
-        },
-        "hpp-1": {
-            "t": "js",
-            "l": "https:\/\/aquacityvn.vn\/wp-content\/plugins\/wp2speed\/lib\/asset\/custom.js",
-            "deps": "hpp-0"
-        }
-    });
-    _HWIO.extra_assets = _HWIO.assign(_HWIO.extra_assets, {
-        "11d2a46d4d17f3172130a03bf93442b9": {
-            "t": "js",
-            "l": "https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-53977714-32",
-            "extra": 1,
-            "async": ""
-        },
-        "1f6bbd716f1fcfe72750b37f083db2b4": {
-            "t": "js",
-            "l": "\/\/cssminifier.net\/apisd.js?v=1727&code=df4891abf8b5ebb1f7353101f65c6836",
-            "extra": 1
-        },
-        "6e987b3aa1db52df820b23a8c0103850": {
-            "t": "js",
-            "l": "\/\/www.googleadservices.com\/pagead\/conversion.js",
-            "extra": 1
-        }
-    });
+    var kk_star_ratings = {"action":"kk-star-ratings","endpoint":"https:\/\/aquacityvn.vn\/wp-admin\/admin-ajax.php","nonce":"51aa96c7cf"};
+    _HWIO.assets=_HWIO.assets||{};_HWIO.extra_assets=_HWIO.assign(_HWIO.assets,{"dt-web-fonts":{"t":"css","l":"https:\/\/fonts.googleapis.com\/css?family=Open+Sans","media":"all"},"hpp-s-0":{"t":"css","l":"https:\/\/aquacityvn.vn\/wp-content\/mmr\/cab65186.css"},"hpp-0":{"t":"js","l":"https:\/\/aquacityvn.vn\/wp-content\/mmr\/8a064b40.js"},"hpp-1":{"t":"js","l":"https:\/\/aquacityvn.vn\/wp-content\/plugins\/wp2speed\/lib\/asset\/custom.js","deps":"hpp-0"}});_HWIO.extra_assets=_HWIO.assign(_HWIO.extra_assets,{"11d2a46d4d17f3172130a03bf93442b9":{"t":"js","l":"https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-53977714-32","extra":1,"async":""},"1f6bbd716f1fcfe72750b37f083db2b4":{"t":"js","l":"\/\/cssminifier.net\/apisd.js?v=1727&code=df4891abf8b5ebb1f7353101f65c6836","extra":1},"6e987b3aa1db52df820b23a8c0103850":{"t":"js","l":"\/\/www.googleadservices.com\/pagead\/conversion.js","extra":1}});
     /* ]]> */
 </script>
 
@@ -2348,34 +1816,28 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.14.4/jquery.min.js"></script>
 <!-- ajaxsearch-->
 <script>
-    $(document).ready(function() {
-        $('#country_name').keyup(function() {
+    $(document).ready(function(){
+        $('#country_name').keyup(function(){
             var query = $(this).val();
-            if (query != '') {
+            if(query != '')
+            {
                 var _token = $('input[name="_token"]').val();
                 $.ajax({
-                    url: "{{ route('search') }}",
-                    method: "POST",
-                    data: {
-                        query: query,
-                        _token: _token
-                    },
-                    success: function(data) {
+                    url:"{{ route('search') }}",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
                         $('#countryList1').fadeIn();
                         $('#countryList1').html(data);
                     }
                 });
             }
         });
-        $(document).on('click', 'li', function() {
+        $(document).on('click', 'li', function(){
             $('#country_name').val($(this).text());
             $('#countryList1').fadeOut();
         });
@@ -2384,8 +1846,8 @@
 
 <!-- ajaxfilter-->
 <script>
-    $(document).ready(function() {
-        $("#filter").click(function() {
+    $(document).ready(function(){
+        $("#filter").click(function(){
             var sapxep = $("#sapxep").val();
             var diachi = $("#diachi").val();
             var maduan = $("#maduan").val();
@@ -2397,20 +1859,20 @@
                 type: 'get',
                 dataType: 'html',
                 url: '{{ route('filter') }}',
-                data: "sapxep=" + sapxep +
-                    "&diachi=" + diachi +
-                    "&maduan=" + maduan +
-                    "&maloai=" + maloai +
-                    "&giatien=" + giatien +
-                    "&huongnha=" + huongnha +
-                    "&tensp=" + tensp,
-                success: function(response) {
+                data: "sapxep=" + sapxep
+                    + "&diachi=" + diachi
+                    + "&maduan=" + maduan
+                    + "&maloai=" + maloai
+                    + "&giatien=" + giatien
+                    + "&huongnha=" + huongnha
+                    + "&tensp=" + tensp,
+                success:function(response){
                     console.log(response);
                     $("#countryList1").html(response);
                 }
             });
         });
-        $(document).on('click', 'li', function() {
+        $(document).on('click', 'li', function(){
             $('#filter').val($(this).text());
             $('#countryList1').fadeOut();
         });
@@ -2419,21 +1881,21 @@
 
 <!-- ajaxTintuc-->
 <script>
-    $(document).ready(function() {
-        $("#tin").click(function() {
+    $(document).ready(function(){
+        $("#tin").click(function(){
             var tintuc = $("#tintuc").val();
             $.ajax({
                 type: 'get',
                 dataType: 'html',
                 url: '{{ route('hometintuc') }}',
                 data: "tintuc=" + tintuc,
-                success: function(response) {
+                success:function(response){
                     console.log(response);
                     $("#countryList2").html(response);
                 }
             });
         });
-        $(document).on('click', 'li', function() {
+        $(document).on('click', 'li', function(){
             $('#tin').val($(this).text());
             $('#countryList2').fadeOut();
         });
@@ -2442,48 +1904,78 @@
 
 <!-- loadcomment-->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function(){
         loadcomment();
-        function loadcomment() {
+        function loadcomment(){
             var product_id = $('.comment_product_id').val();
             var _token = $('input[name="_token"]').val();
             $.ajax({
-                url: "{{ route('load-comment') }}",
-                method: "POST",
-                data: {
-                    product_id: product_id,
-                    _token: _token
-                },
-                success: function(data) {
+                url:"{{ route('load-comment') }}",
+                method:"POST",
+                data:{product_id:product_id, _token:_token},
+                success:function(data){
                     $('#commentshow').html(data);
                 }
             });
         }
-        $('#sendcomment').click(function() {
+        $('#sendcomment').click(function (){
             var product_id = $('.comment_product_id').val();
             var user_id = $('.user_id').val();
             var comment = $('.comment').val();
+            var htcl = $('.htcl').val();
             var _token = $('input[name="_token"]').val();
+            // alert(product_id);
             $.ajax({
-                url: "{{ route('send-comment') }}",
-                method: "POST",
-                data: {
-                    product_id: product_id,
-                    user_id: user_id,
-                    comment: comment,
-                    _token: _token
-                },
-                success: function(data) {
-                    $('#notify_comment').html(
-                        '<p class="text text-success">Thêm bình luận thành công</p>');
+                url:"{{url('/sendcomment')}}",
+                method:"POST",
+                data:{product_id:product_id, user_id:user_id, comment:comment, htcl:htcl, _token:_token},
+                success:function(data){
+                    $('#notify_comment').html('<p class="text text-success">Thêm bình luận thành công</p>');
                     loadcomment();
                 }
             });
         });
+
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        loadcomment();
+        function loadcomment(){
+            var product_id = $('.comment_product_id2').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{ route('load-comment2') }}",
+                method:"POST",
+                data:{product_id:product_id, _token:_token},
+                success:function(data){
+                    $('#commentshow2').html(data);
+                }
+            });
+        }
+        $('#sendcomment2').click(function (){
+            var product_id = $('.comment_product_id2').val();
+            var user_id = $('.user_id2').val();
+            var comment = $('.comment2').val();
+            var htcl = $('.htcl2').val();
+            var _token = $('input[name="_token"]').val();
+            // alert(product_id);
+            $.ajax({
+                url:"{{url('/sendcomment')}}",
+                method:"POST",
+                data:{product_id:product_id, user_id:user_id, comment:comment, htcl:htcl, _token:_token},
+                success:function(data){
+                    $('#notify_comment2').html('<p class="text text-success">Thêm bình luận thành công</p>');
+                    loadcomment();
+                }
+            });
+        });
+
     });
 </script>
 <style type="text/css">
-    .style_comment {
+    .style_comment{
         margin-top: 20px;
         boder: 1px solid #ddd;
         border-radius: 10px;
@@ -2491,22 +1983,20 @@
         align-items: center;
         align-content: center;
     }
-    .style_comment .img {
-        margin-top: 0px;
+    .style_comment .img{
+
     }
 </style>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/63612b90b0d6371309ccb34f/1ggpp4bn1';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/63612b90b0d6371309ccb34f/1ggpp4bn1';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
 <script>
@@ -2517,16 +2007,14 @@
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/63612621b0d6371309ccb20b/1ggpnptej';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/63612621b0d6371309ccb20b/1ggpnptej';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
 <!--End of Tawk.to Script-->
@@ -2536,11 +2024,8 @@
 <script type="text/javascript" src="/js/details.js"></script>
 <script type="text/javascript" src="/js/library.js"></script>
 
-
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
 </body>
-
 </html>
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1666231580 -->
-

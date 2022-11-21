@@ -2,7 +2,7 @@
 
     <div class="branding">
 
-        <a href="{{ route('home') }}"><img loading="lazy" class=" lazy  preload-me" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ 'uploads/product/logo1.png' }}" data-srcset="{{ 'uploads/product/logo1.png' }} 200w, {{ 'uploads/product/logo1.png' }} 200w" width="200" height="51"   sizes="200px" alt="AQUA CITY" /></a>
+        <a href="{{ route('home') }}"><img loading="lazy" class=" lazy  preload-me" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ 'uploads/product/logo1.png' }}" data-srcset="{{ 'uploads/product/logo1.png' }} 200w, {{ 'uploads/product/logo1.png' }} 200w" width="200" height="51"   sizes="200px" alt="NHÀ XANH" /></a>
         <div id="site-title" class="assistive-text">AQUA CITY</div>
         <div id="site-description" class="assistive-text">Đô thị sinh thái thông minh</div>
 
@@ -39,7 +39,7 @@
             <ul class="sub-nav hover-style-bg level-arrows-on" style="left: 0px; opacity: 0; visibility: hidden;">
                 @foreach($typeproducts as $key => $typeproduct)
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3002 first has-children">
-                        <a href="{{URL::to('/gioithieu/loaibds'.$typeproduct->id)}}"  data-level="2"><span class="menu-item-text"><span class="menu-text">{{$typeproduct->tenloai}}</span></span></a><i class="next-level-button"></i>
+                        <a href="{{URL::to('/gioithieu-loaibds'.$typeproduct->id)}}"  data-level="2"><span class="menu-item-text"><span class="menu-text">{{$typeproduct->tenloai}}</span></span></a><i class="next-level-button"></i>
                     </li>
                 @endforeach
             </ul>

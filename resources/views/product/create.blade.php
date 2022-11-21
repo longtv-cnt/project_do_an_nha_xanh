@@ -6,16 +6,12 @@
     <section class="banner_area">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
-                <div
-                    class="banner_content d-md-flex justify-content-between align-items-center"
-                >
-                    <div class="mb-3 mb-md-0">
+                <div class="banner_content d-md-flex justify-content-between align-items-center">
+                    <div>
                         <h2>Đăng sản phẩm</h2>
-                        <p>Very us move be blessed multiply night</p>
-                    </div>
-                    <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="contact.html">Đăng sản phẩm</a>
+                        <br>
+                        <a href="{{ route('home') }}">Home</a>
+                        <a href="">Đăng sản phẩm</a>
                     </div>
                 </div>
             </div>
@@ -102,6 +98,10 @@
                                             <input type="text" class="form-control" name="diachi" rows="3"
                                                    placeholder="Nhập địa chỉ">
                                         </div>
+                                        <div class="form-group">
+                                            <label class="i-checks m-b-none"><input type="checkbox" name="nhaxanh"><i></i></label>
+
+                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
@@ -115,29 +115,7 @@
 
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-home"></i></span>
-                        <div class="media-body">
-                            <h3>Buttonwood, California.</h3>
-                            <p>Rosemead, CA 91770</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                        <div class="media-body">
-                            <h3><a href="tel:454545654">00 (440) 9865 562</a></h3>
-                            <p>Mon to Fri 9am to 6pm</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-email"></i></span>
-                        <div class="media-body">
-                            <h3><a href="mailto:support@colorlib.com">support@colorlib.com</a></h3>
-                            <p>Send us your query anytime!</p>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </div>
