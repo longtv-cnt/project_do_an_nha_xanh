@@ -17,14 +17,22 @@ class phanhoiController extends Controller
     public function index()
     {
         $phanhoi = phanhoi::with('product')
-//            ->join('users', 'users.id', '=', 'phanhoi.user_id')
+                ->where('htcl',1)
             ->where('comment_parent','=',0)
             ->get();
         $phanhoi_rep = phanhoi::with('product')
-//            ->join('users', 'users.id', '=', 'phanhoi.user_id')
-                ->where('comment_parent','>',0)
+            ->where('htcl',1)
+            ->where('comment_parent','>',0)
             ->get();
-        return view('admin.phanhoi.phanhoi', compact('phanhoi', 'phanhoi_rep'));
+        $phanhoi2 = phanhoi::with('product')
+            ->where('htcl',2)
+            ->where('comment_parent','=',0)
+            ->get();
+        $phanhoi_rep2 = phanhoi::with('product')
+            ->where('htcl',2)
+            ->where('comment_parent','>',0)
+            ->get();
+        return view('admin.phanhoi.phanhoi', compact('phanhoi', 'phanhoi_rep', 'phanhoi2', 'phanhoi_rep2'));
     }
 
     /**
@@ -44,22 +52,9 @@ class phanhoiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-//    public function reply_comment(Request $request)
-//    {
-//        $data = $request->all();
-//        $phanhoi = new phanhoi();
-//        $phanhoi->masp = $data['product_id'];
-//        $phanhoi->user_id = $data['user_id'];
-//        $phanhoi->comment = $data['comment'];
-//        $phanhoi->ngaytao = date('Y-m-d');
-//        $phanhoi->ngaycapnhat = date('Y-m-d');
-//        $phanhoi->comment_parent = $data['comment_id'];
-//        $phanhoi->save();
-//
-//    }
+
     public function send_comment(Request $request)
     {
-
         $data = $request->all();
         $phanhoi = new phanhoi();
         $phanhoi->masp = $data['product_id'];
@@ -68,24 +63,25 @@ class phanhoiController extends Controller
         $phanhoi->ngaytao = date('Y-m-d');
         $phanhoi->ngaycapnhat = date('Y-m-d');
         $phanhoi->comment_parent = 0;
+        $phanhoi->htcl = $data['htcl'];
         $phanhoi->save();
-
-
     }
     public function load_comment(Request $request)
     {
+
         $comments = DB::table('phanhoi')
-//            ->join('users', 'phanhoi.user_id', '=', 'users.id')
             ->where('masp', $request->product_id)
+            ->where('htcl', 1)
             ->where('comment_parent','=',0)
             ->orderBy('ngaytao','DESC')
             ->get();
         $comment_reps = DB::table('phanhoi')
-//            ->join('users', 'phanhoi.user_id', '=', 'users.id')
             ->where('masp', $request->product_id)
+            ->where('htcl', 1)
             ->where('comment_parent','>',0)
             ->orderBy('ngaytao','DESC')
             ->get();
+
         $output = '';
 
 
@@ -96,7 +92,7 @@ class phanhoiController extends Controller
 
             $output .= '<div class="row style_comment ">
 <div class="col-md-2">
-<img width="40%" src="uploads/product/avatar-icon.jpg" class="img img-responsive img-thumbnail">
+<img width="40%" src="uploads/product/avatar-icon.jpg" class="img">
 </div>
 <div class="col-md-10">';
             foreach ($user as $t) {
@@ -115,7 +111,7 @@ class phanhoiController extends Controller
                 if ($rep->comment_parent == $comment->id) {
                     $output .= '<div class="row style_comment" style="margin-left: 10px; background-color: lightskyblue">
 <div class="col-md-2">
-<img width="30%" src="uploads/product/avatar-icon1.jpg" class="img img-responsive img-thumbnail">
+<img width="30%" src="uploads/product/avatar-icon1.jpg" class="img">
 </div>
 <div class="col-md-10">';
                     foreach ($user2 as $t) {
@@ -138,7 +134,75 @@ class phanhoiController extends Controller
         echo $output;
 
     }
+    public function load_comment2(Request $request)
+    {
+            $comments = DB::table('phanhoi')
+                ->where('masp', $request->product_id)
+                ->where('htcl', 2)
+                ->where('comment_parent','=',0)
+                ->orderBy('ngaytao','DESC')
+                ->get();
+            $comment_reps = DB::table('phanhoi')
+                ->where('masp', $request->product_id)
+                ->where('htcl', 2)
+                ->where('comment_parent','>',0)
+                ->orderBy('ngaytao','DESC')
+                ->get();
 
+            $output = '';
+
+
+            foreach ($comments as $comment) {
+                $user = DB::table('users')
+                    ->where('id', $comment->user_id)
+                    ->get();
+
+                $output .= '<div class="row style_comment ">
+<div class="col-md-2">
+<img width="40%" src="uploads/product/avatar-icon.jpg" class="img">
+</div>
+<div class="col-md-10">';
+                foreach ($user as $t) {
+                    $output .= '<p style="color: green">@' . $t->name . '</p>';
+                }
+                $output .= '<p>Ngày comment: ' . $comment->ngaytao . '</p>
+<p>Nội Dung: ' . $comment->comment . '</p>
+</div>
+</div>';
+
+
+                foreach ($comment_reps as $rep) {
+                    $user2 = DB::table('users')
+                        ->where('id', $rep->user_id)
+                        ->get();
+                    if ($rep->comment_parent == $comment->id) {
+                        $output .= '<div class="row style_comment" style="margin-left: 10px; background-color: lightskyblue">
+<div class="col-md-2">
+<img width="30%" src="uploads/product/avatar-icon1.jpg" class="img">
+</div>
+<div class="col-md-10">';
+                        foreach ($user2 as $t) {
+                            $output .= '<p style="color: green">@' . $t->name . '</p>';
+                        }
+                        $output .= '<p>Ngày comment: ' . $rep->ngaytao . '</p>
+<p>Nội Dung: ' . $rep->comment . '</p>
+
+</div>
+</div>';
+
+                    } else {
+                        $output .= '<div></div>';
+                    }
+                }
+
+            }
+
+            $output .= '';
+
+
+        echo $output;
+
+    }
     public function store(Request $request)
     {
         $data = $request->all();
@@ -149,6 +213,7 @@ class phanhoiController extends Controller
         $phanhoi->ngaytao = date('Y-m-d');
         $phanhoi->ngaycapnhat = date('Y-m-d');
         $phanhoi->comment_parent = $data['comment_id1'];
+        $phanhoi->htcl = $data['htcl'];
         $phanhoi->save();
         return redirect()->back()->with('success', 'Thêm thành công');
     }
@@ -173,9 +238,6 @@ class phanhoiController extends Controller
     {
         $phanhoi = phanhoi::findOrFail($maduan);
         return view('admin.phanhoi.update', compact('phanhoi'));
-        // $phanhoi = phanhoi::find($maduan);
-        // $list = phanhoi::All();
-        // return view('admin.duan.duan', compact('list','phanhoi'));
     }
 
     /**
@@ -185,18 +247,18 @@ class phanhoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $phanhoi = phanhoi::find($id);
-        $phanhoi->id = $request->id;
-        $phanhoi->user_id = $request->user_id;
-        $phanhoi->masp = $request->masp;
-        $phanhoi->comment = $request->comment;
-        $phanhoi->ngaytao = $request->ngaytao;
-        $phanhoi->ngaycapnhat = $request->ngaycapnhat;
-        $phanhoi->save();
-        return redirect()->action([phanhoiController::class,'index']);
-    }
+//    public function update(Request $request, $id)
+//    {
+//        $phanhoi = phanhoi::find($id);
+//        $phanhoi->id = $request->id;
+//        $phanhoi->user_id = $request->user_id;
+//        $phanhoi->masp = $request->masp;
+//        $phanhoi->comment = $request->comment;
+//        $phanhoi->ngaytao = $request->ngaytao;
+//        $phanhoi->ngaycapnhat = $request->ngaycapnhat;
+//        $phanhoi->save();
+//        return redirect()->action([phanhoiController::class,'index']);
+//    }
 
     /**
      * Remove the specified resource from storage.
