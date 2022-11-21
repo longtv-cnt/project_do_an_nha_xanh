@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\DB;
+use App\Exports\ExportFile;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExportQuery;
+use Carbon\Carbon;
+ use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 class UserController extends Controller
 {
@@ -187,4 +192,27 @@ class UserController extends Controller
         DB::table('role_user')->where('user_id', $id)->delete();
         return redirect()->route('user.index');
     }
+    public function export()
+    {
+        return Excel::download(new ExportFile, 'users.xlsx');
+
+
+
+    }
+    public function export2(Request $request)
+    {
+        $type = $request->type;
+
+        if($request->created!="" && $request->template==""){
+            $now = new Carbon($request->created);
+            $year = $now->year;
+            $created = $request->created;
+            return Excel::download(new UsersExportQuery($year,$created),'users.'.$type);
+        }else if($request->created=="" && $request->template!=""){
+
+            return Excel::download(new UsersExportView($request->template), 'users.'.$type);
+        }
+        return Excel::download(new ExportFile, 'users.'.$type);
+    }
+
 }

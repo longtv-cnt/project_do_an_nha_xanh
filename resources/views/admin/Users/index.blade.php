@@ -10,7 +10,9 @@
                 <div class="card-header">
                     <a href="{{ route('user.create') }}" class="btn btn-success"> Thêm Người Dùng</a><br>
                     <h3 class="card-title">Danh sách người dùng</h3>
+                    <a href="{{ route('users.export') }}">Xuất File</a>
 
+                    </button></a>
                     <div class="card-body p-0">
                         <table class="table table-striped projects">
                             <thead>

@@ -207,6 +207,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::PUT('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
     Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::get('users/export/', [UserController::class, 'export'])->name('users.export');
     // end route cho user
     // route cho permission
     Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
@@ -217,3 +218,4 @@ Route::prefix('admin')->group(function () {
     Route::post('/insert-gallery', [galleryController::class, 'insert_gallery'])->name('insert_gallery');
     Route::get('/gallery/delete/{id}', [galleryController::class, 'destroy'])->name('gallery.delete');
 });
+
