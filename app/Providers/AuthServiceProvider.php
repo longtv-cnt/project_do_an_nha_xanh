@@ -110,5 +110,70 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('xoa-phan-hoi', function ($user) {
             return $user->checkPermissionAccess('xoa-phan-hoi');
         });
+
+        Gate::define('danh-sach-duan', function ($user) {
+            return $user->checkPermissionAccess('danh-sach-duan');
+        });
+        Gate::define('sua-duan', function ($user) {
+            return $user->checkPermissionAccess('sua-duan');
+        });
+        Gate::define('them-duan', function ($user) {
+            return $user->checkPermissionAccess('them-duan');
+        });
+        Gate::define('xoa-duan', function ($user) {
+            return $user->checkPermissionAccess('xoa-duan');
+        });
+
+        Gate::define('danh-sach-khachhang', function ($user) {
+            return $user->checkPermissionAccess('danh-sach-khachhang');
+        });
+        Gate::define('sua-khachhang', function ($user) {
+            return $user->checkPermissionAccess('sua-khachhang');
+        });
+        Gate::define('them-khachhang', function ($user) {
+            return $user->checkPermissionAccess('them-khachhang');
+        });
+        Gate::define('xoa-khachhang', function ($user) {
+            return $user->checkPermissionAccess('xoa-khachhang');
+        });
+
+        Gate::define('danh-sach-loaikhach', function ($user) {
+            return $user->checkPermissionAccess('danh-sach-loaikhach');
+        });
+        Gate::define('sua-loaikhach', function ($user) {
+            return $user->checkPermissionAccess('sua-loaikhach');
+        });
+        Gate::define('them-loaikhach', function ($user) {
+            return $user->checkPermissionAccess('them-loaikhach');
+        });
+        Gate::define('xoa-loaikhach', function ($user) {
+            return $user->checkPermissionAccess('xoa-loaikhach');
+        });
+
+        Gate::define('danh-sach-role', function ($user) {
+            return $user->checkPermissionAccess('danh-sach-role');
+        });
+        Gate::define('sua-role', function ($user) {
+            return $user->checkPermissionAccess('sua-role');
+        });
+        Gate::define('them-role', function ($user) {
+            return $user->checkPermissionAccess('them-role');
+        });
+        Gate::define('xoa-role', function ($user) {
+            return $user->checkPermissionAccess('xoa-role');
+        });
+
+        Gate::define('danh-sach-user', function ($user) {
+            return $user->checkPermissionAccess('danh-sach-user');
+        });
+        Gate::define('sua-user', function ($user) {
+            return $user->checkPermissionAccess('sua-user');
+        });
+        Gate::define('them-user', function ($user) {
+            return $user->checkPermissionAccess('them-user');
+        });
+        Gate::define('xoa-user', function ($user) {
+            return $user->checkPermissionAccess('xoa-user');
+        });
     }
 }

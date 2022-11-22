@@ -1680,9 +1680,6 @@
             </div>
 
             <div class="right-widgets mini-widgets">
-                <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
-                    <a href="{{route('product')}}">Đăng tin</a>
-                </span>
                 @if (!Auth::check())
                     <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch"> <a
                             href="{{ route('login') }}">
@@ -1709,7 +1706,7 @@
                     </span>
                 @endif
                 <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('dangki')}}">
-                            Đăng kí
+                            Đăng ký
                         </a>
                 </span>
             </div>

@@ -77,34 +77,36 @@ Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('se
 Route::post('/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
 
 
+
+
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');
 
     Route::get('/adminhome', [adminhomeController::class, 'index'])->name('adminhome');
 
 
-    Route::get('/duan', [du_anController::class, 'index'])->name('duan');
+    Route::get('/duan', [du_anController::class, 'index'])->name('duan')->middleware('can:danh-sach-duan');
     Route::get('/duan/create', [du_anController::class, 'create'])->name('du_an.create');
-    Route::post('/duan/store', [du_anController::class, 'store'])->name('du_an.store');
-    Route::DELETE('/duan/destroy/{maduan}', [du_anController::class, 'destroy']);
-    Route::get('/duan/edit/{maduan}', [du_anController::class, 'edit'])->name('du_an.edit');
+    Route::post('/duan/store', [du_anController::class, 'store'])->name('du_an.store')->middleware('can:them-duan');
+    Route::DELETE('/duan/destroy/{maduan}', [du_anController::class, 'destroy'])->middleware('can:xoa-duan');
+    Route::get('/duan/edit/{maduan}', [du_anController::class, 'edit'])->name('du_an.edit')->middleware('can:sua-duan');
     Route::PATCH('/duan/update/{maduan}', [du_anController::class, 'update']);
     Route::resource('du_an', du_anController::class);
 
 
-    Route::get('/khachhang', [khachhangController::class, 'index'])->name('khachhang');
+    Route::get('/khachhang', [khachhangController::class, 'index'])->name('khachhang')->middleware('can:danh-sach-khachhang');
     Route::get('/khachhang/create', [khachhangController::class, 'create'])->name('khachhang.create');
-    Route::post('/khachhang/store', [khachhangController::class, 'store'])->name('khachhang.store');
-    Route::DELETE('/khachhang/destroy/{id}', [khachhangController::class, 'destroy']);
-    Route::get('/khachhang/edit/{id}', [khachhangController::class, 'edit'])->name('khachhang.edit');
+    Route::post('/khachhang/store', [khachhangController::class, 'store'])->name('khachhang.store')->middleware('can:them-khachhang');
+    Route::DELETE('/khachhang/destroy/{id}', [khachhangController::class, 'destroy'])->middleware('can:xoa-khachhang');
+    Route::get('/khachhang/edit/{id}', [khachhangController::class, 'edit'])->name('khachhang.edit')->middleware('can:sua-khachhang');
     Route::PATCH('/khachhang/update/{id}', [khachhangController::class, 'update']);
     // Route::resource('khachhang', khachhangController::class);
 
-    Route::get('/loaikhach', [loaikhachController::class, 'index'])->name('loaikhach');
+    Route::get('/loaikhach', [loaikhachController::class, 'index'])->name('loaikhach')->middleware('can:danh-sach-loaikhach');
     Route::get('/loaikhach/create', [loaikhachController::class, 'create'])->name('loaikhach.create');
-    Route::post('/loaikhach/store', [loaikhachController::class, 'store'])->name('loaikhach.store');
-    Route::DELETE('/loaikhach/destroy/{id}', [loaikhachController::class, 'destroy']);
-    Route::get('/loaikhach/edit/{id}', [loaikhachController::class, 'edit'])->name('loaikhach.edit');
+    Route::post('/loaikhach/store', [loaikhachController::class, 'store'])->name('loaikhach.store')->middleware('can:them-loaikhach');
+    Route::DELETE('/loaikhach/destroy/{id}', [loaikhachController::class, 'destroy'])->middleware('can:xoa-loaikhach');
+    Route::get('/loaikhach/edit/{id}', [loaikhachController::class, 'edit'])->name('loaikhach.edit')->middleware('can:sua-loaikhach');
     Route::PATCH('/loaikhach/update/{id}', [loaikhachController::class, 'update']);
 
 
@@ -194,20 +196,20 @@ Route::prefix('admin')->group(function () {
 
     // route cho role
     // route cho role
-    Route::get('/role', [RoleController::class, 'index'])->name('role.index');
+    Route::get('/role', [RoleController::class, 'index'])->name('role.index')->middleware('can:danh-sach-role');
     Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
-    Route::post('create/role/', [RoleController::class, 'store'])->name('role.store');
-    Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::post('create/role/', [RoleController::class, 'store'])->name('role.store')->middleware('can:them-role');
+    Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit')->middleware('can:sua-role');
     Route::PUT('/role/update/{id}', [RoleController::class, 'update'])->name('role.update');
-    Route::DELETE('/role/destroy/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
+    Route::DELETE('/role/destroy/{id}', [RoleController::class, 'destroy'])->name('role.destroy')->middleware('can:xoa-role');
     // end route cho role
     // route cho user
-    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('can:danh-sach-user');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
-    Route::post('create/user/', [UserController::class, 'store'])->name('user.store');
-    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::post('create/user/', [UserController::class, 'store'])->name('user.store')->middleware('can:them-user');
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit')->middleware('can:sua-user');
     Route::PUT('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
-    Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::DELETE('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('can:xoa-user');
     Route::get('users/export/', [UserController::class, 'export'])->name('users.export');
     // end route cho user
     // route cho permission
