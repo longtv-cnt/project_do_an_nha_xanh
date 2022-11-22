@@ -20,7 +20,7 @@
         <div id="ucLogin_pnlLogin" class="box_login box_ipt_login" validationgroup="vldlogin" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ucLogin_btnLogin')">
 
             <div class="form-group">
-                <input name="email" type="text" maxlength="1000" id="email" class="form-control no-radius no-shadow" placeholder="Tên đăng nhập / Email / Điện thoại*">
+                <input name="email" type="text" maxlength="1000" id="email" class="form-control no-radius no-shadow" placeholder="Email *">
                 <span id="ucLogin_RFV1" class="vld-error" style="display:none;">Vui lòng nhập email.</span>
             </div>
             <div class="form-group">
