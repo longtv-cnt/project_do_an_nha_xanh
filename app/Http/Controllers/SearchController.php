@@ -28,10 +28,17 @@ class SearchController extends Controller
         $title = $duans[$maduan-1]->tenduan;
         $loaibds = $typeproducts[$maloai-1]->tenloai;
         $sapxep = 'Giá tăng dần';
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
         return view('index', compact('products',
-            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc', 'banners'));
+            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc', 'banners','bannerleft','bannerright'));
     }
 
     public function duan($maduan)
@@ -51,10 +58,17 @@ class SearchController extends Controller
         $title = $duans[$maduan-1]->tenduan;
         $loaibds = 'Tất cả sản phẩm';
         $sapxep = 'Giá tăng dần';
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
         return view('index', compact('products',
-            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc', 'banners'));
+            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc', 'banners','bannerleft','bannerright'));
     }
 
     public function loaibds($maloai)
@@ -74,10 +88,17 @@ class SearchController extends Controller
         $loaibds = $typeproducts[$maloai-1]->tenloai;
         $title = 'Tất cả dự án';
         $sapxep = 'Giá tăng dần';
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
         return view('index', compact('products',
-            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc', 'banners'));
+            'duans','typeproducts', 'title', 'loaibds', 'sapxep', 'tintuc', 'loaitintuc', 'banners','bannerleft','bannerright'));
     }
     public function gioithieu($maloai)
     {
@@ -90,9 +111,16 @@ class SearchController extends Controller
         }
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
-        return view('gioithieu', compact('output','duans','typeproducts', 'banners'));
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+        return view('gioithieu', compact('output','duans','typeproducts', 'banners','bannerleft','bannerright'));
     }
     public function tuyendung()
     {
@@ -105,9 +133,16 @@ class SearchController extends Controller
         }else{
             $output = 'Chưa có bài viết';
         }
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
-        return view('tuyendung',compact('duans','typeproducts', 'output', 'banners'));
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+        return view('tuyendung',compact('duans','typeproducts', 'output', 'banners','bannerleft','bannerright'));
     }
     public function lienhe()
     {
@@ -120,9 +155,16 @@ class SearchController extends Controller
         }else{
             $output = 'Chưa có bài viết';
         }
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
-        return view('lienhe',compact('duans','typeproducts', 'output', 'banners'));
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+        return view('lienhe',compact('duans','typeproducts', 'output', 'banners','bannerleft','bannerright'));
     }
     public function tintucchitiet($id)
     {
@@ -130,9 +172,17 @@ class SearchController extends Controller
         $typeproducts = TypeProduct::all();
         $tintuc = DB::table('tintuc')->get();
         $output =$tintuc[$id-1]->noidung;
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
-        return view('tintuc', compact('output','duans','typeproducts', 'banners'));
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+
+        return view('tintuc', compact('output','duans','typeproducts', 'banners','bannerleft','bannerright'));
     }
 
     public function chitiet($id)
@@ -176,7 +226,7 @@ class SearchController extends Controller
         }
         $gallerys = gallery::where('sanpham_id', $id)->get();
         $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = $banners->where('position','top')->get();
         return view('chitiet',
             compact('products','duans','typeproducts', 'title', 'loaibds', 'duan', 'banners', 'gallerys', 'user_id', 'huongnha'));
     }

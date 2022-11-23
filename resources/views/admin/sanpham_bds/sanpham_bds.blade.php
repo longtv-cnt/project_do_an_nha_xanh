@@ -264,9 +264,13 @@
 
 
                                         </tbody>
+
                                         <td> <button class="btn btn-success btn-lg btn-block" type="submit">Thêm Sản
                                                 Phẩm</button></td>
-
+                            <td>
+                                <input type="hidden" name="daban" class="form-control"
+                                       value="0">
+                            </td>
                                     </form>
 
 
@@ -344,7 +348,9 @@
                                 <th>
                                     Nhà Xanh
                                 </th>
-
+                        <th>
+                            Đã bán
+                        </th>
                                 <th>
                                     Công Cụ
                                 </th>
@@ -359,11 +365,11 @@
                                     <td>{{ $row->tensp }}</td>
                                     <td>{{ number_format($row->giatien) }}</td>
                                     <td>
-                                        @if (file_exists(public_path('sanpham/' . $row->anhsp)))
-                                            <img class="card-img" src="{{asset( 'sanpham/').'/' . $row->anhsp }}"
+                                        @if (file_exists(public_path('uploads/product/' . $row->anhsp)))
+                                            <img class="card-img" src="{{asset( 'uploads/product/').'/' . $row->anhsp }}"
                                                 alt="" height="100px">
                                         @else
-                                            <img class="card-img" src="{{ 'sanpham/' . $row->anhsp }}"
+                                            <img class="card-img" src="{{ 'uploads/product/' . $row->anhsp }}"
                                                 alt="" height="100px">
                                         @endif
                                     </td>
@@ -371,6 +377,7 @@
                                     <td>{{ $row->diachi }}</td>
                                     <td>{{ $row->lienhe }}</td>
                                     <td>{{ $row->nhaxanh }}</td>
+                                    <td>{{ $row->daban }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <div class="dropdown">

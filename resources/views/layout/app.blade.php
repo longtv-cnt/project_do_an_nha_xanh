@@ -1652,7 +1652,11 @@
         /* Make the image fully responsive */
         .carousel-inner img {
             width: 100%;
-            height: 550px;
+            height: 350px;
+        }
+        .img2 {
+            width: 100%;
+            height: 100%;
         }
     </style>
 
@@ -1688,10 +1692,25 @@
                     </span>
                 @endif
                 @if (Auth::check())
-                    <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('adminhome')}}">
+
+                        <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
+                    <a href="{{route('product')}}">Đăng tin</a>
+                    </span>
+                    <?php
+                        $user_id =Auth::user()->id;
+                        $role_user = \Illuminate\Support\Facades\DB::table('role_user')->where('user_id', $user_id)->get();
+                        foreach($role_user as $x){
+                            if($x->role_id<19){
+                    echo '<span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
+                        <a href="/admin">
                             Admin
                         </a>
-                    </span>
+                    </span>';
+                    }else{
+                                echo '';
+                    }
+                            }
+                    ?>
                     <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">
                         <div class="dropdown show">
                             <a class="btn btn-secondary-outline dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1704,6 +1723,7 @@
                             </div>
                           </div>
                     </span>
+
                 @endif
                 <span class="mini-contacts phone show-on-desktop near-logo-first-switch in-menu-second-switch">                        <a href="{{route('dangki')}}">
                             Đăng ký
