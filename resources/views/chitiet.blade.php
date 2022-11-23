@@ -61,8 +61,14 @@
                                                         </tr>
                                                         <tr style="height: 22px;">
                                                             <td style="height: 22px; width: 27.649051090530346%;"><span style="font-size: 12pt;">✅&nbsp;Giá tiền:</span></td>
-                                                            <td style="height: 22px; width: 182.3455444625794%;"><span style="font-size: 12pt;"><strong>{{$product->giatien}}</strong> đồng</span></td>
+                                                            <td style="height: 22px; width: 182.3455444625794%;"><span style="font-size: 12pt;"><strong>{{number_format($product->giatien)}}</strong> đồng</span></td>
                                                         </tr>
+                                                        @if($product->daban==1)
+                                                            <tr style="height: 22px;">
+                                                                <td style="height: 22px; width: 27.649051090530346%;"><span style="font-size: 12pt; color: red">✅&nbsp;Đã bán</span></td>
+                                                                <td style="height: 22px; width: 27.649051090530346%;"><span style="font-size: 12pt; color: red"></span></td>
+                                                            </tr>
+                                                        @endif
                                                         </tbody>
                                                     </table>
 

@@ -40,11 +40,18 @@ class sanpham_bdsController extends Controller
         $typeproducts = TypeProduct::all();
         $title = 'Tất cả dự án';
         $loaibds = 'Tất cả sản phẩm';
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
         $paginate = new Paginator($products, 8);
         return view('sanpham',
-            compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners'));
+            compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners','bannerright','bannerleft'));
     }
     public function sanphambanner($id)
     {
@@ -64,6 +71,10 @@ class sanpham_bdsController extends Controller
         $banners = $banners->get();
         $title = $banners[$id-1]->link;
         $paginate = new Paginator($products, 8);
+
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
         return view('sanphambanner',
             compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners'));
     }
@@ -96,7 +107,7 @@ class sanpham_bdsController extends Controller
             $file = $request->file('anhsp');
             $fileName = time().$file->getClientOriginalName();
 
-            $destinationPath = public_path('sanpham/');
+            $destinationPath = public_path('uploads/product/');
             $file->move($destinationPath, $fileName);
             $sanpham_bds->anhsp = $fileName;
         }
@@ -109,6 +120,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->diachi =$request->diachi;
         $sanpham_bds->nhaxanh =$request->nhaxanh;
         $sanpham_bds->lienhe =$request->lienhe;
+        $sanpham_bds->daban =$request->daban;
         $sanpham_bds->save();
 
         return redirect()->back();
@@ -154,7 +166,14 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->tensp = $request->tensp;
         // $sanpham_bds->slug = $request->slug;
         $sanpham_bds->giatien = $request->giatien;
-        $sanpham_bds->anhsp = $request->anhsp;
+        if ($request->hasFile('anhsp')) {
+            $file = $request->file('anhsp');
+            $fileName = time().$file->getClientOriginalName();
+
+            $destinationPath = public_path('uploads/product/');
+            $file->move($destinationPath, $fileName);
+            $sanpham_bds->anhsp = $fileName;
+        }
         $sanpham_bds->huong = $request->huong;
         $sanpham_bds->chieudai = $request->chieudai;
         $sanpham_bds->chieurong = $request->chieurong;
@@ -164,6 +183,7 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->diachi = $request->diachi;
         $sanpham_bds->nhaxanh = $request->nhaxanh;
         $sanpham_bds->lienhe = $request->lienhe;
+        $sanpham_bds->daban =$request->daban;
         $sanpham_bds->save();
         return redirect()->action([sanpham_bdsController::class,'index']);
 

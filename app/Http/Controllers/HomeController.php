@@ -36,6 +36,8 @@ class HomeController extends Controller
         $typeproducts = TypeProduct::all();
         $banners = DB::table('banners')->select('*');
         $banners = $banners->get();
+        $banners = DB::table('banners')->select('*');
+        $banners = $banners->get();
         return view('dangki.dangki', compact('duans', 'typeproducts', 'banners'));
     }
 

@@ -81,9 +81,11 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <td>
-                            <input type="file" id="anhsp" name="anhsp" value="{{ $sanpham_bds->anhsp }}">
-                        </td>
+                     <td>
+                         <input type="file" class="form-control" id="anhsp" name="anhsp"
+                                accept="image/*"multiple>
+                         <span id="error_gallery "></span>
+                     </td>
                         <td>
                             <input type="text" name="huong" value="{{ $sanpham_bds->huong }}">
                         </td>
@@ -134,10 +136,18 @@
                             <input type="bit" name="nhaxanh" value="{{ $sanpham_bds->nhaxanh }}">
                         </td>
 
-                        <td>
-                            <button type="submit">Sửa</button>
-                        </td>
                      </tbody>
+                    <tbody>
+                    <td>
+                    <select name="daban" id="daban">
+                        <option value="0">Chưa bán</option>
+                        <option value="1">Đã bán</option>
+                    </select>
+                    </td>
+                    <td>
+                        <button type="submit">Sửa</button>
+                    </td>
+                    </tbody>
                     </form>
             </table>
         </div>

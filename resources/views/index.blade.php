@@ -6,8 +6,63 @@
 @section('content')
     <!-- ======= Property Search Section ======= -->
 
-    <div class="vc_row wpb_row vc_row-fluid dt-default" style="margin-top: 0px; margin-bottom: 0px; min-height: 0px;">
-        <div class="wpb_column vc_column_container vc_col-sm-12">
+    <div class="vc_row wpb_row vc_row-fluid dt-default" style="width: 100%">
+        <div class="wpb_column vc_column_container vc_col-sm-2" style="margin-top: 160px">
+            <div class="vc_column-inner ">
+                <div id="demo1" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($bannerleft as $banner)
+                            @php
+                                $i++;
+                            @endphp
+                            <li data-target="#demo1" data-slide-to="{{$i}}" class="active"></li>
+                        @endforeach
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($bannerleft as $banner)
+                            @php
+                                $i++;
+                            @endphp
+                            <div class="carousel-item {{$i==1 ? 'active' : '' }}">
+                                <a href="{{URL::to('/sanphambanner'.$banner->id)}}" class="mask">
+                                    @if (file_exists(public_path('uploads/banner/' . $banner->image)))
+                                        <img class="img2" alt="{{$banner->id}}" src="{{ 'uploads/banner/'.$banner->image }}">
+                                    @else
+                                        <img class="img2" alt="{{$banner->id}}" src="{{$banner->image}}">
+                                    @endif
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+                        <span class="carousel-control-prev-icon" style="font-size:60px;"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo1" data-slide="next">
+                        <span class="carousel-control-next-icon" style="font-size:60px;"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            /* Make the image fully responsive */
+            .carousel-inner .img2 {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <div class="wpb_column vc_column_container vc_col-sm-8">
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper">
                     <div class="wpb_text_column wpb_content_element ">
@@ -23,18 +78,19 @@
                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">TÌM BẤT ĐỘNG SẢN</button>
                     <div id="demo" class="collapse">
                         <div id="pnlFillter" class="box_filter mgb20">
-                            <div class="container clearfix pdt15 pdb5">
+                            <div class="container clearfix pdt15 pdb5" style="width: 70%">
                                 <ul class="list-unstyled menu-top menu_filter bold text-uppercase hidden-xs">
                                     <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[1]->id)}}" title="{{$typeproducts[1]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010100-nha-mat-duong.png" ></span>{{$typeproducts[1]->tenloai}}</a></li>
                                     <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[2]->id)}}" title="{{$typeproducts[2]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010200-nha-trong-ngo.png" ></span>{{$typeproducts[2]->tenloai}}</a></li>
                                     <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[3]->id)}}" title="{{$typeproducts[3]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010300-nha-trong-du-an-phan-lo.png" ></span>{{$typeproducts[3]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[4]->id)}}" title="{{$typeproducts[4]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010400-nha-tap-the-can-ho-chung-cu.png" ></span>{{$typeproducts[4]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[5]->id)}}" title="{{$typeproducts[5]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/020000-nha-biet-thu.png" ></span>{{$typeproducts[5]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[6]->id)}}" title="{{$typeproducts[6]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010600-van-phong-kiot-cua-hang.png" ></span>{{$typeproducts[6]->tenloai}}</a></li>
-                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[7]->id)}}" title="{{$typeproducts[7]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010900-nha-xuong-kho-ben-bai.png" ></span>{{$typeproducts[7]->tenloai}}</a></li>
-                                </ul>
+                                    {{--                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[4]->id)}}" title="{{$typeproducts[4]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010400-nha-tap-the-can-ho-chung-cu.png" ></span>{{$typeproducts[4]->tenloai}}</a></li>--}}
+                                    {{--                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[5]->id)}}" title="{{$typeproducts[5]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/020000-nha-biet-thu.png" ></span>{{$typeproducts[5]->tenloai}}</a></li>--}}
+                                    {{--                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[6]->id)}}" title="{{$typeproducts[6]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010600-van-phong-kiot-cua-hang.png" ></span>{{$typeproducts[6]->tenloai}}</a></li>--}}
+                                    {{--                                    <li class="text-center hidden-xs"><a href="{{URL::to('/loaibds'.$typeproducts[7]->id)}}" title="{{$typeproducts[7]->tenloai}}"><span><img class="img img1 hidden-xs" src="https://nhadatvanminh.com.vn/images/menur/010900-nha-xuong-kho-ben-bai.png" ></span>{{$typeproducts[7]->tenloai}}</a></li>--}}
+                                    {{--                               --}}
+                                </ul><br>
                                 <div id="UpdatePanel3">
-                                    <div class="tit_filter hidden-xs bold titH3 mgt0">LỌC TÌM BẤT ĐỘNG SẢN</div>
+                                    <div class="tit_filter hidden-xs bold titH3 mgt0">TÌM BẤT ĐỘNG SẢN</div>
                                     <div class="mTit hidden-desk text-center bold"><span>TÌM BẤT ĐỘNG SẢN</span></div>
                                     <div class="box_fil clearfix">
                                         <div class="item-fil mgb10">
@@ -44,70 +100,70 @@
                                                 <option value="2">Giá giảm dần</option>
                                             </select></div>
                                         <div class="item-filA">
-                                        <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
-                                            <option selected="selected" value="">Tỉnh thành</option>
-                                            <option value="Hải Phòng">Hải Phòng</option>
-                                            <option value="Hà Nội">Hà Nội</option>
-                                            <option value="Đà Nẵng">Đà Nẵng</option>
-                                            <option value="TP-HCM">TP-HCM</option>
-                                            <option value="An Giang">An Giang</option>
-                                            <option value="Bà Rịa Vũng Tàu">Bà Rịa Vũng Tàu</option>
-                                            <option value="Bình Dương">Bình Dương</option>
-                                            <option value="Bình Thuận">Bình Thuận</option>
-                                            <option value="Bình Định">Bình Định</option>
-                                            <option value="Bạc Liêu">Bạc Liêu</option>
-                                            <option value="Bắc Giang">Bắc Giang</option>
-                                            <option value="Bắc Kạn">Bắc Kạn</option>
-                                            <option value="Bắc Ninh">Bắc Ninh</option>
-                                            <option value="Bến Tre">Bến Tre</option>
-                                            <option value="Cao Bằng">Cao Bằng</option>
-                                            <option value="Cà Mau<">Cà Mau</option>
-                                            <option value="Cần Thơ">Cần Thơ</option>
-                                            <option value="Gia Lai">Gia Lai</option>
-                                            <option value="Hoà Bình">Hoà Bình</option>
-                                            <option value="Hà Giang">Hà Giang</option>
-                                            <option value="Hà Nam">Hà Nam</option>
-                                            <option value="Hà Tĩnh">Hà Tĩnh</option>
-                                            <option value="Hưng Yên">Hưng Yên</option>
-                                            <option value="Hải Dương">Hải Dương</option>
-                                            <option value="Khánh Hoà">Khánh Hoà</option>
-                                            <option value="Kiên Giang">Kiên Giang</option>
-                                            <option value="Kon Tum">Kon Tum</option>
-                                            <option value="Lai Châu">Lai Châu</option>
-                                            <option value="Long An">Long An</option>
-                                            <option value="Lào Cai">Lào Cai</option>
-                                            <option value="Lâm Đồng">Lâm Đồng</option>
-                                            <option value="Lạng Sơn">Lạng Sơn</option>
-                                            <option value="Ninh Bình">Ninh Bình</option>
-                                            <option value="Móng Cái">Móng Cái</option>
-                                            <option value="Ninh Thuận">Ninh Thuận</option>
-                                            <option value="Phan Rang">Phan Rang</option>
-                                            <option value="Phan Thiết">Phan Thiết</option>
-                                            <option value="Quảng Bình">Quảng Bình</option>
-                                            <option value="Quảng Nam">Quảng Nam</option>
-                                            <option value="Quảng Ngãi">Quảng Ngãi</option>
-                                            <option value="Quảng Ninh">Quảng Ninh</option>
-                                            <option value="Quảng Trị">Quảng Trị</option>
-                                            <option value="Sóc Trăng">Sóc Trăng</option>
-                                            <option value="Sơn La">Sơn La</option>
-                                            <option value="Thanh Hoá">Thanh Hoá</option>
-                                            <option value="Thái Bình">Thái Bình</option>
-                                            <option value="Thái Nguyên">Thái Nguyên</option>
-                                            <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
-                                            <option value="Tiền Giang">Tiền Giang</option>
-                                            <option value="Trà Vinh">Trà Vinh</option>
-                                            <option value="Tuyên Quang">Tuyên Quang</option>
-                                            <option value="Tây Ninh">Tây Ninh</option>
-                                            <option value="Vĩnh Long">Vĩnh Long</option>
-                                            <option value="Vĩnh Phúc">Vĩnh Phúc</option>
-                                            <option value="Yên Bái">Yên Bái</option>
-                                            <option value="Điện Biên">Điện Biên</option>
-                                            <option value="Đắc Lắk">Đắc Lắk</option>
-                                            <option value="Đắc Nôn">Đắc Nông</option>
-                                            <option value="Đồng Nai">Đồng Nai</option>
-                                            <option value="Đồng Tháp">Đồng Tháp</option>
-                                            <option value="">Tất cả tỉnh thành</option>
-                                        </select></div>
+                                            <select name="diachi" onchange="javascript:setTimeout('__doPostBack(\'CityIDR\',\'\')', 0)" id="diachi" class="form-control no-radius no-shadow icon1">
+                                                <option selected="selected" value="">Tỉnh thành</option>
+                                                <option value="Hải Phòng">Hải Phòng</option>
+                                                <option value="Hà Nội">Hà Nội</option>
+                                                <option value="Đà Nẵng">Đà Nẵng</option>
+                                                <option value="TP-HCM">TP-HCM</option>
+                                                <option value="An Giang">An Giang</option>
+                                                <option value="Bà Rịa Vũng Tàu">Bà Rịa Vũng Tàu</option>
+                                                <option value="Bình Dương">Bình Dương</option>
+                                                <option value="Bình Thuận">Bình Thuận</option>
+                                                <option value="Bình Định">Bình Định</option>
+                                                <option value="Bạc Liêu">Bạc Liêu</option>
+                                                <option value="Bắc Giang">Bắc Giang</option>
+                                                <option value="Bắc Kạn">Bắc Kạn</option>
+                                                <option value="Bắc Ninh">Bắc Ninh</option>
+                                                <option value="Bến Tre">Bến Tre</option>
+                                                <option value="Cao Bằng">Cao Bằng</option>
+                                                <option value="Cà Mau<">Cà Mau</option>
+                                                <option value="Cần Thơ">Cần Thơ</option>
+                                                <option value="Gia Lai">Gia Lai</option>
+                                                <option value="Hoà Bình">Hoà Bình</option>
+                                                <option value="Hà Giang">Hà Giang</option>
+                                                <option value="Hà Nam">Hà Nam</option>
+                                                <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                                <option value="Hưng Yên">Hưng Yên</option>
+                                                <option value="Hải Dương">Hải Dương</option>
+                                                <option value="Khánh Hoà">Khánh Hoà</option>
+                                                <option value="Kiên Giang">Kiên Giang</option>
+                                                <option value="Kon Tum">Kon Tum</option>
+                                                <option value="Lai Châu">Lai Châu</option>
+                                                <option value="Long An">Long An</option>
+                                                <option value="Lào Cai">Lào Cai</option>
+                                                <option value="Lâm Đồng">Lâm Đồng</option>
+                                                <option value="Lạng Sơn">Lạng Sơn</option>
+                                                <option value="Ninh Bình">Ninh Bình</option>
+                                                <option value="Móng Cái">Móng Cái</option>
+                                                <option value="Ninh Thuận">Ninh Thuận</option>
+                                                <option value="Phan Rang">Phan Rang</option>
+                                                <option value="Phan Thiết">Phan Thiết</option>
+                                                <option value="Quảng Bình">Quảng Bình</option>
+                                                <option value="Quảng Nam">Quảng Nam</option>
+                                                <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                                <option value="Quảng Ninh">Quảng Ninh</option>
+                                                <option value="Quảng Trị">Quảng Trị</option>
+                                                <option value="Sóc Trăng">Sóc Trăng</option>
+                                                <option value="Sơn La">Sơn La</option>
+                                                <option value="Thanh Hoá">Thanh Hoá</option>
+                                                <option value="Thái Bình">Thái Bình</option>
+                                                <option value="Thái Nguyên">Thái Nguyên</option>
+                                                <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                                <option value="Tiền Giang">Tiền Giang</option>
+                                                <option value="Trà Vinh">Trà Vinh</option>
+                                                <option value="Tuyên Quang">Tuyên Quang</option>
+                                                <option value="Tây Ninh">Tây Ninh</option>
+                                                <option value="Vĩnh Long">Vĩnh Long</option>
+                                                <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                                <option value="Yên Bái">Yên Bái</option>
+                                                <option value="Điện Biên">Điện Biên</option>
+                                                <option value="Đắc Lắk">Đắc Lắk</option>
+                                                <option value="Đắc Nôn">Đắc Nông</option>
+                                                <option value="Đồng Nai">Đồng Nai</option>
+                                                <option value="Đồng Tháp">Đồng Tháp</option>
+                                                <option value="">Tất cả tỉnh thành</option>
+                                            </select></div>
                                         <div class="item-fil mgb10">
                                             <select name="maduan" id="maduan" class="form-control no-radius no-shadow icon1">
                                                 <option selected="selected" value=""><strong>Loại dự án</strong></option>
@@ -196,23 +252,19 @@
                                                 </span>
                                                         </p>
                                                         <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>{{ $product->tensp }}</b></span></span></p>
-                                                        <?php
-                                                        if($product->giatien<1000000){
-                                                        echo '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: '.$product->giatien.' đồng</strong></span></p>';
-                                                        }
-                                                        ?>
-                                                         <?php
-                                                        if($product->giatien>=1000000 && $product->giatien<1000000000){
-                                                        $product->giatien= ($product->giatien)/1000000;
-                                                        echo '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: '.$product->giatien.' triệu đồng</strong></span></p>';
-                                                        }
-                                                        ?>
-                                                        <?php
-                                                        if($product->giatien>=1000000000){
-                                                            $product->giatien= ($product->giatien)/1000000000;
-                                                            echo '<p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: '.$product->giatien.' tỷ đồng</strong></span></p>';
-                                                        }
-                                                        ?>
+
+                                                        @if($product->giatien<1000000)
+                                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: {{$product->giatien}} đồng</strong></span></p>
+                                                        @elseif($product->giatien>=1000000 && $product->giatien<1000000000)
+                                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: {{$product->giatien/1000000}} triệu đồng</strong></span></p>
+                                                        @elseif($product->giatien>=1000000000)
+                                                            <p style="text-align: center;"><span style="font-size: 12pt; color: #ffffff;"><strong>Giá tiền: {{$product->giatien/1000000000}} tỷ đồng</strong></span></p>
+                                                        @endif
+                                                        @if($product->daban==1)
+                                                            <p style="text-align: center;"><span style="color: red; font-size: medium;"><span style="caret-color: white;"><b>Đã bán</b></span></span></p>
+                                                        @else
+                                                            <p style="text-align: center;"><span style="color: #ffffff; font-size: medium;"><span style="caret-color: #0000ff;"><b>Chưa bán</b></span></span></p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,10 +274,61 @@
                             @endif
                         </div>
                         <span id="ucRaoVat_lblPage" class="lpg clearfix text-center pdt15">
-                            <a class="apage" href="">{!! $paginate->links()!!}</a>
+{{--                            <a class="apage" href="">{!! $paginate->links()!!}</a>--}}
                         </span>
 
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="wpb_column vc_column_container vc_col-sm-2" style="margin-top: 160px">
+            <div class="vc_column-inner ">
+                <div id="demo1" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($bannerright as $banner)
+                            @php
+                                $i++;
+                            @endphp
+                            <li data-target="#demo1" data-slide-to="{{$i}}" class="active"></li>
+                        @endforeach
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($bannerright as $banner)
+                            @php
+                                $i++;
+                            @endphp
+                            <div class="carousel-item {{$i==1 ? 'active' : '' }}">
+                                <a href="{{URL::to('/sanphambanner'.$banner->id)}}" class="mask">
+                                    @if (file_exists(public_path('uploads/banner/' . $banner->image)))
+                                        <img class="img2" alt="{{$banner->id}}" src="{{ 'uploads/banner/'.$banner->image }}">
+
+                                    @else
+                                        <img class="img2" alt="{{$banner->id}}" src="{{$banner->image}}">
+
+                                    @endif
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+                        <span class="carousel-control-prev-icon" style="font-size:60px;"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo1" data-slide="next">
+                        <span class="carousel-control-next-icon" style="font-size:60px;"></span>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -255,7 +358,7 @@
                     <div class="wpb_text_column wpb_content_element ">
                         <div class="wpb_wrapper">
                             <p style="text-align: center;"><span style="color: #008000; font-size: 16pt;"><strong><span style="font-family: verdana, geneva, sans-serif;">Tin tức</span></strong></span></p>
-{{--                            <p style="text-align: center;"><span style="color: #0000ff; font-size: 18pt;"><strong><span style="font-family: verdana, geneva, sans-serif;">{{$title}}</span></strong></span></p>--}}
+                            {{--                            <p style="text-align: center;"><span style="color: #0000ff; font-size: 18pt;"><strong><span style="font-family: verdana, geneva, sans-serif;">{{$title}}</span></strong></span></p>--}}
 
                         </div>
                     </div>
@@ -290,24 +393,24 @@
                         }
                     </style>
                     <div id="countryList2">
-                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                        @if ($tintuc)
-                            @foreach ($tintuc as $tin)
-                                <div class="wpb_column vc_column_container vc_col-sm-6">
-                                    <div class="vc_column-inner ">
-                                        <div class="wpb_wrapper">
-                                                    <div class="col-xs-12 col-sm-7 col-md-8 pdl10 pdr0">
-                                                        <h3 class="titH5 mgb5 bold500 mgt0"><a class="c_red" href="{{URL::to('/tintuc'.$tin->id)}}">{{$tin->tentin}}</a></h3>
-                                                        <p class="mgb5 mDesc hidden-xs">{{$tin->ngaydang}}</p>
-                                                    </div>
+                        <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                            @if ($tintuc)
+                                @foreach ($tintuc as $tin)
+                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                        <div class="vc_column-inner ">
+                                            <div class="wpb_wrapper">
+                                                <div class="col-xs-12 col-sm-7 col-md-8 pdl10 pdr0">
+                                                    <h3 class="titH5 mgb5 bold500 mgt0"><a class="c_red" href="{{URL::to('/tintuc'.$tin->id)}}">{{$tin->tentin}}</a></h3>
+                                                    <p class="mgb5 mDesc hidden-xs">{{$tin->ngaydang}}</p>
+                                                </div>
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            @endforeach
-                        @endif
-                    </div>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

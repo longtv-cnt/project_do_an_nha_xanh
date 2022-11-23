@@ -22,7 +22,7 @@ class RealEsatateController extends Controller
             ->where('nhaxanh', 1)
             ->where('xetduyet', 1)
             ->orderBy('giatien','ASC')
-            ->paginate(8);
+            ->paginate(100);
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $title = 'Tất cả dự án';
@@ -31,10 +31,18 @@ class RealEsatateController extends Controller
         $tintuc = $tintuc->paginate(16);
         $loaitintuc = DB::table('loaitintuc')->select('*');
         $loaitintuc = $loaitintuc->get();
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
-        $paginate = new \Illuminate\Pagination\Paginator($products, 8);
-        return view('index', compact('products','duans','typeproducts', 'title', 'loaibds', 'tintuc', 'loaitintuc','paginate', 'banners'));
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+        return view('index', compact('products',
+            'duans','typeproducts', 'title',
+            'loaibds', 'tintuc', 'loaitintuc', 'banners', 'bannerleft', 'bannerright'));
     }
 
     /**
@@ -45,8 +53,9 @@ class RealEsatateController extends Controller
     public function create()
     {
         //
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         return view('product.create', compact('duans','typeproducts', 'banners'));
@@ -84,7 +93,7 @@ class RealEsatateController extends Controller
         //
 
 
-}
+    }
 
 
     /**
