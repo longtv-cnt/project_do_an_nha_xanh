@@ -20,7 +20,6 @@ class sanphambannersController extends Controller
         $sanpham_bds = DB::table('sanpham_bds')->select('*');
         $sanpham_bds = $sanpham_bds->get();
         $banners = DB::table('banners')
-            ->where('position','top')
             ->get();
         return view('admin.sanphambanner.banners', compact('sanphambanners','sanpham_bds','banners'));
     }

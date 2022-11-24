@@ -15,8 +15,9 @@ class HomeController extends Controller
     public function login(){
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
         return view('login.login', compact('duans', 'typeproducts', 'banners'));
     }
     public function postLogin(Request $request){
@@ -34,10 +35,9 @@ class HomeController extends Controller
     public function dangki(){
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
-        $banners = DB::table('banners')->select('*');
-        $banners = $banners->get();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
         return view('dangki.dangki', compact('duans', 'typeproducts', 'banners'));
     }
 

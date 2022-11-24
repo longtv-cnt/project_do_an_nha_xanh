@@ -147,7 +147,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/sanpham_bds', [sanpham_bdsController::class, 'index'])->name('sanpham_bds')->middleware('can:danh-sach-san-pham');
     Route::get('/sanpham_bds/create', [sanpham_bdsController::class, 'create'])->name('sanpham_bds.create');
     Route::post('/sanpham_bds/store', [sanpham_bdsController::class, 'store'])->name('sanpham_bds.store')->middleware('can:them-san-pham');
-    Route::DELETE('/sanpham_bds/destroy/{id}', [sanpham_bdsController::class, 'destroy'])->middleware('can:xoa-san-pham');
+    Route::DELETE('/sanpham_bds/destroy/{id}', [sanpham_bdsController::class, 'destroy']);//->middleware('can:xoa-san-pham');
     Route::get('/sanpham_bds/edit/{id}', [sanpham_bdsController::class, 'edit'])->name('sanpham_bds.edit')->middleware('can:sua-san-pham');
     Route::PATCH('/sanpham_bds/update/{id}', [sanpham_bdsController::class, 'update']);
 
@@ -193,7 +193,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/baocao', [baocaoController::class, 'index'])->name('baocao');
     Route::get('baocao/chart', [baocaoController::class, 'chart'])->name('baocao.chart');
-
+    Route::post('/baocao/filter', [baocaoController::class, 'filter'])->name('baocao.filter');
     // route cho role
     // route cho role
     Route::get('/role', [RoleController::class, 'index'])->name('role.index')->middleware('can:danh-sach-role');
