@@ -154,7 +154,18 @@
                         </div>
                     </div>
                 <!-- /.col (RIGHT) -->
-              </div>
+                    <form action={{route('baocao.filter')}} method="POST">
+                        @csrf
+              <h3>Từ ngày:</h3>
+              <input type="date" name="ngaybatdau" class="form-control"  value="">
+              <h3>Đến ngày:</h3>
+              <input type="date" name="ngayketthuc" class="form-control"  value="">
+
+                 <button class="btn btn-success btn-sm" type="submit">Lọc</button>
+                 </form>
+                    <div>
+                        Số sản phẩm đã đăng lên web: <span style="font-size: 12pt; color: red;"><strong>{{$soluong}}</strong></span>
+                    </div>
             </div>
          </div>
       </div>
@@ -172,6 +183,12 @@
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
+
+<link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+
 <script type="text/javascript">
 
 // Load google charts
@@ -254,5 +271,67 @@ google.charts.load('current', {
             chart.draw(data4, options);
         }
   </script>
+
+<script>
+    Morris.Bar({
+        element: 'chart',
+        data: [
+            { date: '04-02-2014', value: 3 },
+            { date: '04-03-2014', value: 10 },
+            { date: '04-04-2014', value: 5 },
+            { date: '04-05-2014', value: 17 },
+            { date: '04-06-2014', value: 6 }
+        ],
+        xkey: 'date',
+        ykeys: ['value'],
+        labels: ['Orders']
+    });
+</script>
+
+<script>
+    $(function() {
+
+        // Create a function that will handle AJAX requests
+        function requestData(days, chart){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "./api", // This is the URL to the API
+                data: { days: days }
+            })
+                .done(function( data ) {
+                    // When the response to the AJAX request comes back render the chart with new data
+                    chart.setData(data);
+                })
+                .fail(function() {
+                    // If there is no communication between the server, show an error
+                    alert( "error occured" );
+                });
+        }
+
+        var chart = Morris.Bar({
+            // ID of the element in which to draw the chart.
+            element: 'stats-container',
+            data: [0, 0], // Set initial data (ideally you would provide an array of default data)
+            xkey: 'date', // Set the key for X-axis
+            ykeys: ['value'], // Set the key for Y-axis
+            labels: ['Orders'] // Set the label when bar is rolled over
+        });
+
+        // Request initial data for the past 7 days:
+        requestData(7, chart);
+
+        $('ul.ranges a').click(function(e){
+            e.preventDefault();
+
+            // Get the number of days from the data attribute
+            var el = $(this);
+            days = el.attr('data-range');
+
+            // Request the data and render the chart using our handy function
+            requestData(days, chart);
+        })
+    });
+</script>
 @endsection
 
