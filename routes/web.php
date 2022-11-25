@@ -75,9 +75,9 @@ Route::post('/loadcomment', [phanhoiController::class,'load_comment'])->name('lo
 Route::post('/loadcomment2', [phanhoiController::class,'load_comment2'])->name('load-comment2');
 Route::post('/sendcomment', [phanhoiController::class,'send_comment'])->name('send-comment');
 Route::post('/replycomment', [phanhoiController::class,'reply_comment'])->name('reply-comment');
-
-
-
+Route::get('/hosocanhan/',[SearchController::class,'hosocanhan'])->name('hosocanhan');
+Route::get('/hosocanhan-edit{id}', [SearchController::class, 'edit'])->name('hosocanhan.edit');
+Route::PATCH('/hosocanhan-update{id}', [SearchController::class, 'update']);
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminhomeController::class, 'index'])->name('admin.index');

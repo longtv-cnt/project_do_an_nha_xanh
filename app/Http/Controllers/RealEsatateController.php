@@ -6,6 +6,7 @@ use App\Models\RealEstate;
 use App\Models\Duan;
 use Illuminate\Http\Request;
 use App\Models\TypeProduct;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RealEsatateController extends Controller
@@ -23,6 +24,7 @@ class RealEsatateController extends Controller
             ->where('xetduyet', 1)
             ->orderBy('giatien','ASC')
             ->paginate(100);
+
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
         $title = 'Tất cả dự án';
@@ -40,9 +42,14 @@ class RealEsatateController extends Controller
         $bannerright = DB::table('banners')
             ->where('position','right')
             ->get();
+        if (isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+        }else{
+            $user_id = '';
+        }
         return view('index', compact('products',
             'duans','typeproducts', 'title',
-            'loaibds', 'tintuc', 'loaitintuc', 'banners', 'bannerleft', 'bannerright'));
+            'loaibds', 'tintuc', 'loaitintuc', 'banners', 'bannerleft', 'bannerright','user_id'));
     }
 
     /**
@@ -58,7 +65,12 @@ class RealEsatateController extends Controller
             ->get();
         $duans = Duan::all();
         $typeproducts = TypeProduct::all();
-        return view('product.create', compact('duans','typeproducts', 'banners'));
+        if (isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+        }else{
+            $user_id = '';
+        }
+        return view('product.create', compact('duans','typeproducts', 'banners','user_id'));
     }
 
     /**
@@ -88,6 +100,7 @@ class RealEsatateController extends Controller
         $product->sophongtam = $request->sophongtam;
         $product->huong = $request->huongnha;
         $product->diachi = $request->diachi;
+        $product->user_id =$request->user_id;
         $product->save();
         return redirect()->route('home');
         //

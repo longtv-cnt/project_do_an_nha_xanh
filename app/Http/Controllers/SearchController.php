@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Duan;
 use App\Models\gallery;
 use App\Models\RealEstate;
+use App\Models\sanpham_bds;
 use App\Models\TypeProduct;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -165,6 +166,91 @@ class SearchController extends Controller
             ->where('position','right')
             ->get();
         return view('lienhe',compact('duans','typeproducts', 'output', 'banners','bannerleft','bannerright'));
+    }
+    public function hosocanhan()
+    {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+        if (isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+            $user_name = Auth::user()->name;
+            $user_email = Auth::user()->email;
+        }else{
+            $user_id = '';
+        }
+        $products = DB::table('sanpham_bds')->where('user_id', $user_id)
+//            ->join('du_an','du_an.id','=','sanpham_bds.maduan')
+//            ->join('loaisp_bds','loaisp_bds.id','=','sanpham_bds.maloai')
+            ->get();
+        return view('hosocanhan',compact('duans','typeproducts',
+            'banners','bannerleft','bannerright','products','user_name','user_email'));
+    }
+    public function edit($id)
+    {
+        $duans = Duan::all();
+        $typeproducts = TypeProduct::all();
+        $banners = DB::table('banners')
+            ->where('position','top')
+            ->get();
+        $bannerleft = DB::table('banners')
+            ->where('position','left')
+            ->get();
+        $bannerright = DB::table('banners')
+            ->where('position','right')
+            ->get();
+        $sanpham_bds = sanpham_bds::findOrFail($id);
+        return view('hosocanhanupdate', compact('duans','typeproducts',
+            'banners','bannerleft','bannerright','sanpham_bds'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $sanpham_bds = sanpham_bds::find($id);
+        $sanpham_bds->id = $request->id;
+        $sanpham_bds->maduan = $request->maduan;
+        $sanpham_bds->maloai = $request->maloai;
+        $sanpham_bds->tensp = $request->tensp;
+        // $sanpham_bds->slug = $request->slug;
+        $sanpham_bds->giatien = $request->giatien;
+        if ($request->hasFile('anhsp')) {
+            $file = $request->file('anhsp');
+            $fileName = time().$file->getClientOriginalName();
+
+            $destinationPath = public_path('uploads/product/');
+            $file->move($destinationPath, $fileName);
+            $sanpham_bds->anhsp = $fileName;
+        }
+        $sanpham_bds->huong = $request->huong;
+        $sanpham_bds->chieudai = $request->chieudai;
+        $sanpham_bds->chieurong = $request->chieurong;
+        $sanpham_bds->sophongtam = $request->sophongtam;
+        $sanpham_bds->sophongngu = $request->sophongngu;
+        $sanpham_bds->xetduyet = $request->xetduyet;
+        $sanpham_bds->diachi = $request->diachi;
+        $sanpham_bds->nhaxanh = $request->nhaxanh;
+        $sanpham_bds->lienhe = $request->lienhe;
+        $sanpham_bds->daban =$request->daban;
+        $sanpham_bds->user_id =$request->user_id;
+        $sanpham_bds->ngaytao =$request->ngaytao;
+        $sanpham_bds->save();
+        return redirect()->action([SearchController::class,'hosocanhan']);
+
     }
     public function tintucchitiet($id)
     {
