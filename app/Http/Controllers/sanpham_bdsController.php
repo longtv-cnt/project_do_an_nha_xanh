@@ -7,6 +7,7 @@ use App\Models\sanpham_bds;
 use App\Models\TypeProduct;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\RealEstate;
 use App\Models\loaisanpham;
@@ -26,7 +27,13 @@ class sanpham_bdsController extends Controller
         $loaisp = $loaisp->get();
         $sanpham_bds = DB::table('sanpham_bds')->select('*');
         $sanpham_bds = $sanpham_bds->get();
-        return view('admin.sanpham_bds.sanpham_bds', compact('loaisp','duan','sanpham_bds'));
+        if (isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+        }else{
+            $user_id = '';
+        }
+        return view('admin.sanpham_bds.sanpham_bds',
+            compact('loaisp','duan','sanpham_bds','user_id'));
     }
 
     public function sanpham()
@@ -50,8 +57,11 @@ class sanpham_bdsController extends Controller
             ->where('position','right')
             ->get();
         $paginate = new Paginator($products, 8);
+
         return view('sanpham',
-            compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners','bannerright','bannerleft'));
+            compact('products','duans',
+                'typeproducts', 'title', 'loaibds','paginate',
+                'banners','bannerright','bannerleft'));
     }
     public function sanphambanner($id)
     {
@@ -75,8 +85,10 @@ class sanpham_bdsController extends Controller
         $banners = DB::table('banners')
             ->where('position','top')
             ->get();
+
         return view('sanphambanner',
-            compact('products','duans','typeproducts', 'title', 'loaibds','paginate', 'banners'));
+            compact('products','duans',
+                'typeproducts', 'title', 'loaibds','paginate', 'banners'));
     }
     /**
      * Show the form for creating a new resource.
@@ -121,6 +133,8 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->nhaxanh =$request->nhaxanh;
         $sanpham_bds->lienhe =$request->lienhe;
         $sanpham_bds->daban =$request->daban;
+        $sanpham_bds->user_id =$request->user_id;
+        $sanpham_bds->ngaytao =$request->ngaytao;
         $sanpham_bds->save();
 
         return redirect()->back();
@@ -184,6 +198,8 @@ class sanpham_bdsController extends Controller
         $sanpham_bds->nhaxanh = $request->nhaxanh;
         $sanpham_bds->lienhe = $request->lienhe;
         $sanpham_bds->daban =$request->daban;
+        $sanpham_bds->user_id =$request->user_id;
+        $sanpham_bds->ngaytao =$request->ngaytao;
         $sanpham_bds->save();
         return redirect()->action([sanpham_bdsController::class,'index']);
 

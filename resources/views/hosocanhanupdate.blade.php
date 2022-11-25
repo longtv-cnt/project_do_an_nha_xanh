@@ -1,7 +1,6 @@
-@extends('admin.layouts.admin')
-@section('title')
-    <title>Sản Phẩm Bất Động Sản</title>
-@endsection
+@extends('layout.app')
+@section('title', 'Hồ sơ cá nhân')
+
 @section('content')
 <section class="content">
     <div class="content-wrapper">
@@ -14,7 +13,7 @@
       </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
-                <form method="post" action="/admin/sanpham_bds/update/{{ $sanpham_bds->id }}">
+                <form method="post" action="/hosocanhan-update{{ $sanpham_bds->id }}">
                     @method('PATCH')
                     @csrf
                 <thead>

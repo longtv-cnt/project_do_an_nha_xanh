@@ -264,13 +264,20 @@
 
 
                                         </tbody>
-
+                            <td>
+                                <input type="date" name="ngaytao"  class="form-control" placeholder="Nhập Ngày Tạo"value="">
+                            </td>
                                         <td> <button class="btn btn-success btn-lg btn-block" type="submit">Thêm Sản
                                                 Phẩm</button></td>
                             <td>
                                 <input type="hidden" name="daban" class="form-control"
                                        value="0">
                             </td>
+                            <td>
+                                <input type="hidden" name="user_id" class="form-control"
+                                       value="{{$user_id}}">
+                            </td>
+
                                     </form>
 
 

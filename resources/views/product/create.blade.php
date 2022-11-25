@@ -106,6 +106,10 @@
                                             <input type="text" name="lienhe" class="form-control"
                                                    placeholder="Liên Hệ"value="">
                                         </div>
+                                        <td>
+                                            <input type="hidden" name="user_id" class="form-control"
+                                                   value="{{$user_id}}">
+                                        </td>
                                         <div class="form-group">
                                             <label for="">Địa chỉ</label>
                                             <select name="diachi" id="diachi">

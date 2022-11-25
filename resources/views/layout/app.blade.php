@@ -1717,7 +1717,7 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <div><a class="dropdown-item text-center" href="#">Hồ sơ</a></div>
+                              <div><a class="dropdown-item text-center" href="{{route('hosocanhan')}}">Hồ sơ</a></div>
                               <div><a class="dropdown-item text-center" href="#">Chuyển tài khoản</a></div>
                               <div><a class="dropdown-item text-center" href="{{ route('logout') }}">Đăng xuất</a></div>
                             </div>

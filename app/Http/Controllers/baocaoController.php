@@ -59,19 +59,17 @@ class baocaoController extends Controller
         $phieuthu_count = phieuthu::count();
         $khachhang_count = khachhang::count();
         $sanpham_count = sanpham_bds::count();
-////        $timenow = Carbon::now();
-//        $sanpham_time = DB::table('sanpham_bds')
-//            ->get();
-//        $i=1;
-//        foreach ($sanpham_time as $sanpham){
-//        if($timenow->diffInDays($sanpham->ngaytao)<1){
-//            $i++;
-//        }
-//        }
+
         $soluong = '';
+        $ngaybatdau='0000-00-00';
+        $ngayketthuc='0000-00-00';
+        $product = DB::table('sanpham_bds')
+            ->whereBetween('ngaytao', [$ngaybatdau,$ngayketthuc])
+            ->get();
+        $name = '';
         return view('admin.layouts.baocao', compact('tintuctheoloai1','khachloaikhach1','spduan1','sploaisp1',
             'phieuthu_count','phieuthuprice','khachhang_count','sanpham_count',
-            'price','max','sanpham_bdsmax','min','sanpham_bdsmin','soluong'));
+            'price','max','sanpham_bdsmax','min','sanpham_bdsmin','soluong','product','ngaybatdau','ngayketthuc','name'));
     }
 
     /**
@@ -139,6 +137,12 @@ class baocaoController extends Controller
         $khachhang_count = khachhang::count();
         $sanpham_count = sanpham_bds::count();
 
+        $ngaybatdau=$request->ngaybatdau;
+        $ngayketthuc=$request->ngayketthuc;
+        $product = DB::table('sanpham_bds')
+            ->whereBetween('ngaytao', [$request->ngaybatdau,$request->ngayketthuc])
+            ->get();
+        $name = 'sanpham_bds';
 
         $products = DB::table('sanpham_bds')
             ->whereBetween('ngaytao', [$request->ngaybatdau,$request->ngayketthuc])
@@ -148,9 +152,10 @@ class baocaoController extends Controller
         foreach ($products as $product) {
             $soluong++;
         }
+
         return view('admin.layouts.baocao', compact('tintuctheoloai1','khachloaikhach1','spduan1','sploaisp1',
             'phieuthu_count','phieuthuprice','khachhang_count','sanpham_count',
-            'price','max','sanpham_bdsmax','min','sanpham_bdsmin','soluong'));
+            'price','max','sanpham_bdsmax','min','sanpham_bdsmin','soluong','product','ngaybatdau','ngayketthuc','name'));
     }
     /**
      * Display the specified resource.

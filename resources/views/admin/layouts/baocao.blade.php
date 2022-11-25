@@ -153,6 +153,7 @@
                             </div>
                         </div>
                     </div>
+
                 <!-- /.col (RIGHT) -->
                     <form action={{route('baocao.filter')}} method="POST">
                         @csrf
@@ -163,9 +164,31 @@
 
                  <button class="btn btn-success btn-sm" type="submit">Lọc</button>
                  </form>
-                    <div>
-                        Số sản phẩm đã đăng lên web: <span style="font-size: 12pt; color: red;"><strong>{{$soluong}}</strong></span>
+{{--                    <div>--}}
+{{--                        Số sản phẩm đã đăng lên web: <span style="font-size: 12pt; color: red;"><strong>{{$soluong}}</strong></span>--}}
+{{--                    </div>--}}
+                    <div class="col-lg-12">
+                        <div class="main-card mb-3 card" style="background-color:#FEC8D8">
+                            <div class="card-body">
+                                <h5 class="card-title">Sản Phẩm Hiện Có :</h5>
+                                <div class="text-center">
+                                    <h3>
+                                        <span class="count-up-wrapper-4">{{$soluong      }} </span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+{{--                    <div class="card card-danger">--}}
+{{--                        <div class="card-header">--}}
+{{--                            <h3 class="card-title">Sản Phẩm Theo Dự Án</h3>--}}
+{{--                        </div>--}}
+{{--                        <div class="card-body">--}}
+{{--                            <div class="chart">--}}
+{{--                                <div id="bieudodate" style="min-height: 370px; height: 370px; max-height: 370px; max-width: 2000%;"></div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
             </div>
          </div>
       </div>
@@ -212,6 +235,26 @@ google.charts.load('current', {
         }
 
 
+google.charts.load('current', {
+    'packages': ['corechart']
+});
+{{--google.charts.setOnLoadCallback(date);--}}
+{{--function date() {--}}
+{{--    var data1 = google.visualization.arrayToDataTable([--}}
+{{--        ['name', 'count'],--}}
+{{--            @foreach ($product as $r )--}}
+{{--        ['{{$r["tensp"]}}', {{$r["id"]}}],--}}
+{{--            @endforeach--}}
+{{--        --}}{{--['{{$name}}', {{$ngaybatdau}},{{$ngayketthuc}}],--}}
+
+
+{{--    ]);--}}
+{{--    var options = {--}}
+{{--        'is3D':true,--}}
+{{--        'pieSliceText':'value',}--}}
+{{--    var chart = new google.visualization.BarChart(document.getElementById('bieudodate'));--}}
+{{--    chart.draw(data1, options);--}}
+{{--}--}}
 
 google.charts.load('current', {
             'packages': ['corechart']
